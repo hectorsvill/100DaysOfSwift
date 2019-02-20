@@ -27,10 +27,18 @@ class ViewController: UITableViewController {
                 pictueres.append(item)
             }
         }
-        for p in pictueres { print(p) }
+        //for p in pictueres { print(p) }
         
     }
-    
-
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pictueres.count
+    }
+    //cellfor
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
+        
+        cell.textLabel?.text = pictueres[indexPath.row]
+        return cell
+    }
 }
 
