@@ -16,7 +16,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         title = "Storm Viewer"
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
     
         let fm = FileManager.default //data type that lets us work with the filesystem
         let path = Bundle.main.resourcePath! //directory path to pictures

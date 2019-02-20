@@ -76,10 +76,10 @@
 		E854F96C221D319000D41EB8 /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
-				E854F96D221D319000D41EB8 /* AppDelegate.swift */,
 				E854F96F221D319000D41EB8 /* ViewController.swift */,
-				E854F971221D319000D41EB8 /* Main.storyboard */,
 				E83C3E7F221DB237009CC5E3 /* DetailViewController.swift */,
+				E854F96D221D319000D41EB8 /* AppDelegate.swift */,
+				E854F971221D319000D41EB8 /* Main.storyboard */,
 				E854F974221D319100D41EB8 /* Assets.xcassets */,
 				E854F976221D319100D41EB8 /* LaunchScreen.storyboard */,
 				E854F979221D319100D41EB8 /* Info.plist */,
