@@ -11,13 +11,29 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet var ImageView: UIImageView!
+    var selectedImage: String? // change navigator name
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "View Picture"
+        if let imageToLoad = selectedImage {
+            ImageView.image = UIImage(named: imageToLoad)
+        }
     }
     
+    //To hide top view nagitor with a click
+    //viewill
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnTap = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.hidesBarsOnTap = false
+    }
 
 
 

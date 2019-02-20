@@ -14,7 +14,9 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        title = "Storm Viewer"
+        
     
         let fm = FileManager.default //data type that lets us work with the filesystem
         let path = Bundle.main.resourcePath! //directory path to pictures
@@ -39,6 +41,13 @@ class ViewController: UITableViewController {
         
         cell.textLabel?.text = pictueres[indexPath.row]
         return cell
+    }
+    //didselect
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.selectedImage = pictueres[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
