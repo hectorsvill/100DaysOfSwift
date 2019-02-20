@@ -1,3 +1,4 @@
+import UIKit
 //external parameters
 //
 //func getStrCount(in str: String) {
@@ -126,9 +127,24 @@ class Ork: Player {
     }
 }
 
-var p1 = Player(name: "baka", power: 100)
-p1.display()
-var p2 = Elf(name: "orn", power: 89)
-p2.display()
-var p3 = Ork(name: "pika", power: 44, noiseLevel: 4)
-p3.display()
+//var p1 = Player(name: "baka", power: 100)
+//p1.display()
+//var p2 = Elf(name: "orn", power: 89)
+//p2.display()
+//var p3 = Ork(name: "pika", power: 44, noiseLevel: 4)
+//p3.display()
+
+//ex - static properties
+//struct PlayerOf {
+//    static var echo = "You played a game"
+//
+//    var name: String
+//    var age: Int
+//}
+//let n34 = PlayerOf(name: "hvi", age: 232)
+
+
+let vw = UIView()
+UIView.animate(withDuration: 0.5) {
+    vw.alpha = 0
+}
