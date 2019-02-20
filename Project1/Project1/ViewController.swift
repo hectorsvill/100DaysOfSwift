@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
+    var pictueres = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,12 +23,14 @@ class ViewController: UIViewController {
         for item in items {
             //set pictures
             if item.hasPrefix("nssl") {
-                //
-                print(item.description)
+                
+                pictueres.append(item)
             }
         }
+        for p in pictueres { print(p) }
+        
     }
-
+    
 
 }
 
