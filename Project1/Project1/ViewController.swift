@@ -29,20 +29,25 @@ class ViewController: UITableViewController {
                 pictueres.append(item)
             }
         }
+        pictueres = pictueres.sorted()
         //for p in pictueres { print(p) }
         
     }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pictueres.count
     }
-    //cellfor
+    //cellfor -- set cell text
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         
-        cell.textLabel?.text = pictueres[indexPath.row]
+        //variable just holds a text -- pictures[indexPath.row]
+        cell.textLabel?.text = "\(indexPath.row + 1) of \(pictueres.count)" //set text in each table
+        
+        //print((cell.textLabel?.text)!)
         return cell
     }
-    //didselect
+    //didselect - 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.selectedImage = pictueres[indexPath.row]
