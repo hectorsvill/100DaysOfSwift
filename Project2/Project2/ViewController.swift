@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var numberOfCuestionsAsked = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,16 +37,49 @@ class ViewController: UIViewController {
         askQuestion()
     }
 
-    func askQuestion() {
+    func askQuestion(action: UIAlertAction! = nil) {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
         
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
+        //set title to navigation bar
+        title = "Find: \(countries[correctAnswer].uppercased())\t\tScore: \(score)\tQuestion \(numberOfCuestionsAsked) of 10"
         
-        title = countries[correctAnswer]
+        numberOfCuestionsAsked += 1
+        
     }
 
+    //IBAction connected to 3 buttons with tag 0,1,2
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        var title: String
+        var ac: UIAlertController
+        
+        if sender.tag == correctAnswer {
+            title = "Correct!"
+            score += 1
+        }else {
+            title = "Wrong!"
+            score -= 1
+        }
+     
+        //10 round game. 9th round is the last
+        if numberOfCuestionsAsked == 10 {
+            ac = UIAlertController( title: "Final Score", message: "Your final score is: \(score) / 10", preferredStyle: .alert)
+            score = 0
+            numberOfCuestionsAsked = 0
+        
+        }else{
+            ac = UIAlertController(title: title, message: "The answer is \(countries[correctAnswer])!", preferredStyle: .alert)
+        }
+        
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        present(ac, animated: true)
+        
+    }
+    
+   
+    
 }
 
