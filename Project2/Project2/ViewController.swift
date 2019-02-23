@@ -10,76 +10,104 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var button1: UIButton!
-    @IBOutlet var button2: UIButton!
-    @IBOutlet var button3: UIButton!
-    
-    var countries = [String]()
-    var score = 0
-    var correctAnswer = 0
-    var numberOfCuestionsAsked = 0
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	@IBOutlet var button1: UIButton!
+	@IBOutlet var button2: UIButton!
+	@IBOutlet var button3: UIButton!
+	
+	var countries = [String]()
+	var score = 0
+	var correctAnswer = 0
+	var numberOfCuestionsAsked = 1
+	
+	override func viewDidLoad()
+	{
+		super.viewDidLoad()
+	
+		countries += ["estonia", "france", "germany", "ireland",
+					"italy", "monaco", "nigeria", "poland",
+					"russia", "spain", "uk", "us"]
         
-        countries += ["estonia", "france", "germany", "ireland",
-                      "italy", "monaco", "nigeria", "poland",
-                      "russia", "spain", "uk", "us"]
-        
-        button1.layer.borderWidth = 1
-        button2.layer.borderWidth = 1
-        button3.layer.borderWidth = 1
-        
-        button1.layer.borderColor = UIColor.lightGray.cgColor
-        button2.layer.borderColor = UIColor.lightGray.cgColor
-        button3.layer.borderColor = UIColor.lightGray.cgColor
-    
-        askQuestion()
+		button1.layer.borderWidth = 1
+		button2.layer.borderWidth = 1
+		button3.layer.borderWidth = 1
+
+		button1.layer.borderColor = UIColor.lightGray.cgColor
+		button2.layer.borderColor = UIColor.lightGray.cgColor
+		button3.layer.borderColor = UIColor.lightGray.cgColor
+
+		askQuestion()
     }
 
-    func askQuestion(action: UIAlertAction! = nil) {
-        countries.shuffle()
-        correctAnswer = Int.random(in: 0...2)
-        
-        button1.setImage(UIImage(named: countries[0]), for: .normal)
-        button2.setImage(UIImage(named: countries[1]), for: .normal)
-        button3.setImage(UIImage(named: countries[2]), for: .normal)
-        //set title to navigation bar
-        title = "Find: \(countries[correctAnswer].uppercased())\t\tScore: \(score)\tQuestion \(numberOfCuestionsAsked) of 10"
-        
-        numberOfCuestionsAsked += 1
-        
-    }
+	func askQuestion(action: UIAlertAction! = nil)
+	{
+		countries.shuffle()
+		correctAnswer = Int.random(in: 0...2)
 
-    //IBAction connected to 3 buttons with tag 0,1,2
-    @IBAction func buttonTapped(_ sender: UIButton) {
-        var title: String
-        var ac: UIAlertController
-        
-        if sender.tag == correctAnswer {
-            title = "Correct!"
-            score += 1
-        }else {
-            title = "Wrong!"
-            score -= 1
-        }
-     
-        //10 round game. 9th round is the last
-        if numberOfCuestionsAsked == 10 {
-            ac = UIAlertController( title: "Final Score", message: "Your final score is: \(score) / 10", preferredStyle: .alert)
-            score = 0
-            numberOfCuestionsAsked = 0
-        
-        }else{
-            ac = UIAlertController(title: title, message: "The answer is \(countries[correctAnswer])!", preferredStyle: .alert)
-        }
-        
-        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-        present(ac, animated: true)
-        
-    }
-    
-   
-    
+		button1.setImage(UIImage(named: countries[0]), for: .normal)
+		button2.setImage(UIImage(named: countries[1]), for: .normal)
+		button3.setImage(UIImage(named: countries[2]), for: .normal)
+		
+		//set title to navigation bar
+		title = "Find: \(countries[correctAnswer].uppercased())\t\t#\(numberOfCuestionsAsked)"
+
+		numberOfCuestionsAsked += 1
+		
+		//right bar button setup
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(checkScore))
+	}
+
+	//IBAction connected to 3 buttons with tag 0,1,2
+	@IBAction func buttonTapped(_ sender: UIButton)
+	{
+		var title: String
+		var ac: UIAlertController
+	
+		if sender.tag == correctAnswer
+		{
+			title = "Correct!"
+			score += 1
+		}
+		else
+		{
+			title = "Wrong!"
+			//score -= 1
+		}
+
+		//10 round game. 9th round is the last
+		if numberOfCuestionsAsked == 10
+		{
+			ac = UIAlertController( title: "Final Score", message: "You scored: \(numberOfCuestionsAsked) / 10", preferredStyle: .actionSheet)
+			score = 0
+			numberOfCuestionsAsked = 1
+			
+		}
+		else
+		{
+			ac = UIAlertController(title: title, message: "The answer is \(countries[correctAnswer])!", preferredStyle: .alert)
+		}
+	
+		ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+		present(ac, animated: true)
+	}
+	
+	@objc func shareTapped()
+	{
+		let vc = UIActivityViewController(activityItems: ["I Scored \(score) in the Flag Game!"], applicationActivities: [])
+		vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+		present(vc, animated: true)
+		
+	}
+	
+	@objc func checkScore()
+	{
+		let ac = UIAlertController(title: "score:\(score) / 10 \t Game Rules:", message: "Choose correct flag and score a point!", preferredStyle: .actionSheet)
+		ac.addAction(UIAlertAction(title: "Continue .. ", style: .default, handler: nil))
+		present(ac, animated: true)
+	
+	}
+
+
 }
 
