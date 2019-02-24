@@ -16,36 +16,27 @@ class ViewController: UITableViewController {
 	{
 		super.viewDidLoad()
 		
-		let fm = FileManager.default
-		let path = Bundle.main.resourcePath!
-		let items = try! fm.contentsOfDirectory(atPath: path)
-		
-		for i in  items
-		{
-			print(i)
-		}
-		
-	
 	}
 
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		 return Flags.count
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+	{
+		return Flags.count
 	}
 	
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+	{
+		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "FlagPicture", for: indexPath)
 		
 		cell.imageView?.image = UIImage(named: Flags[indexPath.row])
-		
-		
-		
+		cell.imageView?.layer.borderWidth = 2
 		cell.textLabel?.text = Flags[indexPath.row].uppercased()
-		
 		
 		return cell
 	}
 	
-	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+	{
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController
 		{
 			vc.selectedFlag = Flags[indexPath.row]

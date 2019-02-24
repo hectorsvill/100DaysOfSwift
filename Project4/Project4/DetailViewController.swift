@@ -18,11 +18,23 @@ class DetailViewController: UIViewController {
 	{
 		super.viewDidLoad()
 		
-		title = selectedFlag!
+		title = selectedFlag!.capitalizingFirstLetter()
 		DetailFlagImage.image = UIImage(named: selectedFlag!)
-		
+		DetailFlagImage.layer.borderWidth = 1
+	
+	
+	
 	}
 
+}
+//https://www.hackingwithswift.com/example-code/strings/how-to-capitalize-the-first-letter-of-a-string
+extension String
+{
+	func capitalizingFirstLetter() -> String {
+		return prefix(1).capitalized + dropFirst()
+	}
 	
-	
+	mutating func capitalizeFirstLetter() {
+		self = self.capitalizingFirstLetter()
+	}
 }
