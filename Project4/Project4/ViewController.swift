@@ -15,6 +15,8 @@ class ViewController: UITableViewController {
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
+		title = "hvillasa"
+		
 		
 	}
 
@@ -30,6 +32,7 @@ class ViewController: UITableViewController {
 		
 		cell.imageView?.image = UIImage(named: Flags[indexPath.row])
 		cell.imageView?.layer.borderWidth = 2
+		cell.layer.borderColor = UIColor.lightGray.cgColor
 		cell.textLabel?.text = Flags[indexPath.row].uppercased()
 		
 		return cell

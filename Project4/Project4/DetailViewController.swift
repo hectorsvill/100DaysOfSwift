@@ -18,13 +18,28 @@ class DetailViewController: UIViewController {
 	{
 		super.viewDidLoad()
 		
-		title = selectedFlag!.capitalizingFirstLetter()
+		title = selectedFlag!.uppercased()
 		DetailFlagImage.image = UIImage(named: selectedFlag!)
 		DetailFlagImage.layer.borderWidth = 1
+		DetailFlagImage.layer.borderColor = UIColor.lightGray.cgColor
 	
-	
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(ShareFlag))
 	
 	}
+	
+	
+	@objc func ShareFlag ()
+	{
+		guard let image = DetailFlagImage.image?.jpegData(compressionQuality: 0.8) else{
+			print("none")
+			return
+		}
+		
+		let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+		vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+		present(vc,animated: true)
+	}
+	
 
 }
 //https://www.hackingwithswift.com/example-code/strings/how-to-capitalize-the-first-letter-of-a-string
