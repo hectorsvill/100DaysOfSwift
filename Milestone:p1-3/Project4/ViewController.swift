@@ -16,8 +16,6 @@ class ViewController: UITableViewController {
 	{
 		super.viewDidLoad()
 		title = "hvillasa"
-		
-		
 	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -25,12 +23,19 @@ class ViewController: UITableViewController {
 		return Flags.count
 	}
 	
+	override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
+		return 5
+	}
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 50.0
+	}
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 	{
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "FlagPicture", for: indexPath)
 		
 		cell.imageView?.image = UIImage(named: Flags[indexPath.row])
+		
 		cell.imageView?.layer.borderWidth = 2
 		cell.layer.borderColor = UIColor.lightGray.cgColor
 		cell.textLabel?.text = Flags[indexPath.row].uppercased()
