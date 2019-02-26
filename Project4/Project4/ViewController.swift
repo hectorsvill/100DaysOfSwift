@@ -13,6 +13,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
 	var webView: WKWebView!
 	var progressView: UIProgressView!
+	var website = ["apple.com", "hackingwithswift.com", "soundcloud.com"]
 
 	override func loadView()
 	{
@@ -40,7 +41,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		
 		webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
 		
-		let url = URL(string: "https://www.hackingwithswift.com/")!
+		let url = URL(string: "https://" + website[1])!
 		webView.load(URLRequest(url: url))
 		webView.allowsBackForwardNavigationGestures = true
 
@@ -50,11 +51,12 @@ class ViewController: UIViewController, WKNavigationDelegate {
 	{
 
 		let ac = UIAlertController(title: "Select A Page", message: nil, preferredStyle: .actionSheet)
-
-		ac.addAction(UIAlertAction(title: "apple.com", style: .default, handler: openPage))
-		ac.addAction(UIAlertAction(title: "hackingwithswift.com/100", style: .default, handler: openPage))
+		for w in website
+		{
+			ac.addAction(UIAlertAction(title: w, style: .default, handler: openPage))
+		}
+		
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-
 		ac.popoverPresentationController?.barButtonItem =  self.navigationItem.backBarButtonItem
 
 		present(ac, animated: true)
@@ -67,10 +69,24 @@ class ViewController: UIViewController, WKNavigationDelegate {
 	}
 
 	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-		//load progressbar 
+		//load progressbar
 		if keyPath == "estimatedProgress" {
 			progressView.progress = Float(webView.estimatedProgress)
 		}
+	}
+	
+	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+		let url = navigationAction.request.url
+
+		if let host = url?.host{
+			for w in website{
+				if host.contains(w){
+					decisionHandler(.allow)
+					return
+				}
+			}
+		}
+		decisionHandler(.cancel)
 	}
 }
 
