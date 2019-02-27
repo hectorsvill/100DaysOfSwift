@@ -11,7 +11,7 @@ import UIKit
 class Weblist: UITableViewController {
 
 	let cellid = "WebsiteList"
-	let Website = ["hackingwithswift.com", "docs.swift.org/swift-book/", "swiftbysundell.com", "raywenderlich.com", "github.com/hvillasa"]
+	let Website = ["hackingwithswift.com", "developer.apple.com", "swiftbysundell.com", "raywenderlich.com", "github.com"]
 	
 	
 	override func viewDidLoad()
@@ -33,7 +33,6 @@ class Weblist: UITableViewController {
 		cell.textLabel?.text = Website[indexPath.row]
 		cell.layer.borderColor = UIColor.lightGray.cgColor
 		cell.layer.borderWidth = 0.2
-		
 		return cell
 	}
 

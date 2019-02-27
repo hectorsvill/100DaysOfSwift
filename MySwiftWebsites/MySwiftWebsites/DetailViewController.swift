@@ -7,15 +7,49 @@
 //
 
 import UIKit
-
-class DetailViewController: UIViewController {
+import WebKit
+class DetailViewController: UIViewController, WKNavigationDelegate {
 
 	var selectedSite: String?
+	var webView: WKWebView! // create webview obj
 	
-	override func viewDidLoad() {
+	override func loadView()
+	{
+		webView = WKWebView()
+		webView.navigationDelegate = self
+		view = webView
+	}
+	
+	override func viewDidLoad()
+	{
 		super.viewDidLoad()
 		
-		
 		title = selectedSite!
+		navigationItem.largeTitleDisplayMode = .never
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "hv", style: .plain, target: self, action: nil)
+
+		//create and get url
+		let url = URL(string: "https://\(selectedSite!)")!
+		webView.load(URLRequest(url: url))
+		webView.allowsBackForwardNavigationGestures = true
+	}
+	
+	//only alow safe links
+	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void)
+	{
+		let url = navigationAction.request.url
+		if let host = url?.host
+		{
+			if host.contains(selectedSite!)
+			{
+				print("DEcision allow")
+				decisionHandler(.allow)
+				
+				return
+			}
+		}
+		print("decision cancel")
+		decisionHandler(.cancel)
 	}
 }
