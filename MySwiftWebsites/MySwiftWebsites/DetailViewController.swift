@@ -49,6 +49,13 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
 				return
 			}
 		}
+
+		//alert controler
+
+		let ac = UIAlertController(title: "Blocked", message: "This link does not belong to \(selectedSite!)", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "OK", style: .default))
+		present(ac, animated: true)
+
 		print("decision cancel")
 		decisionHandler(.cancel)
 	}
