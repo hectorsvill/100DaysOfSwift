@@ -50,7 +50,7 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
 		{
 			if host.contains(selectedSite!)
 			{
-				print("DEcision allow")
+				print("Decision allow")
 				decisionHandler(.allow)
 				
 				return
@@ -69,12 +69,11 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
 				present(ac, animated: true)
 			}
 		}
-		print("decision cancel")
-		
+		print("Decision cancel")
 	}
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		navigationController?.hidesBarsOnTap = true
-	}
+//	override func viewWillAppear(_ animated: Bool) {
+//		super.viewWillAppear(animated)
+//		navigationController?.hidesBarsOnTap = true
+//	}
 }
