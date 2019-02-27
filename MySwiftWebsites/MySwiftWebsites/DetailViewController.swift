@@ -24,15 +24,22 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
 	{
 		super.viewDidLoad()
 		
+		let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+		let back = UIBarButtonItem(barButtonSystemItem: .rewind, target: webView, action: #selector(webView.goBack))
+		let forward = UIBarButtonItem(barButtonSystemItem: .play, target: webView, action: #selector(webView.goForward))
+		
 		title = selectedSite!
 		navigationItem.largeTitleDisplayMode = .never
 		
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "hv", style: .plain, target: self, action: nil)
-
+		
+		toolbarItems = [back, spacer, forward]
+		navigationController?.isToolbarHidden = false
+		
 		//create and get url
 		let url = URL(string: "https://\(selectedSite!)")!
 		webView.load(URLRequest(url: url))
 		webView.allowsBackForwardNavigationGestures = true
+		
 	}
 	
 	//only alow safe links
@@ -52,11 +59,22 @@ class DetailViewController: UIViewController, WKNavigationDelegate {
 
 		//alert controler
 
-		let ac = UIAlertController(title: "Blocked", message: "This link does not belong to \(selectedSite!)", preferredStyle: .alert)
-		ac.addAction(UIAlertAction(title: "OK", style: .default))
-		present(ac, animated: true)
-
-		print("decision cancel")
 		decisionHandler(.cancel)
+		if let host = url?.host
+		{
+			if !host.contains(selectedSite!)
+			{
+				let ac = UIAlertController(title: "Blocked", message: "This link does not belong to \(selectedSite!)", preferredStyle: .alert)
+				ac.addAction(UIAlertAction(title: "OK", style: .default))
+				present(ac, animated: true)
+			}
+		}
+		print("decision cancel")
+		
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.hidesBarsOnTap = true
 	}
 }
