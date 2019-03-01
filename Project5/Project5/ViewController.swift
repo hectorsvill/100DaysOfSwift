@@ -17,11 +17,13 @@ class ViewController: UITableViewController {
 		super.viewDidLoad()
 
 		//creating right side button
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
+		navigationItem.rightBarButtonItem =
+			UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
 
 
 		//Reading File from Disk
-		if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt"){
+		if let startWordsURL = Bundle.main.url(forResource: "start",
+											   withExtension: "txt"){
 			if let startWords = try? String(contentsOf: startWordsURL) {
 				allWords = startWords.components(separatedBy: "\n")
 			}
@@ -77,7 +79,18 @@ class ViewController: UITableViewController {
 	}
 
 	func submit(_ answer: String){
-		
+		let lowerAnswer = answer.lowercased()
+
+		if isPossible(word: lowerAnswer) {
+			if isOriginal(word: lowerAnswer) {
+				if isReal(word: lowerAnswer) {
+					usedWords.insert(answer, at: 0)
+
+					let indexPath = IndexPath(row: 0, section: 0)
+					tableView.insertRows(at: [indexPath], with: .automatic)
+				}
+			}
+		}
 	}
 
 	func isPossible(word: String) -> Bool {
