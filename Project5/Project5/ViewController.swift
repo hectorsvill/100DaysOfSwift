@@ -12,14 +12,14 @@ class ViewController: UITableViewController {
 
 	var allWords = [String]()
 	var usedWords = [String]()
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		//creating right side button
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
-		
-		
+
+
 		//Reading File from Disk
 		if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt"){
 			if let startWords = try? String(contentsOf: startWordsURL) {
@@ -30,9 +30,9 @@ class ViewController: UITableViewController {
 		if allWords.isEmpty {
 			allWords = ["Empty"]
 		}
-		
+
 		startGame()
-		
+
 	}
 
 	func startGame() {
@@ -53,7 +53,7 @@ class ViewController: UITableViewController {
 												 for: indexPath)
 
 		cell.textLabel?.text = usedWords[indexPath.row]
-		
+
 		return cell
 	}
 	
@@ -63,21 +63,33 @@ class ViewController: UITableViewController {
 								   preferredStyle: .alert)
 
 		ac.addTextField()
-		
+
 		let submitAction = UIAlertAction(title: "Submit", style: .default) {
-			
+
 			[weak self, weak ac] action in
 			guard let answer = ac?.textFields?[0].text else { return }
 			self?.submit(answer)
-		
+
 		}
 
 		ac.addAction(submitAction)
 		present(ac, animated: true)
 	}
-	
+
 	func submit(_ answer: String){
 		
+	}
+
+	func isPossible(word: String) -> Bool {
+		return true
+	}
+
+	func isOriginal(word: String) -> Bool {
+		return true
+	}
+
+	func isReal(word: String) -> Bool {
+		return true
 	}
 }
 
