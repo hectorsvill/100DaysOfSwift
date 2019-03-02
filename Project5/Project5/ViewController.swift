@@ -18,16 +18,19 @@ class ViewController: UITableViewController {
 
 		//create left side button to restart game
 		navigationItem.leftBarButtonItem =
-			UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(restartGame))
-		
+			UIBarButtonItem(barButtonSystemItem: .refresh,
+							target: self, action: #selector(restartGame))
+
 		//creating right side button
 		navigationItem.rightBarButtonItem =
-			UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
+			UIBarButtonItem(barButtonSystemItem: .add,
+							target: self, action: #selector(promptForAnswer))
 
 
 		//Reading File from Disk
 		if let startWordsURL = Bundle.main.url(forResource: "start",
 											   withExtension: "txt"){
+
 			if let startWords = try? String(contentsOf: startWordsURL) {
 				allWords = startWords.components(separatedBy: "\n")
 			}
@@ -46,7 +49,8 @@ class ViewController: UITableViewController {
 		usedWords.removeAll(keepingCapacity: true)
 		tableView.reloadData()
 	}
-	
+
+//tableview////////////////////////////////////////////////////////////////////
 	override func tableView(_ tableView: UITableView,
 							numberOfRowsInSection section: Int) -> Int {
 		return usedWords.count
@@ -63,10 +67,9 @@ class ViewController: UITableViewController {
 
 		return cell
 	}
-	@objc func restartGame(){
-		startGame()
-	}
-	
+
+//@objc ///////////////////////////////////////////////////////////////////////
+
 	@objc func promptForAnswer(){
 
 		let ac = UIAlertController(title: "Enter Answer", message: nil,
@@ -86,6 +89,11 @@ class ViewController: UITableViewController {
 		present(ac, animated: true)
 	}
 
+	@objc func restartGame(){
+		startGame()
+	}
+
+//General func//////////////////////////////////////////////////////////////////
 	func submit(_ answer: String){
 		let lowerAnswer = answer.lowercased()
 
