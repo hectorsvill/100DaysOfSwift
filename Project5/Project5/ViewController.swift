@@ -16,6 +16,10 @@ class ViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		//create left side button to restart game
+		navigationItem.leftBarButtonItem =
+			UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(restartGame))
+		
 		//creating right side button
 		navigationItem.rightBarButtonItem =
 			UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
@@ -58,6 +62,9 @@ class ViewController: UITableViewController {
 		cell.textLabel?.text = usedWords[indexPath.row]
 
 		return cell
+	}
+	@objc func restartGame(){
+		startGame()
 	}
 	
 	@objc func promptForAnswer(){
@@ -131,7 +138,7 @@ class ViewController: UITableViewController {
 															wrap: false,
 															language: "en")
 
-		return (misspelledRange.location == NSNotFound) && (word.count > 3)
+		return (misspelledRange.location == NSNotFound) && !(word.count < 3)
 	}
 	
 	func notPossibleOriginalReal(errorTile: String, errorMessage: String){
