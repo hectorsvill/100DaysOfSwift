@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
 		let label1 = createLabel(text: "First", backgroundColor: .red)
 		let label2 = createLabel(text: "Second", backgroundColor: .blue)
 		let label3 = createLabel(text: "Third", backgroundColor: .green)
@@ -52,20 +52,24 @@ class ViewController: UIViewController {
 		
 		for label in [label1, label2, label3, label4, label5]
 		{
+			//anchers to left
+			//label.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+			//anchers to right
+			//label.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+
+			label.heightAnchor.constraint(equalToConstant: 88).isActive = true
 			label.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-			label.heightAnchor.constraint(equalToConstant: 100).isActive = true
 			
 			
-			//label.leadingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+			label.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: 50).isActive = true
+			label.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2, constant: 30).isActive = true
+			
 			
 			if let previous = previous{
 				label.topAnchor.constraint(equalTo: previous.bottomAnchor, constant: 10).isActive = true
-				
 			}
 			previous = label
 		}
-		
-		
 	}
 
 	func createLabel(text: String, backgroundColor: UIColor) -> UILabel
