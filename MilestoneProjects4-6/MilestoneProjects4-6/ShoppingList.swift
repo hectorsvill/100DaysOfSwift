@@ -6,6 +6,8 @@
 //  Copyright © 2019 Hector Steven. All rights reserved.
 //
 
+//Create an app that lets people create a shopping list by adding items to a table view.
+
 import UIKit
 
 class ShoppingList: UITableViewController {
