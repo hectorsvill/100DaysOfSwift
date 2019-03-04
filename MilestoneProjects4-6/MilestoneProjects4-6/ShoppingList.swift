@@ -29,13 +29,45 @@ class ShoppingList: UITableViewController {
 		return shoppingList.count
 	}
 	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "listItem", for: indexPath)
+		
+		cell.textLabel?.text = shoppingList[indexPath.row]
+		return cell
+	}
+	
 	
 	@objc func addToShoppingList() {
-		shoppingList.append(" ")
+		let ac = UIAlertController(title: "Enter Item:", message: nil, preferredStyle: .alert)
 		
-		let ac = UIAlertController(title: "title", message: "Please add an Item", preferredStyle: .alert)
-		ac.addAction(UIAlertAction(title: "ok", style: .cancel))
+		//add textfield
+		ac.addTextField()
+		
+		//grab text
+		let submitItem = UIAlertAction(title: "Submit", style: .default) {
+			[weak self, weak ac] action in
+			guard let item = ac?.textFields?[0].text  else { return }
+			self?.addToTable(item)
+		}
+
+		ac.addAction(submitItem)
 		present(ac, animated: true)
 	}
+	
+	func addToTable(_ item: String)
+	{
+	
+		shoppingList.insert(item, at: 0)
+		//shoppingList.append(item)
+		
+		let ip = IndexPath(row: 0, section: 0)
+		
+		tableView.insertRows(at: [ip], with: .automatic)
+		
+		print(shoppingList)
+	}
+	
+
 
 }
