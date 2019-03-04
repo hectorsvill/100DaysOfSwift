@@ -22,6 +22,7 @@ class ShoppingList: UITableViewController {
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToShoppingList))
 		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(removeItems))
 	}
 
 
@@ -37,6 +38,12 @@ class ShoppingList: UITableViewController {
 		return cell
 	}
 	
+	@objc func removeItems(){
+		shoppingList.removeAll()
+		
+		tableView.reloadData()
+		
+	}
 	
 	@objc func addToShoppingList() {
 		let ac = UIAlertController(title: "Enter Item:", message: nil, preferredStyle: .alert)
