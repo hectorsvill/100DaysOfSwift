@@ -35,7 +35,6 @@ class ShoppingList: UITableViewController
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 	{
 		let cell = tableView.dequeueReusableCell(withIdentifier: "listItem", for: indexPath)
-		
 		cell.textLabel?.text = shoppingList[indexPath.row]
 		return cell
 	}
@@ -50,7 +49,6 @@ class ShoppingList: UITableViewController
 			(alert: UIAlertAction) -> Void in
 			self.shoppingList.removeAll()
 			self.tableView.reloadData()
-			
 		}))
 
 		ac.addAction(UIAlertAction(title: "Share Shopping List", style: .default, handler:
@@ -61,7 +59,6 @@ class ShoppingList: UITableViewController
 			//share view
 			let vc = UIActivityViewController(activityItems: [sl], applicationActivities: [])
 			self.present(vc, animated: true)
-			
 		}))
 
 		present(ac, animated: true)
@@ -70,10 +67,8 @@ class ShoppingList: UITableViewController
 	@objc func addToShoppingList()
 	{
 		let ac = UIAlertController(title: "Enter Item:", message: nil, preferredStyle: .alert)
-
 		//add textfield
 		ac.addTextField()
-
 		//grab text
 		let submitItem = UIAlertAction(title: "Submit", style: .default)
 		{
