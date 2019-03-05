@@ -59,17 +59,15 @@ class ShoppingList: UITableViewController {
 		ac.addAction(UIAlertAction(title: "Share Shopping List", style: .default, handler: {
 			
 			(alert: UIAlertAction) -> Void in
+			//put list in string
 			let sl = self.shoppingList.joined(separator: "\n")
-			print(sl)
+			
+			//share view
 			let vc = UIActivityViewController(activityItems: [sl], applicationActivities: [])
 			self.present(vc, animated: true)
 			
 		}))
-	
 		present(ac, animated: true)
-		
-
-		
 	}
 	
 	
