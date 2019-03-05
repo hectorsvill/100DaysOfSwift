@@ -13,43 +13,73 @@ import UIKit
 class ShoppingList: UITableViewController {
 
 	var shoppingList: [String] = []
+
 	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
 		title = "Shopping List"
 		
+		navigationItem.rightBarButtonItem =
+			UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToShoppingList))
 		
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToShoppingList))
-		
-		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(removeItems))
+		navigationItem.leftBarButtonItem =
+			UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(removeItemsShare))
 	}
-
-
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//tableview/////////////////////////////////////////////////////////////////////
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+	{
 		return shoppingList.count
 	}
 	
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+	{
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: "listItem", for: indexPath)
 		
 		cell.textLabel?.text = shoppingList[indexPath.row]
 		return cell
 	}
+
+//@objc/////////////////////////////////////////////////////////////////////////
 	
-	@objc func removeItems(){
-		shoppingList.removeAll()
+	@objc func removeItemsShare()
+	{
 		
-		tableView.reloadData()
+		
+		let ac = UIAlertController(title: "Remove All / Share", message: nil, preferredStyle: .actionSheet)
+		ac.addAction(UIAlertAction(title: "Remove ALL", style: .default,handler: {
+			
+			(alert: UIAlertAction) -> Void in
+			self.shoppingList.removeAll()
+			self.tableView.reloadData()
+			
+		}))
+		
+		ac.addAction(UIAlertAction(title: "Share Shopping List", style: .default, handler: {
+			
+			(alert: UIAlertAction) -> Void in
+			let sl = self.shoppingList.joined(separator: "\n")
+			print(sl)
+			let vc = UIActivityViewController(activityItems: [sl], applicationActivities: [])
+			self.present(vc, animated: true)
+			
+		}))
+	
+		present(ac, animated: true)
+		
+
 		
 	}
 	
-	@objc func addToShoppingList() {
+	
+	@objc func addToShoppingList()
+	{
 		let ac = UIAlertController(title: "Enter Item:", message: nil, preferredStyle: .alert)
 		
 		//add textfield
 		ac.addTextField()
+		//ac.addTextField()
 		
 		//grab text
 		let submitItem = UIAlertAction(title: "Submit", style: .default) {
@@ -62,19 +92,18 @@ class ShoppingList: UITableViewController {
 		present(ac, animated: true)
 	}
 	
+	
+//func/////////////////////////////////////////////////////////////////////////
 	func addToTable(_ item: String)
 	{
-	
 		shoppingList.insert(item, at: 0)
 		//shoppingList.append(item)
-		
+
 		let ip = IndexPath(row: 0, section: 0)
-		
+
 		tableView.insertRows(at: [ip], with: .automatic)
-		
+
 		print(shoppingList)
 	}
-	
-
 
 }
