@@ -17,19 +17,29 @@ class ViewController: UITableViewController {
 	let cellid = "Cell"				//cell id
 	let navid = "NavController"		// navigatione controller id
 	var petitions = [Petition]()	// Define the kinds of data structures we want to load the JSON into.
-
+	var firstRun = false
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = "US Petitions"
-
-		let hwsweb = "https://www.hackingwithswift.com/samples/petitions-1.json"
-//		let urlStr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
-		if let url = URL(string: hwsweb){
-		if let data = try? Data(contentsOf: url){
-				parse(json: data)
-			}
+		
+		
+		let urlstr: String
+		if navigationController?.tabBarItem.tag == 0 {
+			urlstr = "https://www.hackingwithswift.com/samples/petitions-1.json"
+		} else {
+			urlstr = "https://www.hackingwithswift.com/samples/petitions-2.json"
 		}
 		
+		//	let urlStr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+		if let url = URL(string: urlstr){
+			if let data = try? Data(contentsOf: url){
+				parse(json: data)
+				return
+			}
+		}
+		showError()
 	}
 
 	//tableView////////////////////////////////////////////////////////////////
@@ -60,5 +70,13 @@ class ViewController: UITableViewController {
 			tableView.reloadData()
 		}
 	}
+	
+	func showError() {
+		let ac = UIAlertController(title: "Loading Error", message: "Error Loading your content", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+		present(ac, animated: true)
+	}
+	
+	
 }
 

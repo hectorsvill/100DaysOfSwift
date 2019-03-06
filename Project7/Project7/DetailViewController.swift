@@ -26,19 +26,16 @@ class DetailViewController: UIViewController {
 		super.viewDidLoad()
 	
 		guard let detailItem = detailItem else { return }
-		
+		print(detailItem.body.isEmpty)
 		let html = """
-
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style> body { font-size: 150%; } </style>
-<body>
-\(detailItem.body)
-</body>
-</html?>
-		
-		
-"""
+		<html>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style> body { font-size: 150%; color: green; text-align: justify; } </style>
+		<body>
+		\(detailItem.body)
+		</body>
+		</html?>
+		"""
 		webView.loadHTMLString(html, baseURL: nil)
 	}
 }
