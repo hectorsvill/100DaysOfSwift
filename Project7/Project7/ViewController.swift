@@ -22,7 +22,6 @@ class ViewController: UITableViewController {
 		super.viewDidLoad()
 		title = "US Petitions"
 
-		//parse json data
 		let hwsweb = "https://www.hackingwithswift.com/samples/petitions-1.json"
 //		let urlStr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 		if let url = URL(string: hwsweb){
@@ -30,8 +29,10 @@ class ViewController: UITableViewController {
 				parse(json: data)
 			}
 		}
+		
 	}
 
+	//tableView////////////////////////////////////////////////////////////////
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return petitions.count
 	}
@@ -43,10 +44,17 @@ class ViewController: UITableViewController {
 		cell.detailTextLabel?.text = p.body
 		return cell
 	}
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let vc = DetailViewController()
+		vc.detailItem = petitions[indexPath.row]
+		navigationController?.pushViewController(vc, animated: true)
+	}
+	
 
+	//func/////////////////////////////////////////////////////////////////////
 	func parse(json: Data) {
 		let decoder = JSONDecoder()
-
 		if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
 			petitions = jsonPetitions.results
 			tableView.reloadData()
