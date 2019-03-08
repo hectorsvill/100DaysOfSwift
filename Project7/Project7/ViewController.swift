@@ -30,14 +30,12 @@ class ViewController: UITableViewController {
 		let urlstr: String
 		
 		if navigationController?.tabBarItem.tag == 0 {
-			urlstr = "https://www.hackingwithswift.com/samples/petitions-1.json"
+			urlstr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 		} else {
 			urlstr = "https://www.hackingwithswift.com/samples/petitions-2.json"
 		}
 		
-		print("filter is empty \(petitionsFiltered.isEmpty)")
-		
-		//	let urlStr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+//		urlstr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 		if let url = URL(string: urlstr){
 			if let data = try? Data(contentsOf: url){
 				parse(json: data)
@@ -56,23 +54,19 @@ class ViewController: UITableViewController {
 	}
 	
 	@objc func filterResult() {
-		petitions.removeAll()
 		
 		let ac = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
 		ac.addTextField()
 		let filterStr = UIAlertAction(title: "Filter", style: .default){
 			[weak self, weak ac] action in
 			guard let filterText = ac?.textFields?[0].text else { return }
-			self?.filetTheLIstTo(filterText: filterText)
+			self?.filterTheLIstTo(filterText: filterText)
 		}
 		ac.addAction(filterStr)
 		present(ac, animated: true)
-		
 	}
 
-	
 	//tableView////////////////////////////////////////////////////////////////
-
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return petitions.count
 	}
@@ -93,7 +87,6 @@ class ViewController: UITableViewController {
 	}
 
 	//func/////////////////////////////////////////////////////////////////////
-
 	func parse(json: Data) {
 		let decoder = JSONDecoder()
 		if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
@@ -108,12 +101,7 @@ class ViewController: UITableViewController {
 		present(ac, animated: true)
 	}
 	
-	
-
-
-	
-	
-	func filetTheLIstTo(filterText: String) {
+	func filterTheLIstTo(filterText: String) {
 		var pCopy = [Petition]()
 		for p in petitions {
 			let title  = p.title.lowercased()
@@ -122,6 +110,8 @@ class ViewController: UITableViewController {
 			}
 		}
 		petitionsFiltered = pCopy
+		tableView.reloadData()
+		print(petitionsFiltered.count)
 	}
 }
 
