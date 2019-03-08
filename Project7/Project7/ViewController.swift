@@ -24,7 +24,7 @@ class ViewController: UITableViewController {
 		title = "US Petitions"
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showCredit))
-		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(filterResult))
 		
 		
 		// download JSON using Swift’s Data type
@@ -46,29 +46,48 @@ class ViewController: UITableViewController {
 	}
 
 	//@objc////////////////////////////////////////////////////////////////////
+
+	@objc func showCredit() {
+		let ac = UIAlertController(title: "Credit: ", message: "https://api.whitehouse.gov/v1/petitions.json?limit=100", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+		present(ac, animated: true)
+	}
 	
+	@objc func filterResult() {
+		let ac = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
+		ac.addTextField()
+		let filterStr = UIAlertAction(title: "Filter", style: .default){
+			[weak self, weak ac] action in
+			guard let filterText = ac?.textFields?[0].text else { return }
+			self?.filetTheLIstTo(filterText: filterText)
+		}
+		ac.addAction(filterStr)
+		present(ac, animated: true)
+		
+	}
 	
 	//tableView////////////////////////////////////////////////////////////////
+
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return petitions.count
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
 		let p = petitions[indexPath.row]
 		cell.textLabel?.text = p.title
 		cell.detailTextLabel?.text = p.body
 		return cell
 	}
-	
+
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let vc = DetailViewController()
 		vc.detailItem = petitions[indexPath.row]
 		navigationController?.pushViewController(vc, animated: true)
 	}
-	
 
 	//func/////////////////////////////////////////////////////////////////////
+
 	func parse(json: Data) {
 		let decoder = JSONDecoder()
 		if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
@@ -76,13 +95,28 @@ class ViewController: UITableViewController {
 			tableView.reloadData()
 		}
 	}
-	
+
 	func showError() {
 		let ac = UIAlertController(title: "Loading Error", message: "Error Loading your content", preferredStyle: .alert)
 		ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 		present(ac, animated: true)
 	}
 	
-	
+	func filetTheLIstTo(filterText: String) {
+		
+		var petitionsCopy = petitions
+		petitionsCopy.removeAll()
+		var index = 1
+		for p in petitions {
+			let title  = p.title.lowercased()
+			if title.contains(filterText.lowercased()){
+				petitionsCopy.append(p)
+			}
+			index += 1
+		}
+		for p in petitionsCopy {
+			print(p.title)
+		}
+	}
 }
 
