@@ -24,7 +24,8 @@ class ViewController: UITableViewController {
 		
 		title = "US Petitions"
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showCredit))
-
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(filterResult))
+		
 		// download JSON using Swift’s Data type
 		let urlstr: String
 		
@@ -34,9 +35,7 @@ class ViewController: UITableViewController {
 			urlstr = "https://www.hackingwithswift.com/samples/petitions-2.json"
 		}
 		
-		if navigationController?.tabBarItem.tag == 2 {
-			filterResult()
-		}
+		print("filter is empty \(petitionsFiltered.isEmpty)")
 		
 		//	let urlStr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 		if let url = URL(string: urlstr){
@@ -56,6 +55,20 @@ class ViewController: UITableViewController {
 		present(ac, animated: true)
 	}
 	
+	@objc func filterResult() {
+		petitions.removeAll()
+		
+		let ac = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
+		ac.addTextField()
+		let filterStr = UIAlertAction(title: "Filter", style: .default){
+			[weak self, weak ac] action in
+			guard let filterText = ac?.textFields?[0].text else { return }
+			self?.filetTheLIstTo(filterText: filterText)
+		}
+		ac.addAction(filterStr)
+		present(ac, animated: true)
+		
+	}
 
 	
 	//tableView////////////////////////////////////////////////////////////////
@@ -96,20 +109,7 @@ class ViewController: UITableViewController {
 	}
 	
 	
-	func filterResult() {
-		petitions.removeAll()
-		
-		let ac = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
-		ac.addTextField()
-		let filterStr = UIAlertAction(title: "Filter", style: .default){
-			[weak self, weak ac] action in
-			guard let filterText = ac?.textFields?[0].text else { return }
-			self?.filetTheLIstTo(filterText: filterText)
-		}
-		ac.addAction(filterStr)
-		present(ac, animated: true)
-	
-	}
+
 
 	
 	
@@ -121,12 +121,7 @@ class ViewController: UITableViewController {
 				pCopy.append(p)
 			}
 		}
-		print(pCopy.count)
-		petitions = pCopy
-//		for p in pCopy {
-//			print(p.title)
-//		}
-
+		petitionsFiltered = pCopy
 	}
 }
 

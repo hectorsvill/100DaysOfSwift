@@ -23,14 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			
 			tabBarController.viewControllers?.append(vc)
 		}
-		
-		if let tabBarController = window?.rootViewController as? UITabBarController{
-			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let vc = storyboard.instantiateViewController(withIdentifier: "NavController")
-			vc.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
-			
-			tabBarController.viewControllers?.append(vc)
-		}
 		return true
 	}
 
