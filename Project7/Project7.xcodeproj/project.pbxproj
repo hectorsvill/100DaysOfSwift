@@ -15,6 +15,7 @@
 		E87FF7FF222F942300E50FCD /* Petition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87FF7FE222F942300E50FCD /* Petition.swift */; };
 		E87FF803222F9E6500E50FCD /* Petitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87FF802222F9E6500E50FCD /* Petitions.swift */; };
 		E898BAF4223050C4006EEE40 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898BAF3223050C4006EEE40 /* DetailViewController.swift */; };
+		E898BAF8223222F2006EEE40 /* FilterTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E898BAF7223222F2006EEE40 /* FilterTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E87FF7FE222F942300E50FCD /* Petition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petition.swift; sourceTree = "<group>"; };
 		E87FF802222F9E6500E50FCD /* Petitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petitions.swift; sourceTree = "<group>"; };
 		E898BAF3223050C4006EEE40 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E898BAF7223222F2006EEE40 /* FilterTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +62,13 @@
 		E87FF7EB222F427900E50FCD /* Project7 */ = {
 			isa = PBXGroup;
 			children = (
-				E87FF802222F9E6500E50FCD /* Petitions.swift */,
-				E87FF7FE222F942300E50FCD /* Petition.swift */,
+				E87FF7EC222F427900E50FCD /* AppDelegate.swift */,
+				E898BAF7223222F2006EEE40 /* FilterTable.swift */,
 				E87FF7EE222F427900E50FCD /* ViewController.swift */,
 				E898BAF3223050C4006EEE40 /* DetailViewController.swift */,
-				E87FF7EC222F427900E50FCD /* AppDelegate.swift */,
 				E87FF7F0222F427900E50FCD /* Main.storyboard */,
+				E87FF802222F9E6500E50FCD /* Petitions.swift */,
+				E87FF7FE222F942300E50FCD /* Petition.swift */,
 				E87FF7F3222F427A00E50FCD /* Assets.xcassets */,
 				E87FF7F5222F427A00E50FCD /* LaunchScreen.storyboard */,
 				E87FF7F8222F427A00E50FCD /* Info.plist */,
@@ -146,6 +149,7 @@
 			files = (
 				E87FF7EF222F427900E50FCD /* ViewController.swift in Sources */,
 				E87FF803222F9E6500E50FCD /* Petitions.swift in Sources */,
+				E898BAF8223222F2006EEE40 /* FilterTable.swift in Sources */,
 				E898BAF4223050C4006EEE40 /* DetailViewController.swift in Sources */,
 				E87FF7ED222F427900E50FCD /* AppDelegate.swift in Sources */,
 				E87FF7FF222F942300E50FCD /* Petition.swift in Sources */,

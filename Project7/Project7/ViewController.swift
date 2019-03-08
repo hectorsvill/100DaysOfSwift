@@ -17,22 +17,25 @@ class ViewController: UITableViewController {
 	let cellid = "Cell"				//cell id
 	let navid = "NavController"		// navigatione controller id
 	var petitions = [Petition]()	// Define the kinds of data structures we want to load the JSON into.
+	var petitionsFiltered = [Petition]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		title = "US Petitions"
-		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showCredit))
-		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(filterResult))
-		
-		
+
 		// download JSON using Swift’s Data type
 		let urlstr: String
+		
 		if navigationController?.tabBarItem.tag == 0 {
 			urlstr = "https://www.hackingwithswift.com/samples/petitions-1.json"
 		} else {
 			urlstr = "https://www.hackingwithswift.com/samples/petitions-2.json"
+		}
+		
+		if navigationController?.tabBarItem.tag == 2 {
+			filterResult()
 		}
 		
 		//	let urlStr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
@@ -53,18 +56,7 @@ class ViewController: UITableViewController {
 		present(ac, animated: true)
 	}
 	
-	@objc func filterResult() {
-		let ac = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
-		ac.addTextField()
-		let filterStr = UIAlertAction(title: "Filter", style: .default){
-			[weak self, weak ac] action in
-			guard let filterText = ac?.textFields?[0].text else { return }
-			self?.filetTheLIstTo(filterText: filterText)
-		}
-		ac.addAction(filterStr)
-		present(ac, animated: true)
-		
-	}
+
 	
 	//tableView////////////////////////////////////////////////////////////////
 
@@ -73,6 +65,7 @@ class ViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
 		let p = petitions[indexPath.row]
 		cell.textLabel?.text = p.title
@@ -102,21 +95,38 @@ class ViewController: UITableViewController {
 		present(ac, animated: true)
 	}
 	
-	func filetTheLIstTo(filterText: String) {
+	
+	func filterResult() {
+		petitions.removeAll()
 		
-		var petitionsCopy = petitions
-		petitionsCopy.removeAll()
-		var index = 1
+		let ac = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
+		ac.addTextField()
+		let filterStr = UIAlertAction(title: "Filter", style: .default){
+			[weak self, weak ac] action in
+			guard let filterText = ac?.textFields?[0].text else { return }
+			self?.filetTheLIstTo(filterText: filterText)
+		}
+		ac.addAction(filterStr)
+		present(ac, animated: true)
+	
+	}
+
+	
+	
+	func filetTheLIstTo(filterText: String) {
+		var pCopy = [Petition]()
 		for p in petitions {
 			let title  = p.title.lowercased()
 			if title.contains(filterText.lowercased()){
-				petitionsCopy.append(p)
+				pCopy.append(p)
 			}
-			index += 1
 		}
-		for p in petitionsCopy {
-			print(p.title)
-		}
+		print(pCopy.count)
+		petitions = pCopy
+//		for p in pCopy {
+//			print(p.title)
+//		}
+
 	}
 }
 
