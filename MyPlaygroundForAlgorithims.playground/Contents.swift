@@ -81,7 +81,7 @@ func InsertionSort(_ arr: [Int]) -> [Int] {
 		while a[y] < a[y - 1] && y > 0 {
 			a.swapAt(y - 1 , y)
 			y -= 1
-			print("\(y) \(a)")
+			
 		}
 		
 	}

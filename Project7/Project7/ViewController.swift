@@ -17,14 +17,17 @@ class ViewController: UITableViewController {
 	let cellid = "Cell"				//cell id
 	let navid = "NavController"		// navigatione controller id
 	var petitions = [Petition]()	// Define the kinds of data structures we want to load the JSON into.
-	var firstRun = false
-	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		title = "US Petitions"
 		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showCredit))
 		
+		
+		
+		// download JSON using Swift’s Data type
 		let urlstr: String
 		if navigationController?.tabBarItem.tag == 0 {
 			urlstr = "https://www.hackingwithswift.com/samples/petitions-1.json"
@@ -42,6 +45,9 @@ class ViewController: UITableViewController {
 		showError()
 	}
 
+	//@objc////////////////////////////////////////////////////////////////////
+	
+	
 	//tableView////////////////////////////////////////////////////////////////
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return petitions.count
