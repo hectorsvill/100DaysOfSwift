@@ -109,7 +109,7 @@ class ViewController: UITableViewController {
 				pCopy.append(p)
 			}
 		}
-		petitionsFiltered = pCopy
+		petitions = pCopy
 		tableView.reloadData()
 		print(petitionsFiltered.count)
 	}

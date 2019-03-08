@@ -30,9 +30,14 @@ class DetailViewController: UIViewController {
 		let html = """
 		<html>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<style> body { font-size: 150%; color: green; text-align: justify; } </style>
+		<style> body { font-size: 130%; text-align: justify; } </style>
 		<body>
+		\(detailItem.title)
+		<br>
+		<br>
 		\(detailItem.body)
+		<br><br>
+		Signature Count:\(detailItem.signatureCount)
 		</body>
 		</html?>
 		"""
