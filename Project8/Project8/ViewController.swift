@@ -32,7 +32,7 @@ class ViewController: UIViewController {
 		cluesLabel.font = UIFont.systemFont(ofSize: 24)
 		cluesLabel.text = "CLUES"
 		cluesLabel.numberOfLines = 0
-		cluesLabel.textAlignment = .left
+		cluesLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
 		view.addSubview(cluesLabel)
 		
 		answerLabel = UILabel()
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
 		answerLabel.text = "ANSWERS"
 		answerLabel.numberOfLines = 0
 		answerLabel.textAlignment = .right
+		answerLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
 		view.addSubview(answerLabel)
 		
 		currentAnswer = UITextField()
@@ -64,9 +65,10 @@ class ViewController: UIViewController {
 		let buttonView = UIView()
 		buttonView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(buttonView)
-
-		NSLayoutConstraint.activate(
-		[
+		
+		
+		
+		NSLayoutConstraint.activate([
 			scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
 			scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
 			
@@ -74,9 +76,11 @@ class ViewController: UIViewController {
 			cluesLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 100),
 			cluesLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.6, constant: -100),
 			
+			
 			answerLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor),
 			answerLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -100),
 			answerLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.4, constant: -100),
+			answerLabel.heightAnchor.constraint(equalTo: cluesLabel.heightAnchor),
 			
 			currentAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			currentAnswer.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
@@ -98,12 +102,36 @@ class ViewController: UIViewController {
 		])
 		
 		
-		
-		buttonView.backgroundColor = UIColor.green
-//		cluesLabel.backgroundColor = UIColor.gray
-//		answerLabel.backgroundColor = UIColor.green
+//
+//		buttonView.backgroundColor = .green
+//		cluesLabel.backgroundColor = .gray
+//		answerLabel.backgroundColor = .blue
 //		scoreLabel.backgroundColor = UIColor.brown
 //		currentAnswer.backgroundColor = UIColor.red
+		
+		
+		
+		let width = 150
+		let height = 80
+		
+		for row in 0..<4{
+			for col in 0..<5 {
+				let letterButton = UIButton(type: .system)
+				letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
+				letterButton.setTitle("HHH", for: .normal)
+				
+				let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
+				letterButton.frame = frame
+				
+				buttonView.addSubview(letterButton)
+				letterButtons.append(letterButton)
+			}
+		}
+		
+		
+		
+		
+		
 		
 	}
 	
