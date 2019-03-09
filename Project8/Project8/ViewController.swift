@@ -125,7 +125,7 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		loadLevel()
 	}
 
 	@objc func letterTapped(_ sender: UIButton) {
@@ -144,39 +144,47 @@ class ViewController: UIViewController {
 		var clueString = ""
 		var solutionString = ""
 		var letterBits = [String]()
-		
+
 		if let levelFileURL = Bundle.main.url(forResource: "level\(level)", withExtension: "txt") {
 			if let levelContents = try? String(contentsOf: levelFileURL) {
 				var lines = levelContents.components(separatedBy: "\n")
 				lines.shuffle()
-				
+
+				//error loading out of bound on clue
+				for (index, l) in lines.enumerated() {
+					if l.isEmpty {
+						lines.remove(at: index)
+					}
+				}
+
 				for (index, line) in lines.enumerated() {
 					let parts = line.components(separatedBy: ": ")
-					let answers = parts[0]
+					print(parts)
+					let answer = parts[0]
 					let clue = parts[1]
-					
+
 					clueString += "\(index + 1). \(clue)\n"
-					
-					let solutionWord = answers.replacingOccurrences(of: "|", with: "")
+
+					let solutionWord = answer.replacingOccurrences(of: "|", with: "")
 					solutionString += "\(solutionWord.count) letters\n"
 					solutions.append(solutionWord)
-					
-					let bits = answers.components(separatedBy: "|")
+
+					let bits = answer.components(separatedBy: "|")
 					letterBits += bits
-					
 				}
 			}
 		}
+
+		//configure buttons anf labels
 		cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
 		answerLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
 		letterBits.shuffle()
-		
+
 		if letterBits.count == letterButtons.count {
 			for i in 0 ..< letterButtons.count {
 				letterButtons[i].setTitle(letterBits[i], for: .normal)
 			}
 		}
-		
 	}
 }
 
