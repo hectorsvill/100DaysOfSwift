@@ -18,12 +18,17 @@ class ViewController: UIViewController {
 	var activatedButtons = [UIButton]()
 	var solutions = [String]()
 
-	var score = 0
+	var score = 0{
+		didSet{
+			scoreLabel.text = "Score: \(score)"
+		}
+	}
+	
 	var level = 1
 
 	override func loadView() {
 		view = UIView()
-		view.backgroundColor = .white
+		view.backgroundColor = UIColor.lightGray
 
 		scoreLabel = UILabel()
 		scoreLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +59,7 @@ class ViewController: UIViewController {
 		currentAnswer.textAlignment = .center
 		currentAnswer.font = UIFont.systemFont(ofSize: 44)
 		currentAnswer.isUserInteractionEnabled = false
+
 		view.addSubview(currentAnswer)
 
 		let submit = UIButton(type: .system)
@@ -138,28 +144,30 @@ class ViewController: UIViewController {
 	@objc func submitTapped(_ sender: UIButton) {
 	
 		guard let answerText = currentAnswer.text else { return }
-		
-		
+
 		if let solutionPosition = solutions.index(of: answerText){
 			activatedButtons.removeAll()
-			
+
 			var splitAnswers = answerLabel.text?.components(separatedBy: "\n")
 			splitAnswers?[solutionPosition] = answerText
 			answerLabel.text = splitAnswers?.joined(separator: "\n")
-			
+
 			currentAnswer.text = ""
 			score += 1
-			
+
 			if score % 7 == 0 {
 				let ac = UIAlertController(title: "Well done", message: "Ready for the next level?", preferredStyle: .alert)
 				ac.addAction(UIAlertAction(title: "Lets Go!", style: .cancel, handler: levelup))
 				present(ac, animated: true)
 			}
-			
+		} else {
+			if score > 0 { score -= 1 }
+			let ac = UIAlertController(title: "Wrong!", message: nil, preferredStyle: .alert)
+			ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+			present(ac, animated: true)
 		}
-	
 	}
-	
+
 	@objc func clearTapped(_ sender: UIButton) {
 		currentAnswer.text = ""
 		for b in activatedButtons{
@@ -167,7 +175,7 @@ class ViewController: UIViewController {
 		}
 		activatedButtons.removeAll()
 	}
-	
+
 	func loadLevel() {
 		var clueString = ""
 		var solutionString = ""
@@ -208,14 +216,12 @@ class ViewController: UIViewController {
 		cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
 		answerLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
 		letterBits.shuffle()
-
 		if letterBits.count == letterButtons.count {
 			for i in 0 ..< letterButtons.count {
 				letterButtons[i].setTitle(letterBits[i], for: .normal)
 			}
 		}
 	}
-
 
 	func levelup (action: UIAlertAction) {
 //		level += 1
