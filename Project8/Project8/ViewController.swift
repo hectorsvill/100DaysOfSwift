@@ -129,15 +129,43 @@ class ViewController: UIViewController {
 	}
 
 	@objc func letterTapped(_ sender: UIButton) {
-		
+		guard let buttonTitle = sender.titleLabel?.text else { return }
+		currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
+		activatedButtons.append(sender)
+		sender.isHidden = true
 	}
 	
 	@objc func submitTapped(_ sender: UIButton) {
+	
+		guard let answerText = currentAnswer.text else { return }
 		
+		
+		if let solutionPosition = solutions.index(of: answerText){
+			activatedButtons.removeAll()
+			
+			var splitAnswers = answerLabel.text?.components(separatedBy: "\n")
+			splitAnswers?[solutionPosition] = answerText
+			answerLabel.text = splitAnswers?.joined(separator: "\n")
+			
+			currentAnswer.text = ""
+			score += 1
+			
+			if score % 7 == 0 {
+				let ac = UIAlertController(title: "Well done", message: "Ready for the next level?", preferredStyle: .alert)
+				ac.addAction(UIAlertAction(title: "Lets Go!", style: .cancel, handler: levelup))
+				present(ac, animated: true)
+			}
+			
+		}
+	
 	}
 	
 	@objc func clearTapped(_ sender: UIButton) {
-		
+		currentAnswer.text = ""
+		for b in activatedButtons{
+			b.isHidden = false
+		}
+		activatedButtons.removeAll()
 	}
 	
 	func loadLevel() {
@@ -160,6 +188,7 @@ class ViewController: UIViewController {
 				for (index, line) in lines.enumerated() {
 					let parts = line.components(separatedBy: ": ")
 					print(parts)
+					
 					let answer = parts[0]
 					let clue = parts[1]
 
@@ -186,5 +215,18 @@ class ViewController: UIViewController {
 			}
 		}
 	}
+
+
+	func levelup (action: UIAlertAction) {
+//		level += 1
+		solutions.removeAll(keepingCapacity: true)
+		
+		loadLevel()
+		
+		for b in letterButtons {
+			b.isHidden = false
+		}
+	}
+
 }
 
