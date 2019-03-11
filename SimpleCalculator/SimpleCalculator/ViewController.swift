@@ -6,6 +6,15 @@
 //  Copyright © 2019 Hector Steven. All rights reserved.
 //
 
+
+/*
+
+IOS Simulator: Iphone XS
+
+*/
+
+
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -14,6 +23,7 @@ class ViewController: UIViewController {
 	var inputText: UITextField!
 	var inputButtons = [UIButton]()
 
+
 	
 	override func loadView() {
 		view = UIView()
@@ -21,12 +31,13 @@ class ViewController: UIViewController {
 	
 		totalLabel = UILabel()
 		totalLabel.translatesAutoresizingMaskIntoConstraints = false
-		//totalLabel.frame = CGRect(x: 100, y: 270, width: 250, height: 60)
+//		totalLabel.frame = CGRect(x: 100, y: 270, width: 250, height: 60)
 		totalLabel.font = UIFont.systemFont(ofSize: 30)
 		totalLabel.textAlignment = .center
 		totalLabel.text = "0"
 		totalLabel.layer.borderWidth = 2
 		totalLabel.layer.cornerRadius = 10
+		//totalLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
 		view.addSubview(totalLabel)
 		
 		inputText = UITextField()
@@ -71,11 +82,22 @@ class ViewController: UIViewController {
 		//init button text
 		inputButtons[2].titleLabel?.text = "1"
 		
+		
+		
 		NSLayoutConstraint.activate([
 			
-			inputText.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
+			totalLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 200),
+			totalLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
+			totalLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
 			
-			buttonView.widthAnchor.constraint(equalToConstant: 350),
+			inputText.topAnchor.constraint(equalTo: totalLabel.bottomAnchor, constant: 20),
+			inputText.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
+			inputText.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
+			
+			
+			
+			//buttonView.widthAnchor.constraint(equalToConstant: 350),
+			buttonView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
 			buttonView.heightAnchor.constraint(equalToConstant: 200),
 			buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
 			buttonView.topAnchor.constraint(equalTo: inputText.bottomAnchor, constant: 20)
@@ -83,12 +105,6 @@ class ViewController: UIViewController {
 			
 			
 			])
-		
-		
-		
-		
-		
-		
 	}
 	
 	
@@ -103,8 +119,36 @@ class ViewController: UIViewController {
 
 	
 	@objc func getInputButton(_ sender: UIButton) {
+		
+		var total = "0"
+		var input = "0"
+		
 		guard let senderTitle = sender.titleLabel?.text else { return }
+		
 		print(senderTitle)
+		
+		if senderTitle == "C" {
+			total = "0"
+			input = "0"
+		} else if senderTitle == "=" {
+			//calculate string
+			//inputText == 0
+		
+		} else if senderTitle == "+" {
+			//clear inputstr and calc total str
+		} else if senderTitle == "-" {
+			
+		} else if senderTitle == "x" {
+			
+		} else if senderTitle == "/" {
+			
+		}
+		
+		
+		totalLabel.text = total
+		inputText.placeholder = input
+		
+		
 	}
 	
 }

@@ -36,20 +36,21 @@ class Calc {
 		if index == 0 { str = "7" }
 		else if index == 1 { str = "8" }
 		else if index == 2 { str = "9" }
-		else if index == 3 { str = "_" }
+		else if index == 3 { str = "+" }
 		else if index == 4 { str = "4" }
 		else if index == 5 { str = "5" }
 		else if index == 6 { str = "6" }
-		else if index == 7 { str = "_" }
-		else if index == 8 { str = "1"}
-		else if index == 9 { str = "2"}
+		else if index == 7 { str = "-" }
+		else if index == 8 { str = "1" }
+		else if index == 9 { str = "2" }
 		else if index == 10 { str = "3" }
-		else if index == 11 {str = "_"}
-		else if index == 12 { str = "_"}
-		else if index == 13 { str = "0"}
-		else if index == 14 { str = "_" }
-		else if index == 15 {str = "_"}
+		else if index == 11 { str = "x" }
+		else if index == 12 { str = "C" }
+		else if index == 13 { str = "0" }
+		else if index == 14 { str = "=" }
+		else if index == 15 { str = "/" }
 		else { str = "_"}
+
 		return str
 	}
 	
