@@ -22,7 +22,9 @@ class ViewController: UIViewController {
 	var totalLabel: UILabel!
 	var inputText: UITextField!
 	var inputButtons = [UIButton]()
-
+	var inputStringNum = [Int]()
+//	var term1: Int
+//	var term2: Int
 
 	
 	override func loadView() {
@@ -34,7 +36,7 @@ class ViewController: UIViewController {
 //		totalLabel.frame = CGRect(x: 100, y: 270, width: 250, height: 60)
 		totalLabel.font = UIFont.systemFont(ofSize: 30)
 		totalLabel.textAlignment = .center
-		totalLabel.text = "0"
+		totalLabel.text = "_"
 		totalLabel.layer.borderWidth = 2
 		totalLabel.layer.cornerRadius = 10
 		//totalLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
@@ -45,7 +47,7 @@ class ViewController: UIViewController {
 		//inputText.frame = CGRect(x: 100, y: 340, width: 250, height: 60)
 		inputText.font = UIFont.systemFont(ofSize: 30)
 		inputText.textAlignment = .center
-		inputText.placeholder = "0 + 0"
+		inputText.placeholder = "_"
 		inputText.layer.borderWidth = 2
 		inputText.layer.cornerRadius = 10
 		view.addSubview(inputText)
@@ -123,9 +125,10 @@ class ViewController: UIViewController {
 		var total = "0"
 		var input = "0"
 		
+		
 		guard let senderTitle = sender.titleLabel?.text else { return }
 		
-		print(senderTitle)
+		//print(senderTitle)
 		
 		if senderTitle == "C" {
 			total = "0"
@@ -142,9 +145,15 @@ class ViewController: UIViewController {
 			
 		} else if senderTitle == "/" {
 			
+		} else {
+			
+			input = Calc().intArrToStr(inputStringNum)
+			
+			inputStringNum.append(Int(senderTitle)!)
+			
 		}
 		
-		
+		print(inputStringNum)
 		totalLabel.text = total
 		inputText.placeholder = input
 		

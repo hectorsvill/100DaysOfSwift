@@ -54,5 +54,18 @@ class Calc {
 		return str
 	}
 	
+	func intArrToStr(_ arr: [Int]) -> String {
+		
+		if arr.isEmpty { return "_" }
+		
+		var str = ""
+		for n in arr {
+			let num = String(n)
+			str += num
+			print(str)
+		}
+		
+		return str
+	}
 }
 
