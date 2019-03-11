@@ -32,7 +32,7 @@ class Calc {
 			12 13 14 15
 		
 		*/
-		var str = "n"
+		let str: String
 		if index == 0 { str = "7" }
 		else if index == 1 { str = "8" }
 		else if index == 2 { str = "9" }
@@ -49,6 +49,7 @@ class Calc {
 		else if index == 13 { str = "0"}
 		else if index == 14 { str = "_" }
 		else if index == 15 {str = "_"}
+		else { str = "_"}
 		return str
 	}
 	

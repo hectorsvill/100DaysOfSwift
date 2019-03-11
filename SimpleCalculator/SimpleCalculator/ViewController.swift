@@ -51,17 +51,11 @@ class ViewController: UIViewController {
 
 		for row in 0..<4 {
 			for col in 0..<4 {
-				
 				let calcButton = UIButton(type: .system)
 				calcButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
 				
-				let translateTitle = index
-				
-				
-				let title = String(index)
+				let title = Calc().calcButtonText(index: index)
 				calcButton.setTitle(title, for: .normal)
-				
-				
 				
 				let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
 				calcButton.frame = frame
@@ -69,8 +63,8 @@ class ViewController: UIViewController {
 				calcButton.layer.borderWidth = 2
 				calcButton.layer.cornerRadius = 10
 				buttonView.addSubview(calcButton)
-				inputButtons.append(calcButton)
 				
+				inputButtons.append(calcButton)
 				index += 1
 			}
 		}
