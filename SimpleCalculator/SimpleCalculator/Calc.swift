@@ -15,6 +15,8 @@ class Calc {
 	var operate = [Any]()
 	
 	
+	
+	
 	func add(term1: Int, term2: Int) -> Int {
 		return term1 + term2
 	}
@@ -80,53 +82,4 @@ class Calc {
 		return false
 	}
 
-	func handle_number (num: Int) -> String {
-		
-		let inputStr = intArrToStr(term1)
-		if operate.isEmpty{
-			term1.append(num)
-		} else {
-			term2.append(num)
-		}
-		return inputStr
-	}
-	
 }
-
-//		//print(senderTitle)
-//
-//		if senderTitle == "C" {
-////			term.removeAll()
-////			Term1.removeAll()
-////			Term1.removeAll()
-////
-//		} else if senderTitle == "=" {
-//			//calculate string
-//			//inputText == 0
-//		} else {
-//
-//
-//			if senderTitle == "+" {
-//				//clear inputstr and calc total str
-//				input += " + "
-//			} else if senderTitle == "-" {
-//
-//			} else if senderTitle == "x" {
-//
-//			} else if senderTitle == "/" {
-//
-//			} else {
-//
-//				term.append(Int(senderTitle)!)
-//				input = Calc().intArrToStr(term)
-//
-//
-//			}
-//
-//
-//		}
-//
-//		totalLabel.text = total
-//		inputText.placeholder = input
-//
-//

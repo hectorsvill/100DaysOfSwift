@@ -133,14 +133,23 @@ class ViewController: UIViewController {
 		var inputStr = "_"
 		var totalStr = "_"
 		
+		
 		if str == "C" {
 			clearAll()
 		
 		} else if str == "=" {
 			
-			totalStr = ""
+			let t1 = Int(sCalc.intArrToStr(sCalc.term1))!
+			let t2 = Int(sCalc.intArrToStr(sCalc.term2))!
+			let answer = sCalc.add(term1: t1, term2: t2)
+			totalStr = String(answer)
+			
+			
+			clearAll()
+			
 		} else if sCalc.strIsInt(str) {
 			// handle num input
+			totalStr = "_"
 			let num = Int(str)!
 			
 			if sCalc.operate.isEmpty {
