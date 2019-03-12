@@ -13,24 +13,7 @@ class Calc {
 	var term1 = [Int]()
 	var term2 = [Int]()
 	var operate = [Character]()
-	
-	
-	
-	
-	func add(term1: Int, term2: Int) -> Int {
-		return term1 + term2
-	}
-	func subtract(term1: Int, term2: Int) -> Int {
-		return term1 - term2
-	}
-	func multiply(term1: Int, term2: Int) -> Int {
-		return term1 * term2
-	}
-	
-	func divide(term1: Int, term2: Int) -> Int {
-		return term1 / term2
-	}
-	
+
 	func calcButtonText(index: Int) -> String {
 		/*
 			 0  1  2  3
@@ -60,7 +43,7 @@ class Calc {
 
 		return str
 	}
-	
+
 	func intArrToStr(_ arr: [Int]) -> String {
 		if arr.isEmpty { return "_" }
 
@@ -82,17 +65,12 @@ class Calc {
 
 	func operate(_ t1: Int, _ t2: Int) -> String{
 		var total = 0
-		
-		if operate[0] == "+" {
-			total = t1 + t2
-		} else if operate[0] == "-" {
-			total = t1 - t2
-		} else if operate[0] == "x" {
-			total = t1 * t2
-		} else if operate[0] == "/" {
-			total = t1 / t2
-		}
+
+		if operate[0] == "+" { total = t1 + t2 }
+		else if operate[0] == "-" { total = t1 - t2 }
+		else if operate[0] == "x" { total = t1 * t2 }
+		else if operate[0] == "/" { total = t1 / t2 }
+
 		return String(total)
 	}
-	
 }
