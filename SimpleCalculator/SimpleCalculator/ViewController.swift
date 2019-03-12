@@ -22,10 +22,8 @@ class ViewController: UIViewController {
 	var totalLabel: UILabel!
 	var inputText: UITextField!
 	var inputButtons = [UIButton]()
-	var inputStringNum = [Int]()
-//	var term1: Int
-//	var term2: Int
-
+	
+	let sCalc = Calc()
 	
 	override func loadView() {
 		view = UIView()
@@ -81,20 +79,16 @@ class ViewController: UIViewController {
 				index += 1
 			}
 		}
-		//init button text
-		inputButtons[2].titleLabel?.text = "1"
-		
-		
 		
 		NSLayoutConstraint.activate([
 			
 			totalLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 200),
 			totalLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
-			totalLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
+			totalLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
 			
 			inputText.topAnchor.constraint(equalTo: totalLabel.bottomAnchor, constant: 20),
 			inputText.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
-			inputText.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.4),
+			inputText.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
 			
 			
 			
@@ -119,46 +113,65 @@ class ViewController: UIViewController {
 	}
 
 
-	
+	//objc func///////////////////////////////////////////////////////
 	@objc func getInputButton(_ sender: UIButton) {
+
+		guard let senderTitle = sender.titleLabel?.text else {
+			print("Error: SenderTitle")
+
+			return
+		}
+
+		calculate(str: senderTitle)
+	}
+	
+	
+	//func//////////////////////////////////////////////////////////////////
+	
+	func calculate(str: String) {
 		
-		var total = "0"
-		var input = "0"
+		var inputStr = "_"
+		var totalStr = "_"
 		
+		if str == "C" {
+			clearAll()
 		
-		guard let senderTitle = sender.titleLabel?.text else { return }
-		
-		//print(senderTitle)
-		
-		if senderTitle == "C" {
-			total = "0"
-			input = "0"
-		} else if senderTitle == "=" {
-			//calculate string
-			//inputText == 0
-		
-		} else if senderTitle == "+" {
-			//clear inputstr and calc total str
-		} else if senderTitle == "-" {
+		} else if str == "=" {
 			
-		} else if senderTitle == "x" {
+			totalStr = ""
+		} else if sCalc.strIsInt(str) {
+			// handle num input
+			let num = Int(str)!
 			
-		} else if senderTitle == "/" {
+			if sCalc.operate.isEmpty {
+				sCalc.term1.append(num)
+				inputStr = sCalc.intArrToStr(sCalc.term1)
+			} else {
+				sCalc.term2.append(num)
+				inputStr = sCalc.intArrToStr(sCalc.term2)
+			}
+			
+			
 			
 		} else {
+			// its + - x /
+			sCalc.operate.append(str)
 			
-			input = Calc().intArrToStr(inputStringNum)
-			
-			inputStringNum.append(Int(senderTitle)!)
 			
 		}
 		
-		print(inputStringNum)
-		totalLabel.text = total
-		inputText.placeholder = input
-		
-		
+		inputText.placeholder = inputStr
+		totalLabel.text = totalStr
+		print("t1: \(sCalc.term1)")
+		print("t2: \(sCalc.term2)")
+		print("op: \(sCalc.operate)")
 	}
 	
+	func clearAll () {
+		sCalc.term1.removeAll()
+		sCalc.term2.removeAll()
+		sCalc.operate.removeAll()
+		
+	}
 }
 

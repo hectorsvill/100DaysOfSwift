@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 
 class Calc {
+	var term1 = [Int]()
+	var term2 = [Int]()
+	var operate = [Any]()
+	
+	
 	func add(term1: Int, term2: Int) -> Int {
 		return term1 + term2
 	}
@@ -55,17 +60,73 @@ class Calc {
 	}
 	
 	func intArrToStr(_ arr: [Int]) -> String {
-		
 		if arr.isEmpty { return "_" }
-		
+
 		var str = ""
+
 		for n in arr {
 			let num = String(n)
 			str += num
 			print(str)
 		}
-		
+
 		return str
 	}
+
+	func strIsInt(_ str: String) -> Bool {
+
+		if let _ = Int(str) { return true }
+
+		return false
+	}
+
+	func handle_number (num: Int) -> String {
+		
+		let inputStr = intArrToStr(term1)
+		if operate.isEmpty{
+			term1.append(num)
+		} else {
+			term2.append(num)
+		}
+		return inputStr
+	}
+	
 }
 
+//		//print(senderTitle)
+//
+//		if senderTitle == "C" {
+////			term.removeAll()
+////			Term1.removeAll()
+////			Term1.removeAll()
+////
+//		} else if senderTitle == "=" {
+//			//calculate string
+//			//inputText == 0
+//		} else {
+//
+//
+//			if senderTitle == "+" {
+//				//clear inputstr and calc total str
+//				input += " + "
+//			} else if senderTitle == "-" {
+//
+//			} else if senderTitle == "x" {
+//
+//			} else if senderTitle == "/" {
+//
+//			} else {
+//
+//				term.append(Int(senderTitle)!)
+//				input = Calc().intArrToStr(term)
+//
+//
+//			}
+//
+//
+//		}
+//
+//		totalLabel.text = total
+//		inputText.placeholder = input
+//
+//
