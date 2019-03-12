@@ -47,6 +47,7 @@ class ViewController: UIViewController {
 		inputText.textAlignment = .center
 		inputText.placeholder = "_"
 		inputText.layer.borderWidth = 2
+		inputText.isUserInteractionEnabled = false
 		inputText.layer.cornerRadius = 10
 		view.addSubview(inputText)
 		
@@ -96,7 +97,7 @@ class ViewController: UIViewController {
 			buttonView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
 			buttonView.heightAnchor.constraint(equalToConstant: 200),
 			buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 10),
-			buttonView.topAnchor.constraint(equalTo: inputText.bottomAnchor, constant: 20)
+			buttonView.topAnchor.constraint(equalTo: inputText.bottomAnchor, constant: 20),
 			
 			
 			
@@ -118,7 +119,6 @@ class ViewController: UIViewController {
 
 		guard let senderTitle = sender.titleLabel?.text else {
 			print("Error: SenderTitle")
-
 			return
 		}
 
@@ -136,37 +136,41 @@ class ViewController: UIViewController {
 		
 		if str == "C" {
 			clearAll()
-		
 		} else if str == "=" {
 			
 			let t1 = Int(sCalc.intArrToStr(sCalc.term1))!
 			let t2 = Int(sCalc.intArrToStr(sCalc.term2))!
-			let answer = sCalc.add(term1: t1, term2: t2)
-			totalStr = String(answer)
+			totalStr = sCalc.operate(t1, t2)
 			
-			
+			totalStr = String(totalStr)
 			clearAll()
+			sCalc.operate.removeAll()
+			//sCalc.term1.append(Int(totalStr)!)
+			
 			
 		} else if sCalc.strIsInt(str) {
 			// handle num input
+			
+			
 			totalStr = "_"
 			let num = Int(str)!
 			
 			if sCalc.operate.isEmpty {
 				sCalc.term1.append(num)
 				inputStr = sCalc.intArrToStr(sCalc.term1)
+				sCalc.operate.removeAll()
 			} else {
 				sCalc.term2.append(num)
 				inputStr = sCalc.intArrToStr(sCalc.term2)
 			}
-			
-			
-			
+
 		} else {
 			// its + - x /
-			sCalc.operate.append(str)
+			sCalc.operate.removeAll()
 			
-			
+			if !sCalc.term1.isEmpty{
+				sCalc.operate.append(Character(str))
+			}
 		}
 		
 		inputText.placeholder = inputStr
@@ -176,11 +180,10 @@ class ViewController: UIViewController {
 		print("op: \(sCalc.operate)")
 	}
 	
-	func clearAll () {
+	func clearAll() {
 		sCalc.term1.removeAll()
 		sCalc.term2.removeAll()
 		sCalc.operate.removeAll()
-		
 	}
 }
 

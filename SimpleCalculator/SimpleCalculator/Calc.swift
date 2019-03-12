@@ -12,7 +12,7 @@ import UIKit
 class Calc {
 	var term1 = [Int]()
 	var term2 = [Int]()
-	var operate = [Any]()
+	var operate = [Character]()
 	
 	
 	
@@ -76,10 +76,23 @@ class Calc {
 	}
 
 	func strIsInt(_ str: String) -> Bool {
-
 		if let _ = Int(str) { return true }
-
 		return false
 	}
 
+	func operate(_ t1: Int, _ t2: Int) -> String{
+		var total = 0
+		
+		if operate[0] == "+" {
+			total = t1 + t2
+		} else if operate[0] == "-" {
+			total = t1 - t2
+		} else if operate[0] == "x" {
+			total = t1 * t2
+		} else if operate[0] == "/" {
+			total = t1 / t2
+		}
+		return String(total)
+	}
+	
 }
