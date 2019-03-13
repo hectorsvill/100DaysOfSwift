@@ -113,6 +113,7 @@ class ViewController: UITableViewController {
 	}
 
 	//func/////////////////////////////////////////////////////////////////////
+
 	func parse(json: Data) {
 		let decoder = JSONDecoder()
 		if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
