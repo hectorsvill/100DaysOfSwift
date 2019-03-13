@@ -213,7 +213,6 @@ class ViewController: UIViewController {
 			}
 		}
 
-		
 		DispatchQueue.main.async {
 			[weak self] in
 			//configure buttons anf labels
