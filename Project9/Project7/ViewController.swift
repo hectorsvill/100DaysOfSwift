@@ -18,10 +18,10 @@ class ViewController: UITableViewController {
 	let navid = "NavController"		// navigatione controller id
 	var petitions = [Petition]()	// Define the kinds of data structures we want to load the JSON into.
 	var petitionsFiltered = [Petition]()
+	var filterText = ""		//Input - filter serch text
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		title = "US Petitions"
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showCredit))
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(filterResult))
@@ -32,7 +32,7 @@ class ViewController: UITableViewController {
 	
 	@objc func fetchJason() {
 		let urlstr: String
-		
+
 		if navigationController?.tabBarItem.tag == 0 {
 			urlstr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 		} else {
@@ -47,14 +47,13 @@ class ViewController: UITableViewController {
 		}
 		performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
 	}
-	
 
 	@objc func showCredit() {
 		let ac = UIAlertController(title: "Credit: ", message: "https://api.whitehouse.gov/v1/petitions.json?limit=100", preferredStyle: .alert)
 		ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 		present(ac, animated: true)
 	}
-	
+
 	@objc func filterResult() {
 		
 		let ac = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
@@ -62,17 +61,34 @@ class ViewController: UITableViewController {
 		let filterStr = UIAlertAction(title: "Filter", style: .default){
 			[weak self, weak ac] action in
 			guard let filterText = ac?.textFields?[0].text else { return }
-			self?.filterTheLIstTo(filterText: filterText)
+			self?.filterText = filterText
+			self?.filterTheLIstTo()
 		}
 		ac.addAction(filterStr)
 		present(ac, animated: true)
 	}
-	
+
 	@objc func showError() {
 		DispatchQueue.main.async { [weak self] in
 			let ac = UIAlertController(title: "Loading Error", message: "Error Loading your content", preferredStyle: .alert)
 			ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 			self?.present(ac, animated: true)
+		}
+	}
+
+	@objc func filterListThread(){
+		var pCopy = [Petition]()
+		for p in petitions {
+			let title  = p.title.lowercased()
+			if title.contains(filterText.lowercased()){
+				pCopy.append(p)
+			}
+		}
+		petitions = pCopy
+		
+		DispatchQueue.main.async {
+			[weak self] in
+			self?.tableView.reloadData()
 		}
 	}
 
@@ -105,19 +121,8 @@ class ViewController: UITableViewController {
 		}
 	}
 
-	
-	
-	func filterTheLIstTo(filterText: String) {
-		var pCopy = [Petition]()
-		for p in petitions {
-			let title  = p.title.lowercased()
-			if title.contains(filterText.lowercased()){
-				pCopy.append(p)
-			}
-		}
-		petitions = pCopy
-		tableView.reloadData()
-		print(petitionsFiltered.count)
+	func filterTheLIstTo() {
+		performSelector(inBackground: #selector(filterListThread), with: nil)
 	}
 }
 
