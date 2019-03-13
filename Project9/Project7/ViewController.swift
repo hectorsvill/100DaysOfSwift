@@ -25,34 +25,29 @@ class ViewController: UITableViewController {
 		title = "US Petitions"
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showCredit))
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(filterResult))
-		
-		// download JSON using Swift’s Data type
+		performSelector(inBackground: #selector(fetchJason), with: nil)
+	}
+
+	//@objc////////////////////////////////////////////////////////////////////
+	
+	@objc func fetchJason() {
 		let urlstr: String
 		
 		if navigationController?.tabBarItem.tag == 0 {
 			urlstr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 		} else {
-			urlstr = "https://www.hackingwithswift.com/samples/petitions-2.json"
+			urlstr = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
 		}
-		
-//		urlstr = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
-		
-		DispatchQueue.global().async { [weak self] in
-			if let url = URL(string: urlstr){
-				if let data = try? Data(contentsOf: url){
-					self?.parse(json: data)
-					return
-				}
-			}
-			self?.showError()
-		}
-		
-		
-		
-	
-	}
 
-	//@objc////////////////////////////////////////////////////////////////////
+		if let url = URL(string: urlstr){
+			if let data = try? Data(contentsOf: url){
+				parse(json: data)
+				return
+			}
+		}
+		performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+	}
+	
 
 	@objc func showCredit() {
 		let ac = UIAlertController(title: "Credit: ", message: "https://api.whitehouse.gov/v1/petitions.json?limit=100", preferredStyle: .alert)
@@ -71,6 +66,14 @@ class ViewController: UITableViewController {
 		}
 		ac.addAction(filterStr)
 		present(ac, animated: true)
+	}
+	
+	@objc func showError() {
+		DispatchQueue.main.async { [weak self] in
+			let ac = UIAlertController(title: "Loading Error", message: "Error Loading your content", preferredStyle: .alert)
+			ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+			self?.present(ac, animated: true)
+		}
 	}
 
 	//tableView////////////////////////////////////////////////////////////////
@@ -98,20 +101,11 @@ class ViewController: UITableViewController {
 		let decoder = JSONDecoder()
 		if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
 			petitions = jsonPetitions.results
-			
-			DispatchQueue.main.async { [weak self] in
-				self?.tableView.reloadData()
-			}
+			tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
 		}
 	}
 
-	func showError() {
-		DispatchQueue.main.async { [weak self] in
-			let ac = UIAlertController(title: "Loading Error", message: "Error Loading your content", preferredStyle: .alert)
-			ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-			self?.present(ac, animated: true)
-		}
-	}
+	
 	
 	func filterTheLIstTo(filterText: String) {
 		var pCopy = [Petition]()
