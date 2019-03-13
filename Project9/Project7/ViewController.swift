@@ -25,12 +25,12 @@ class ViewController: UITableViewController {
 		title = "US Petitions"
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(showCredit))
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(filterResult))
-		performSelector(inBackground: #selector(fetchJason), with: nil)
+		performSelector(inBackground: #selector(fetchJson), with: nil)
 	}
 
 	//@objc////////////////////////////////////////////////////////////////////
 	
-	@objc func fetchJason() {
+	@objc func fetchJson() {
 		let urlstr: String
 
 		if navigationController?.tabBarItem.tag == 0 {
