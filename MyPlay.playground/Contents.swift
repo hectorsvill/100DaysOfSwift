@@ -35,11 +35,16 @@ import UIKit
 //}
 
 
-let str = "a A"
-let strArr = Array(str)
+//let str = "a A"
+//let strArr = Array(str)
+//
+//for i in str.utf8 {
+//	print("\(i):()")
+//}
+//let x = UnicodeScalar(97)!
+//print(x)
 
-for i in str.utf8 {
-	print("\(i):()")
+
+for i in 97..<97+26 {
+	print(UnicodeScalar(i)!, terminator: " ")
 }
-let x = UnicodeScalar(97)!
-print(x)
