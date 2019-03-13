@@ -12,9 +12,10 @@ import UIKit
 
 
 class ViewController: UIViewController {
-
+	
 	var CharButttonsUsed = [UIButton]()
 	var CharButtonView: UIView!
+	
 	
 	override func loadView() {
 		view = UIView()
@@ -33,11 +34,11 @@ class ViewController: UIViewController {
 		
 		CharButtonView = UIView()
 		CharButtonView.translatesAutoresizingMaskIntoConstraints = false
-		CharButtonView.layer.borderWidth = 1
-		CharButtonView.backgroundColor = .red
+		//CharButtonView.layer.borderWidth = 1
+		//CharButtonView.backgroundColor = .red
 		view.addSubview(CharButtonView)
 		
-		CharButttonsUsed = createCharButtonArr(width: 20, height: 20)
+		CharButttonsUsed = createCharButtonArr(width: 50, height: 50)
 		
 		
 		
@@ -76,27 +77,40 @@ class ViewController: UIViewController {
 	
 	func createCharButtonArr(width: Int, height: Int) -> [UIButton] {
 		var arrButton = [UIButton]()
+//		var cons = [NSLayoutConstraint]()
 		var index = 0
+		var colreduce = 6
 		
-		for row in 0..<4 {
-			for col in 0..<4 {
+		for row in 0..<5 {
+			for col in 0..<6 {
+				if index >= 26 { break }
+					
+					
 				let charButton = UIButton(type: .system)
 				charButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-				let title = "a"
-				charButton.setTitle(title, for: .normal)
+				
+				let title = UnicodeScalar(97 + index)! // return char
+				charButton.setTitle(String(title), for: .normal)
 				print("x:\(col * width) y:\(row * height) width: \(width) height: \(height)")
+				
 				let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
 				charButton.frame = frame
 				charButton.layer.borderWidth = 1
-				charButton.layer.cornerRadius = 2
+				charButton.layer.cornerRadius = 10
+				
+//				let a_constraint = charButton.leftAnchor.constraint(equalTo: CharButtonView.leftAnchor, constant: 0.5)
+//				cons.append(a_constraint)
 				//charButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
 				CharButtonView.addSubview(charButton)
 				
 				arrButton.append(charButton)
 				index += 1
+				colreduce -= 1
+				
 			}
 		}
 		
+//		NSLayoutConstraint.activate(cons)
 		return arrButton
 	}
 	

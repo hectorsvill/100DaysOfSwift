@@ -22,14 +22,24 @@ import UIKit
 //
 //findHigh(nums: numlist)
 //var nums = numlist.sorted()
-//print(nums[nums.count - 1])
+////print(nums[nums.count - 1])
+//
+//var word = "rrun"
+//var ogword = "running"
+//
+//for l in word {
+//	if let p = ogword.firstIndex(of: l){
+//		print(ogword)
+//		ogword.remove(at: p)
+//	}
+//}
 
-var word = "rrun"
-var ogword = "running"
 
-for l in word {
-	if let p = ogword.firstIndex(of: l){
-		print(ogword)
-		ogword.remove(at: p)
-	}
+let str = "a A"
+let strArr = Array(str)
+
+for i in str.utf8 {
+	print("\(i):()")
 }
+let x = UnicodeScalar(97)!
+print(x)
