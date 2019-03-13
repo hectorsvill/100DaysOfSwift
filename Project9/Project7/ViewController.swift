@@ -55,7 +55,6 @@ class ViewController: UITableViewController {
 	}
 
 	@objc func filterResult() {
-		
 		let ac = UIAlertController(title: "Search", message: nil, preferredStyle: .alert)
 		ac.addTextField()
 		let filterStr = UIAlertAction(title: "Filter", style: .default){
@@ -69,7 +68,8 @@ class ViewController: UITableViewController {
 	}
 
 	@objc func showError() {
-		DispatchQueue.main.async { [weak self] in
+		DispatchQueue.main.async {
+			[weak self] in
 			let ac = UIAlertController(title: "Loading Error", message: "Error Loading your content", preferredStyle: .alert)
 			ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 			self?.present(ac, animated: true)
@@ -93,12 +93,12 @@ class ViewController: UITableViewController {
 	}
 
 	//tableView////////////////////////////////////////////////////////////////
+
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return petitions.count
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
 		let p = petitions[indexPath.row]
 		cell.textLabel?.text = p.title

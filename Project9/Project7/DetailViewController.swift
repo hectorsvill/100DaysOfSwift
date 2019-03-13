@@ -15,16 +15,13 @@ class DetailViewController: UIViewController {
 	var webView: WKWebView!
 	var detailItem: Petition?
 
-
 	override func loadView() {
 		webView = WKWebView()
 		view = webView
 	}
-	
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-	
 		guard let detailItem = detailItem else { return }
 		print(detailItem.body.isEmpty)
 		let html = """
