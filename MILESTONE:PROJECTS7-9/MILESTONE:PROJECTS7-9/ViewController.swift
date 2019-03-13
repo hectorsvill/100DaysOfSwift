@@ -52,7 +52,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		//handle files
 	}
 	
 	//objc func///////////////////////////////////////////////////////
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
 
 				let frame = CGRect(x: col * width, y: row * height, width: (width) - 2 , height: height - 2)
 				charButton.frame = frame
-				
+
 				charButton.layer.borderWidth = 1
 				charButton.layer.cornerRadius = 10
 
