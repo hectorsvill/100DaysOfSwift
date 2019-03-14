@@ -9,6 +9,7 @@
 import Foundation
 
 struct PlayHangMan {
+	var charsUsed = [Character]()
 	var numberOfFailedTries = 0
 	var wordArr = [String]()
 	var currentWord = ""
@@ -38,7 +39,7 @@ struct PlayHangMan {
 		manstr.append("            | - \n")	// 4 / 7 Points lost
 		manstr.append("         - | - \n")	// 5 / 7 Points lost
 		manstr.append("            \\ \n")	// 6 / 7 Points lost
-		manstr.append("          / \\ \n")	// 7 / 7 Points lost  - Game lost
+		manstr.append("         / \\ \n")	// 7 / 7 Points lost  - Game lost
 		
 		var drawman = ""
 		if numberOfFailedTries == 0 {
@@ -82,4 +83,15 @@ struct PlayHangMan {
 		}
 		return drawman
 	}
+
+	mutating func playThisChar(char: Character) -> Bool{
+		if !currentWord.contains(char) {
+			numberOfFailedTries += 1
+			return false
+		}
+		print("Found a \(char) in \(currentWord)")
+		return true
+		
+	}
+
 }

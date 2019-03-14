@@ -96,12 +96,12 @@ class ViewController: UIViewController {
 	}
 
 	@objc func hangManAZButoons(_ sender: UIButton) {
-		let title = (sender.titleLabel?.text)!
-		print(title)
+		//reduce score if not contained
 		
-		
-		
-		
+		let char = Character((sender.titleLabel?.text)!)
+		if !Play.playThisChar(char: char) {
+			HangmanLabel.text = Play.drawHM()
+		}
 	}
 	
 	
