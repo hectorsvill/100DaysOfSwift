@@ -4,26 +4,26 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 
 <br>
 
-[Project 1](https://github.com/hvillasa/Swift-Notes/tree/master/Project1) : Storm Viewer
+[Project 1](https://github.com/hvillasa/Swift-Notes/tree/master/Project1/Project1) : Storm Viewer
 
 - Constants and variables
 - UITableView, UIImageView
 - FileManager, storyboards
 
-[Project 2](https://github.com/hvillasa/Swift-Notes/tree/master/Project2): Guess the Flag
+[Project 2](https://github.com/hvillasa/Swift-Notes/tree/master/Project2/Project2): Guess the Flag
 
 - Asset catalogs
 - UIButton, CALayer
 - UIColor
 - UIAlertController
 
-[Project 3](https://github.com/hvillasa/Swift-Notes/tree/master/Project3) : Social Media
+[Project 3](https://github.com/hvillasa/Swift-Notes/tree/master/Project3/Project3) : Social Media
 
 - UIBarButtonItem
 - UIActivityViewController
 - URL
 
-[Project 4](https://github.com/hvillasa/Swift-Notes/tree/master/Project4) : Easy Browser
+[Project 4](https://github.com/hvillasa/Swift-Notes/tree/master/Project4/Project4) : Easy Browser
 
 - loadView()
 - WKWebView,
@@ -60,3 +60,8 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - joined()
 - property observers
 - range operators
+
+[Project 9](https://github.com/hvillasa/Swift-Notes/tree/master/Project9/Project9) : Grand Central Dispatch
+
+- DispatchQueue
+- perform(inBackground:)
