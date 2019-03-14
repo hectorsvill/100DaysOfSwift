@@ -6,62 +6,104 @@
 //  Copyright © 2019 Hector Steven. All rights reserved.
 //
 // HangMan Word Game
+//
+//simulator: Iphone xs
+
 
 import UIKit
 
 
 
 class ViewController: UIViewController {
-	
+	var HintButton: UIButton!
 	var CharButttonsUsed = [UIButton]()
 	var CharButtonView: UIView!
+	var WordLabel: UILabel!
+	var HangManView: UIView!
+	
+	var wordHint = ""
+	var wordLabelArr = [Character]()
+	
 
 	override func loadView() {
 		view = UIView()
 		view.backgroundColor = UIColor.lightGray
-		let hintButtonTitle = "GET A HINT!"
 
-		let HintButton = UIButton(type: .system)
-		HintButton.translatesAutoresizingMaskIntoConstraints = false
-		HintButton.setTitle(hintButtonTitle, for: .normal)
-		HintButton.titleLabel?.font = UIFont.systemFont(ofSize: 22)
-		HintButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-		HintButton.layer.borderWidth = 1
-		HintButton.layer.cornerRadius = 5
-		HintButton.addTarget(self, action: #selector(getHint), for: .touchUpInside)
-		view.addSubview(HintButton)
+		createHintButton()
+		createAzButtonArr()
+		createStrLabel()
+		createHangMan()
 
-		CharButtonView = UIView()
-		CharButtonView.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(CharButtonView)
-
-		CharButttonsUsed = createCharButtonArr(width: 50, height: 50)
-
+		
 		NSLayoutConstraint.activate([
-			HintButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -50),
+	
 			HintButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-			HintButton.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.4),
+			HintButton.heightAnchor.constraint(equalToConstant: 40),
+			HintButton.widthAnchor.constraint(equalToConstant: 180),
+			HintButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -50),
 
+
+			CharButtonView.heightAnchor.constraint(equalToConstant: 215),
 			CharButtonView.widthAnchor.constraint(equalToConstant: 300),
-			CharButtonView.heightAnchor.constraint(equalToConstant: 250),
-			CharButtonView.bottomAnchor.constraint(equalTo: HintButton.topAnchor, constant: -20),
 			CharButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			CharButtonView.bottomAnchor.constraint(equalTo: HintButton.topAnchor, constant: -10),
+//			CharButtonView.topAnchor.constraint(equalTo: WordLabel.topAnchor, constant: -10),
+			
+			WordLabel.heightAnchor.constraint(equalToConstant: 40),
+			WordLabel.widthAnchor.constraint(equalToConstant: 300),
+			WordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			WordLabel.bottomAnchor.constraint(equalTo: CharButtonView.topAnchor, constant: -10),
+			//WordLabel.topAnchor.constraint(equalTo: HangManView.bottomAnchor, constant: 20),
 
+			HangManView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			HangManView.widthAnchor.constraint(equalToConstant: 300),
+			HangManView.heightAnchor.constraint(equalToConstant: 210),
+			HangManView.bottomAnchor.constraint(equalTo: WordLabel.topAnchor, constant: -20),
+
+			HangManView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 80),
 			])
+		
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		//handle files
 	}
 	
 	//objc func///////////////////////////////////////////////////////
 	@objc func getHint() {
+		//only provide 3 hints max
 		print("get hint")
+
+	}
+
+	@objc func hangMan(_ sender: UIButton) {
+		let title = (sender.titleLabel?.text)!
+		print(title)
+
 	}
 
 	//func//////////////////////////////////////////////////////////////
 	
+	func createHintButton() {
+		let hintButtonTitle = "GET A HINT!"
+		HintButton = UIButton(type: .system)
+		HintButton.translatesAutoresizingMaskIntoConstraints = false
+		HintButton.setTitle(hintButtonTitle, for: .normal)
+		HintButton.titleLabel?.font = UIFont.systemFont(ofSize: 22)
+		HintButton.layer.borderWidth = 1
+		HintButton.layer.cornerRadius = 5
+		HintButton.addTarget(self, action: #selector(getHint), for: .touchUpInside)
+		view.addSubview(HintButton)
+	}
+
+	func createAzButtonArr() {
+		CharButtonView = UIView()
+		CharButtonView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(CharButtonView)
+		CharButttonsUsed = createCharButtonArr(width: 50, height: 50)
+		CharButtonView.layer.borderWidth = 1
+	}
+
 	func createCharButtonArr(width: Int, height: Int) -> [UIButton] {
 		var arrButton = [UIButton]()
 		var index = 0
@@ -92,16 +134,29 @@ class ViewController: UIViewController {
 				print("x:\(col * width) y:\(row * height) width: \(width) height: \(height)")
 			}
 		}
-		
-//		NSLayoutConstraint.activate(cons)
 		return arrButton
 	}
+
+	func createStrLabel() {
+		WordLabel = UILabel()
+		WordLabel.translatesAutoresizingMaskIntoConstraints = false
+		WordLabel.font = UIFont.systemFont(ofSize: 44)
+		WordLabel.textAlignment = .center
+		WordLabel.text = "_ _ _ t _ i h _ _"
+		view.addSubview(WordLabel)
+		
+		WordLabel.layer.borderWidth = 1
+	}
 	
-	@objc func hangMan(_ sender: UIButton) {
+	func createHangMan() {
+		HangManView = UIView()
+		HangManView.translatesAutoresizingMaskIntoConstraints = false
+
+		HangManView.layer.borderWidth = 4
+		HangManView.layer.cornerRadius = 10
+		HangManView.backgroundColor = UIColor.green
+		view.addSubview(HangManView)
 		
-		
-		let title = (sender.titleLabel?.text)!
-		print(title)
 	}
 	
 }
