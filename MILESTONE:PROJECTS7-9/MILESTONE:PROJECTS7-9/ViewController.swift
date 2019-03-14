@@ -89,7 +89,7 @@ class ViewController: UIViewController {
 	}
 
 	@objc func getHint() {
-		//only provide 3 hints max
+
 		print("get hint")
 		
 
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
 
 	@objc func hangManAZButoons(_ sender: UIButton) {
 		//reduce score if not contained
-		
+		sender.isHidden = true
 		let char = Character((sender.titleLabel?.text)!)
 		if !Play.playThisChar(char: char) {
 			HangmanLabel.text = Play.drawHM()
@@ -105,9 +105,13 @@ class ViewController: UIViewController {
 			//remove char from string
 			// input char to wordlabel in correct order
 			
-			
 			WordLabel.text = Play.resetWordLabel(char: char)
 		}
+		//Todo:		check Score
+		
+		
+		
+		
 	}
 	
 	
@@ -217,7 +221,9 @@ class ViewController: UIViewController {
 
 	func loadLevel () {
 		
-		
+		for b in CharButttonsArr {
+			b.isHidden = false
+		}
 		let word = Play.findWord(words: Play.wordArr)
 		Play.currentWord = word
 		Play.numberOfFailedTries = 0

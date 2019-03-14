@@ -106,9 +106,12 @@ struct PlayHangMan {
 			}
 			index += 1
 		}
+
+		currentWord = currentWord.replacingOccurrences(of: String(char), with: " ")
 		let newstr = arrToStr(arr: newLabel)
 		currentLabelWord = newstr
 		print(newstr)
+		print(currentWord)
 		return newstr
 	}
 	
