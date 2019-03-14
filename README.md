@@ -68,4 +68,5 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 
 [MILESTONE](https://github.com/hvillasa/Swift-Notes/tree/master/MILESTONE:PROJECTS7-9/MILESTONE:PROJECTS7-9) : PROJECTS 7-9
 
-- [The challenge is this: make a hangman game using UIKit. As a reminder, this means choosing a random word from a list of possibilities, but presenting it to the user as a series of underscores. So, if your word was “RHYTHM” the user would see “??????”.](https://www.hackingwithswift.com/guide/4/3/challenge)
+- Build a HangMan Game using UIKit
+- [Challenge Description](https://www.hackingwithswift.com/guide/4/3/challenge)
