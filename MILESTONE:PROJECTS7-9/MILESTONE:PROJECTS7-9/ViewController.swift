@@ -102,18 +102,22 @@ class ViewController: UIViewController {
 		let char = Character((sender.titleLabel?.text)!)
 		if !Play.playThisChar(char: char) {
 			HangmanLabel.text = Play.drawHM()
+			if Play.numberOfFailedTries == 7 {
+				// lost Show alert
+				loadLevel()
+			}
 		} else {
 			//remove char from string
 			// input char to wordlabel in correct order
 			let newLabel = Play.resetWordLabel(char: char).uppercased()
 			WordLabel.text = newLabel
-			
-			
-		}
-		//Todo:		check Score
-		
-		if Play.numberOfFailedTries == 7 {
-			loadLevel()
+			if Play.checkIfWon(newLabel) {
+				//won show alert
+				//increase streak by if > 1
+				// add -1 to numberOfFailedtries
+				print("You Won!!!")
+				loadLevel()
+			}
 		}
 	}
 	
@@ -176,7 +180,7 @@ class ViewController: UIViewController {
 	func createStrLabel() {
 		WordLabel = UILabel()
 		WordLabel.translatesAutoresizingMaskIntoConstraints = false
-		WordLabel.font = UIFont.systemFont(ofSize: 44)
+		WordLabel.font = UIFont.systemFont(ofSize: 35)
 		WordLabel.textAlignment = .center
 	 	WordLabel.text = "_ _"
 		view.addSubview(WordLabel)

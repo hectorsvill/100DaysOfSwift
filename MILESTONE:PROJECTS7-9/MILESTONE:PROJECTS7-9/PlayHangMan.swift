@@ -108,7 +108,7 @@ struct PlayHangMan {
 			index += 1
 		}
 		currentLabelWordArr = newLabel
-		currentWord = currentWord.replacingOccurrences(of: String(char), with: " ")
+		//currentWord = currentWord.replacingOccurrences(of: String(char), with: " ")
 		let newstr = arrToStr(arr: newLabel)
 		currentLabelWord = newstr
 //		print(newstr)
@@ -116,8 +116,14 @@ struct PlayHangMan {
 		return newstr
 	}
 	
-	func checkIfWon () {
-		
+	func checkIfWon (_ str: String) -> Bool{
+
+		for c in currentLabelWordArr {
+			if c == "_" {
+				return false
+			}
+		}
+		return true
 	}
 	
 	func arrToStr(arr: [Character]) -> String{
