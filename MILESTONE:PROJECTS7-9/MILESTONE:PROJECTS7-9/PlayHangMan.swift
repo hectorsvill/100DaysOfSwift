@@ -9,13 +9,18 @@
 import Foundation
 
 struct PlayHangMan {
+	
 	var charsUsed = [Character]()
 	var numberOfFailedTries = 0	// set to zero at start of game in loadlevel()
+	var Streak = 0
+	var HintsUsed = 0
 	var wordArr = [String]()
 	var currentWord = ""		// set in loadlevel()
 	var currentLabelWord = ""	// set in wordToEmpy
 	var currentLabelWordArr = [Character] ()
 
+	
+	
 	func findWord(words: [String]) -> String {
 		if let word = words.randomElement() {
 			return word
@@ -133,4 +138,7 @@ struct PlayHangMan {
 		}
 		return str
 	}
+
+	
+
 }

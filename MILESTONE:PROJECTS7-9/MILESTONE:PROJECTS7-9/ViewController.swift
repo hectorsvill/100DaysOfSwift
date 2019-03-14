@@ -89,11 +89,11 @@ class ViewController: UIViewController {
 	}
 
 	@objc func getHint() {
-
-		print("get hint")
-		//show alert ask if they want a hint
-		
-
+		if let charHint = Play.currentWord.randomElement() {
+			let ac = UIAlertController(title: "Hint!", message: "Try using an: \(String(charHint))", preferredStyle: .actionSheet)
+			ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+			present(ac, animated: true)
+		}
 	}
 
 	@objc func hangManAZButoons(_ sender: UIButton) {
@@ -104,6 +104,11 @@ class ViewController: UIViewController {
 			HangmanLabel.text = Play.drawHM()
 			if Play.numberOfFailedTries == 7 {
 				// lost Show alert
+				
+				let ac = UIAlertController(title: "Sorry", message: "You Lost This Round", preferredStyle: .alert)
+				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+				present(ac, animated: true)
+				
 				loadLevel()
 			}
 		} else {
@@ -112,13 +117,19 @@ class ViewController: UIViewController {
 			let newLabel = Play.resetWordLabel(char: char).uppercased()
 			WordLabel.text = newLabel
 			if Play.checkIfWon(newLabel) {
-				//won show alert
 				//increase streak by if > 1
 				// add -1 to numberOfFailedtries
-				print("You Won!!!")
+				
+				
+				let ac = UIAlertController(title: "Great", message: "You Won This Round!", preferredStyle: .alert)
+				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+				present(ac, animated: true)
+
 				loadLevel()
 			}
 		}
+		
+		
 	}
 	
 	
