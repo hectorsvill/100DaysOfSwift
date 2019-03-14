@@ -34,11 +34,9 @@ struct PlayHangMan {
 		manstr.append("----o   \n")			// 0 / 7 points lost
 		manstr.append("         |   \n")	// 1 / 7 Points lost
 		manstr.append("         0   \n")	// 2 / 7 Points lost
-		
 		manstr.append("         |   \n")	// 3 / 7 Points lost
 		manstr.append("            | - \n")	// 4 / 7 Points lost
 		manstr.append("         - | - \n")	// 5 / 7 Points lost
-		
 		manstr.append("            \\ \n")	// 6 / 7 Points lost
 		manstr.append("          / \\ \n")	// 7 / 7 Points lost  - Game lost
 		

@@ -17,7 +17,7 @@ import UIKit
 class ViewController: UIViewController {
 	var Play = PlayHangMan()
 	var HintButton: UIButton!
-	var CharButttonsUsed = [UIButton]()
+	var CharButttonsArr = [UIButton]()
 	var CharButtonView: UIView!
 	var WordLabel: UILabel!
 	var HangManView: UIView!
@@ -34,21 +34,17 @@ class ViewController: UIViewController {
 		view = UIView()
 		view.backgroundColor = UIColor.lightGray
 
-		getFile()
+		
 		createHintButton()
 		createAzButtonArr()
 		createStrLabel()
 		createHangMan()
-		
-
-		
+		getFile()
 		NSLayoutConstraint.activate([
-	
 			HintButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			HintButton.heightAnchor.constraint(equalToConstant: 40),
 			HintButton.widthAnchor.constraint(equalToConstant: 180),
 			HintButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -50),
-
 
 			CharButtonView.heightAnchor.constraint(equalToConstant: 215),
 			CharButtonView.widthAnchor.constraint(equalToConstant: 300),
@@ -66,15 +62,8 @@ class ViewController: UIViewController {
 			HangManView.widthAnchor.constraint(equalToConstant: 300),
 			HangManView.heightAnchor.constraint(equalToConstant: 210),
 			HangManView.bottomAnchor.constraint(equalTo: WordLabel.topAnchor, constant: -20),
-
 			HangManView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 80),
-			
-			
 			])
-
-			//Start Game
-			loadLevel()
-		
 	}
 
 	override func viewDidLoad() {
@@ -82,21 +71,6 @@ class ViewController: UIViewController {
 	}
 	
 	//objc func///////////////////////////////////////////////////////
-	@objc func getHint() {
-		//only provide 3 hints max
-		print("get hint")
-		
-
-	}
-
-	@objc func hangMan(_ sender: UIButton) {
-		let title = (sender.titleLabel?.text)!
-		print(title)
-		
-		
-		
-		
-	}
 	
 	func getFile() {
 		
@@ -104,6 +78,7 @@ class ViewController: UIViewController {
 			if let startWords  = try? String(contentsOf: wordsURL) {
 				let words = startWords.components(separatedBy: "\n")
 				Play.wordArr = words
+				self.loadLevel()
 				return
 			}
 		}
@@ -113,6 +88,23 @@ class ViewController: UIViewController {
 		
 	}
 
+	@objc func getHint() {
+		//only provide 3 hints max
+		print("get hint")
+		
+
+	}
+
+	@objc func hangManAZButoons(_ sender: UIButton) {
+		let title = (sender.titleLabel?.text)!
+		print(title)
+		
+		
+		
+		
+	}
+	
+	
 	//func//////////////////////////////////////////////////////////////
 	
 	func createHintButton() {
@@ -131,7 +123,7 @@ class ViewController: UIViewController {
 		CharButtonView = UIView()
 		CharButtonView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(CharButtonView)
-		CharButttonsUsed = createCharButtonArr(width: 50, height: 50)
+		CharButttonsArr = createCharButtonArr(width: 50, height: 50)
 //		CharButtonView.layer.borderWidth = 1
 	}
 
@@ -156,7 +148,7 @@ class ViewController: UIViewController {
 				charButton.layer.borderWidth = 1
 				charButton.layer.cornerRadius = 10
 
-				charButton.addTarget(self, action: #selector(hangMan), for: .touchUpInside)
+				charButton.addTarget(self, action: #selector(hangManAZButoons), for: .touchUpInside)
 				CharButtonView.addSubview(charButton)
 
 				arrButton.append(charButton)
@@ -216,9 +208,7 @@ class ViewController: UIViewController {
 			HintLabel.rightAnchor.constraint(equalTo: HangManView.rightAnchor, constant: -5),
 			])
 	}
-	
-	
-	
+
 	func loadLevel () {
 		
 		
