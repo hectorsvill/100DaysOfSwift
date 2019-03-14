@@ -9,28 +9,24 @@
 import Foundation
 
 struct PlayHangMan {
-	var numberOfFailedTries = 7
+	var numberOfFailedTries = 0
 	var wordArr = [String]()
+	var currentWord = ""
 
 	func findWord(words: [String]) -> String {
 		if let word = words.randomElement() {
 			return word
 		}
-		return "Strong"
+		return "Error"
 	}
 	
-	func createEmptyStrArray (str: String) -> String {
-		var arr = [Character]()
-		var str = ""
+	func wordToEmty(str: String) -> String {
+		var newstr = ""
 		for _ in 0..<str.count {
-			arr.append("_")
-			arr.append(" ")
+			newstr += "_"
+			newstr += " "
 		}
-		
-		for a in arr {
-			str.append(String(a))
-		}
-		return str
+		return newstr
 	}
 	
 	func drawHM () -> String {
@@ -49,7 +45,6 @@ struct PlayHangMan {
 		var drawman = ""
 		if numberOfFailedTries == 0 {
 			drawman = manstr[0]
-			print(drawman)
 		} else if numberOfFailedTries == 1 {
 			drawman += manstr[0]
 			drawman += manstr[1]

@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 	var HangManView: UIView!
 	var HangmanLabel: UILabel!
 	var ScoreLabel: UILabel!
-	let numberOfTries = 7
+	
 	
 	
 	var wordHint = ""
@@ -33,11 +33,13 @@ class ViewController: UIViewController {
 	override func loadView() {
 		view = UIView()
 		view.backgroundColor = UIColor.lightGray
-		
+
+		getFile()
 		createHintButton()
 		createAzButtonArr()
 		createStrLabel()
 		createHangMan()
+		
 
 		
 		NSLayoutConstraint.activate([
@@ -77,30 +79,34 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		performSelector(inBackground: #selector(getFile), with: nil)
 	}
 	
 	//objc func///////////////////////////////////////////////////////
 	@objc func getHint() {
 		//only provide 3 hints max
 		print("get hint")
+		
 
 	}
 
 	@objc func hangMan(_ sender: UIButton) {
 		let title = (sender.titleLabel?.text)!
 		print(title)
+		
+		
+		
+		
 	}
 	
-	@objc func getFile() {
+	func getFile() {
 		
 		if let wordsURL = Bundle.main.url(forResource: "start", withExtension: ".txt") {
 			if let startWords  = try? String(contentsOf: wordsURL) {
-				Play.wordArr = startWords.components(separatedBy: "\n")
+				let words = startWords.components(separatedBy: "\n")
+				Play.wordArr = words
 				return
 			}
 		}
-		
 		let ac = UIAlertController(title: "Error", message: "Loading Words Failed!", preferredStyle: .alert)
 		ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 		present(ac, animated: true)
@@ -184,7 +190,7 @@ class ViewController: UIViewController {
 		HangmanLabel.translatesAutoresizingMaskIntoConstraints = false
 		HangmanLabel.font = UIFont.systemFont(ofSize: 30)
 		HangmanLabel.textAlignment = .center
-		HangmanLabel.text = ""
+		HangmanLabel.text = Play.drawHM()
 		HangmanLabel.numberOfLines = 6
 		HangManView.addSubview(HangmanLabel)
 		
@@ -214,11 +220,17 @@ class ViewController: UIViewController {
 	
 	
 	func loadLevel () {
-		//let word = Play.findWord(words: Play.wordArr)
-	
 		
-		HangmanLabel.text = Play.drawHM()
-		WordLabel.text = "_ _ _ _ _ _"
+		
+		let word = Play.findWord(words: Play.wordArr)
+		print("The word is: \(word)")
+		Play.currentWord = word
+		
+		let userWord = Play.wordToEmty(str: word)
+		WordLabel.text = userWord
+		
+		
+		
 	}
 	
 }
