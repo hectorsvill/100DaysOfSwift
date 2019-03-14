@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 	var HangManView: UIView!
 	var HangmanLabel: UILabel!
 	var ScoreLabel: UILabel!
-	let numberOfTries = 1
+	let numberOfTries = 7
 	
 	
 	var wordHint = ""
@@ -69,6 +69,9 @@ class ViewController: UIViewController {
 			
 			
 			])
+
+			//Start Game
+			loadLevel()
 		
 	}
 
@@ -153,7 +156,7 @@ class ViewController: UIViewController {
 				arrButton.append(charButton)
 				index += 1
 				colreduce -= 1
-				print("x:\(col * width) y:\(row * height) width: \(width) height: \(height)")
+				//print("x:\(col * width) y:\(row * height) width: \(width) height: \(height)")
 			}
 		}
 		return arrButton
@@ -164,10 +167,9 @@ class ViewController: UIViewController {
 		WordLabel.translatesAutoresizingMaskIntoConstraints = false
 		WordLabel.font = UIFont.systemFont(ofSize: 44)
 		WordLabel.textAlignment = .center
-		WordLabel.text = "_ _ _ _ _ _ _ _ _"
+	 	WordLabel.text = "_ _"
 		view.addSubview(WordLabel)
 
-//		WordLabel.layer.borderWidth = 1
 	}
 
 	func createHangMan() {
@@ -182,9 +184,8 @@ class ViewController: UIViewController {
 		HangmanLabel.translatesAutoresizingMaskIntoConstraints = false
 		HangmanLabel.font = UIFont.systemFont(ofSize: 30)
 		HangmanLabel.textAlignment = .center
-		HangmanLabel.text = drawHM()
+		HangmanLabel.text = ""
 		HangmanLabel.numberOfLines = 6
-		//HangmanLabel.layer.borderWidth = 1
 		HangManView.addSubview(HangmanLabel)
 		
 		ScoreLabel = UILabel()
@@ -210,91 +211,14 @@ class ViewController: UIViewController {
 			])
 	}
 	
-	func drawHM () -> String {
-		//7 tryes per word
-		
-		var drawman = ""
-		
-		if numberOfTries == 7 {
-		drawman =
-		"""
-		----o
-			  |
-			  0
-			 - | -
-		     / \\
-		"""
-		} else if numberOfTries == 6 {
-		drawman =
-		"""
-		----o
-			  |
-			  0
-			 - | -
-		   /
-		"""
-		}else if numberOfTries == 5 {
-			drawman =
-			"""
-			----o
-				  |
-				  0
-				   | -
-			   /
-			"""
-		}else if numberOfTries == 4 {
-			drawman =
-			"""
-			----o
-				 |
-				 0
-				   | -
-			
-			"""
-		}else if numberOfTries == 3 {
-			drawman =
-			"""
-			----o
-				  |
-				  0
-				   |
-			
-			"""
-		} else if numberOfTries == 2 {
-			drawman =
-			"""
-			----o
-				  |
-				  0
-			
-			
-			"""
-		}else if numberOfTries == 1 {
-			drawman =
-			"""
-			----o
-				  |
-			
-			
-			
-			"""
-		}else if numberOfTries == 0 {
-			drawman =
-			"""
-			----o
-			"""
-		}
-		
-		
-		
-		return drawman
-	}
+	
 	
 	func loadLevel () {
- 		let word = Play.findWord(words: Play.wordArr)
-		WordLabel.text = Play.createEmptyStrArray(str: word)
+		//let word = Play.findWord(words: Play.wordArr)
 	
-		print(word)
+		
+		HangmanLabel.text = Play.drawHM()
+		WordLabel.text = "_ _ _ _ _ _"
 	}
 	
 }
