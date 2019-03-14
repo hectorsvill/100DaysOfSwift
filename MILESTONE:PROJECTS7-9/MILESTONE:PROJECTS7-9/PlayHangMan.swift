@@ -14,6 +14,7 @@ struct PlayHangMan {
 	var wordArr = [String]()
 	var currentWord = ""		// set in loadlevel()
 	var currentLabelWord = ""	// set in wordToEmpy
+	var currentLabelWordArr = [Character] ()
 
 	func findWord(words: [String]) -> String {
 		if let word = words.randomElement() {
@@ -106,13 +107,17 @@ struct PlayHangMan {
 			}
 			index += 1
 		}
-
+		currentLabelWordArr = newLabel
 		currentWord = currentWord.replacingOccurrences(of: String(char), with: " ")
 		let newstr = arrToStr(arr: newLabel)
 		currentLabelWord = newstr
-		print(newstr)
-		print(currentWord)
+//		print(newstr)
+//		print(currentWord)
 		return newstr
+	}
+	
+	func checkIfWon () {
+		
 	}
 	
 	func arrToStr(arr: [Character]) -> String{

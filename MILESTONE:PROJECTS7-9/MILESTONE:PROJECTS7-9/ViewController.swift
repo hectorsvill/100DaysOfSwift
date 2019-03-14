@@ -91,6 +91,7 @@ class ViewController: UIViewController {
 	@objc func getHint() {
 
 		print("get hint")
+		//show alert ask if they want a hint
 		
 
 	}
@@ -104,14 +105,16 @@ class ViewController: UIViewController {
 		} else {
 			//remove char from string
 			// input char to wordlabel in correct order
+			let newLabel = Play.resetWordLabel(char: char).uppercased()
+			WordLabel.text = newLabel
 			
-			WordLabel.text = Play.resetWordLabel(char: char)
+			
 		}
 		//Todo:		check Score
 		
-		
-		
-		
+		if Play.numberOfFailedTries == 7 {
+			loadLevel()
+		}
 	}
 	
 	
