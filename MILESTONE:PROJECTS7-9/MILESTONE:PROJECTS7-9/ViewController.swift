@@ -15,6 +15,7 @@ import UIKit
 
 
 class ViewController: UIViewController {
+	var Play = PlayHangMan()
 	var HintButton: UIButton!
 	var CharButttonsUsed = [UIButton]()
 	var CharButtonView: UIView!
@@ -22,6 +23,8 @@ class ViewController: UIViewController {
 	var HangManView: UIView!
 	var HangmanLabel: UILabel!
 	var ScoreLabel: UILabel!
+	let numberOfTries = 1
+	
 	
 	var wordHint = ""
 	var wordLabelArr = [Character]()
@@ -36,7 +39,6 @@ class ViewController: UIViewController {
 		createStrLabel()
 		createHangMan()
 
-		print(drawHM())
 		
 		NSLayoutConstraint.activate([
 	
@@ -72,8 +74,7 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		
+		performSelector(inBackground: #selector(getFile), with: nil)
 	}
 	
 	//objc func///////////////////////////////////////////////////////
@@ -86,7 +87,21 @@ class ViewController: UIViewController {
 	@objc func hangMan(_ sender: UIButton) {
 		let title = (sender.titleLabel?.text)!
 		print(title)
-
+	}
+	
+	@objc func getFile() {
+		
+		if let wordsURL = Bundle.main.url(forResource: "start", withExtension: ".txt") {
+			if let startWords  = try? String(contentsOf: wordsURL) {
+				Play.wordArr = startWords.components(separatedBy: "\n")
+				return
+			}
+		}
+		
+		let ac = UIAlertController(title: "Error", message: "Loading Words Failed!", preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+		present(ac, animated: true)
+		
 	}
 
 	//func//////////////////////////////////////////////////////////////
@@ -149,12 +164,12 @@ class ViewController: UIViewController {
 		WordLabel.translatesAutoresizingMaskIntoConstraints = false
 		WordLabel.font = UIFont.systemFont(ofSize: 44)
 		WordLabel.textAlignment = .center
-		WordLabel.text = "_ _ _ t _ i h _ _"
+		WordLabel.text = "_ _ _ _ _ _ _ _ _"
 		view.addSubview(WordLabel)
-		
+
 //		WordLabel.layer.borderWidth = 1
 	}
-	
+
 	func createHangMan() {
 		HangManView = UIView()
 		HangManView.translatesAutoresizingMaskIntoConstraints = false
@@ -162,7 +177,7 @@ class ViewController: UIViewController {
 		HangManView.layer.cornerRadius = 10
 		HangManView.backgroundColor = UIColor.white
 		view.addSubview(HangManView)
-		
+
 		HangmanLabel = UILabel()
 		HangmanLabel.translatesAutoresizingMaskIntoConstraints = false
 		HangmanLabel.font = UIFont.systemFont(ofSize: 30)
@@ -175,13 +190,13 @@ class ViewController: UIViewController {
 		ScoreLabel = UILabel()
 		ScoreLabel.translatesAutoresizingMaskIntoConstraints = false
 		ScoreLabel.font = UIFont.systemFont(ofSize: 15)
-		ScoreLabel.text = "Streak: 0 / 10"
+		ScoreLabel.text = "Streak: 0 "
 		HangManView.addSubview(ScoreLabel)
 		
 		let HintLabel = UILabel()
 		HintLabel.translatesAutoresizingMaskIntoConstraints = false
 		HintLabel.font = UIFont.systemFont(ofSize: 15)
-		HintLabel.text = "Hints: 5/5"
+		HintLabel.text = "Hints: 10 / 10"
 		HangManView.addSubview(HintLabel)
 		
 		NSLayoutConstraint.activate([
@@ -193,19 +208,93 @@ class ViewController: UIViewController {
 			HintLabel.bottomAnchor.constraint(equalTo: HangManView.bottomAnchor, constant: -5),
 			HintLabel.rightAnchor.constraint(equalTo: HangManView.rightAnchor, constant: -5),
 			])
-		
 	}
 	
 	func drawHM () -> String {
-		let drawman =
+		//7 tryes per word
+		
+		var drawman = ""
+		
+		if numberOfTries == 7 {
+		drawman =
 		"""
 		----o
 			  |
 			  0
 			 - | -
-			  / \\
+		     / \\
 		"""
+		} else if numberOfTries == 6 {
+		drawman =
+		"""
+		----o
+			  |
+			  0
+			 - | -
+		   /
+		"""
+		}else if numberOfTries == 5 {
+			drawman =
+			"""
+			----o
+				  |
+				  0
+				   | -
+			   /
+			"""
+		}else if numberOfTries == 4 {
+			drawman =
+			"""
+			----o
+				 |
+				 0
+				   | -
+			
+			"""
+		}else if numberOfTries == 3 {
+			drawman =
+			"""
+			----o
+				  |
+				  0
+				   |
+			
+			"""
+		} else if numberOfTries == 2 {
+			drawman =
+			"""
+			----o
+				  |
+				  0
+			
+			
+			"""
+		}else if numberOfTries == 1 {
+			drawman =
+			"""
+			----o
+				  |
+			
+			
+			
+			"""
+		}else if numberOfTries == 0 {
+			drawman =
+			"""
+			----o
+			"""
+		}
+		
+		
+		
 		return drawman
+	}
+	
+	func loadLevel () {
+ 		let word = Play.findWord(words: Play.wordArr)
+		WordLabel.text = Play.createEmptyStrArray(str: word)
+	
+		print(word)
 	}
 	
 }
