@@ -101,6 +101,12 @@ class ViewController: UIViewController {
 		let char = Character((sender.titleLabel?.text)!)
 		if !Play.playThisChar(char: char) {
 			HangmanLabel.text = Play.drawHM()
+		} else {
+			//remove char from string
+			// input char to wordlabel in correct order
+			
+			
+			WordLabel.text = Play.resetWordLabel(char: char)
 		}
 	}
 	
@@ -213,9 +219,10 @@ class ViewController: UIViewController {
 		
 		
 		let word = Play.findWord(words: Play.wordArr)
-		print("The word is: \(word)")
 		Play.currentWord = word
-		
+		Play.numberOfFailedTries = 0
+		print("The word is: \(word)")
+
 		let userWord = Play.wordToEmty(str: word)
 		WordLabel.text = userWord
 		

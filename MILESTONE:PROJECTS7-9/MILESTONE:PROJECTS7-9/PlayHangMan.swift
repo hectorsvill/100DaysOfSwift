@@ -10,9 +10,10 @@ import Foundation
 
 struct PlayHangMan {
 	var charsUsed = [Character]()
-	var numberOfFailedTries = 0
+	var numberOfFailedTries = 0	// set to zero at start of game in loadlevel()
 	var wordArr = [String]()
-	var currentWord = ""
+	var currentWord = ""		// set in loadlevel()
+	var currentLabelWord = ""	// set in wordToEmpy
 
 	func findWord(words: [String]) -> String {
 		if let word = words.randomElement() {
@@ -21,12 +22,13 @@ struct PlayHangMan {
 		return "Error"
 	}
 	
-	func wordToEmty(str: String) -> String {
+	mutating func wordToEmty(str: String) -> String {
 		var newstr = ""
 		for _ in 0..<str.count {
 			newstr += "_"
 			newstr += " "
 		}
+		currentLabelWord = newstr
 		return newstr
 	}
 	
@@ -40,7 +42,7 @@ struct PlayHangMan {
 		manstr.append("         - | - \n")	// 5 / 7 Points lost
 		manstr.append("            \\ \n")	// 6 / 7 Points lost
 		manstr.append("         / \\ \n")	// 7 / 7 Points lost  - Game lost
-		
+
 		var drawman = ""
 		if numberOfFailedTries == 0 {
 			drawman = manstr[0]
@@ -89,9 +91,32 @@ struct PlayHangMan {
 			numberOfFailedTries += 1
 			return false
 		}
-		print("Found a \(char) in \(currentWord)")
+		print("Found [ \(char) ] in \(currentWord)")
 		return true
-		
 	}
 
+	mutating func resetWordLabel(char: Character) -> String {
+		
+		var newLabel = Array(currentLabelWord)
+
+		var index = 0
+		for c in currentWord{
+			if c == char {
+				newLabel[index * 2] = char
+			}
+			index += 1
+		}
+		let newstr = arrToStr(arr: newLabel)
+		currentLabelWord = newstr
+		print(newstr)
+		return newstr
+	}
+	
+	func arrToStr(arr: [Character]) -> String{
+		var str = ""
+		for a in arr {
+			str += String(a)
+		}
+		return str
+	}
 }
