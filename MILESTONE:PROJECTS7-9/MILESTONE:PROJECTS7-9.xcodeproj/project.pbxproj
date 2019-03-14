@@ -12,6 +12,7 @@
 		E845BA03223959FF00653C0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E845BA01223959FF00653C0A /* Main.storyboard */; };
 		E845BA0522395A0100653C0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E845BA0422395A0100653C0A /* Assets.xcassets */; };
 		E845BA0822395A0100653C0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E845BA0622395A0100653C0A /* LaunchScreen.storyboard */; };
+		E8977E962239DCD500FA567F /* PlayHangMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8977E952239DCD500FA567F /* PlayHangMan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E845BA0422395A0100653C0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E845BA0722395A0100653C0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E845BA0922395A0100653C0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8977E952239DCD500FA567F /* PlayHangMan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHangMan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +56,9 @@
 		E845B9FC223959FF00653C0A /* MILESTONE:PROJECTS7-9 */ = {
 			isa = PBXGroup;
 			children = (
-				E845B9FD223959FF00653C0A /* AppDelegate.swift */,
+				E8977E952239DCD500FA567F /* PlayHangMan.swift */,
 				E845B9FF223959FF00653C0A /* ViewController.swift */,
+				E845B9FD223959FF00653C0A /* AppDelegate.swift */,
 				E845BA01223959FF00653C0A /* Main.storyboard */,
 				E845BA0422395A0100653C0A /* Assets.xcassets */,
 				E845BA0622395A0100653C0A /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8977E962239DCD500FA567F /* PlayHangMan.swift in Sources */,
 				E845BA00223959FF00653C0A /* ViewController.swift in Sources */,
 				E845B9FE223959FF00653C0A /* AppDelegate.swift in Sources */,
 			);

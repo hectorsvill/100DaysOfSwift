@@ -20,6 +20,8 @@ class ViewController: UIViewController {
 	var CharButtonView: UIView!
 	var WordLabel: UILabel!
 	var HangManView: UIView!
+	var HangmanLabel: UILabel!
+	var ScoreLabel: UILabel!
 	
 	var wordHint = ""
 	var wordLabelArr = [Character]()
@@ -28,12 +30,13 @@ class ViewController: UIViewController {
 	override func loadView() {
 		view = UIView()
 		view.backgroundColor = UIColor.lightGray
-
+		
 		createHintButton()
 		createAzButtonArr()
 		createStrLabel()
 		createHangMan()
 
+		print(drawHM())
 		
 		NSLayoutConstraint.activate([
 	
@@ -61,12 +64,16 @@ class ViewController: UIViewController {
 			HangManView.bottomAnchor.constraint(equalTo: WordLabel.topAnchor, constant: -20),
 
 			HangManView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 80),
+			
+			
 			])
 		
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		
 	}
 	
 	//objc func///////////////////////////////////////////////////////
@@ -101,7 +108,7 @@ class ViewController: UIViewController {
 		CharButtonView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(CharButtonView)
 		CharButttonsUsed = createCharButtonArr(width: 50, height: 50)
-		CharButtonView.layer.borderWidth = 1
+//		CharButtonView.layer.borderWidth = 1
 	}
 
 	func createCharButtonArr(width: Int, height: Int) -> [UIButton] {
@@ -145,18 +152,60 @@ class ViewController: UIViewController {
 		WordLabel.text = "_ _ _ t _ i h _ _"
 		view.addSubview(WordLabel)
 		
-		WordLabel.layer.borderWidth = 1
+//		WordLabel.layer.borderWidth = 1
 	}
 	
 	func createHangMan() {
 		HangManView = UIView()
 		HangManView.translatesAutoresizingMaskIntoConstraints = false
-
 		HangManView.layer.borderWidth = 4
 		HangManView.layer.cornerRadius = 10
-		HangManView.backgroundColor = UIColor.green
+		HangManView.backgroundColor = UIColor.white
 		view.addSubview(HangManView)
 		
+		HangmanLabel = UILabel()
+		HangmanLabel.translatesAutoresizingMaskIntoConstraints = false
+		HangmanLabel.font = UIFont.systemFont(ofSize: 30)
+		HangmanLabel.textAlignment = .center
+		HangmanLabel.text = drawHM()
+		HangmanLabel.numberOfLines = 6
+		//HangmanLabel.layer.borderWidth = 1
+		HangManView.addSubview(HangmanLabel)
+		
+		ScoreLabel = UILabel()
+		ScoreLabel.translatesAutoresizingMaskIntoConstraints = false
+		ScoreLabel.font = UIFont.systemFont(ofSize: 15)
+		ScoreLabel.text = "Streak: 0 / 10"
+		HangManView.addSubview(ScoreLabel)
+		
+		let HintLabel = UILabel()
+		HintLabel.translatesAutoresizingMaskIntoConstraints = false
+		HintLabel.font = UIFont.systemFont(ofSize: 15)
+		HintLabel.text = "Hints: 5/5"
+		HangManView.addSubview(HintLabel)
+		
+		NSLayoutConstraint.activate([
+			HangmanLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10),
+			
+			ScoreLabel.bottomAnchor.constraint(equalTo: HangManView.bottomAnchor, constant: -5),
+			ScoreLabel.leftAnchor.constraint(equalTo: HangManView.leftAnchor, constant: 5),
+			
+			HintLabel.bottomAnchor.constraint(equalTo: HangManView.bottomAnchor, constant: -5),
+			HintLabel.rightAnchor.constraint(equalTo: HangManView.rightAnchor, constant: -5),
+			])
+		
+	}
+	
+	func drawHM () -> String {
+		let drawman =
+		"""
+		----o
+			  |
+			  0
+			 - | -
+			  / \\
+		"""
+		return drawman
 	}
 	
 }
