@@ -10,7 +10,7 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - UITableView, UIImageView
 - FileManager, storyboards
 
-[Project 2](https://github.com/hvillasa/Swift-Notes/tree/master/Project2/Project2): Guess the Flag
+[Project 2](https://github.com/hvillasa/Swift-Notes/tree/master/Project2/Project2) : Guess the Flag
 
 - Asset catalogs
 - UIButton, CALayer
@@ -45,7 +45,7 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - Visual Format Language
 - layout anchors
 
-[Project 7](https://github.com/hvillasa/Swift-Notes/tree/master/Project7/Project7): Whitehouse Petitions
+[Project 7](https://github.com/hvillasa/Swift-Notes/tree/master/Project7/Project7) : Whitehouse Petitions
 
 - JSON
 - Data
@@ -65,3 +65,9 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 
 - DispatchQueue
 - perform(inBackground:)
+
+[MILESTONE](https://github.com/hvillasa/Swift-Notes/tree/master/MILESTONE:PROJECTS7-9/MILESTONE:PROJECTS7-9) : PROJECTS 7-9
+
+- The challenge is this: make a hangman game using UIKit.
+- As a reminder, this means choosing a random word from a list of possibilities, but presenting it to the user as a series of underscores.
+- So, if your word was “RHYTHM” the user would see “??????”.
