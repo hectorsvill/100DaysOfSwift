@@ -12,4 +12,14 @@ https://www.hackingwithswift.com/100
 - FileManager, storyboards
 
 [Project 2](https://github.com/hvillasa/Swift-Notes/tree/master/Project2): Guess the Flag
-Make a game using UIKit, and learn about integers, buttons, colors and actions.
+
+- Asset catalogs
+- UIButton, CALayer
+- UIColor
+- UIAlertController
+
+[Project 3](https://github.com/hvillasa/Swift-Notes/tree/master/Project3) : Social Media
+
+- UIBarButtonItem
+- UIActivityViewController
+- URL
