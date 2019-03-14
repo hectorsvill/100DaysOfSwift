@@ -22,3 +22,12 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - UIBarButtonItem
 - UIActivityViewController
 - URL
+
+[Project 4](https://github.com/hvillasa/Swift-Notes/tree/master/Project4) : Easy Browser
+
+- loadView()
+- WKWebView,
+- URLRequest
+- UIToolbar
+- UIProgressView
+- key-value observing
