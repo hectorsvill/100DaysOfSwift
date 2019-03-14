@@ -61,7 +61,7 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - property observers
 - range operators
 
-[Project 9](https://github.com/hvillasa/Swift-Notes/tree/master/Project9/Project9) : Grand Central Dispatch
+[Project 9](https://github.com/hvillasa/Swift-Notes/tree/master/Project9/Project7) : Grand Central Dispatch
 
 - DispatchQueue
 - perform(inBackground:)
