@@ -90,9 +90,9 @@ class ViewController: UIViewController {
 	}
 
 	@objc func getHint() {
-		if Play.HintsUsed < 3{
+		if Play.HintsUsed < 4{
 			Play.HintsUsed += 1
-			HintLabel.text = "\(Play.HintsUsed) / 3"
+			HintLabel.text = "\(Play.HintsUsed) / 4"
 
 			if let charHint = Play.currentWord.randomElement() {
 				let ac = UIAlertController(title: "Hint!", message: "Your hint is: \(String(charHint))" , preferredStyle: .actionSheet)
@@ -255,7 +255,7 @@ class ViewController: UIViewController {
 		Play.numberOfFailedTries = 0
 		
 		HangmanLabel.text = Play.drawHM()
-		HintLabel.text = "Hints: 0 / 3"
+		HintLabel.text = "Hints: 0 / 4"
 		ScoreLabel.text = "Points: \(Play.currentScore)"
 		let userWord = Play.wordToEmty(str: word)
 		WordLabel.text = userWord
