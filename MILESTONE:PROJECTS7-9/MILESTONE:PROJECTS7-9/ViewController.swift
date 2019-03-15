@@ -16,6 +16,7 @@ import UIKit
 
 class ViewController: UIViewController {
 	var Play = PlayHangMan()
+	var HintLabel: UILabel!
 	var HintButton: UIButton!
 	var CharButttonsArr = [UIButton]()
 	var CharButtonView: UIView!
@@ -89,11 +90,21 @@ class ViewController: UIViewController {
 	}
 
 	@objc func getHint() {
-		if let charHint = Play.currentWord.randomElement() {
-			let ac = UIAlertController(title: "Hint!", message: "Try using an: \(String(charHint))", preferredStyle: .actionSheet)
+		if Play.HintsUsed < 3{
+			Play.HintsUsed += 1
+			HintLabel.text = "\(Play.HintsUsed) / 3"
+
+			if let charHint = Play.currentWord.randomElement() {
+				let ac = UIAlertController(title: "Hint!", message: "Your hint is: \(String(charHint))" , preferredStyle: .actionSheet)
+				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+				present(ac, animated: true)
+			}
+		} else {
+			let ac = UIAlertController(title: "Hint!", message: "Sorry, no more Hints!" , preferredStyle: .actionSheet)
 			ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 			present(ac, animated: true)
 		}
+		
 	}
 
 	@objc func hangManAZButoons(_ sender: UIButton) {
@@ -102,29 +113,24 @@ class ViewController: UIViewController {
 		let char = Character((sender.titleLabel?.text)!)
 		if !Play.playThisChar(char: char) {
 			HangmanLabel.text = Play.drawHM()
-			if Play.numberOfFailedTries == 7 {
-				// lost Show alert
-				
+			if Play.numberOfFailedTries == 8 {
 				let ac = UIAlertController(title: "Sorry", message: "You Lost This Round", preferredStyle: .alert)
 				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 				present(ac, animated: true)
-				
 				loadLevel()
-			}
+			} else if Play.numberOfFailedTries == 7{
+				let ac = UIAlertController(title: "Becareful", message: "Last Chance To Survie!\nUse Hint if available!", preferredStyle: .actionSheet)
+				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+				present(ac, animated: true)			}
+			
 		} else {
-			//remove char from string
-			// input char to wordlabel in correct order
 			let newLabel = Play.resetWordLabel(char: char).uppercased()
 			WordLabel.text = newLabel
 			if Play.checkIfWon(newLabel) {
-				//increase streak by if > 1
-				// add -1 to numberOfFailedtries
-				
-				
 				let ac = UIAlertController(title: "Great", message: "You Won This Round!", preferredStyle: .alert)
 				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 				present(ac, animated: true)
-
+				Play.currentScore += 1
 				loadLevel()
 			}
 		}
@@ -217,13 +223,13 @@ class ViewController: UIViewController {
 		ScoreLabel = UILabel()
 		ScoreLabel.translatesAutoresizingMaskIntoConstraints = false
 		ScoreLabel.font = UIFont.systemFont(ofSize: 15)
-		ScoreLabel.text = "Streak: 0 "
+		ScoreLabel.text = ""
 		HangManView.addSubview(ScoreLabel)
 		
-		let HintLabel = UILabel()
+		HintLabel = UILabel()
 		HintLabel.translatesAutoresizingMaskIntoConstraints = false
 		HintLabel.font = UIFont.systemFont(ofSize: 15)
-		HintLabel.text = "Hints: 10 / 10"
+		HintLabel.text = ""
 		HangManView.addSubview(HintLabel)
 		
 		NSLayoutConstraint.activate([
@@ -238,20 +244,23 @@ class ViewController: UIViewController {
 	}
 
 	func loadLevel () {
-		
 		for b in CharButttonsArr {
 			b.isHidden = false
 		}
+
 		let word = Play.findWord(words: Play.wordArr)
 		Play.currentWord = word
+		Play.HintsUsed = 0
+//		Play.currentScore = 0
 		Play.numberOfFailedTries = 0
-		print("The word is: \(word)")
-
+		
+		HangmanLabel.text = Play.drawHM()
+		HintLabel.text = "Hints: 0 / 3"
+		ScoreLabel.text = "Points: \(Play.currentScore)"
 		let userWord = Play.wordToEmty(str: word)
 		WordLabel.text = userWord
 		
-		
-		
+		print("The word is: \(word)")
 	}
 	
 }

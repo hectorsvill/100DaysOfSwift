@@ -14,6 +14,7 @@ struct PlayHangMan {
 	var numberOfFailedTries = 0	// set to zero at start of game in loadlevel()
 	var Streak = 0
 	var HintsUsed = 0
+	var currentScore = 0
 	var wordArr = [String]()
 	var currentWord = ""		// set in loadlevel()
 	var currentLabelWord = ""	// set in wordToEmpy
