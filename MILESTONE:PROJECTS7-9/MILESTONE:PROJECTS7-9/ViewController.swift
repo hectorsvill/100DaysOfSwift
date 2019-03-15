@@ -24,23 +24,19 @@ class ViewController: UIViewController {
 	var HangManView: UIView!
 	var HangmanLabel: UILabel!
 	var ScoreLabel: UILabel!
-	
-	
-	
 	var wordHint = ""
 	var wordLabelArr = [Character]()
-	
 
 	override func loadView() {
 		view = UIView()
 		view.backgroundColor = UIColor.lightGray
 
-		
 		createHintButton()
 		createAzButtonArr()
 		createStrLabel()
 		createHangMan()
 		getFile()
+
 		NSLayoutConstraint.activate([
 			HintButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			HintButton.heightAnchor.constraint(equalToConstant: 40),
@@ -51,13 +47,11 @@ class ViewController: UIViewController {
 			CharButtonView.widthAnchor.constraint(equalToConstant: 300),
 			CharButtonView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			CharButtonView.bottomAnchor.constraint(equalTo: HintButton.topAnchor, constant: -10),
-//			CharButtonView.topAnchor.constraint(equalTo: WordLabel.topAnchor, constant: -10),
 			
 			WordLabel.heightAnchor.constraint(equalToConstant: 40),
 			WordLabel.widthAnchor.constraint(equalToConstant: 300),
 			WordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			WordLabel.bottomAnchor.constraint(equalTo: CharButtonView.topAnchor, constant: -10),
-			//WordLabel.topAnchor.constraint(equalTo: HangManView.bottomAnchor, constant: 20),
 
 			HangManView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			HangManView.widthAnchor.constraint(equalToConstant: 300),
@@ -74,7 +68,6 @@ class ViewController: UIViewController {
 	//objc func///////////////////////////////////////////////////////
 	
 	func getFile() {
-		
 		if let wordsURL = Bundle.main.url(forResource: "start", withExtension: ".txt") {
 			if let startWords  = try? String(contentsOf: wordsURL) {
 				let words = startWords.components(separatedBy: "\n")
@@ -93,22 +86,20 @@ class ViewController: UIViewController {
 		if Play.HintsUsed < 4{
 			Play.HintsUsed += 1
 			HintLabel.text = "\(Play.HintsUsed) / 4"
-
 			if let charHint = Play.currentWord.randomElement() {
 				let ac = UIAlertController(title: "Hint!", message: "Your hint is: \(String(charHint))" , preferredStyle: .actionSheet)
 				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 				present(ac, animated: true)
 			}
+
 		} else {
 			let ac = UIAlertController(title: "Hint!", message: "Sorry, no more Hints!" , preferredStyle: .actionSheet)
 			ac.addAction(UIAlertAction(title: "OK", style: .cancel))
 			present(ac, animated: true)
 		}
-		
 	}
 
 	@objc func hangManAZButoons(_ sender: UIButton) {
-		//reduce score if not contained
 		sender.isHidden = true
 		let char = Character((sender.titleLabel?.text)!)
 		if !Play.playThisChar(char: char) {
@@ -121,8 +112,9 @@ class ViewController: UIViewController {
 			} else if Play.numberOfFailedTries == 7{
 				let ac = UIAlertController(title: "Becareful", message: "Last Chance To Survie!\nUse Hint if available!", preferredStyle: .actionSheet)
 				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-				present(ac, animated: true)			}
-			
+				present(ac, animated: true)
+				
+			}
 		} else {
 			let newLabel = Play.resetWordLabel(char: char).uppercased()
 			WordLabel.text = newLabel
@@ -134,8 +126,6 @@ class ViewController: UIViewController {
 				loadLevel()
 			}
 		}
-		
-		
 	}
 	
 	
@@ -158,7 +148,6 @@ class ViewController: UIViewController {
 		CharButtonView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(CharButtonView)
 		CharButttonsArr = createCharButtonArr(width: 50, height: 50)
-//		CharButtonView.layer.borderWidth = 1
 	}
 
 	func createCharButtonArr(width: Int, height: Int) -> [UIButton] {
@@ -201,7 +190,6 @@ class ViewController: UIViewController {
 		WordLabel.textAlignment = .center
 	 	WordLabel.text = "_ _"
 		view.addSubview(WordLabel)
-
 	}
 
 	func createHangMan() {
@@ -234,10 +222,8 @@ class ViewController: UIViewController {
 		
 		NSLayoutConstraint.activate([
 			HangmanLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -10),
-			
 			ScoreLabel.bottomAnchor.constraint(equalTo: HangManView.bottomAnchor, constant: -5),
 			ScoreLabel.leftAnchor.constraint(equalTo: HangManView.leftAnchor, constant: 5),
-			
 			HintLabel.bottomAnchor.constraint(equalTo: HangManView.bottomAnchor, constant: -5),
 			HintLabel.rightAnchor.constraint(equalTo: HangManView.rightAnchor, constant: -5),
 			])
@@ -247,19 +233,15 @@ class ViewController: UIViewController {
 		for b in CharButttonsArr {
 			b.isHidden = false
 		}
-
 		let word = Play.findWord(words: Play.wordArr)
 		Play.currentWord = word
 		Play.HintsUsed = 0
-//		Play.currentScore = 0
 		Play.numberOfFailedTries = 0
-		
 		HangmanLabel.text = Play.drawHM()
 		HintLabel.text = "Hints: 0 / 4"
 		ScoreLabel.text = "Points: \(Play.currentScore)"
 		let userWord = Play.wordToEmty(str: word)
 		WordLabel.text = userWord
-		
 		print("The word is: \(word)")
 	}
 	

@@ -20,15 +20,13 @@ struct PlayHangMan {
 	var currentLabelWord = ""	// set in wordToEmpy
 	var currentLabelWordArr = [Character] ()
 
-	
-	
 	func findWord(words: [String]) -> String {
 		if let word = words.randomElement() {
 			return word
 		}
 		return "Error"
 	}
-	
+
 	mutating func wordToEmty(str: String) -> String {
 		var newstr = ""
 		for _ in 0..<str.count {
@@ -38,7 +36,7 @@ struct PlayHangMan {
 		currentLabelWord = newstr
 		return newstr
 	}
-	
+
 	func drawHM () -> String {
 		var manstr = [String]()
 		manstr.append("----o   \n")			// 0 / 7 points lost
@@ -103,9 +101,7 @@ struct PlayHangMan {
 	}
 
 	mutating func resetWordLabel(char: Character) -> String {
-		
 		var newLabel = Array(currentLabelWord)
-
 		var index = 0
 		for c in currentWord{
 			if c == char {
@@ -114,11 +110,8 @@ struct PlayHangMan {
 			index += 1
 		}
 		currentLabelWordArr = newLabel
-		//currentWord = currentWord.replacingOccurrences(of: String(char), with: " ")
 		let newstr = arrToStr(arr: newLabel)
 		currentLabelWord = newstr
-//		print(newstr)
-//		print(currentWord)
 		return newstr
 	}
 	
@@ -139,7 +132,4 @@ struct PlayHangMan {
 		}
 		return str
 	}
-
-	
-
 }
