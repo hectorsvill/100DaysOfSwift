@@ -30,7 +30,6 @@ class ViewController: UIViewController {
 	override func loadView() {
 		view = UIView()
 		view.backgroundColor = UIColor.lightGray
-
 		createHintButton()
 		createAzButtonArr()
 		createStrLabel()
@@ -83,20 +82,17 @@ class ViewController: UIViewController {
 	}
 
 	@objc func getHint() {
-		if Play.HintsUsed < 4{
+		var hintStr = ""
+		if Play.HintsUsed < 4 {
 			Play.HintsUsed += 1
 			HintLabel.text = "\(Play.HintsUsed) / 4"
-			if let charHint = Play.currentWord.randomElement() {
-				let ac = UIAlertController(title: "Hint!", message: "Your hint is: \(String(charHint))" , preferredStyle: .actionSheet)
-				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-				present(ac, animated: true)
-			}
-
+			hintStr = "Your hint is: \(Play.currentWord.randomElement()!)"
 		} else {
-			let ac = UIAlertController(title: "Hint!", message: "Sorry, no more Hints!" , preferredStyle: .actionSheet)
-			ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-			present(ac, animated: true)
+			hintStr = "Sorry, no more Hints!"
 		}
+		let ac = UIAlertController(title: "Hint!", message: hintStr , preferredStyle: .actionSheet)
+		ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+		present(ac, animated: true)
 	}
 
 	@objc func hangManAZButoons(_ sender: UIButton) {
@@ -104,16 +100,8 @@ class ViewController: UIViewController {
 		let char = Character((sender.titleLabel?.text)!)
 		if !Play.playThisChar(char: char) {
 			HangmanLabel.text = Play.drawHM()
-			if Play.numberOfFailedTries == 8 {
-				let ac = UIAlertController(title: "Sorry", message: "You Lost This Round", preferredStyle: .alert)
-				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-				present(ac, animated: true)
-				loadLevel()
-			} else if Play.numberOfFailedTries == 7{
-				let ac = UIAlertController(title: "Becareful", message: "Last Chance To Survie!\nUse Hint if available!", preferredStyle: .actionSheet)
-				ac.addAction(UIAlertAction(title: "OK", style: .cancel))
-				present(ac, animated: true)
-				
+			if Play.numberOfFailedTries >= 7 {
+				checLostOrAlmostLost()
 			}
 		} else {
 			let newLabel = Play.resetWordLabel(char: char).uppercased()
@@ -243,6 +231,23 @@ class ViewController: UIViewController {
 		let userWord = Play.wordToEmty(str: word)
 		WordLabel.text = userWord
 		print("The word is: \(word)")
+	}
+	
+	func checLostOrAlmostLost() {
+		var title = ""
+		var message = ""
+	
+		if Play.numberOfFailedTries == 8 {
+			title = "Sorry"
+			message = "You lost this round"
+			loadLevel()
+		} else if Play.numberOfFailedTries == 7{
+			title = "Becareful"
+			message = "Last Chance To Survie!\nUse Hint if available!"
+		}
+		let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+		ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+		present(ac, animated: true)
 	}
 	
 }

@@ -132,4 +132,6 @@ struct PlayHangMan {
 		}
 		return str
 	}
+	
+	
 }
