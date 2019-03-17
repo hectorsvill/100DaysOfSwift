@@ -70,3 +70,11 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 
 - Build a HangMan game using UIKit
 - [Challenge Description](https://www.hackingwithswift.com/guide/4/3/challenge)
+
+[Project 10](https://github.com/hvillasa/Swift-Notes/tree/master/Project10/Project10): Names to Faces
+
+- Designing UICollectionView cells
+- UICollectionView data sources
+- mporting photos with UIImagePickerController
+- Custom subclasses of NSObject
+- 
