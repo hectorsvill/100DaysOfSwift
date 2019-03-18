@@ -80,5 +80,12 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - Importing photos with UIImagePickerController
 - Custom subclasses of NSObject
 
+[Project 11](https://github.com/hvillasa/Swift-Notes/tree/master/Project11/Project11): Pachinko
 
+- Falling boxes: SKSpriteNode, UITouch, SKPhysicsBody
+- Bouncing balls: circleOfRadius
+- Spinning slots: SKAction
+- Collision detection: SKPhysicsContactDelegate
+- Scores on the board: SKLabelNode
+- Special effects: SKEmitterNode
 
