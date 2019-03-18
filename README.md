@@ -4,6 +4,8 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 
 <br>
 
+[Swift Notes](https://github.com/hvillasa/Swift-Notes/tree/master/Play-Notes) : Swift 4.2 notes
+
 [Project 1](https://github.com/hvillasa/Swift-Notes/tree/master/Project1/Project1) : Storm Viewer
 
 - Constants and variables
@@ -75,7 +77,7 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 
 - Designing UICollectionView cells
 - UICollectionView data sources
-- mporting photos with UIImagePickerController
+- Importing photos with UIImagePickerController
 - Custom subclasses of NSObject
 
 
