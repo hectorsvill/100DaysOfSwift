@@ -80,7 +80,7 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - Importing photos with UIImagePickerController
 - Custom subclasses of NSObject
 
-[Project 11](https://github.com/hvillasa/Swift-Notes/tree/master/Project11/Project11): Pachinko
+[Project 11](https://github.com/hvillasa/Swift-Notes/tree/master/Project11/Project11) : Pachinko
 
 - Falling boxes: SKSpriteNode, UITouch, SKPhysicsBody
 - Bouncing balls: circleOfRadius
@@ -89,6 +89,6 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - Scores on the board: SKLabelNode
 - Special effects: SKEmitterNode
 
-[Project 12] (https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project12/Project12): UserDefaults
+[Project 12](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project12/Project12) : UserDefaults
   - Reading and writing basics: UserDefaults
   - [Fixing Project 10: NSCoding](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project12a/Project10)
