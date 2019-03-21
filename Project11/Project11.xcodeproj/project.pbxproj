@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E85A9B2D2241EA5B00CCAD15 /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = E85A9B2C2241EA5B00CCAD15 /* FireParticles.sks */; };
-		E85A9B5A2241ED9200CCAD15 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E85A9B582241ED9200CCAD15 /* MyParticle.sks */; };
 		E85A9B5B2241ED9200CCAD15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E85A9B592241ED9200CCAD15 /* Assets.xcassets */; };
 		E85A9B5E2241EDC000CCAD15 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E85A9B5C2241EDC000CCAD15 /* MyParticle.sks */; };
 		E85A9B5F2241EDC000CCAD15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E85A9B5D2241EDC000CCAD15 /* Assets.xcassets */; };
@@ -22,7 +21,6 @@
 
 /* Begin PBXFileReference section */
 		E85A9B2C2241EA5B00CCAD15 /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
-		E85A9B582241ED9200CCAD15 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		E85A9B592241ED9200CCAD15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E85A9B5C2241EDC000CCAD15 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		E85A9B5D2241EDC000CCAD15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 				E8D1B3422240167C0073BAF6 /* LaunchScreen.storyboard */,
 				E8D1B3452240167C0073BAF6 /* Info.plist */,
 				E85A9B2C2241EA5B00CCAD15 /* FireParticles.sks */,
-				E85A9B582241ED9200CCAD15 /* MyParticle.sks */,
 				E85A9B592241ED9200CCAD15 /* Assets.xcassets */,
 			);
 			path = Project11;
@@ -147,7 +144,6 @@
 				E85A9B5E2241EDC000CCAD15 /* MyParticle.sks in Resources */,
 				E85A9B5B2241ED9200CCAD15 /* Assets.xcassets in Resources */,
 				E85A9B5F2241EDC000CCAD15 /* Assets.xcassets in Resources */,
-				E85A9B5A2241ED9200CCAD15 /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
