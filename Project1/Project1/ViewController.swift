@@ -24,15 +24,18 @@ class ViewController: UITableViewController {
 	@objc func fetchImages() {
 		let fm = FileManager.default //data type that lets us work with the filesystem
 		let path = Bundle.main.resourcePath! //directory path to pictures
-		let items = try! fm.contentsOfDirectory(atPath: path)   //The items constant will be an array of strings containing filenames.
-
+		let items = try! fm.contentsOfDirectory(atPath: path)   //The items constant will be an array of strings containing
+		
 		for item in items {
 			//set pictures
 			if item.hasPrefix("nssl") {
 				pictueres.append(item)
+				
 			}
 		}
 		pictueres = pictueres.sorted()
+		tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+
 		for p in pictueres { print(p) }
 	}
 
