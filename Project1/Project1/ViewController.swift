@@ -20,6 +20,18 @@ class ViewController: UITableViewController {
 		title = "Storm Viewer"
 		navigationController?.navigationBar.prefersLargeTitles = true
 		performSelector(inBackground: #selector(fetchImages), with: nil)
+		
+		let defaults = UserDefaults.standard
+		if let savedCount = defaults.object(forKey: "picturesCount") as? Data {
+			let jsondecoder = JSONDecoder()
+			do{
+				picturesCount = try jsondecoder.decode([Picture].self, from: savedCount)
+			} catch {
+				print("Was not able reload user Data")
+			}
+		}
+		
+		
 		tableView.reloadData()
 	}
 
