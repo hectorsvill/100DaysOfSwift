@@ -19,7 +19,6 @@ class ViewController: UITableViewController {
 		
 		title = "Storm Viewer"
 		navigationController?.navigationBar.prefersLargeTitles = true
-		performSelector(inBackground: #selector(fetchImages), with: nil)
 		
 		let defaults = UserDefaults.standard
 		if let savedCount = defaults.object(forKey: "picturesCount") as? Data {
@@ -32,6 +31,9 @@ class ViewController: UITableViewController {
 			}
 		}
 		
+		if picturesCount.isEmpty {
+			performSelector(inBackground: #selector(fetchImages), with: nil)
+		}
 		
 		tableView.reloadData()
 	}
