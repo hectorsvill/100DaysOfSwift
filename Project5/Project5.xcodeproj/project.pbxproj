@@ -56,11 +56,11 @@
 		E805E5302228BCB30050DD38 /* Project5 */ = {
 			isa = PBXGroup;
 			children = (
-				E805E5312228BCB30050DD38 /* AppDelegate.swift */,
 				E805E5332228BCB30050DD38 /* ViewController.swift */,
 				E805E5352228BCB30050DD38 /* Main.storyboard */,
 				E805E5382228BCB50050DD38 /* Assets.xcassets */,
 				E805E53A2228BCB50050DD38 /* LaunchScreen.storyboard */,
+				E805E5312228BCB30050DD38 /* AppDelegate.swift */,
 				E805E53D2228BCB50050DD38 /* Info.plist */,
 				E805E5432228C47F0050DD38 /* start.txt */,
 			);
