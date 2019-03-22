@@ -26,6 +26,7 @@ class ViewController: UITableViewController {
 			let jsondecoder = JSONDecoder()
 			do{
 				picturesCount = try jsondecoder.decode([Picture].self, from: savedCount)
+				print(picturesCount.count)
 			} catch {
 				print("Was not able reload user Data")
 			}
@@ -50,13 +51,12 @@ class ViewController: UITableViewController {
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-			
-//			let picstr = pictueres[indexPath.row]
-			
+
 			vc.selectedImage = picturesCount[indexPath.row].name
 			vc.selectedCount = picturesCount[indexPath.row].count
 			picturesCount[indexPath.row].count += 1
 			save()
+			
 			navigationController?.pushViewController(vc, animated: true)
 		}
 	}
@@ -69,20 +69,16 @@ class ViewController: UITableViewController {
 		let items = try! fm.contentsOfDirectory(atPath: path)   //The items constant will be an array of strings containing
 		
 		for item in items {
-			//set pictures
+			
 			if item.hasPrefix("nssl") {
 				
 				picturesCount.append(Picture(name: item, count: 1))
 				
-//				pictueres.append(item)
 			}
 		}
-		
-		
-//		pictueres = pictueres.sorted()
 		tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
 		
-//		for p in pictueres { print(p) }
+//		print(picturesCount.count)
 	}
 	
 	// func() /////////////////////////////////////////////////////////////////
