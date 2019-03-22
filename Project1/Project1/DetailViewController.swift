@@ -10,34 +10,44 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet var ImageView: UIImageView!
-    var selectedImage: String? // change navigator name
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        title = ("This image is \(selectedImage!)")
-        
-        navigationItem.largeTitleDisplayMode = .never
-        
-        if let imageToLoad = selectedImage {
-            ImageView.image = UIImage(named: imageToLoad)
-        }
-    }
-    
-    //To hide top view nagitor with a click
-    //viewill
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.hidesBarsOnTap = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.hidesBarsOnTap = false
-    }
+	@IBOutlet var ImageCountLabel: UILabel!
+	@IBOutlet var ImageView: UIImageView!
+	var selectedImage: String? // change navigator name
+	var selectedCount: Int?
+	
+	
+	
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		title = selectedImage!
+	
+		navigationItem.largeTitleDisplayMode = .never
+		
+		if let imageToLoad = selectedImage {
+			ImageView.image = UIImage(named: imageToLoad)
+		}
+		
+		if let count = selectedCount {
+			ImageCountLabel.text = "\(count) Views"
+		} else {
+			ImageCountLabel.text = ""
+		}
+		
+		
+	}
+	
+	//To hide top view nagitor with a click
+	//viewill
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		navigationController?.hidesBarsOnTap = true
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		navigationController?.hidesBarsOnTap = false
+	}
 
 
 
