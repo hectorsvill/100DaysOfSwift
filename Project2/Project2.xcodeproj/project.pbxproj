@@ -12,6 +12,7 @@
 		E86DA96F221F7920004FFE3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86DA96D221F7920004FFE3F /* Main.storyboard */; };
 		E86DA971221F7922004FFE3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E86DA970221F7922004FFE3F /* Assets.xcassets */; };
 		E86DA974221F7922004FFE3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86DA972221F7922004FFE3F /* LaunchScreen.storyboard */; };
+		E8862BF62244A1CF00654941 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8862BF52244A1CF00654941 /* Score.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E86DA970221F7922004FFE3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E86DA973221F7922004FFE3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E86DA975221F7922004FFE3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8862BF52244A1CF00654941 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				E86DA970221F7922004FFE3F /* Assets.xcassets */,
 				E86DA972221F7922004FFE3F /* LaunchScreen.storyboard */,
 				E86DA975221F7922004FFE3F /* Info.plist */,
+				E8862BF52244A1CF00654941 /* Score.swift */,
 			);
 			path = Project2;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E86DA96C221F7920004FFE3F /* ViewController.swift in Sources */,
+				E8862BF62244A1CF00654941 /* Score.swift in Sources */,
 				E86DA96A221F7920004FFE3F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,7 +296,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hvillasa.Project2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,7 +314,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hvillasa.Project2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

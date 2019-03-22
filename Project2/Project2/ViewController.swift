@@ -13,9 +13,25 @@ class ViewController: UIViewController {
 	@IBOutlet var button1: UIButton!
 	@IBOutlet var button2: UIButton!
 	@IBOutlet var button3: UIButton!
+	@IBOutlet var scoreLabel: UILabel!
+	@IBOutlet var bestScoreLabel: UILabel!
+	
+	
+	var bestScore = 0 {
+		didSet {
+			bestScoreLabel.text = "BestScore: \(bestScore)/10"
+		}
+	}
+	
 	
 	var countries = [String]()
-	var score = 0
+	var score = 0 {
+		didSet {
+			scoreLabel.text = "Score: \(score)/10"
+		}
+	}
+	
+	
 	var correctAnswer = 0
 	var numberOfCuestionsAsked = 1
 	
@@ -36,7 +52,14 @@ class ViewController: UIViewController {
 		button3.layer.borderColor = UIColor.lightGray.cgColor
 
 		askQuestion()
-    }
+		
+		let dedaults = UserDefaults()
+		if let savedBestScore = dedaults.object(forKey: "bestScore") as? Int {
+			bestScore = savedBestScore
+		}
+		
+		
+	}
 
 	func askQuestion(action: UIAlertAction! = nil)
 	{
@@ -48,7 +71,7 @@ class ViewController: UIViewController {
 		button3.setImage(UIImage(named: countries[2]), for: .normal)
 		
 		//set title to navigation bar
-		title = "Find: \(countries[correctAnswer].uppercased())\t\t#\(numberOfCuestionsAsked)"
+		title = "\(numberOfCuestionsAsked).Find: \(countries[correctAnswer].uppercased())" //"\t\t#\(numberOfCuestionsAsked)"
 
 		numberOfCuestionsAsked += 1
 		
@@ -76,9 +99,14 @@ class ViewController: UIViewController {
 		}
 
 		//10 round game. 9th round is the last
-		if numberOfCuestionsAsked == 10
+		if numberOfCuestionsAsked == 11
 		{
-			ac = UIAlertController( title: "Final Score", message: "You scored: \(numberOfCuestionsAsked) / 10", preferredStyle: .actionSheet)
+			if score > bestScore {
+				bestScore = score
+				save()
+			}
+	
+			ac = UIAlertController( title: "Final Score", message: "You scored: \(score) / 10", preferredStyle: .actionSheet)
 			score = 0
 			numberOfCuestionsAsked = 1
 			
@@ -107,7 +135,18 @@ class ViewController: UIViewController {
 		present(ac, animated: true)
 	
 	}
-
-
+	
+	func save() {
+//			let jsonEncoder = JSONEncoder()
+//
+//		if let saveData = try? jsonEncoder.encode(bestScore) {
+			let defaults = UserDefaults.standard
+			defaults.set(bestScore, forKey: "bestScore")
+//		} else {
+//			print("error: saving Data")
+//		}
+	}
+	
+	
 }
 

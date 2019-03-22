@@ -39,23 +39,50 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="upp-Th-lcv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRv-VU-Ubq">
+                                <rect key="frame" x="20" y="490" width="335" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="CSU-3b-yVW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BestScore: 0/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urp-qD-Ev7">
+                                <rect key="frame" x="20" y="535" width="335" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="e2a-Lb-g4X"/>
+                                    <constraint firstAttribute="height" constant="35" id="kXp-ld-C0r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VGP-zM-mqo" firstAttribute="top" secondItem="gRj-g1-00n" secondAttribute="bottom" constant="30" id="9X7-3L-Db3"/>
+                            <constraint firstItem="urp-qD-Ev7" firstAttribute="top" secondItem="XRv-VU-Ubq" secondAttribute="bottom" constant="10" id="EqQ-8D-pH5"/>
+                            <constraint firstItem="XRv-VU-Ubq" firstAttribute="top" secondItem="VGP-zM-mqo" secondAttribute="bottom" constant="30" id="Xcz-J5-KbB"/>
                             <constraint firstItem="VGP-zM-mqo" firstAttribute="centerX" secondItem="gRj-g1-00n" secondAttribute="centerX" id="acC-25-rUc"/>
                             <constraint firstItem="ZkZ-BW-ikI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="bsL-gq-qKZ"/>
                             <constraint firstItem="ZkZ-BW-ikI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dSV-hE-TJ2"/>
                             <constraint firstItem="gRj-g1-00n" firstAttribute="centerX" secondItem="ZkZ-BW-ikI" secondAttribute="centerX" id="fSN-0B-wgm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XRv-VU-Ubq" secondAttribute="trailing" constant="20" id="hTR-G5-jz4"/>
                             <constraint firstItem="gRj-g1-00n" firstAttribute="top" secondItem="ZkZ-BW-ikI" secondAttribute="bottom" constant="30" id="iqR-OT-9Tc"/>
+                            <constraint firstItem="urp-qD-Ev7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="lfY-gk-9X7"/>
+                            <constraint firstItem="XRv-VU-Ubq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qoh-yH-xCQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="urp-qD-Ev7" secondAttribute="trailing" constant="20" id="sHr-6V-ryo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="bpz-Nl-juy"/>
                     <connections>
+                        <outlet property="bestScoreLabel" destination="urp-qD-Ev7" id="Ri0-AX-BP7"/>
                         <outlet property="button1" destination="ZkZ-BW-ikI" id="H24-i2-Eb8"/>
                         <outlet property="button2" destination="gRj-g1-00n" id="eXA-of-hkD"/>
                         <outlet property="button3" destination="VGP-zM-mqo" id="wQm-KE-6xu"/>
+                        <outlet property="scoreLabel" destination="XRv-VU-Ubq" id="3bW-o8-sjj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
