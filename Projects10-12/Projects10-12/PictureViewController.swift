@@ -9,10 +9,16 @@
 import UIKit
 
 class PictureViewController: UIViewController {
-//	var picture: PicturesCaption
+	var picture: PicturesCaption?
+	var path: String?
+	
+	@IBOutlet var selectedImageView: UIImageView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		print(picture.imageName)
+
+		if let image = path {
+			self.selectedImageView?.image = UIImage(contentsOfFile: image)
+		}
 	}
 }

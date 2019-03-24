@@ -11,6 +11,7 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - Constants and variables
 - UITableView, UIImageView
 - FileManager, storyboards
+- User Defaults
 
 [Project 2](https://github.com/hvillasa/Swift-Notes/tree/master/Project2/Project2) : Guess the Flag
 

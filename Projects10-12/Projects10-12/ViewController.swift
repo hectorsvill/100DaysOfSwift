@@ -24,12 +24,17 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-		cell.textLabel?.text = "\(indexPath.row)"
+		cell.textLabel?.text = "\(pictures[indexPath.row].imageName)"
 		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if let vc = storyboard?.instantiateViewController(withIdentifier: "Picture") {
+		if let vc = storyboard?.instantiateViewController(withIdentifier: "Picture") as? PictureViewController  {
+			vc.picture = pictures[indexPath.row]
+			
+			let path = getDocumentsDirectory().appendingPathComponent(pictures[indexPath.row].image)
+			vc.path = path.path
+			
 			navigationController?.pushViewController(vc, animated: true)
 		}
 	
