@@ -11,9 +11,11 @@ import UIKit
 class ViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	var pictures = [PicturesCaption]()
 	
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(saveAndReload), name: NSNotification.Name(rawValue: "load"), object: nil)
+		
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPicture))
 		pictures = getSaveData()
 	}
@@ -35,7 +37,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 			
 			let path = getDocumentsDirectory().appendingPathComponent(pictures[indexPath.row].image)
 			vc.path = path.path
-			
+			vc.pictureIndex = indexPath.row
 			navigationController?.pushViewController(vc, animated: true)
 		}
 	
@@ -49,6 +51,11 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 		picker.delegate = self
 		//picker.sourceType = .camera
 		present(picker, animated: true)
+	}
+	
+	@objc func saveAndReload(notification: NSNotification) {
+		save()
+		tableView.reloadData()
 	}
 	
 	//imagePickerController()///////////////////////////////////////////////////
@@ -79,6 +86,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 	
 	func save() {
 		let jsonEncoder = JSONEncoder()
+		print(pictures.count)
 		if let saveData = try? jsonEncoder.encode(pictures) {
 			let defaults = UserDefaults.standard
 			defaults.set(saveData, forKey: "pictures")

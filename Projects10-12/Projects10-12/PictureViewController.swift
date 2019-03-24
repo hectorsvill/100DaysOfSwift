@@ -10,6 +10,7 @@ import UIKit
 
 class PictureViewController: UIViewController {
 	var picture: PicturesCaption?
+	var pictureIndex: Int?
 	var path: String?
 	
 	@IBOutlet var pictureCaptionLabel: UILabel!
@@ -48,6 +49,7 @@ class PictureViewController: UIViewController {
 	
 	func editTitle () {
 		alertTextField(tc: "Title")
+		
 	}
 	
 	func editCaption() {
@@ -72,12 +74,15 @@ class PictureViewController: UIViewController {
 		if label == "Title" {
 			pictureTitleLabel.text = str
 			picture?.imageName = str
-
 		} else if label == "Caption" {
 			pictureCaptionLabel.text = str
 			picture?.imageCaption = str
-
 		}
-//			ViewController.save()
+		sendDataToVC()
 	}
+	
+	func sendDataToVC() {
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+	}
+	
 }
