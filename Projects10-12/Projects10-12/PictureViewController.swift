@@ -54,15 +54,20 @@ class PictureViewController: UIViewController {
 		if let imageCaption = picture?.imageCaption {
 			pictureCaptionLabel.text = imageCaption
 		}
-		pictureCaptionLabel.layer.borderWidth = 2
+
+		let color = getNewColor().cgColor
+		pictureTitleLabel.layer.borderColor = color
+		pictureCaptionLabel.layer.borderWidth = 1
 		pictureCaptionLabel.layer.cornerRadius = 5
+		
+		pictureCaptionLabel.layer.borderColor = color
 		pictureTitleLabel.layer.borderWidth = 1
 		pictureTitleLabel.layer.cornerRadius = 10
+		selectedImageView.layer.borderWidth = 1
 	}
 	
 	func editTitle () {
 		alertTextField(tc: "Title")
-		
 	}
 	
 	func editCaption() {
@@ -99,6 +104,16 @@ class PictureViewController: UIViewController {
 	
 	func sendDataToVC() {
 		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+	}
+	
+	
+	func getRandCGFloat(x: Float, y: Float) -> CGFloat {
+		return CGFloat(Float.random(in: x...y) / 250.0)
+	}
+	
+	func getNewColor() -> UIColor {
+		let newColor = UIColor(red: getRandCGFloat(x: 22.0, y: 159.0), green: getRandCGFloat(x: 10.0, y: 89.0), blue: getRandCGFloat(x: 170.0, y: 210.0), alpha: 1.0)
+		return newColor
 	}
 	
 }

@@ -59,19 +59,23 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		guard let image = info[.editedImage] as? UIImage else { return }
-		
+
 		let imageName = UUID().uuidString
 		let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
 		
 		if let jpegData = image.jpegData(compressionQuality: 0.8) {
 			try? jpegData.write(to: imagePath)
 		}
-		
+
 		let picture = PicturesCaption(image: imageName, imageName: "image", imageCaption: "")
+		
 		pictures.append(picture)
 		save()
-		tableView.reloadData()
 		dismiss(animated: true)
+		alertGetImgName(picture)
+		
+	
+		tableView.reloadData()
 	}
 	
 	func getDocumentsDirectory() -> URL {
@@ -113,5 +117,17 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 		present(ac, animated: true)
 	}
 	
+	func alertGetImgName(_ picture: PicturesCaption) {
+		let ac = UIAlertController(title: "Set Image Name: ", message: nil, preferredStyle: .alert)
+		ac.addTextField()
+		ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: {
+			[weak self] _ in
+			guard let str = ac.textFields?[0].text else { return }
+			picture.imageName = str
+			self?.tableView.reloadData()
+		}))
+		present(ac, animated: true)
+	}
+
 }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class PicturesCaption: NSObject, Codable {
@@ -19,4 +20,7 @@ class PicturesCaption: NSObject, Codable {
 		self.imageName = imageName
 		self.imageCaption = imageCaption
 	}
+	
+	
+	
 }
