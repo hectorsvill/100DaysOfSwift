@@ -79,7 +79,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 		return paths[0]
 	}
 	
-	//func()///////////////////////////////////////////////////
+	//func()//////////////////////////////////////////////////////////////////
 	
 	func save() {
 		let jsonEncoder = JSONEncoder()
