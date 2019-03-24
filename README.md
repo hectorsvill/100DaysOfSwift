@@ -1,4 +1,4 @@
-# 	Learning Swift with [hackingwithswift.com](https://www.hackingwithswift.com/100)
+# 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
 
 #
 
