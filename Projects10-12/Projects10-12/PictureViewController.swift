@@ -81,13 +81,18 @@ class PictureViewController: UIViewController {
 	}
 	
 	func editPictureClass (to str: String, label: String) {
-		
+		var strcpy = ""
+		if str.isEmpty {
+			strcpy = "image"
+		} else {
+			strcpy = str
+		}
 		if label == "Title" {
-			pictureTitleLabel.text = str
-			picture?.imageName = str
+			pictureTitleLabel.text = strcpy
+			picture?.imageName = strcpy
 		} else if label == "Caption" {
-			pictureCaptionLabel.text = str
-			picture?.imageCaption = str
+			pictureCaptionLabel.text = strcpy
+			picture?.imageCaption = strcpy
 		}
 		sendDataToVC()
 	}
