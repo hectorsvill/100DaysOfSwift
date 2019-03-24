@@ -95,3 +95,8 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - Reading and writing basics: UserDefaults
 - [Fixing Project 10](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project12a/Project10): NSCoding
 - [Fixing Project 10](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project12b/Project10): Codable 
+
+
+[Day 50](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Projects10-12/Projects10-12) – Milestone: Projects 10-12
+ 
+ - [Details](https://www.hackingwithswift.com/100/50)
