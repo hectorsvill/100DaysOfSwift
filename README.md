@@ -1,10 +1,10 @@
 # Swift-Notes
 
-Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
+Learning Swift with [hackingwithswift.com](https://www.hackingwithswift.com/100)
 
-<br>
+#
 
-[Swift Notes](https://github.com/hvillasa/Swift-Notes/tree/master/Play-Notes) : Swift 4.2 notes
+
 
 [Milestone: Projects 10-12](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Projects10-12/Projects10-12) 
  
@@ -103,3 +103,5 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - UITableView, UIImageView
 - FileManager, storyboards
 - User Defaults
+
+[Swift Notes](https://github.com/hvillasa/Swift-Notes/tree/master/Play-Notes) : Swift 4.2 notes
