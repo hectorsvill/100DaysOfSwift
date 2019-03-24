@@ -17,21 +17,15 @@ class PictureViewController: UIViewController {
 	@IBOutlet var pictureTitleLabel: UILabel!
 	@IBOutlet var selectedImageView: UIImageView!
 	
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		setLabel()
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTitleOrLable))
-		if let image = path {
-			self.selectedImageView?.image = UIImage(contentsOfFile: image)
-		}
-		if let imageName = picture?.imageName {
-			pictureTitleLabel.text = imageName
-			
-		}
-		if let imageCaption = picture?.imageCaption {
-			pictureCaptionLabel.text = imageCaption
-		}
 	}
+	
+	// @objc func() //////////////////////////////////////////////////////////
 	
 	@objc func editTitleOrLable() {
 		let ac = UIAlertController(title: "Edit Picture Information", message: nil, preferredStyle: .actionSheet)
@@ -45,6 +39,25 @@ class PictureViewController: UIViewController {
 		})
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 		present(ac, animated: true)
+	}
+	
+	// func() /////////////////////////////////////////////////////////////////
+	
+	fileprivate func setLabel() {
+		if let image = path {
+			self.selectedImageView?.image = UIImage(contentsOfFile: image)
+		}
+		if let imageName = picture?.imageName {
+			pictureTitleLabel.text = imageName
+			
+		}
+		if let imageCaption = picture?.imageCaption {
+			pictureCaptionLabel.text = imageCaption
+		}
+		pictureCaptionLabel.layer.borderWidth = 2
+		pictureCaptionLabel.layer.cornerRadius = 5
+		pictureTitleLabel.layer.borderWidth = 1
+		pictureTitleLabel.layer.cornerRadius = 10
 	}
 	
 	func editTitle () {
@@ -62,9 +75,7 @@ class PictureViewController: UIViewController {
 		ac.addAction(UIAlertAction(title: "Ok", style: .default, handler: {
 			[weak self] _ in
 			guard let str = ac.textFields?[0].text else { return }
-			
 			self?.editPictureClass(to: str, label: tc)
-		
 		}))
 		present(ac, animated: true)
 	}
