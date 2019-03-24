@@ -48,14 +48,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VPC-OW-Ya0">
-                                <rect key="frame" x="20" y="50" width="335" height="350"/>
+                                <rect key="frame" x="20" y="50" width="335" height="295"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="335" id="gWk-8F-WNS"/>
-                                    <constraint firstAttribute="height" constant="350" id="qGy-YC-0iX"/>
+                                    <constraint firstAttribute="height" constant="295" id="YZB-wB-1Lx"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My0-I9-5MR" userLabel="pictureTitle">
+                                <rect key="frame" x="20" y="388" width="335" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis eros tortor. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYx-fJ-2e2" userLabel="PictureCaptionLabel">
-                                <rect key="frame" x="20" y="461" width="335" height="87"/>
+                                <rect key="frame" x="20" y="426" width="335" height="87"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="wz8-hJ-NUY"/>
@@ -64,38 +70,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My0-I9-5MR" userLabel="pictureTitle">
-                                <rect key="frame" x="20" y="423" width="335" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="NotoSansChakma-Regular" family="Noto Sans Chakma" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ5-Yo-dYg" userLabel="editButton">
-                                <rect key="frame" x="20" y="555" width="335" height="68"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.75998569542253525" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.9161164906" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="EDIT"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.91611649061032863" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VPC-OW-Ya0" firstAttribute="top" secondItem="L8G-JL-Czn" secondAttribute="top" constant="30" id="1vf-4d-wKH"/>
                             <constraint firstItem="fYx-fJ-2e2" firstAttribute="leading" secondItem="My0-I9-5MR" secondAttribute="leading" id="2H9-JK-hAN"/>
-                            <constraint firstItem="dJ5-Yo-dYg" firstAttribute="leading" secondItem="My0-I9-5MR" secondAttribute="leading" id="6vQ-md-gZX"/>
                             <constraint firstItem="fYx-fJ-2e2" firstAttribute="trailing" secondItem="My0-I9-5MR" secondAttribute="trailing" id="FfR-3n-Qga"/>
-                            <constraint firstItem="fYx-fJ-2e2" firstAttribute="trailing" secondItem="dJ5-Yo-dYg" secondAttribute="trailing" id="QQq-KU-AoT"/>
-                            <constraint firstItem="VPC-OW-Ya0" firstAttribute="width" secondItem="My0-I9-5MR" secondAttribute="width" id="dSY-0U-a1W"/>
+                            <constraint firstItem="VPC-OW-Ya0" firstAttribute="centerX" secondItem="b0h-D8-Uxh" secondAttribute="centerX" id="RId-as-dbd"/>
+                            <constraint firstItem="VPC-OW-Ya0" firstAttribute="trailing" secondItem="My0-I9-5MR" secondAttribute="trailing" id="ZCg-rH-GMW"/>
+                            <constraint firstItem="VPC-OW-Ya0" firstAttribute="leading" secondItem="My0-I9-5MR" secondAttribute="leading" id="drv-OH-gkd"/>
                             <constraint firstItem="fYx-fJ-2e2" firstAttribute="top" secondItem="My0-I9-5MR" secondAttribute="bottom" constant="17" id="e8d-wy-4OV"/>
-                            <constraint firstItem="VPC-OW-Ya0" firstAttribute="top" secondItem="L8G-JL-Czn" secondAttribute="top" constant="30" id="eQ1-RI-zOG"/>
-                            <constraint firstItem="My0-I9-5MR" firstAttribute="top" secondItem="VPC-OW-Ya0" secondAttribute="bottom" constant="23" id="fRR-wd-obA"/>
-                            <constraint firstItem="dJ5-Yo-dYg" firstAttribute="leading" secondItem="VPC-OW-Ya0" secondAttribute="leading" id="iQq-WD-V3X"/>
-                            <constraint firstItem="dJ5-Yo-dYg" firstAttribute="centerX" secondItem="b0h-D8-Uxh" secondAttribute="centerX" id="iSM-vA-G6I"/>
-                            <constraint firstItem="dJ5-Yo-dYg" firstAttribute="top" secondItem="fYx-fJ-2e2" secondAttribute="bottom" constant="7" id="k03-tW-516"/>
-                            <constraint firstItem="L8G-JL-Czn" firstAttribute="bottom" secondItem="dJ5-Yo-dYg" secondAttribute="bottom" constant="44" id="rJr-7V-wc6"/>
+                            <constraint firstItem="My0-I9-5MR" firstAttribute="top" secondItem="VPC-OW-Ya0" secondAttribute="bottom" constant="43" id="lNs-59-IM8"/>
+                            <constraint firstItem="VPC-OW-Ya0" firstAttribute="leading" secondItem="L8G-JL-Czn" secondAttribute="leading" constant="20" id="uhT-1Y-xl4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L8G-JL-Czn"/>
                     </view>
                     <connections>
+                        <outlet property="pictureCaptionLabel" destination="fYx-fJ-2e2" id="l6B-Uz-c58"/>
+                        <outlet property="pictureTitleLabel" destination="My0-I9-5MR" id="Sdj-TF-eX0"/>
                         <outlet property="selectedImageView" destination="VPC-OW-Ya0" id="nPz-8S-MQq"/>
                     </connections>
                 </viewController>
