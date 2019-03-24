@@ -59,23 +59,18 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		guard let image = info[.editedImage] as? UIImage else { return }
-
 		let imageName = UUID().uuidString
 		let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
-		
 		if let jpegData = image.jpegData(compressionQuality: 0.8) {
 			try? jpegData.write(to: imagePath)
 		}
-
-		let picture = PicturesCaption(image: imageName, imageName: "image", imageCaption: "")
 		
+		let picture = PicturesCaption(image: imageName, imageName: "image \(Int.random(in: 101...199))", imageCaption: "")
 		pictures.append(picture)
-		save()
 		dismiss(animated: true)
 		alertGetImgName(picture)
-		
-	
 		tableView.reloadData()
+		save()
 	}
 	
 	func getDocumentsDirectory() -> URL {
