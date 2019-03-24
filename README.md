@@ -1,6 +1,4 @@
-# Swift-Notes
-
-Learning Swift with [hackingwithswift.com](https://www.hackingwithswift.com/100)
+# 	Learning Swift with [hackingwithswift.com](https://www.hackingwithswift.com/100)
 
 #
 
