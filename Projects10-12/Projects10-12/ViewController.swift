@@ -15,6 +15,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPicture))
+		pictures = getSaveData()
 	}
 	
 	//tableView()/////////////////////////////////////////////////////////////
@@ -40,7 +41,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 	
 	}
 	
-	//@objc func//////////////////////////////////////////////////////////
+	//@objc func()//////////////////////////////////////////////////////////
 	
 	@objc func addNewPicture() {
 		let picker = UIImagePickerController()
@@ -50,7 +51,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 		present(picker, animated: true)
 	}
 	
-	//imagePickerController///////////////////////////////////////////////////
+	//imagePickerController()///////////////////////////////////////////////////
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		guard let image = info[.editedImage] as? UIImage else { return }
@@ -64,7 +65,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 		
 		let picture = PicturesCaption(image: imageName, imageName: "image", imageCaption: "")
 		pictures.append(picture)
-		
+		save()
 		tableView.reloadData()
 		dismiss(animated: true)
 	}
@@ -74,7 +75,38 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
 		return paths[0]
 	}
 	
+	//func()///////////////////////////////////////////////////
 	
+	func save() {
+		let jsonEncoder = JSONEncoder()
+		if let saveData = try? jsonEncoder.encode(pictures) {
+			let defaults = UserDefaults.standard
+			defaults.set(saveData, forKey: "pictures")
+		} else {
+			sendAlert(title: "Error", message: "Saved data did not load!")
+		}
+	}
+	
+	func getSaveData() -> [PicturesCaption] {
+		var savedPic = [PicturesCaption]()
+		
+		let defaults = UserDefaults.standard
+		if let savedContent = defaults.object(forKey: "pictures") as? Data {
+			let jsondecoder = JSONDecoder()
+			do {
+				savedPic = try jsondecoder.decode([PicturesCaption].self, from: savedContent)
+			} catch {
+				print("Error")
+			}
+		}
+		return savedPic
+	}
+	
+	func sendAlert(title: String, message: String?) {
+		let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "OK", style: .cancel))
+		present(ac, animated: true)
+	}
 	
 }
 

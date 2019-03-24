@@ -9,7 +9,7 @@
 import Foundation
 
 
-class PicturesCaption {
+class PicturesCaption: NSObject, Codable {
 	var image: String
 	var imageName: String
 	var imageCaption: String
