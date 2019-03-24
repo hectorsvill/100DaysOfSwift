@@ -97,6 +97,10 @@ Learning Swift with [hackingwithswift](https://www.hackingwithswift.com/100)
 - [Fixing Project 10](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project12b/Project10): Codable 
 
 
-[Day 50](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Projects10-12/Projects10-12) – Milestone: Projects 10-12
+[Milestone: Projects 10-12](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Projects10-12/Projects10-12) 
  
  - [Details](https://www.hackingwithswift.com/100/50)
+ - You’ll need to make ViewController build on UITableViewController rather than just UIViewController.
+ - Just like in project 10, you should create a custom type that stores an image filename and a caption string, then use either Codable or NSCoding to load and save that.
+ - Use a UIAlertController to get the user’s caption for their image – a single text field is enough.
+ - You’ll need to design your detail view controller using Interface Builder, then call instantiateViewController to load it when a table view row is tapped.
