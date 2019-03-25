@@ -56,7 +56,7 @@
 
 #
 
-[Project 8](https://github.com/hvillasa/Swift-Notes/tree/master/Project8/Project8) : 7 Swifty Words
+[Project 8](https://github.com/hvillasa/Swift-Notes/tree/master/Project8/Project8) : Seven Swifty Words
 
 - addTarget()
 - enumerated()
