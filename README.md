@@ -2,7 +2,13 @@
 
 #
 
+[Project 13](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project13/Project13): Instafilter
+- Core Image, UISlider, writing to the photo library
+- Importing a picture
+- Applying filters: CIContext, CIFilter
+- Saving to the iOS photo library
 
+#
 
 [Milestone: Projects 10-12](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Projects10-12/Projects10-12) 
  
