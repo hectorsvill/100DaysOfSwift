@@ -93,7 +93,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bMt-rB-OZK"/>
                     <connections>
-                        <outlet property="imageView" destination="8bC-Xf-vdC" id="0De-fs-8z5"/>
+                        <outlet property="imageView" destination="tTk-5t-3Ul" id="9o2-BX-bFd"/>
                         <outlet property="intensitySlider" destination="esA-Yi-7NL" id="UxZ-Nn-O38"/>
                     </connections>
                 </viewController>
