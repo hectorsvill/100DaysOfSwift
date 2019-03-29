@@ -18,6 +18,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	var currentImage: UIImage!
 	var context: CIContext!
 	var currentFilter: CIFilter!
+	var imageTitle =  "" {
+		didSet {
+			title = imageTitle
+		}
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -44,6 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		dismiss(animated: true)
 		currentImage = image
 		
+		imageTitle = "image \(Int.random(in: 121...1213))"
 		let beginImage = CIImage(image: currentImage)
 		currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
 		applyProcessing()
@@ -78,7 +84,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		}
 	}
 	
-	
 	@IBAction func changeFilter(_ sender: UIButton) {
 		let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
 		ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
@@ -94,25 +99,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 			popoverController.sourceView = sender
 			popoverController.sourceRect =  sender.bounds
 		}
-		
+
 		present(ac, animated: true)
 	}
 	
 	func setFilter(action: UIAlertAction) {
 		guard currentImage != nil else { return }
 		guard let actionTitle = action.title else { return }
-		
+	
 		currentFilter = CIFilter(name: actionTitle)
-		
+
 		let beginImage = CIImage(image: currentImage)
 		currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
 		applyProcessing()
 	}
 	
-	
-	
 	@IBAction func save(_ sender: Any) {
-		guard let image = imageView.image else { return }
+		guard let image = imageView.image else {
+			let ac = UIAlertController(title: "Error", message: "No Image to save!", preferredStyle: .alert)
+			ac.addAction(UIAlertAction(title: "ok", style: .cancel))
+			present(ac, animated: true)
+			return
+		}
 		UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
 	}
 	
