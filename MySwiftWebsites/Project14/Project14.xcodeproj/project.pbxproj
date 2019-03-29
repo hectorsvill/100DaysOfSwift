@@ -7,27 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E83715EA224DC0E300713B69 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83715E9224DC0E300713B69 /* WhackSlot.swift */; };
 		E867C6F8224D97AB00F9EF76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867C6F7224D97AB00F9EF76 /* AppDelegate.swift */; };
 		E867C6FA224D97AB00F9EF76 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E867C6F9224D97AB00F9EF76 /* GameScene.sks */; };
-		E867C6FC224D97AB00F9EF76 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = E867C6FB224D97AB00F9EF76 /* Actions.sks */; };
 		E867C6FE224D97AB00F9EF76 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867C6FD224D97AB00F9EF76 /* GameScene.swift */; };
 		E867C700224D97AB00F9EF76 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867C6FF224D97AB00F9EF76 /* GameViewController.swift */; };
 		E867C703224D97AB00F9EF76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E867C701224D97AB00F9EF76 /* Main.storyboard */; };
 		E867C705224D97AE00F9EF76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E867C704224D97AE00F9EF76 /* Assets.xcassets */; };
 		E867C708224D97AE00F9EF76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E867C706224D97AE00F9EF76 /* LaunchScreen.storyboard */; };
+		E867C711224D987400F9EF76 /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = E867C70F224D987400F9EF76 /* whack.caf */; };
+		E867C712224D987400F9EF76 /* whackBad.caf in Resources */ = {isa = PBXBuildFile; fileRef = E867C710224D987400F9EF76 /* whackBad.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E83715E9224DC0E300713B69 /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 		E867C6F4224D97AB00F9EF76 /* Project14.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project14.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E867C6F7224D97AB00F9EF76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E867C6F9224D97AB00F9EF76 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		E867C6FB224D97AB00F9EF76 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		E867C6FD224D97AB00F9EF76 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		E867C6FF224D97AB00F9EF76 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		E867C702224D97AB00F9EF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E867C704224D97AE00F9EF76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E867C707224D97AE00F9EF76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E867C709224D97AE00F9EF76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E867C70F224D987400F9EF76 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
+		E867C710224D987400F9EF76 /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +65,16 @@
 			isa = PBXGroup;
 			children = (
 				E867C6F7224D97AB00F9EF76 /* AppDelegate.swift */,
-				E867C6F9224D97AB00F9EF76 /* GameScene.sks */,
-				E867C6FB224D97AB00F9EF76 /* Actions.sks */,
 				E867C6FD224D97AB00F9EF76 /* GameScene.swift */,
+				E867C6F9224D97AB00F9EF76 /* GameScene.sks */,
 				E867C6FF224D97AB00F9EF76 /* GameViewController.swift */,
 				E867C701224D97AB00F9EF76 /* Main.storyboard */,
 				E867C704224D97AE00F9EF76 /* Assets.xcassets */,
 				E867C706224D97AE00F9EF76 /* LaunchScreen.storyboard */,
 				E867C709224D97AE00F9EF76 /* Info.plist */,
+				E867C70F224D987400F9EF76 /* whack.caf */,
+				E867C710224D987400F9EF76 /* whackBad.caf */,
+				E83715E9224DC0E300713B69 /* WhackSlot.swift */,
 			);
 			path = Project14;
 			sourceTree = "<group>";
@@ -135,7 +141,8 @@
 				E867C6FA224D97AB00F9EF76 /* GameScene.sks in Resources */,
 				E867C705224D97AE00F9EF76 /* Assets.xcassets in Resources */,
 				E867C708224D97AE00F9EF76 /* LaunchScreen.storyboard in Resources */,
-				E867C6FC224D97AB00F9EF76 /* Actions.sks in Resources */,
+				E867C711224D987400F9EF76 /* whack.caf in Resources */,
+				E867C712224D987400F9EF76 /* whackBad.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +155,7 @@
 			files = (
 				E867C6FE224D97AB00F9EF76 /* GameScene.swift in Sources */,
 				E867C700224D97AB00F9EF76 /* GameViewController.swift in Sources */,
+				E83715EA224DC0E300713B69 /* WhackSlot.swift in Sources */,
 				E867C6F8224D97AB00F9EF76 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = Project14/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +313,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hvillasa.Project14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -315,6 +324,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				INFOPLIST_FILE = Project14/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,7 +332,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hvillasa.Project14;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

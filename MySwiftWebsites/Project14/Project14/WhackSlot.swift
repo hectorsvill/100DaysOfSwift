@@ -7,7 +7,5 @@
 //
 
 import UIKit
+import SpriteKit
 
-class WhackSlot: SKNode {
-
-}
