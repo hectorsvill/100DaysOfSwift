@@ -8,6 +8,7 @@
 - Transform: CGAffineTransform
 #
 [Project 14](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project14/Project14): Whack-a-Penguin
+- spritekit
 - SKCropNode
 - SKAction moveBy(x:y:duration:)
 - SKAction sequences
