@@ -2,6 +2,11 @@
 
 #
 
+[Project 14](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project15/Project15): Whack-a-Penguin
+
+- Switch, case, animate: animate(withDuration:)
+- Transform: CGAffineTransform
+#
 [Project 14](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project14/Project14): Whack-a-Penguin
 - SKCropNode
 - SKAction moveBy(x:y:duration:)
