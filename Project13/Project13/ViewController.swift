@@ -38,10 +38,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	// import Picture ////////////////////////////////////////////////////////
 	
 	@objc func importPicture() {
+		
+		
+		
 		let picker = UIImagePickerController()
 		picker.allowsEditing = true
 		picker.delegate = self
 		present(picker, animated: true)
+	}
+	
+	func animateImageView() {
+//		UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+//
+//			self.imageView.alpha = 0.1
+//
+//		}){ finished in
+//			self.imageView.alpha= .identity
+//		}
 	}
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -85,6 +98,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 	}
 	
 	@IBAction func changeFilter(_ sender: UIButton) {
+		
+		imageView.alpha = 0.1
+		
 		let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
 		ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
 		ac.addAction(UIAlertAction(title: "CIGaussianBlur", style: .default, handler: setFilter))
@@ -93,7 +109,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		ac.addAction(UIAlertAction(title: "CITwirlDistortion", style: .default, handler: setFilter))
 		ac.addAction(UIAlertAction(title: "CIUnsharpMask", style: .default, handler: setFilter))
 		ac.addAction(UIAlertAction(title: "CIVignette", style: .default, handler: setFilter))
-		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: resetImageView))
 		
 		if let popoverController = ac.popoverPresentationController {
 			popoverController.sourceView = sender
@@ -103,7 +119,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		present(ac, animated: true)
 	}
 	
+	func resetImageView(action: UIAlertAction?) {
+		imageView.alpha = 1
+		imageView.reloadInputViews()
+	}
+	
 	func setFilter(action: UIAlertAction) {
+		resetImageView(action: nil)
 		guard currentImage != nil else { return }
 		guard let actionTitle = action.title else { return }
 	
@@ -112,6 +134,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 		let beginImage = CIImage(image: currentImage)
 		currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
 		applyProcessing()
+	
+		//resetImageView()
 	}
 	
 	@IBAction func save(_ sender: Any) {

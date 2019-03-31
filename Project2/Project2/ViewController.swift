@@ -35,13 +35,10 @@ class ViewController: UIViewController {
 	var correctAnswer = 0
 	var numberOfCuestionsAsked = 1
 	
-	override func viewDidLoad()
-	{
+	override func viewDidLoad() {
 		super.viewDidLoad()
 	
-		countries += ["estonia", "france", "germany", "ireland",
-					"italy", "monaco", "nigeria", "poland",
-					"russia", "spain", "uk", "us"]
+		countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
 		button1.layer.borderWidth = 1
 		button2.layer.borderWidth = 1
@@ -57,12 +54,9 @@ class ViewController: UIViewController {
 		if let savedBestScore = dedaults.object(forKey: "bestScore") as? Int {
 			bestScore = savedBestScore
 		}
-		
-		
 	}
 
-	func askQuestion(action: UIAlertAction! = nil)
-	{
+	func askQuestion(action: UIAlertAction! = nil) {
 		countries.shuffle()
 		correctAnswer = Int.random(in: 0...2)
 
@@ -70,37 +64,30 @@ class ViewController: UIViewController {
 		button2.setImage(UIImage(named: countries[1]), for: .normal)
 		button3.setImage(UIImage(named: countries[2]), for: .normal)
 		
-		//set title to navigation bar
 		title = "\(numberOfCuestionsAsked).Find: \(countries[correctAnswer].uppercased())" //"\t\t#\(numberOfCuestionsAsked)"
-
 		numberOfCuestionsAsked += 1
-		
-		//right bar button setup
 		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
-		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(checkScore))
 	}
 
 	//IBAction connected to 3 buttons with tag 0,1,2
-	@IBAction func buttonTapped(_ sender: UIButton)
-	{
+	@IBAction func buttonTapped(_ sender: UIButton) {
 		var title: String
 		var ac: UIAlertController
 	
-		if sender.tag == correctAnswer
-		{
+		
+		animateSender(sender)
+		
+		if sender.tag == correctAnswer{
 			title = "Correct!"
 			score += 1
-		}
-		else
-		{
+		} else {
 			title = "Wrong!"
 			//score -= 1
 		}
 
 		//10 round game. 9th round is the last
-		if numberOfCuestionsAsked == 11
-		{
+		if numberOfCuestionsAsked == 11 {
 			if score > bestScore {
 				bestScore = score
 				save()
@@ -110,26 +97,21 @@ class ViewController: UIViewController {
 			score = 0
 			numberOfCuestionsAsked = 1
 			
-		}
-		else
-		{
-			ac = UIAlertController(title: title, message: "The answer is \(countries[correctAnswer])!", preferredStyle: .alert)
+		} else {
+			ac = UIAlertController(title: title, message: "The answer is \(countries[correctAnswer])!", preferredStyle: .actionSheet)
 		}
 	
 		ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
 		present(ac, animated: true)
 	}
 	
-	@objc func shareTapped()
-	{
+	@objc func shareTapped() {
 		let vc = UIActivityViewController(activityItems: ["I Scored \(score) in the Flag Game!"], applicationActivities: [])
 		vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
 		present(vc, animated: true)
-		
 	}
 	
-	@objc func checkScore()
-	{
+	@objc func checkScore(){
 		let ac = UIAlertController(title: "score:\(score) / 10 \t Game Rules:", message: "Choose correct flag and score a point!", preferredStyle: .actionSheet)
 		ac.addAction(UIAlertAction(title: "Continue .. ", style: .default, handler: nil))
 		present(ac, animated: true)
@@ -137,16 +119,18 @@ class ViewController: UIViewController {
 	}
 	
 	func save() {
-//			let jsonEncoder = JSONEncoder()
-//
-//		if let saveData = try? jsonEncoder.encode(bestScore) {
-			let defaults = UserDefaults.standard
-			defaults.set(bestScore, forKey: "bestScore")
-//		} else {
-//			print("error: saving Data")
-//		}
+		let defaults = UserDefaults.standard
+		defaults.set(bestScore, forKey: "bestScore")
 	}
 	
-	
+	func animateSender(_ sender: UIButton) {
+		UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 5, options: [], animations: {
+			sender.transform = CGAffineTransform(scaleX: 2, y: 2)
+			sender.transform = CGAffineTransform(translationX: 0, y: 20)
+			
+		}){ finished in
+			sender.transform = .identity
+		}
+	}
 }
 
