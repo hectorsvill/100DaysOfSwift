@@ -1,171 +1,175 @@
 {
-  "results" :[
-    {
-      "country":"us",
-      "facts":[ "The country's GDP is $17.95 trillion.",
-                "The nominal GDP per capita is $55,836.",
-                "Lake Superior is so big, that its water could cover North and South America in their entirety with one foot of water.",
-                "The most visited museum in the United States is the Smithsonian National Air and Space Museum, which receives 9 million visitors annually. It is the second most visited museum in the world, after the Louvre.",
-                "Women earned the right to vote in 1920. The 19th amendment granted women the right to vote.",
-                "Alaska's coastline is longer than the coastlines of the remaining states put together. Alaska also is the largest state by area, the least densely populated, and is",
-                "The Pentagon is the largest office building in the world, boasting 17 miles of corridors and twice the space of the Empire State Building.",
-                "The first university in the country was Harvard, which was founded in 1636.",
-                "Thirty-four percent of Americans are obese.",
-                "Alaska was purchased from Russia in 1867 at a price of just $7.2 million."
-              ]
-    },
-    {
-      "country":"uk",
-      "facts":[ "With an area of 242,500 sq km (93,600 sq mi), the UK is quite a large country, but in fact, nowhere in it is more than just 113 km (70 mi) from the sea.", 
-                "Every day, the British drink 165 million cups of tea, which is over 20 times more than the Americans.",
-                "The UK brought the world several sports, most notably soccer, rugby, and polo. However, the British now often lose at these sports to nations that adopted them.",
-                "One of the most bizarre cultural facts about England is that it's actually illegal to die in the Houses of Parliament.",
-                "The Queen of the UK, Elizabeth II, has visited more than 116 counties of the world, although she does not have a passport. The reason is simple – she doesn't need to prove her identity. In fact, she is the one who officially issues passports for British citizens.",
-                "There is a 'Rent a Mourner' service in the UK to fill your funeral with fake friends.",
-                "With 500 recorded cases of ghostly encounters, York, Northern England, is the most haunted city in the UK and one of the most haunted in the world.",
-                "Connecting two tiny islands, Westray and Papa Westray in the North Sea, the UK is home to the world's shortest scheduled flight. The flight lasts just 2 minutes.",
-                "The British Navy used Britney Spears' music to scare off Somali pirates along the east coast of Africa.",
-                "London has not always been London. Successive occupants have used their own names for the city, such as Plowonida, Lowonidonjon, Londinium, Londinion, and Lundenwic."
-              ]
-    },
-    {
-      "country":"spain",
-      "facts":[ "The Spanish name for Spain is España.", 
-                "The Spanish language is spoken in many areas of the world due to the early influence of the Spanish Empire.",
-                "The second largest city is Barcelona, which is located in Catalonia.",
-                "The population of Spain in 2012 was around 47 million.",
-                "The currency used in Spain is the Euro.",
-                "Mount Teide is the highest mountain in Spain (3718 m, 12198 ft) and an active volcano.",
-                "The Pyrenees is a mountain range that divides Spain and France.",
-                "Spain includes a number of islands including Mallorca, Tenerife, Ibiza and Gran Canaria. Many can be found in the Canary Islands, an archipelago off the northwest coast of Africa.",
-                "Spain has a variety of foods and unique dishes such as paella (a type of rice dish) and tapas (a range of small snacks or appetizers).",
-                "Spain is located in Europe."
-              ]
-    },
-    {
-      "country":"russia",
-      "facts":[ "Mount Elbrus is the highest mountain in Russia (and Europe), it reaches a height of 5642 metres (18,510 feet).", 
-                "Lake Baikal is the largest freshwater lake in the world. It reaches 1642 metres (5,387 feet) in depth and contains around 20% of the world’s unfrozen fresh water.",
-                "Russia is one of 5 permanent members of the UN Security Council, along with the US, UK, China and France.",
-                "The official residence of the Russian president is the Kremlin in Moscow. The name Kremlin means fortress.",
-                "The Soviet Union (USSR) was a socialist state that occupied much of northern Asia and eastern Europe from 1922 until it was dissolved in 1991. Former Soviet states include Lithuania, Georgia, Latvia, Ukraine, Kazakhstan and others.",
-                "Russia has a wide range of natural resources and is one of the world’s largest producers of oil.",
-                "The capital and largest city in Russia is Moscow. Other major cities in Russia include Saint Petersburg, Yekaterinburg and Novosibirsk.",
-                "Russian is the official language of Russia but there are many other languages used in various parts of the country.",
-                "At the beginning of 2013, Russia was estimated to have a population of around 143 million.",
-                "The official name for Russia is the Russian Federation."
-              ]
-    },
-    {
-      "country":"poland",
-      "facts":[ "Germany’s invasion of Poland marked the beginning of World War II.", 
-                "The white-tailed eagle is Poland’s national symbol.",
-                "Polish is the country’s official language and is spoken by over 40 million people throughout the country. Polish is considered to be one of the most difficult languages to learn by non-native speakers.",
-                "Poland was under communist rule for many years before becoming a multi-party democracy in 1989.",
-                "Poland is home to more winners of the World’s Strongest Man title than any other country in the world.",
-                "The first record of a ruler of Poland was Mieszko in A.D. 963.",
-                "Pizza is available in Poland, but it’s not the type of pizza that most people think about. Instead, it is a type of street food that consists of a baguette covered in ketchup, mushrooms, and melted cheese.",
-                "The earliest maps of the moon were published by Johannes Hevelius, who was from Poland.",
-                "The first democratically elected president in Poland was Gabriel Narutowicz, who was elected in 1922.",
-                "Foreign movies that are aired on Polish TV have voiceovers performed by one person. One man does all of the voiceovers, even those of women and children."
-              ]
-    },
-    {
-      "country":"nigeria",
-      "facts":[ "While English is the official language, there are over 500 indigenous languages in Nigeria.", 
-                "Seven percent of the total languages spoken in the world are spoken in Nigeria.",
-                "While some cultures believe it’s rude to not look someone in the eye, in Nigeria, it is customary to not look into someone’s eyes.",
-                "Nigeria is the most populous country in Africa, and it is the 17th most populous city in the world.",
-                "Nigerians operate on what has become known as “African time.” This means that they are rarely on time. The more high class a person is, the later they will be.",
-                "In some Islamic marriages in Nigeria, once a woman is married, she may no longer see any of her male relatives again.",
-                "The life expectancy on average is 52 years, one of the lowest in the world. This is primarily due to poor healthcare, a lack of clean water, and poor living conditions.",
-                "Approximately 70% of Nigerians work in the agriculture industry.",
-                "The country’s cash crops include cocoa, wheat, peanuts, and cotton.",
-                "Five of the 10 richest pastors in the world live in Nigeria, according to a report from Forbes. Their net worth ranges from $10 million to $150 million."
-              ]
-    },
-    {
-      "country":"monaco",
-      "facts":[ "In 1993, Monaco became a member of the United Nations.", 
-                "Remember: Monaco is a city state. It does not have a separate capital. This is mainly due to its small size.",
-                " Brewery, chocolate factory and flour mill are the first industries that developed in Monaco at the beginning of the twentieth century.",
-                "Note that Monaco’s flag is similar to that of Indonesia with the only difference in the size of the flag. Indonesian flag is a bit wider than that of the Monaco’s.",
-                "Did you know that Monaco almost has a zero unemployment rate? The country is also void of any poor people.",
-                "Monaco has the highest life expectancy (89.5 years) in the world. The country with lowest life expectancy is Chad (50.2 years).",
-                "If you were a resident of Monaco, but not born there, you would be called Monacoian.",
-                "To the eastern side of the country lies Italy at a distance of 8 kilometers.",
-                "For the rich and famous people from across the world, Monaco is a premier tourist destination and recreation center.",
-                " Princess Caroline is accredited with establishing gambling casinos in Monaco to support the House of Grimaldi (the ruling family of Monaco at the time) from bankruptcy."
-              ]
-    },
-    {
-      "country":"italy",
-      "facts":[ "It’s proper name Repubblica Italiana (Italian Republic), Nickname: “Bel Paese” which means beautiful country.", 
-                "Rome, its capital city was founded in 753BC.",
-                "The currency is the Euro. Prior to 2001 it was the Italian Lira",
-                "Religion is predominantly Christian (Roman Catholics 90%)",
-                "More than 98% of Italian’s can read and write.",
-                "The official language is Italian as well as German and in some regions in Northern Italy.",
-                "Mozzarella: Italian cheese balls, originally made from buffalo milk",
-                "Lasagna: layered pasta dish with tomato, mozzarella cheese and mince meat filling.",
-                "Italian pasta is renowned worldwide and there are more than 200 different shapes.",
-                "Pizza is surely one of the most famous exports and in Italy it is usually baked in a wood-fired oven and very thin, but loaded with fresh vegetables or thinly sliced ham, salami, artichokes or olives.",
-                "Alessandro Volta, was the pioneer who studied in electricity, hence the name “Volt” describing a unit of electricity.",
-                "The Italian soccer league is followed by many Italians abroad too: Inter, Milan, Roma, Napoli and Juventus are just some of the Italian soccer teams which are favored by Italians."
-              ]
-    },
-    {
-      "country":"ireland",
-      "facts":[ "The country’s major exports include food products such as potatoes, lamb and beef. They also export a large amount of zinc, lead, machinery and pharmaceuticals. Their imports include oil, aircraft parts, vehicles, and petroleum gases.", 
-                "Ireland has made many trading partners over the last few decades. Today, the United States accounts for 20% of Ireland’s exports, while the United Kingdom accounts for 38% of the country’s imports.",
-                "Ireland is known as the Emerald Isle, this is because of its lush greenery and rolling hills. The country receives a lot of rain each year, which keeps the grass green and the plants blooming.",
-                "Northern Ireland is governed by the United Kingdom, while the rest of Ireland is an independent nation.",
-                "Ireland is known throughout the world for its vast amount of castles. Ireland’s history is dotted with wars and violence, so castles were built to protect families from invaders. Today, most of the castles are still standing and some can even be visited by tourists.",
-                "Irish people speak English, but Irish school children are still taught Irish, which is a Gaelic language.",
-                "Any person who is born on St. Patrick’s Day in Ireland is considered to be very lucky.",
-                "St. Patrick’s Day is celebrated grandly in Ireland. People eat traditional Irish food which includes beer, pink bacon, and savory chicken.",
-                "Sports are huge in Ireland. Irish people take their sports seriously, and get very into soccer, hurling, camogie and handball.",
-                "The average family size in Ireland is four, two kids with two adults."
-              ]
-    },
-    {
-      "country":"germany",
-      "facts":[ "Germany is a member of the European Union.", 
-                "65% of the highways in Germany (Autobahn) have no speed limit.",
-                "Germany is the seventh-largest country in Europe. Covering an area of 137,847 square miles, of which 34,836 square miles is covered by land and 3,011 square miles contains water.",
-                "Berlin is 9 times bigger than Paris and has more bridges than Venice.",
-                "Germany is composed of sixteen states. The states have their own constitution and are largely autonomous in regard to their internal organization. At the municipal level, Germany is divided into 403 districts (Kreise), of which 301 are rural districts and 102 urban districts. Bavaria is the largest state.",
-                "Germany shares borders with nine other countries. Denmark, Poland, the Czech Republic, Austria, Switzerland, France, Belgium, Luxembourg and the Netherlands.",
-                "There are thirty-five dialects of the German language.",
-                "Smoking is banned in public places but drinking alcohol is still legal.",
-                "After the Irish, the Germans are those consume the most beer, making Germany the second largest consumer of Beer.",
-                "The biggest Beer Festival in the world is of course the Oktoberfest in Munich, Bavaria, where the size of the beer glass is not 500ml but a whole liter!"
-              ]
-    },
-    {
-      "country":"france",
-      "facts":[ "n 2016, the country had 82,6 million international visitors, which was 7 million more than both USA and Spain. The main attractions are of course Paris and Disneyland, but also the French Riviera, Alsace, and the lovely wine regions.", 
-                "Did you know that France uses 12 different time zones? At first, that might sound shocking, but if you think about it’s not that strange since the French have colonized a big part of the world. Within the French territory in Europe, only 1 time zone is being used, but accounting all areas outside Europe it stretches over 12 different time zones.",
-                "Among the many inventions, some notable ones are the hot air balloon, pasteurizer, stethoscope, and the parachute. Each of these has changed the world.",
-                "A pretty funny fact about France, at least for us in Sweden, as we also have many roundabouts. Here, however, the roundabouts have been taken a few steps further with more than 30,000 rounds in total, which represents a little more than half of the world’s roundabouts.",
-                "France has a unitary semi-presidential constitutional republic as their government, and has both a President and a Prime Minister. They also operate a Parliament, a Senate and a National Assembly.",
-                "France uses nuclear power for 79% of its electricity, making it the largest user of nuclear power in the world.",
-                "France is a leading exporter of agricultural goods. They have many acres of fertile land, and are the world’s third largest exporter of agricultural products.",
-                "The wine industry helps boost France’s economy greatly. They export Bordeaux wines and a lot of champagne all around the world.",
-                "The French people have one"
-    {
-      "country":"estonia",
-      "facts":[ "The country also has the highest number of startups per capita in Europe.", 
-                "The Estonian system for public use is so easy that you could easily file your income tax return in less than 10 minutes or register your company through the internet in less than 5 minutes.",
-                "Estonia since joining the European Union has become an increasingly important transshipment zone for cannabis, cocaine, opiates, and synthetic drugs.",
-                "The country is also the first country in the world to have implemented flat tax system.",
-                "It is a law in Estonia to have safety reflectors attached whether you are walking or biking during the night time or when the visibility is inadequate. The reflector can be pinned to your handbag, coat or any other suitable place where it is easily spotable. Otherwise, you could be fined up to 400 EUR.",
-                "It is also the third country in the world after Finland and Canada to have the maximum area covered under natural mires.",
-                "Estonia also belongs to the group of countries with the largest density of large predators in Europe. If you are lucky, and lucky enough, you could sight wolves, lynxes and brown bears in the country.",
-                "Did you know that Estonia is the birthplace of Skype? Yes, there is no doubt that Estonia is a technologically advanced nation and internet focused as mentioned in the fact above.",
-                "The country also produced a Chess Grandmaster – Paul Keres. Upon his death in 1975, an estimated 100,000 people attended his funeral.",
-                "Even if the amount you spend in Estonia is insignificant, you would always get a receipt."
-              ]
-    }
-  ]
+	"results" : [
+		{
+			"country":"us",
+			"facts":[ "The country's GDP is $17.95 trillion.",
+				"The nominal GDP per capita is $55,836.",
+				"Lake Superior is so big, that its water could cover North and South America in their entirety with one foot of water.",
+				"The most visited museum in the United States is the Smithsonian National Air and Space Museum, which receives 9 million visitors annually. It is the second most visited museum in the world, after the Louvre.",
+				"Women earned the right to vote in 1920. The 19th amendment granted women the right to vote.",
+				"Alaska's coastline is longer than the coastlines of the remaining states put together. Alaska also is the largest state by area, the least densely populated, and is",
+				"The Pentagon is the largest office building in the world, boasting 17 miles of corridors and twice the space of the Empire State Building.",
+				"The first university in the country was Harvard, which was founded in 1636.",
+				"Thirty-four percent of Americans are obese.",
+				"Alaska was purchased from Russia in 1867 at a price of just $7.2 million."
+			]
+		},
+		{
+			"country":"uk",
+			"facts":[ "With an area of 242,500 sq km (93,600 sq mi), the UK is quite a large country, but in fact, nowhere in it is more than just 113 km (70 mi) from the sea.",
+				"Every day, the British drink 165 million cups of tea, which is over 20 times more than the Americans.",
+				"The UK brought the world several sports, most notably soccer, rugby, and polo. However, the British now often lose at these sports to nations that adopted them.",
+				"One of the most bizarre cultural facts about England is that it's actually illegal to die in the Houses of Parliament.",
+				"The Queen of the UK, Elizabeth II, has visited more than 116 counties of the world, although she does not have a passport. The reason is simple – she doesn't need to prove her identity. In fact, she is the one who officially issues passports for British citizens.",
+				"There is a 'Rent a Mourner' service in the UK to fill your funeral with fake friends.",
+				"With 500 recorded cases of ghostly encounters, York, Northern England, is the most haunted city in the UK and one of the most haunted in the world.",
+				"Connecting two tiny islands, Westray and Papa Westray in the North Sea, the UK is home to the world's shortest scheduled flight. The flight lasts just 2 minutes.",
+				"The British Navy used Britney Spears' music to scare off Somali pirates along the east coast of Africa.",
+				"London has not always been London. Successive occupants have used their own names for the city, such as Plowonida, Lowonidonjon, Londinium, Londinion, and Lundenwic."
+			]
+		},
+		{
+			"country":"spain",
+			"facts":[ "The Spanish name for Spain is España.",
+				"The Spanish language is spoken in many areas of the world due to the early influence of the Spanish Empire.",
+				"The second largest city is Barcelona, which is located in Catalonia.",
+				"The population of Spain in 2012 was around 47 million.",
+				"The currency used in Spain is the Euro.",
+				"Mount Teide is the highest mountain in Spain (3718 m, 12198 ft) and an active volcano.",
+				"The Pyrenees is a mountain range that divides Spain and France.",
+				"Spain includes a number of islands including Mallorca, Tenerife, Ibiza and Gran Canaria. Many can be found in the Canary Islands, an archipelago off the northwest coast of Africa.",
+				"Spain has a variety of foods and unique dishes such as paella (a type of rice dish) and tapas (a range of small snacks or appetizers).",
+				"Spain is located in Europe."
+			]
+		},
+		{
+			"country":"russia",
+			"facts":[ "Mount Elbrus is the highest mountain in Russia (and Europe), it reaches a height of 5642 metres (18,510 feet).",
+				"Lake Baikal is the largest freshwater lake in the world. It reaches 1642 metres (5,387 feet) in depth and contains around 20% of the world’s unfrozen fresh water.",
+				"Russia is one of 5 permanent members of the UN Security Council, along with the US, UK, China and France.",
+				"The official residence of the Russian president is the Kremlin in Moscow. The name Kremlin means fortress.",
+				"The Soviet Union (USSR) was a socialist state that occupied much of northern Asia and eastern Europe from 1922 until it was dissolved in 1991. Former Soviet states include Lithuania, Georgia, Latvia, Ukraine, Kazakhstan and others.",
+				"Russia has a wide range of natural resources and is one of the world’s largest producers of oil.",
+				"The capital and largest city in Russia is Moscow. Other major cities in Russia include Saint Petersburg, Yekaterinburg and Novosibirsk.",
+				"Russian is the official language of Russia but there are many other languages used in various parts of the country.",
+				"At the beginning of 2013, Russia was estimated to have a population of around 143 million.",
+				"The official name for Russia is the Russian Federation."
+			]
+		},
+		{
+			"country":"poland",
+			"facts":[ "Germany’s invasion of Poland marked the beginning of World War II.",
+				"The white-tailed eagle is Poland’s national symbol.",
+				"Polish is the country’s official language and is spoken by over 40 million people throughout the country. Polish is considered to be one of the most difficult languages to learn by non-native speakers.",
+				"Poland was under communist rule for many years before becoming a multi-party democracy in 1989.",
+				"Poland is home to more winners of the World’s Strongest Man title than any other country in the world.",
+				"The first record of a ruler of Poland was Mieszko in A.D. 963.",
+				"Pizza is available in Poland, but it’s not the type of pizza that most people think about. Instead, it is a type of street food that consists of a baguette covered in ketchup, mushrooms, and melted cheese.",
+				"The earliest maps of the moon were published by Johannes Hevelius, who was from Poland.",
+				"The first democratically elected president in Poland was Gabriel Narutowicz, who was elected in 1922.",
+				"Foreign movies that are aired on Polish TV have voiceovers performed by one person. One man does all of the voiceovers, even those of women and children."
+			]
+		},
+		{
+			"country":"nigeria",
+			"facts":[ "While English is the official language, there are over 500 indigenous languages in Nigeria.",
+				"Seven percent of the total languages spoken in the world are spoken in Nigeria.",
+				"While some cultures believe it’s rude to not look someone in the eye, in Nigeria, it is customary to not look into someone’s eyes.",
+				"Nigeria is the most populous country in Africa, and it is the 17th most populous city in the world.",
+				"Nigerians operate on what has become known as “African time.” This means that they are rarely on time. The more high class a person is, the later they will be.",
+				"In some Islamic marriages in Nigeria, once a woman is married, she may no longer see any of her male relatives again.",
+				"The life expectancy on average is 52 years, one of the lowest in the world. This is primarily due to poor healthcare, a lack of clean water, and poor living conditions.",
+				"Approximately 70% of Nigerians work in the agriculture industry.",
+				"The country’s cash crops include cocoa, wheat, peanuts, and cotton.",
+				"Five of the 10 richest pastors in the world live in Nigeria, according to a report from Forbes. Their net worth ranges from $10 million to $150 million."
+			]
+		},
+		{
+			"country":"monaco",
+			"facts":[ "In 1993, Monaco became a member of the United Nations.",
+				"Remember: Monaco is a city state. It does not have a separate capital. This is mainly due to its small size.",
+				" Brewery, chocolate factory and flour mill are the first industries that developed in Monaco at the beginning of the twentieth century.",
+				"Note that Monaco’s flag is similar to that of Indonesia with the only difference in the size of the flag. Indonesian flag is a bit wider than that of the Monaco’s.",
+				"Did you know that Monaco almost has a zero unemployment rate? The country is also void of any poor people.",
+				"Monaco has the highest life expectancy (89.5 years) in the world. The country with lowest life expectancy is Chad (50.2 years).",
+				"If you were a resident of Monaco, but not born there, you would be called Monacoian.",
+				"To the eastern side of the country lies Italy at a distance of 8 kilometers.",
+				"For the rich and famous people from across the world, Monaco is a premier tourist destination and recreation center.",
+				" Princess Caroline is accredited with establishing gambling casinos in Monaco to support the House of Grimaldi (the ruling family of Monaco at the time) from bankruptcy.",
+			]
+		},
+		{
+			"country":"italy",
+			"facts":[ "It’s proper name Repubblica Italiana (Italian Republic), Nickname: “Bel Paese” which means beautiful country.",
+				"Rome, its capital city was founded in 753BC.",
+				"The currency is the Euro. Prior to 2001 it was the Italian Lira",
+				"Religion is predominantly Christian (Roman Catholics 90%)",
+				"More than 98% of Italian’s can read and write.",
+				"The official language is Italian as well as German and in some regions in Northern Italy.",
+				"Mozzarella: Italian cheese balls, originally made from buffalo milk",
+				"Lasagna: layered pasta dish with tomato, mozzarella cheese and mince meat filling.",
+				"Italian pasta is renowned worldwide and there are more than 200 different shapes.",
+				"Pizza is surely one of the most famous exports and in Italy it is usually baked in a wood-fired oven and very thin, but loaded with fresh vegetables or thinly sliced ham, salami, artichokes or olives.",
+				"Alessandro Volta, was the pioneer who studied in electricity, hence the name “Volt” describing a unit of electricity.",
+				"The Italian soccer league is followed by many Italians abroad too: Inter, Milan, Roma, Napoli and Juventus are just some of the Italian soccer teams which are favored by Italians."
+			]
+		},
+		{
+			"country":"ireland",
+			"facts":[ "The country’s major exports include food products such as potatoes, lamb and beef. They also export a large amount of zinc, lead, machinery and pharmaceuticals. Their imports include oil, aircraft parts, vehicles, and petroleum gases.",
+				"Ireland has made many trading partners over the last few decades. Today, the United States accounts for 20% of Ireland’s exports, while the United Kingdom accounts for 38% of the country’s imports.",
+				"Ireland is known as the Emerald Isle, this is because of its lush greenery and rolling hills. The country receives a lot of rain each year, which keeps the grass green and the plants blooming.",
+				"Northern Ireland is governed by the United Kingdom, while the rest of Ireland is an independent nation.",
+				"Ireland is known throughout the world for its vast amount of castles. Ireland’s history is dotted with wars and violence, so castles were built to protect families from invaders. Today, most of the castles are still standing and some can even be visited by tourists.",
+				"Irish people speak English, but Irish school children are still taught Irish, which is a Gaelic language.",
+				"Any person who is born on St. Patrick’s Day in Ireland is considered to be very lucky.",
+				"St. Patrick’s Day is celebrated grandly in Ireland. People eat traditional Irish food which includes beer, pink bacon, and savory chicken.",
+				"Sports are huge in Ireland. Irish people take their sports seriously, and get very into soccer, hurling, camogie and handball.",
+				"The average family size in Ireland is four, two kids with two adults."
+			]
+		},
+		{
+			"country":"germany",
+			"facts":[ "Germany is a member of the European Union.",
+				"65% of the highways in Germany (Autobahn) have no speed limit.",
+				"Germany is the seventh-largest country in Europe. Covering an area of 137,847 square miles, of which 34,836 square miles is covered by land and 3,011 square miles contains water.",
+				"Berlin is 9 times bigger than Paris and has more bridges than Venice.",
+				"Germany is composed of sixteen states. The states have their own constitution and are largely autonomous in regard to their internal organization. At the municipal level, Germany is divided into 403 districts (Kreise), of which 301 are rural districts and 102 urban districts. Bavaria is the largest state.",
+				"Germany shares borders with nine other countries. Denmark, Poland, the Czech Republic, Austria, Switzerland, France, Belgium, Luxembourg and the Netherlands.",
+				"There are thirty-five dialects of the German language.",
+				"Smoking is banned in public places but drinking alcohol is still legal.",
+				"After the Irish, the Germans are those consume the most beer, making Germany the second largest consumer of Beer.",
+				"The biggest Beer Festival in the world is of course the Oktoberfest in Munich, Bavaria, where the size of the beer glass is not 500ml but a whole liter!"
+			]
+		},
+		{
+			"country":"france",
+			"facts":[ "n 2016, the country had 82,6 million international visitors, which was 7 million more than both USA and Spain. The main attractions are of course Paris and Disneyland, but also the French Riviera, Alsace, and the lovely wine regions.",
+				"Did you know that France uses 12 different time zones? At first, that might sound shocking, but if you think about it’s not that strange since the French have colonized a big part of the world. Within the French territory in Europe, only 1 time zone is being used, but accounting all areas outside Europe it stretches over 12 different time zones.",
+				"Among the many inventions, some notable ones are the hot air balloon, pasteurizer, stethoscope, and the parachute. Each of these has changed the world.",
+				"A pretty funny fact about France, at least for us in Sweden, as we also have many roundabouts. Here, however, the roundabouts have been taken a few steps further with more than 30,000 rounds in total, which represents a little more than half of the world’s roundabouts.",
+				"France has a unitary semi-presidential constitutional republic as their government, and has both a President and a Prime Minister. They also operate a Parliament, a Senate and a National Assembly.",
+				"France uses nuclear power for 79% of its electricity, making it the largest user of nuclear power in the world.",
+				"France is a leading exporter of agricultural goods. They have many acres of fertile land, and are the world’s third largest exporter of agricultural products.",
+				"The wine industry helps boost France’s economy greatly. They export Bordeaux wines and a lot of champagne all around the world.",
+				"The French people have one"
+			]
+		},
+		{
+			"country":"estonia",
+			"facts":[ "The country also has the highest number of startups per capita in Europe.",
+				"The Estonian system for public use is so easy that you could easily file your income tax return in less than 10 minutes or register your company through the internet in less than 5 minutes.",
+				"Estonia since joining the European Union has become an increasingly important transshipment zone for cannabis, cocaine, opiates, and synthetic drugs.",
+				"The country is also the first country in the world to have implemented flat tax system.",
+				"It is a law in Estonia to have safety reflectors attached whether you are walking or biking during the night time or when the visibility is inadequate. The reflector can be pinned to your handbag, coat or any other suitable place where it is easily spotable. Otherwise, you could be fined up to 400 EUR.",
+				"It is also the third country in the world after Finland and Canada to have the maximum area covered under natural mires.",
+				"Estonia also belongs to the group of countries with the largest density of large predators in Europe. If you are lucky, and lucky enough, you could sight wolves, lynxes and brown bears in the country.",
+				"Did you know that Estonia is the birthplace of Skype? Yes, there is no doubt that Estonia is a technologically advanced nation and internet focused as mentioned in the fact above.",
+				"The country also produced a Chess Grandmaster – Paul Keres. Upon his death in 1975, an estimated 100,000 people attended his funeral.",
+				"Even if the amount you spend in Estonia is insignificant, you would always get a receipt."
+			]
+		}
+		
+	]
 }
+

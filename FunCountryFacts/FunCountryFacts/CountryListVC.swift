@@ -13,7 +13,7 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 	fileprivate let tableView = UITableView()
 	fileprivate let countriesList = CountriesInfo().getCountriesList()
 	fileprivate let cellId = "cellid"
-	
+	var factsJsonList = [CountryFacts]()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,6 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 		title = "Fun Country Facts"
 		setupTV()
 		getJson()
-
     }
 	
 	fileprivate func setupTV() {
@@ -40,8 +39,8 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 	}
 }
 
+
 extension CountryListVC {
-	///////////////////////////////////////////////////////////////////////////
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return countriesList.count
@@ -51,7 +50,7 @@ extension CountryListVC {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CountryListCell
 		cell.accessoryType = .disclosureIndicator
 
-		let str = countriesList[indexPath.row]
+		let str =  factsJsonList[indexPath.row].country //countriesList[indexPath.row]
 		let image =  UIImage(named: str)
 		
 		cell.flagImageView.image = image
@@ -64,27 +63,21 @@ extension CountryListVC {
 		return 85
 	}
 	
-	///////////////////////////////////////////////////////////////////////////
-	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let vc = CountryFactListVC()
-		vc.countryName = countriesList[indexPath.row]
+		vc.country = factsJsonList[indexPath.row]
 		navigationController?.pushViewController(vc, animated: true)
-		
-		
 	}
-	
 }
 
-extension CountryListVC {
 
-	
-	
+extension CountryListVC {
 	fileprivate func getJson() {
 		let forResource = "CountriesFactAPI"
 		let withExtension = "json"
 
-		if let factjson = Bundle.main.url(forResource: forResource, withExtension: withExtension) {
+		if let factjson = Bundle.main.url(forResource: forResource,
+										  withExtension: withExtension) {
 			if let data = try? Data(contentsOf: factjson) {
 				parseJson(data)
 				return
@@ -93,10 +86,16 @@ extension CountryListVC {
 		print("Error: GetJson")
 	}
 	
-	func parseJson(_ data: Data) {
-		print(data)
+	func parseJson(_ json: Data) {
+		print(json)
+		let decoder = JSONDecoder()
+		if let decoded = try? decoder.decode(Countries.self, from: json) {
+			factsJsonList = decoded.results
+			print(factsJsonList.count)
+			return
+		}
+		print("error: parseJson")
 	}
 	
 	
-	///////////////////////////////////////////////////////////////////////////
 }

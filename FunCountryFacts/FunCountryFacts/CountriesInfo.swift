@@ -9,7 +9,6 @@
 import Foundation
 
 class CountriesInfo {
-
 	func getCountriesList() -> [String] {
 		let countryList = [
 			"estonia", "france", "germany", "ireland",
@@ -17,12 +16,14 @@ class CountriesInfo {
 			"russia", "spain", "uk", "us"]
 		return countryList.sorted()
 	}
-
 }
 
-struct Contries: Codable {
+struct Countries: Codable {
 	var results: [CountryFacts]
 }
+
+
+
 
 struct CountryFacts: Codable {
 	var country: String
