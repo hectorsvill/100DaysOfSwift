@@ -9,10 +9,12 @@
 import Foundation
 
 class CountriesInfo {
-	
 
 	func getCountriesList() -> [String] {
-		let countryList = ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
+		let countryList = [
+			"estonia", "france", "germany", "ireland",
+			"italy", "monaco", "nigeria", "poland",
+			"russia", "spain", "uk", "us"]
 		return countryList
 	}
 

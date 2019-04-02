@@ -11,16 +11,19 @@ import UIKit
 class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
 	let tableView = UITableView()
-	let countriesList = CountriesInfo().getCountriesList()
+	let countriesList = CountriesInfo().getCountriesList().shuffled()
 	let cellId = "cellid"
 	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
 		view.backgroundColor = .white
 		title = "Fun Country Facts"
 		
 		setupTableView()
+		
+		
     }
 	
 	///////////////////////////////////////////////////////////////////////////
@@ -30,15 +33,28 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CountryListCell
 		cell.accessoryType = .disclosureIndicator
-		cell.textLabel?.text = countriesList[indexPath.row]
+
+		let str = countriesList[indexPath.row]
+		let image =  UIImage(named: str)
+		
+		cell.flagImageView.image = image
+		cell.flagNameLabel.text = str.uppercased()
+		
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 100
 	}
 	
 	func setupTableView() {
 		
 		view.addSubview(tableView)
+		
+		tableView.register(CountryListCell.self, forCellReuseIdentifier: cellId)
+		
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.delegate = self
 		tableView.dataSource = self
@@ -50,11 +66,8 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
 			
 			])
-		
-		
-		tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-
 	}
 	
 	
 }
+
