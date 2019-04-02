@@ -31,19 +31,29 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+		cell.accessoryType = .disclosureIndicator
 		cell.textLabel?.text = countriesList[indexPath.row]
 		return cell
 	}
 	
 	func setupTableView() {
 		
-		tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-
+		view.addSubview(tableView)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.delegate = self
 		tableView.dataSource = self
 		
+		NSLayoutConstraint.activate([
+			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+			tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+			
+			])
 		
+		
+		tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+
 	}
 	
 	
