@@ -34,6 +34,7 @@ class CountryListCell: UITableViewCell {
 		let label = UILabel()
 		label.font = UIFont.systemFont(ofSize: 25)
 		label.translatesAutoresizingMaskIntoConstraints = false
+		
 		return label
 	}()
 	

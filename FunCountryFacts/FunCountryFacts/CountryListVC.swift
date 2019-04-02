@@ -20,9 +20,27 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 		view.backgroundColor = .white
 		title = "Fun Country Facts"
 		setupTV()
+		getJson()
 
     }
 	
+	fileprivate func setupTV() {
+		view.addSubview(tableView)
+		tableView.register(CountryListCell.self, forCellReuseIdentifier: cellId)
+		tableView.translatesAutoresizingMaskIntoConstraints = false
+		tableView.delegate = self
+		tableView.dataSource = self
+		
+		NSLayoutConstraint.activate([
+			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+			tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+			])
+	}
+}
+
+extension CountryListVC {
 	///////////////////////////////////////////////////////////////////////////
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,6 +64,8 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 		return 85
 	}
 	
+	///////////////////////////////////////////////////////////////////////////
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let vc = CountryFactListVC()
 		vc.countryName = countriesList[indexPath.row]
@@ -54,21 +74,29 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 		
 	}
 	
-	///////////////////////////////////////////////////////////////////////////\
+}
+
+extension CountryListVC {
+
 	
-	fileprivate func setupTV() {
-		
-		view.addSubview(tableView)
-		tableView.register(CountryListCell.self, forCellReuseIdentifier: cellId)
-		tableView.translatesAutoresizingMaskIntoConstraints = false
-		tableView.delegate = self
-		tableView.dataSource = self
-		
-		NSLayoutConstraint.activate([
-			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-			tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-			])
+	
+	fileprivate func getJson() {
+		let forResource = "CountriesFactAPI"
+		let withExtension = "json"
+
+		if let factjson = Bundle.main.url(forResource: forResource, withExtension: withExtension) {
+			if let data = try? Data(contentsOf: factjson) {
+				parseJson(data)
+				return
+			}
+		}
+		print("Error: GetJson")
 	}
+	
+	func parseJson(_ data: Data) {
+		print(data)
+	}
+	
+	
+	///////////////////////////////////////////////////////////////////////////
 }

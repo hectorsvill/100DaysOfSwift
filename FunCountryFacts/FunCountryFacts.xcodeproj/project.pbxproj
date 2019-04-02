@@ -13,6 +13,8 @@
 		E89CA5882252D952003171FA /* CountriesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CA5872252D952003171FA /* CountriesInfo.swift */; };
 		E89CA58A2252DF58003171FA /* CountryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CA5892252DF58003171FA /* CountryListCell.swift */; };
 		E89CA58C2252F11B003171FA /* CountryFactListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CA58B2252F11B003171FA /* CountryFactListVC.swift */; };
+		E89CA5902253D98B003171FA /* FactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CA58F2253D98B003171FA /* FactListViewController.swift */; };
+		E89CA5962253E122003171FA /* CountriesFactAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = E89CA5952253E122003171FA /* CountriesFactAPI.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E89CA5872252D952003171FA /* CountriesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesInfo.swift; sourceTree = "<group>"; };
 		E89CA5892252DF58003171FA /* CountryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListCell.swift; sourceTree = "<group>"; };
 		E89CA58B2252F11B003171FA /* CountryFactListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFactListVC.swift; sourceTree = "<group>"; };
+		E89CA58F2253D98B003171FA /* FactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListViewController.swift; sourceTree = "<group>"; };
+		E89CA5952253E122003171FA /* CountriesFactAPI.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CountriesFactAPI.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +63,11 @@
 				E89CA5852252D713003171FA /* CountryListVC.swift */,
 				E89CA58B2252F11B003171FA /* CountryFactListVC.swift */,
 				E89CA5892252DF58003171FA /* CountryListCell.swift */,
+				E89CA58F2253D98B003171FA /* FactListViewController.swift */,
 				E89CA5872252D952003171FA /* CountriesInfo.swift */,
 				E89CA5732252D65D003171FA /* AppDelegate.swift */,
 				E89CA57A2252D65E003171FA /* Assets.xcassets */,
+				E89CA5952253E122003171FA /* CountriesFactAPI.json */,
 				E89CA57F2252D65E003171FA /* Info.plist */,
 			);
 			path = FunCountryFacts;
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E89CA57B2252D65E003171FA /* Assets.xcassets in Resources */,
+				E89CA5962253E122003171FA /* CountriesFactAPI.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E89CA5902253D98B003171FA /* FactListViewController.swift in Sources */,
 				E89CA58C2252F11B003171FA /* CountryFactListVC.swift in Sources */,
 				E89CA58A2252DF58003171FA /* CountryListCell.swift in Sources */,
 				E89CA5882252D952003171FA /* CountriesInfo.swift in Sources */,

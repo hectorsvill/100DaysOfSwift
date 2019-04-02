@@ -19,3 +19,12 @@ class CountriesInfo {
 	}
 
 }
+
+struct Contries: Codable {
+	var results: [CountryFacts]
+}
+
+struct CountryFacts: Codable {
+	var country: String
+	var facts: [String]
+}
