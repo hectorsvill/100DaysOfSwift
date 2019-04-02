@@ -10,20 +10,17 @@ import UIKit
 
 class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
-	let tableView = UITableView()
-	let countriesList = CountriesInfo().getCountriesList().shuffled()
-	let cellId = "cellid"
+	fileprivate let tableView = UITableView()
+	fileprivate let countriesList = CountriesInfo().getCountriesList()
+	fileprivate let cellId = "cellid"
 	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		view.backgroundColor = .white
 		title = "Fun Country Facts"
-		
-		setupTableView()
-		
-		
+		setupTV()
+
     }
 	
 	///////////////////////////////////////////////////////////////////////////
@@ -46,15 +43,23 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 100
+		return 85
 	}
 	
-	func setupTableView() {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let vc = CountryFactListVC()
+		vc.countryName = countriesList[indexPath.row]
+		navigationController?.pushViewController(vc, animated: true)
+		
+		
+	}
+	
+	///////////////////////////////////////////////////////////////////////////\
+	
+	fileprivate func setupTV() {
 		
 		view.addSubview(tableView)
-		
 		tableView.register(CountryListCell.self, forCellReuseIdentifier: cellId)
-		
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.delegate = self
 		tableView.dataSource = self
@@ -64,10 +69,6 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
 			tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
 			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-			
 			])
 	}
-	
-	
 }
-

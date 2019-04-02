@@ -12,6 +12,7 @@
 		E89CA5862252D713003171FA /* CountryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CA5852252D713003171FA /* CountryListVC.swift */; };
 		E89CA5882252D952003171FA /* CountriesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CA5872252D952003171FA /* CountriesInfo.swift */; };
 		E89CA58A2252DF58003171FA /* CountryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CA5892252DF58003171FA /* CountryListCell.swift */; };
+		E89CA58C2252F11B003171FA /* CountryFactListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89CA58B2252F11B003171FA /* CountryFactListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E89CA5852252D713003171FA /* CountryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListVC.swift; sourceTree = "<group>"; };
 		E89CA5872252D952003171FA /* CountriesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesInfo.swift; sourceTree = "<group>"; };
 		E89CA5892252DF58003171FA /* CountryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListCell.swift; sourceTree = "<group>"; };
+		E89CA58B2252F11B003171FA /* CountryFactListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFactListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				E89CA5852252D713003171FA /* CountryListVC.swift */,
+				E89CA58B2252F11B003171FA /* CountryFactListVC.swift */,
 				E89CA5892252DF58003171FA /* CountryListCell.swift */,
 				E89CA5872252D952003171FA /* CountriesInfo.swift */,
 				E89CA5732252D65D003171FA /* AppDelegate.swift */,
@@ -133,6 +136,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E89CA58C2252F11B003171FA /* CountryFactListVC.swift in Sources */,
 				E89CA58A2252DF58003171FA /* CountryListCell.swift in Sources */,
 				E89CA5882252D952003171FA /* CountriesInfo.swift in Sources */,
 				E89CA5742252D65D003171FA /* AppDelegate.swift in Sources */,

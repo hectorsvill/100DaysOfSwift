@@ -15,7 +15,7 @@ class CountriesInfo {
 			"estonia", "france", "germany", "ireland",
 			"italy", "monaco", "nigeria", "poland",
 			"russia", "spain", "uk", "us"]
-		return countryList
+		return countryList.sorted()
 	}
 
 }

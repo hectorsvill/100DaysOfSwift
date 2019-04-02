@@ -12,7 +12,6 @@ class CountryListCell: UITableViewCell {
 	
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
-	
 		setup()
 	}
 	
@@ -25,8 +24,9 @@ class CountryListCell: UITableViewCell {
 		iv.contentMode = .scaleAspectFill
 		iv.translatesAutoresizingMaskIntoConstraints = false
 		iv.clipsToBounds = true
+		iv.layer.borderWidth = 1
+		iv.layer.borderColor = UIColor.gray.cgColor
 		iv.layer.cornerRadius = 15
-		
 		return iv
 	}()
 	
@@ -34,7 +34,6 @@ class CountryListCell: UITableViewCell {
 		let label = UILabel()
 		label.font = UIFont.systemFont(ofSize: 25)
 		label.translatesAutoresizingMaskIntoConstraints = false
-		
 		return label
 	}()
 	
@@ -42,8 +41,6 @@ class CountryListCell: UITableViewCell {
 		[flagImageView, flagNameLabel].forEach({ self.contentView.addSubview( $0 ) })
 		
 		NSLayoutConstraint.activate([
-			
-			
 			flagImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
 			flagImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
 			flagImageView.widthAnchor.constraint(equalToConstant: 120),
@@ -51,8 +48,6 @@ class CountryListCell: UITableViewCell {
 			
 			flagNameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
 			flagNameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10)
-			
-			
 			])
 		
 	}
