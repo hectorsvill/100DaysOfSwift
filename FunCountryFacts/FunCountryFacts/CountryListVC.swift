@@ -66,7 +66,7 @@ extension CountryListVC {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CountryListCell
 		cell.accessoryType = .disclosureIndicator
-		
+		cell.backgroundColor = .white
 		let str =  factsJsonList[indexPath.row].country
 		let image =  UIImage(named: str)
 		
