@@ -1,8 +1,8 @@
 //
-//  CountriesInfo.swift
+//  CountryFacts.swift
 //  FunCountryFacts
 //
-//  Created by Hector Steven on 4/1/19.
+//  Created by Hector Steven on 4/3/19.
 //  Copyright © 2019 Hector Steven. All rights reserved.
 //
 

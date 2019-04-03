@@ -56,13 +56,7 @@ extension CountryListVC {
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.delegate = self
 		tableView.dataSource = self
-		
-		NSLayoutConstraint.activate([
-			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-			tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-			tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-			])
+		view.setupTableViewAnchor(tableView: tableView, view: view)
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,14 +66,12 @@ extension CountryListVC {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CountryListCell
 		cell.accessoryType = .disclosureIndicator
-
+		
 		let str =  factsJsonList[indexPath.row].country
 		let image =  UIImage(named: str)
 		
-		
 		cell.flagImageView.image = image
 		cell.flagNameLabel.text = str.uppercased()
-		
 		return cell
 	}
 	
@@ -88,24 +80,19 @@ extension CountryListVC {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
 		guard let cell = tableView.cellForRow(at: indexPath) as? CountryListCell else { return }
 		let iv = cell.flagImageView
 		
 		UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
 			iv.transform = CGAffineTransform(rotationAngle: .pi)
-		})
-		{
-			finished in
+		}){ finished in
 			iv.transform = .identity
 		}
-
-		
-//		let cell = [tableView.cellForRow(at: indexPath)]
-		// TODO :core animate the image view
 		
 		let vc = CountryFactListVC()
 		vc.country = factsJsonList[indexPath.row]
 		navigationController?.pushViewController(vc, animated: true)
 	}
 }
+
+

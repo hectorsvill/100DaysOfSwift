@@ -9,7 +9,6 @@
 import UIKit
 
 class CountryListCell: UITableViewCell {
-	
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		setup()
@@ -34,13 +33,11 @@ class CountryListCell: UITableViewCell {
 		let label = UILabel()
 		label.font = UIFont.systemFont(ofSize: 25)
 		label.translatesAutoresizingMaskIntoConstraints = false
-		
 		return label
 	}()
 	
 	func setup() {
 		[flagImageView, flagNameLabel].forEach({ self.contentView.addSubview( $0 ) })
-		
 		NSLayoutConstraint.activate([
 			flagImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
 			flagImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
