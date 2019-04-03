@@ -89,6 +89,17 @@ extension CountryListVC {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
+		guard let cell = tableView.cellForRow(at: indexPath) as? CountryListCell else { return }
+		let iv = cell.flagImageView
+		
+		UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+			iv.transform = CGAffineTransform(rotationAngle: .pi)
+		})
+		{
+			finished in
+			iv.transform = .identity
+		}
+
 		
 //		let cell = [tableView.cellForRow(at: indexPath)]
 		// TODO :core animate the image view
