@@ -15,12 +15,14 @@ class CountryListVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 	fileprivate let cellId = "cellid"
 	var factsJsonList = [CountryFacts]()
 	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		view.backgroundColor = .white
 		title = "Fun Country Facts"
-		setupTV()
 		getJson()
+		setupTV()
+	
     }
 	
 	fileprivate func setupTV() {
@@ -50,7 +52,7 @@ extension CountryListVC {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CountryListCell
 		cell.accessoryType = .disclosureIndicator
 
-		let str =  factsJsonList[indexPath.row].country //countriesList[indexPath.row]
+		let str =  factsJsonList[indexPath.row].country
 		let image =  UIImage(named: str)
 		
 		cell.flagImageView.image = image
@@ -70,14 +72,12 @@ extension CountryListVC {
 	}
 }
 
-
 extension CountryListVC {
-	fileprivate func getJson() {
+	func getJson() {
 		let forResource = "CountriesFactAPI"
 		let withExtension = "json"
 
-		if let factjson = Bundle.main.url(forResource: forResource,
-										  withExtension: withExtension) {
+		if let factjson = Bundle.main.url(forResource: forResource, withExtension: withExtension) {
 			if let data = try? Data(contentsOf: factjson) {
 				parseJson(data)
 				return
