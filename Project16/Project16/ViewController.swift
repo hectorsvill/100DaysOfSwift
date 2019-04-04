@@ -98,8 +98,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
 		//let placeIndo = capital.info
 		
 		
-		
-		navigationController?.pushViewController(CountryViewController(), animated: true)
+		let cvc = CountryViewController()
+		cvc.name = placeName
+		navigationController?.pushViewController(cvc, animated: true)
 		
 		
 //		let ac = UIAlertController(title: placeName, message: placeIndo, preferredStyle: .alert)
