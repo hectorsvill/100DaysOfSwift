@@ -13,6 +13,7 @@
 		E8CA0667225566620099B0CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8CA0666225566620099B0CC /* Assets.xcassets */; };
 		E8CA066A225566620099B0CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8CA0668225566620099B0CC /* LaunchScreen.storyboard */; };
 		E8CA0690225668C70099B0CC /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CA068F225668C70099B0CC /* Capital.swift */; };
+		E8CA06922256B4550099B0CC /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CA06912256B4550099B0CC /* CountryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E8CA0669225566620099B0CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8CA066B225566620099B0CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8CA068F225668C70099B0CC /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		E8CA06912256B4550099B0CC /* CountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				E8CA0661225566600099B0CC /* ViewController.swift */,
+				E8CA06912256B4550099B0CC /* CountryViewController.swift */,
 				E8CA068F225668C70099B0CC /* Capital.swift */,
 				E8CA065F225566600099B0CC /* AppDelegate.swift */,
 				E8CA0663225566600099B0CC /* Main.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8CA0662225566600099B0CC /* ViewController.swift in Sources */,
+				E8CA06922256B4550099B0CC /* CountryViewController.swift in Sources */,
 				E8CA0660225566600099B0CC /* AppDelegate.swift in Sources */,
 				E8CA0690225668C70099B0CC /* Capital.swift in Sources */,
 			);
