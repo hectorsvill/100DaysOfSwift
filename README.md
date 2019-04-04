@@ -17,6 +17,13 @@
 
 ### Fun Country Facts App  - [Challenge Description](https://www.hackingwithswift.com/guide/6/3/challenge)
 
+-  Programmatic UI
+- Created Json file holding all data
+- Parsing JSON using the Codable protocol
+- performSelector(inBackground: , performSelector(onMainThread:
+- UIView Extension for NSLayoutConstraint.activate
+- Core Animation: Transform: CGAffineTransform
+
 ![funcountryapp](https://github.com/hectorsvill/100DaysOfSwift/blob/master/images-readme/CountryFactList.gif)
 
 #
