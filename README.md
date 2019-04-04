@@ -1,5 +1,16 @@
 # 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
 
+
+#
+
+[Project 16 ](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project16/Project16): Capital Cities
+- Up and running with MapKit
+- Annotations and accessory views: MKPinAnnotationView
+- Creating a WKWebView programmatically
+
+
+
+
 #
 
 [Milestone: Projects 13-15](https://github.com/hectorsvill/100DaysOfSwift/tree/master/FunCountryFacts/FunCountryFacts)
