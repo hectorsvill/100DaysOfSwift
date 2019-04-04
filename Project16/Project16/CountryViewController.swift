@@ -22,10 +22,8 @@ class CountryViewController: UIViewController, WKUIDelegate {
 		"London" : "https://en.wikipedia.org/wiki/London"
 	]
 	
-	
 	var webView: WKWebView!
 	var name: String?
-	
 	
 	override func loadView() {
 		let webConfig = WKWebViewConfiguration()
@@ -54,11 +52,7 @@ class CountryViewController: UIViewController, WKUIDelegate {
 				return true
 			}
 		}
-		
 		return false
 	}
-	
-	
-	
 }
 
