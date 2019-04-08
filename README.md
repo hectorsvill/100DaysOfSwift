@@ -1,4 +1,10 @@
 # 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
+#
+
+[Project 17](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project17/Project17): Space Race
+
+- Timer, linearDamping, angularDamping
+- didBegin()
 
 
 #
