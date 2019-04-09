@@ -1,4 +1,12 @@
 # 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
+
+#
+[Project 18](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project18/Project18): Debugging
+- Basic Swift debugging using print()
+- Debugging with assert()
+- Debugging with breakpoints
+- View debugging
+
 #
 
 [Project 17](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project17/Project17): Space Race
