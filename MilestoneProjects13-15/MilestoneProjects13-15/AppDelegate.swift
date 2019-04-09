@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MilestoneProjects13-15
 //
-//  Created by Hector Steven on 3/31/19.
+//  Created by Hector Steven on 4/9/19.
 //  Copyright © 2019 Hector Steven. All rights reserved.
 //
 
@@ -15,15 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		
-		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.makeKeyAndVisible()
-		
-		let contoller = CountriesTableViewController()
-		
-		let navigationContoller = UINavigationController(rootViewController: contoller)
-		window?.rootViewController = navigationContoller
-		
+		// Override point for customization after application launch.
 		return true
 	}
 
