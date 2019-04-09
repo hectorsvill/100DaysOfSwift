@@ -49,7 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		physicsWorld.gravity = .zero
 		physicsWorld.contactDelegate = self
 		
-		gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+		gameTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
 	
 	
