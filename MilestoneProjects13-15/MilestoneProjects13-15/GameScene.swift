@@ -63,12 +63,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			if node.name == "ship" {
 				destroy(node)
 			}
-		}		
+		}
 	}
 	
 	
 	func destroy (_ n: SKNode) {
+		
+		guard let explode = SKEmitterNode(fileNamed: "explosion") else { return }
+		
+		explode.position = n.position
+		addChild(explode)
+		
+		
 		n.removeFromParent()
+		
 		
 		
 		score += 1
@@ -80,8 +88,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		for node in children {
 			if node.position.y < -210 {
 				node.removeFromParent()
-				
-				
 			}
 		}
 	}

@@ -17,8 +17,8 @@
 		E8BE5912225D50B800AF05E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5910225D50B800AF05E0 /* LaunchScreen.storyboard */; };
 		E8BE591A225D5E6600AF05E0 /* RainParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5919225D5E6600AF05E0 /* RainParticle.sks */; };
 		E8BE591C225DA6AB00AF05E0 /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BE591B225DA6AB00AF05E0 /* SpaceShip.swift */; };
-		E8BE5923225DACC700AF05E0 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5921225DACC700AF05E0 /* MyParticle.sks */; };
 		E8BE5924225DACC700AF05E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5922225DACC700AF05E0 /* Assets.xcassets */; };
+		E8BE5926225DB55200AF05E0 /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5925225DB55200AF05E0 /* explosion.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +34,8 @@
 		E8BE5913225D50B800AF05E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8BE5919225D5E6600AF05E0 /* RainParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainParticle.sks; sourceTree = "<group>"; };
 		E8BE591B225DA6AB00AF05E0 /* SpaceShip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
-		E8BE5921225DACC700AF05E0 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = MyParticle.sks; path = ../MyParticle.sks; sourceTree = "<group>"; };
 		E8BE5922225DACC700AF05E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
+		E8BE5925225DB55200AF05E0 /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = explosion.sks; path = ../../Project17/Project17/explosion.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 				E8BE5910225D50B800AF05E0 /* LaunchScreen.storyboard */,
 				E8BE5913225D50B800AF05E0 /* Info.plist */,
 				E8BE5922225DACC700AF05E0 /* Assets.xcassets */,
-				E8BE5921225DACC700AF05E0 /* MyParticle.sks */,
+				E8BE5925225DB55200AF05E0 /* explosion.sks */,
 				E8BE5919225D5E6600AF05E0 /* RainParticle.sks */,
 			);
 			path = "MilestoneProjects13-15";
@@ -146,8 +146,8 @@
 				E8BE590D225D50B600AF05E0 /* Main.storyboard in Resources */,
 				E8BE5904225D50B600AF05E0 /* GameScene.sks in Resources */,
 				E8BE590F225D50B800AF05E0 /* Assets.xcassets in Resources */,
+				E8BE5926225DB55200AF05E0 /* explosion.sks in Resources */,
 				E8BE5912225D50B800AF05E0 /* LaunchScreen.storyboard in Resources */,
-				E8BE5923225DACC700AF05E0 /* MyParticle.sks in Resources */,
 				E8BE5906225D50B600AF05E0 /* Actions.sks in Resources */,
 				E8BE5924225DACC700AF05E0 /* Assets.xcassets in Resources */,
 				E8BE591A225D5E6600AF05E0 /* RainParticle.sks in Resources */,
