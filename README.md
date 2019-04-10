@@ -3,7 +3,9 @@
 #
 
 [Milestone: Projects 16-18](https://github.com/hectorsvill/100DaysOfSwift/tree/master/MilestoneProjects13-15/MilestoneProjects13-15)
-### ![SpaceJam](https://github.com/hectorsvill/100DaysOfSwift/blob/master/images-readme/spacejamapp.gifx)
+
+
+![SpaceJam](https://github.com/hectorsvill/100DaysOfSwift/blob/master/images-readme/spacejamapp.gif)
 
 #
 [Project 18](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project18/Project18): Debugging
