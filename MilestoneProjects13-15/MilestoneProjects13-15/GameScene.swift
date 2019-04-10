@@ -11,10 +11,8 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
-	fileprivate let TimerSet = 90
+	fileprivate let TimerSet = 25
 	
-	
-//	var ships = [SKSpriteNode]()
 	var shooter: SKSpriteNode!
 	var scoreLabel: SKLabelNode!
 	var timerLabel: SKLabelNode!
@@ -48,10 +46,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		timer_T = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timer_set), userInfo: nil, repeats: true)
 	}
 	
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-	}
-	
 	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 		guard let touch = touches.first else { return }
 		let location = touch.location(in: self)
@@ -68,21 +62,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	
 	
 	func destroy (_ n: SKNode) {
-		
 		guard let explode = SKEmitterNode(fileNamed: "explosion") else { return }
 		
 		explode.position = n.position
 		addChild(explode)
 		
-		
 		n.removeFromParent()
-		
-		
 		
 		score += 1
 		print("Found Ship")
 	}
-	
 	
 	override func update(_ currentTime: TimeInterval) {
 		for node in children {
@@ -126,7 +115,6 @@ extension GameScene {
 	
 	
 	func createSpaceShip(_ rangeX: CGFloat, _ rangeY: CGFloat) {
-		
 		if !timercheck(timer) { return }
 		
 		let sprite = SKSpriteNode(imageNamed: "spaceship")
@@ -136,19 +124,15 @@ extension GameScene {
 		sprite.zRotation = .pi
 		sprite.position = CGPoint(x: CGFloat.random(in: rangeX...rangeY), y: (size.height * 0.15))
 		addChild(sprite)
-//		ships.append(sprite)
-//		print(sprite.name)
 		
 		sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
 		sprite.physicsBody?.categoryBitMask = 1
 		
 		let ran1 = CGFloat.random(in: 30...80)
-		
 		sprite.physicsBody?.velocity = CGVector(dx: CGFloat.random(in: -80...ran1), dy: -400)
 	}
 	
 }
-
 
 
 extension GameScene {
@@ -160,14 +144,13 @@ extension GameScene {
 	}
 	
 	@objc func createShips() {
-		createSpaceShip(-250, -20)
+		createSpaceShip(-250, -150)
+		createSpaceShip(-99, -30)
 		createSpaceShip(60, 200)
 	}
 	
 	func timercheck(_ time: Int) -> Bool {
-		if time <= 0 {
-			return false
-		}
+		if time <= 0 { return false }
 		return true
 	}
 }
