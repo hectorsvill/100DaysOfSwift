@@ -1,5 +1,16 @@
 # 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
 
+
+#
+
+[Project 19: JavaScript Injection](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project19/Extension)
+- Making a shell app
+- Adding an extension: NSExtensionItem
+- Editing multiline text with UITextView
+- Fixing the keyboard: NotificationCenter
+
+
+
 #
 
 [Milestone: Projects 16-18](https://github.com/hectorsvill/100DaysOfSwift/tree/master/MilestoneProjects13-15/MilestoneProjects13-15)
