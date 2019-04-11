@@ -52,6 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		let slidedNode = nodes(at: location)
 		
 		shooter.position = location
+		shooter.position.y += 20
 		
 		for node in slidedNode {
 			if node.name == "ship" {
@@ -59,7 +60,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			}
 		}
 	}
-	
 	
 	func destroy (_ n: SKNode) {
 		guard let explode = SKEmitterNode(fileNamed: "explosion") else { return }
@@ -80,13 +80,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			}
 		}
 	}
-	
 }
 
 extension GameScene {
 
 	func gameSetup () {
-		
 		rain = SKEmitterNode(fileNamed: "RainParticle")
 		rain.position = CGPoint(x: 0, y: 320)
 		rain.advanceSimulationTime(5)
@@ -131,15 +129,12 @@ extension GameScene {
 		let ran1 = CGFloat.random(in: 30...80)
 		sprite.physicsBody?.velocity = CGVector(dx: CGFloat.random(in: -80...ran1), dy: -400)
 	}
-	
 }
-
 
 extension GameScene {
 	
 	@objc func timer_set() {
 		if !timercheck(timer) { return }
-		
 		timer -= 1
 	}
 	

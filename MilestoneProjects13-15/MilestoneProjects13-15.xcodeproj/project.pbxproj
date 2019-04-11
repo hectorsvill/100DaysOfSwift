@@ -16,7 +16,6 @@
 		E8BE590F225D50B800AF05E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BE590E225D50B800AF05E0 /* Assets.xcassets */; };
 		E8BE5912225D50B800AF05E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5910225D50B800AF05E0 /* LaunchScreen.storyboard */; };
 		E8BE591A225D5E6600AF05E0 /* RainParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5919225D5E6600AF05E0 /* RainParticle.sks */; };
-		E8BE591C225DA6AB00AF05E0 /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BE591B225DA6AB00AF05E0 /* SpaceShip.swift */; };
 		E8BE5924225DACC700AF05E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5922225DACC700AF05E0 /* Assets.xcassets */; };
 		E8BE5926225DB55200AF05E0 /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5925225DB55200AF05E0 /* explosion.sks */; };
 /* End PBXBuildFile section */
@@ -33,7 +32,6 @@
 		E8BE5911225D50B800AF05E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8BE5913225D50B800AF05E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8BE5919225D5E6600AF05E0 /* RainParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainParticle.sks; sourceTree = "<group>"; };
-		E8BE591B225DA6AB00AF05E0 /* SpaceShip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
 		E8BE5922225DACC700AF05E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		E8BE5925225DB55200AF05E0 /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = explosion.sks; path = ../../Project17/Project17/explosion.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,12 +66,11 @@
 		E8BE5900225D50B600AF05E0 /* MilestoneProjects13-15 */ = {
 			isa = PBXGroup;
 			children = (
+				E8BE5907225D50B600AF05E0 /* GameScene.swift */,
+				E8BE5909225D50B600AF05E0 /* GameViewController.swift */,
 				E8BE5901225D50B600AF05E0 /* AppDelegate.swift */,
 				E8BE5903225D50B600AF05E0 /* GameScene.sks */,
 				E8BE5905225D50B600AF05E0 /* Actions.sks */,
-				E8BE591B225DA6AB00AF05E0 /* SpaceShip.swift */,
-				E8BE5907225D50B600AF05E0 /* GameScene.swift */,
-				E8BE5909225D50B600AF05E0 /* GameViewController.swift */,
 				E8BE590B225D50B600AF05E0 /* Main.storyboard */,
 				E8BE590E225D50B800AF05E0 /* Assets.xcassets */,
 				E8BE5910225D50B800AF05E0 /* LaunchScreen.storyboard */,
@@ -163,7 +160,6 @@
 			files = (
 				E8BE5908225D50B600AF05E0 /* GameScene.swift in Sources */,
 				E8BE590A225D50B600AF05E0 /* GameViewController.swift in Sources */,
-				E8BE591C225DA6AB00AF05E0 /* SpaceShip.swift in Sources */,
 				E8BE5902225D50B600AF05E0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
