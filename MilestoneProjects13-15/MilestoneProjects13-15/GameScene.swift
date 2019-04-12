@@ -49,12 +49,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 		guard let touch = touches.first else { return }
 		let location = touch.location(in: self)
-		let slidedNode = nodes(at: location)
+		
 		
 		shooter.position = location
-		shooter.position.y += 20
 		
-		for node in slidedNode {
+		let movingTouch = nodes(at: location)
+		for node in movingTouch {
 			if node.name == "ship" {
 				destroy(node)
 			}
@@ -118,7 +118,7 @@ extension GameScene {
 		let sprite = SKSpriteNode(imageNamed: "spaceship")
 		sprite.name = "ship"
 		
-		sprite.size = CGSize(width: 40, height: 50)
+		sprite.size = CGSize(width: 40, height: 40)
 		sprite.zRotation = .pi
 		sprite.position = CGPoint(x: CGFloat.random(in: rangeX...rangeY), y: (size.height * 0.15))
 		addChild(sprite)
@@ -139,9 +139,23 @@ extension GameScene {
 	}
 	
 	@objc func createShips() {
-		createSpaceShip(-250, -150)
-		createSpaceShip(-99, -30)
-		createSpaceShip(60, 200)
+		
+		let ran = [1,2,3,1,2,3,5].randomElement()!
+		
+		
+		switch ran {
+		case 1:
+			createSpaceShip(-250, -150)
+		case 2:
+			createSpaceShip(-99, -30)
+		case 3:
+			createSpaceShip(60, 200)
+		default:
+			createSpaceShip(-350, -190)
+			createSpaceShip(190, 250)
+		}
+		
+		
 	}
 	
 	func timercheck(_ time: Int) -> Bool {
