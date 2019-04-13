@@ -89,11 +89,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 		let location = touch.location(in: self)
 		let objects = nodes(at: location)
 		
-		print(objects)
 		if objects.contains(editLabel) {
-			editingMode.toggle()
-			
-			
+			editingMode.toggle()	
 		} else {
 			
 			if editingMode && location.y < 640 {

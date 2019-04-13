@@ -18,6 +18,7 @@
 		E8BE591A225D5E6600AF05E0 /* RainParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5919225D5E6600AF05E0 /* RainParticle.sks */; };
 		E8BE5924225DACC700AF05E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5922225DACC700AF05E0 /* Assets.xcassets */; };
 		E8BE5926225DB55200AF05E0 /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = E8BE5925225DB55200AF05E0 /* explosion.sks */; };
+		E8F3DDCA2261600500826062 /* SpaceShip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F3DDC92261600500826062 /* SpaceShip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E8BE5919225D5E6600AF05E0 /* RainParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainParticle.sks; sourceTree = "<group>"; };
 		E8BE5922225DACC700AF05E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		E8BE5925225DB55200AF05E0 /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = explosion.sks; path = ../../Project17/Project17/explosion.sks; sourceTree = "<group>"; };
+		E8F3DDC92261600500826062 /* SpaceShip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				E8BE5907225D50B600AF05E0 /* GameScene.swift */,
+				E8F3DDC92261600500826062 /* SpaceShip.swift */,
 				E8BE5909225D50B600AF05E0 /* GameViewController.swift */,
 				E8BE5901225D50B600AF05E0 /* AppDelegate.swift */,
 				E8BE5903225D50B600AF05E0 /* GameScene.sks */,
@@ -160,6 +163,7 @@
 			files = (
 				E8BE5908225D50B600AF05E0 /* GameScene.swift in Sources */,
 				E8BE590A225D50B600AF05E0 /* GameViewController.swift in Sources */,
+				E8F3DDCA2261600500826062 /* SpaceShip.swift in Sources */,
 				E8BE5902225D50B600AF05E0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
