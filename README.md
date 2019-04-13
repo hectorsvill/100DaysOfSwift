@@ -1,6 +1,12 @@
 # 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
+#
+[Project 20](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project20/Project20): Fireworks Night
 
+- Timer and follow()
+- SKEmitterNode
+- shake gesture 
 
+![fireworks](https://github.com/hectorsvill/100DaysOfSwift/blob/master/images-readme/project20.gif)
 #
 
 [Project 19: JavaScript Injection](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project19/Extension)
