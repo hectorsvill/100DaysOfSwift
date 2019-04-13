@@ -89,9 +89,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 extension GameScene {
 	
 	func createSpaceShip(_ rangeX: CGFloat, _ rangeY: CGFloat) {
-		
-		if isPaused { return }
-		if timer == 0 { return }
+		if isPaused  && timer == 0 { return }
 		
 		let sprite = SKSpriteNode(imageNamed: "spaceship")
 		sprite.name = "ship"
