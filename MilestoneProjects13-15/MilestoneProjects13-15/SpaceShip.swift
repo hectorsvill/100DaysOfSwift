@@ -7,9 +7,11 @@
 //
 
 import Foundation
-import UIKit
+import SpriteKit
 
 
 class SpaceShip {
+	var numberofShipsCreated = 0
+	var numberOfShipsNotDestroyed = 0
 	
 }

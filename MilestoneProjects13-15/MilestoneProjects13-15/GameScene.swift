@@ -11,9 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
-	var TimerSet = 25
-	
-	var numberOfShipsNotDestroyed = 0
+	var enemyships = SpaceShip()
 	
 	var shooter: SKSpriteNode!
 	var scoreLabel: SKLabelNode!
@@ -41,7 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 		gameSetup()
 		
 		score = 0
-		timer = TimerSet
+		timer = 100
 		
 		physicsWorld.gravity = .zero
 		physicsWorld.contactDelegate = self
@@ -81,7 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	override func update(_ currentTime: TimeInterval) {
 		for node in children {
 			if node.position.y < -210 {
-				numberOfShipsNotDestroyed += 1
+				enemyships.numberOfShipsNotDestroyed += 1
 				node.removeFromParent()
 			}
 		}
@@ -89,8 +87,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 }
 
 extension GameScene {
-
-	func gameSetup () {
+	
+	func createSpaceShip(_ rangeX: CGFloat, _ rangeY: CGFloat) {
+		
+		if isPaused { return }
+		if timer == 0 { return }
+		
+		let sprite = SKSpriteNode(imageNamed: "spaceship")
+		sprite.name = "ship"
+		
+		sprite.size = CGSize(width: 40, height: 40)
+		sprite.zRotation = .pi
+		sprite.position = CGPoint(x: CGFloat.random(in: rangeX...rangeY), y: (size.height * 0.15))
+		addChild(sprite)
+		
+		sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
+		sprite.physicsBody?.categoryBitMask = 1
+		
+		let ran1 = CGFloat.random(in: 30...80)
+		sprite.physicsBody?.velocity = CGVector(dx: CGFloat.random(in: -80...ran1), dy: -400)
+	}
+	
+	
+	func gameSetup() {
 		
 		backgroundColor = .black
 		
@@ -126,28 +145,7 @@ extension GameScene {
 
 extension GameScene {
 	
-	func createSpaceShip(_ rangeX: CGFloat, _ rangeY: CGFloat) {
-		if (scene?.view?.isPaused)! {
-			return
-		}
-		
-		if isPaused { return }
-		if timer == 0 { return }
-		
-		let sprite = SKSpriteNode(imageNamed: "spaceship")
-		sprite.name = "ship"
-		
-		sprite.size = CGSize(width: 40, height: 40)
-		sprite.zRotation = .pi
-		sprite.position = CGPoint(x: CGFloat.random(in: rangeX...rangeY), y: (size.height * 0.15))
-		addChild(sprite)
-		
-		sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
-		sprite.physicsBody?.categoryBitMask = 1
-		
-		let ran1 = CGFloat.random(in: 30...80)
-		sprite.physicsBody?.velocity = CGVector(dx: CGFloat.random(in: -80...ran1), dy: -400)
-	}
+	
 	
 	@objc func timer_set() {
 		if isPaused { return }
@@ -156,40 +154,34 @@ extension GameScene {
 	}
 	
 	@objc func createShips() {
-		if isPaused { return }
-		
-		let ran = [1,2,3,1,2,3,5].randomElement()!
-		
-		switch ran {
-		case 1:
-			createSpaceShip(-250, -150)
-		case 2:
-			createSpaceShip(-99, -30)
-		case 3:
-			createSpaceShip(60, 200)
-		default:
-			createSpaceShip(-350, -190)
-			createSpaceShip(190, 250)
+		if let ran = [1,2,3,5,1,2,3,5].randomElement() {
+			switch ran {
+			case 1:
+				createSpaceShip(-250, -150)
+			case 2:
+				createSpaceShip(-99, -30)
+			case 3:
+				createSpaceShip(60, 200)
+			default:
+				createSpaceShip(-350, -190)
+				createSpaceShip(190, 250)
+			}
+		} else {
+			print("Error: createships()")
 		}
 	}
 	
 	func timercheck(_ time: Int) -> Bool {
-		if time <= 0 {
-			return false
-		}
+		if time <= 0 { return false }
 		return true
 	}
 	
 	func destroy (_ n: SKNode) {
 		guard let explode = SKEmitterNode(fileNamed: "explosion") else { return }
-		
 		explode.position = n.position
 		addChild(explode)
-		
 		n.removeFromParent()
-		
 		score += 1
-		print("Found Ship")
 	}
 	
 }
