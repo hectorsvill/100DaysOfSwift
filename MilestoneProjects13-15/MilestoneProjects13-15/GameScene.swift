@@ -19,6 +19,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 	var rain: SKEmitterNode!
 	var pauseLabel: SKLabelNode!
 	
+	var shipsDestroyed: SKLabelNode!
+	var shipsNotDestroyed: SKLabelNode!
+	var totalships: SKLabelNode!
+	
 	var time: Timer!
 	var timer_T: Timer!
 	
@@ -33,13 +37,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 			timerLabel.text = timer < 10 ? "Timer: 0\(String(timer))" : "Timer: \(String(timer))"
 		}
 	}
+	
+	@objc func appMovedToBackground() {
+		print("App moved to background!")
+		if timer == 0 {
+			isPaused.toggle()
+		}
+	}
+	@objc func appMovedToForground() {
+		print("App moved to forground!")
+		if timer == 0 {
+			isPaused.toggle()
+		}
+	}
 
     override func didMove(to view: SKView) {
-
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(appMovedToForground), name: UIApplication.willEnterForegroundNotification, object: nil)
+		
 		gameSetup()
 		
 		score = 0
-		timer = 100
+		timer = 5
 		
 		physicsWorld.gravity = .zero
 		physicsWorld.contactDelegate = self
@@ -88,27 +108,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 extension GameScene {
 	
-	func createSpaceShip(_ rangeX: CGFloat, _ rangeY: CGFloat) {
-		if isPaused  && timer == 0 { return }
-		
-		let sprite = SKSpriteNode(imageNamed: "spaceship")
-		sprite.name = "ship"
-		
-		sprite.size = CGSize(width: 40, height: 40)
-		sprite.zRotation = .pi
-		sprite.position = CGPoint(x: CGFloat.random(in: rangeX...rangeY), y: (size.height * 0.15))
-		addChild(sprite)
-		
-		sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
-		sprite.physicsBody?.categoryBitMask = 1
-		
-		let ran1 = CGFloat.random(in: 30...80)
-		sprite.physicsBody?.velocity = CGVector(dx: CGFloat.random(in: -80...ran1), dy: -400)
-	}
-	
-	
 	func gameSetup() {
-		
 		backgroundColor = .black
 		
 		rain = SKEmitterNode(fileNamed: "RainParticle")
@@ -130,6 +130,8 @@ extension GameScene {
 		pauseLabel.name = "pause"
 		pauseLabel.text = "Pause"
 		
+		createEndGameLabels()
+		
 		shooter = SKSpriteNode(imageNamed: "cursor")
 		shooter.name = "shot"
 		
@@ -139,19 +141,61 @@ extension GameScene {
 			addChild( $0 )
 		})
 	}
+	
+	func createEndGameLabels() {
+		shipsDestroyed = SKLabelNode()
+		
+		shipsDestroyed.horizontalAlignmentMode = .center
+		shipsDestroyed.position = CGPoint(x: 0, y: 100)
+		shipsDestroyed.isHidden.toggle()
+		
+		shipsNotDestroyed = SKLabelNode()
+		shipsNotDestroyed.horizontalAlignmentMode = .center
+		shipsNotDestroyed.position = CGPoint(x: 0, y: 0)
+		shipsNotDestroyed.isHidden.toggle()
+		
+		totalships = SKLabelNode()
+		totalships.horizontalAlignmentMode = .center
+		totalships.position = CGPoint(x: 0, y: -100)
+		totalships.isHidden.toggle()
+		
+		[shipsDestroyed, shipsNotDestroyed, totalships].forEach({
+			addChild( $0 )
+		})
+	}
+	
+	
+	func createSpaceShip(_ rangeX: CGFloat, _ rangeY: CGFloat) {
+		enemyships.totalships += 1
+		let sprite = SKSpriteNode(imageNamed: "spaceship")
+		sprite.name = "ship"
+		
+		sprite.size = CGSize(width: 40, height: 40)
+		sprite.zRotation = .pi
+		sprite.position = CGPoint(x: CGFloat.random(in: rangeX...rangeY), y: (size.height * 0.15))
+		addChild(sprite)
+		
+		sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
+		sprite.physicsBody?.categoryBitMask = 1
+		
+		let ran1 = CGFloat.random(in: 30...80)
+		sprite.physicsBody?.velocity = CGVector(dx: CGFloat.random(in: -80...ran1), dy: -400)
+	}
+	
 }
 
 extension GameScene {
-	
-	
-	
+
 	@objc func timer_set() {
 		if isPaused { return }
-		if !timercheck(timer) { return }
-		timer -= 1
+		if !timercheck(timer) && children.isEmpty { return }
+		if timer >= 1 {
+			timer -= 1
+		}
 	}
 	
 	@objc func createShips() {
+		if isPaused  || timer <= 0 { return }
 		if let ran = [1,2,3,5,1,2,3,5].randomElement() {
 			switch ran {
 			case 1:
@@ -170,7 +214,10 @@ extension GameScene {
 	}
 	
 	func timercheck(_ time: Int) -> Bool {
-		if time <= 0 { return false }
+		if time <= 0 {
+			gameEnded()
+			return false
+		}
 		return true
 	}
 	
@@ -181,5 +228,23 @@ extension GameScene {
 		n.removeFromParent()
 		score += 1
 	}
+	
+	func gameEnded() {
+//		print("game Ended")
+		
+		timerLabel.isHidden.toggle()
+		scoreLabel.isHidden.toggle()
+		pauseLabel.isHidden.toggle()
+		
+		shipsDestroyed.isHidden.toggle()
+		shipsDestroyed.text = "Ships Destroyed: \(score) \n"
+		shipsNotDestroyed.isHidden.toggle()
+		shipsNotDestroyed.text = "Ships Not Destroyed: \(enemyships.numberOfShipsNotDestroyed)"
+		totalships.isHidden.toggle()
+		totalships.text = "Total Ships: \(enemyships.totalships)"
+		
+		isPaused = true
+	}
+	
 	
 }

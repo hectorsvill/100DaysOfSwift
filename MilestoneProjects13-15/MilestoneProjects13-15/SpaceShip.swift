@@ -13,5 +13,6 @@ import SpriteKit
 class SpaceShip {
 	var numberofShipsCreated = 0
 	var numberOfShipsNotDestroyed = 0
+	var totalships = 0
 	
 }
