@@ -53,8 +53,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func didMove(to view: SKView) {
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(appMovedToForground), name: UIApplication.willEnterForegroundNotification, object: nil)
+		NotificationCenter.default.addObserver(
+			self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+		NotificationCenter.default.addObserver(
+			self, selector: #selector(appMovedToForground), name: UIApplication.willEnterForegroundNotification, object: nil)
 		
 		gameSetup()
 		
