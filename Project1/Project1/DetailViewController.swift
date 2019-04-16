@@ -14,14 +14,11 @@ class DetailViewController: UIViewController {
 	@IBOutlet var ImageView: UIImageView!
 	var selectedImage: String? // change navigator name
 	var selectedCount: Int?
-	
-	
-	
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = selectedImage!
-	
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "edit", style: .plain, target: self, action: nil)
 		navigationItem.largeTitleDisplayMode = .never
 		
 		if let imageToLoad = selectedImage {
@@ -33,8 +30,6 @@ class DetailViewController: UIViewController {
 		} else {
 			ImageCountLabel.text = ""
 		}
-		
-		
 	}
 	
 	//To hide top view nagitor with a click
@@ -48,7 +43,4 @@ class DetailViewController: UIViewController {
 		super.viewWillDisappear(animated)
 		navigationController?.hidesBarsOnTap = false
 	}
-
-
-
 }

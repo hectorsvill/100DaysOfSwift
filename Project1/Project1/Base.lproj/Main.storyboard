@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o2Z-vv-fgE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o2Z-vv-fgE">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,9 +59,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mdE-4I-yeh">
                                 <rect key="frame" x="24" y="328" width="366" height="240"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0q2-ej-4ud">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0q2-ej-4ud">
                                 <rect key="frame" x="24" y="167" width="358" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,17 +68,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="mdE-4I-yeh" secondAttribute="trailing" id="1OH-8f-wof"/>
-                            <constraint firstItem="mdE-4I-yeh" firstAttribute="top" secondItem="U5L-sO-N5A" secondAttribute="top" id="FFV-Xl-ZoQ"/>
-                            <constraint firstItem="tfY-iI-fIs" firstAttribute="trailing" secondItem="mdE-4I-yeh" secondAttribute="trailing" constant="24" id="RSm-da-cxV"/>
-                            <constraint firstItem="mdE-4I-yeh" firstAttribute="top" secondItem="tfY-iI-fIs" secondAttribute="top" constant="250" id="Wxx-6R-brC"/>
-                            <constraint firstItem="mdE-4I-yeh" firstAttribute="leading" secondItem="tfY-iI-fIs" secondAttribute="leading" constant="24" id="bWa-gN-rrL"/>
-                            <constraint firstItem="mdE-4I-yeh" firstAttribute="top" secondItem="tfY-iI-fIs" secondAttribute="top" constant="284" id="cw3-vS-hQE"/>
-                            <constraint firstItem="mdE-4I-yeh" firstAttribute="leading" secondItem="U5L-sO-N5A" secondAttribute="leading" id="s2L-Tb-p9Y"/>
-                            <constraint firstAttribute="bottom" secondItem="mdE-4I-yeh" secondAttribute="bottom" id="sic-Ca-N8a"/>
-                            <constraint firstItem="tfY-iI-fIs" firstAttribute="bottom" secondItem="mdE-4I-yeh" secondAttribute="bottom" constant="294" id="uZf-9F-NAN"/>
-                            <constraint firstItem="tfY-iI-fIs" firstAttribute="trailing" secondItem="mdE-4I-yeh" secondAttribute="trailing" constant="24" id="zOo-oI-DwB"/>
-                            <constraint firstItem="mdE-4I-yeh" firstAttribute="leading" secondItem="tfY-iI-fIs" secondAttribute="leading" constant="24" id="zs9-49-0Z6"/>
+                            <constraint firstItem="mdE-4I-yeh" firstAttribute="centerX" secondItem="U5L-sO-N5A" secondAttribute="centerX" id="5Rh-zz-7eN"/>
+                            <constraint firstItem="mdE-4I-yeh" firstAttribute="centerY" secondItem="U5L-sO-N5A" secondAttribute="centerY" id="DhC-Jh-qGD"/>
+                            <constraint firstItem="mdE-4I-yeh" firstAttribute="leading" secondItem="0q2-ej-4ud" secondAttribute="leading" id="ea8-Wc-taP"/>
+                            <constraint firstItem="mdE-4I-yeh" firstAttribute="leading" secondItem="tfY-iI-fIs" secondAttribute="leading" constant="24" id="lz9-kp-LVq"/>
+                            <constraint firstItem="tfY-iI-fIs" firstAttribute="bottom" secondItem="mdE-4I-yeh" secondAttribute="bottom" constant="294" id="ywP-Ez-71o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tfY-iI-fIs"/>
                     </view>
