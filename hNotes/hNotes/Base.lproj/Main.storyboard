@@ -77,6 +77,21 @@
             </objects>
             <point key="canvasLocation" x="1609" y="783"/>
         </scene>
+        <!--Notes View Controller-->
+        <scene sceneID="3wN-X2-nzy">
+            <objects>
+                <viewController storyboardIdentifier="NotesViewController" id="0NT-jX-WXH" customClass="NotesViewController" customModule="hNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oQN-L9-Ogm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="EP7-Bs-tCu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KmQ-wF-MEm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2271" y="787"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="JAF-hB-jky">
             <objects>
