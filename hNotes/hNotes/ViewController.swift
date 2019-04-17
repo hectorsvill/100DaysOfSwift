@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	}
 	
 	@IBAction func NewFolderButton(_ sender: Any) {
-		
+		createNewFolder()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,21 +39,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		cell.textLabel?.text = "\(indexPath.row)"
 		return cell
 	}
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		print("\(indexPath.row)")
+	}
+	
 }
 
 extension ViewController {
-	@objc func edit () {
+	
+	func createNewFolder() {
 		let ac = UIAlertController(title: "New Folder", message: "Enter a name for this folder.", preferredStyle: .alert)
 		ac.addTextField()
 		ac.addAction(UIAlertAction(title: "Save", style: .default, handler: {
 			[weak self ] _ in
 			print("get str")
 		}))
-		
-		
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-		
-		
 		present(ac, animated: true)
+	}
+	
+	
+	@objc func edit () {
+		
 	}
 }
