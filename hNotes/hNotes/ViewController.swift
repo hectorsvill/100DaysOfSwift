@@ -10,13 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 	
+	@IBOutlet var newFolderButton: UIButton!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		title = "Folders"
+		
 		navigationController?.navigationBar.prefersLargeTitles = true
+		title = "Folders"
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(edit))
+		navigationItem.rightBarButtonItem?.tintColor = .green
 	}
 
 	

@@ -29,7 +29,7 @@
                                         <rect key="frame" x="250" y="0.0" width="154" height="64"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="New Folder">
-                                            <color key="titleColor" red="0.85239232512953367" green="0.68157460970136574" blue="0.0046029764288592909" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" name="selectedContentBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -56,6 +56,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="kWt-al-Krd"/>
+                    <connections>
+                        <outlet property="newFolderButton" destination="Y6K-XD-e25" id="U0e-9f-5eR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
