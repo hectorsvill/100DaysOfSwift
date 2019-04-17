@@ -1,2 +1,0 @@
-
-# iOS Notes Clone [ hNotes]
