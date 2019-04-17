@@ -12,7 +12,7 @@
 		E8B5257D2266CFA0008BD2B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B5257B2266CFA0008BD2B8 /* Main.storyboard */; };
 		E8B5257F2266CFA1008BD2B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8B5257E2266CFA1008BD2B8 /* Assets.xcassets */; };
 		E8B525822266CFA1008BD2B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B525802266CFA1008BD2B8 /* LaunchScreen.storyboard */; };
-		E8B5258C2266D701008BD2B8 /* FoldersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B5258B2266D701008BD2B8 /* FoldersTableViewController.swift */; };
+		E8B5258E2266DAAA008BD2B8 /* FolderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B5258D2266DAAA008BD2B8 /* FolderTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		E8B5257E2266CFA1008BD2B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8B525812266CFA1008BD2B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8B525832266CFA1008BD2B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E8B5258B2266D701008BD2B8 /* FoldersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTableViewController.swift; sourceTree = "<group>"; };
+		E8B5258D2266DAAA008BD2B8 /* FolderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				E8B525792266CFA0008BD2B8 /* ViewController.swift */,
-				E8B5258B2266D701008BD2B8 /* FoldersTableViewController.swift */,
 				E8B525772266CFA0008BD2B8 /* AppDelegate.swift */,
 				E8B5257B2266CFA0008BD2B8 /* Main.storyboard */,
 				E8B5257E2266CFA1008BD2B8 /* Assets.xcassets */,
 				E8B525802266CFA1008BD2B8 /* LaunchScreen.storyboard */,
 				E8B525832266CFA1008BD2B8 /* Info.plist */,
+				E8B5258D2266DAAA008BD2B8 /* FolderTableView.swift */,
 			);
 			path = hNotes;
 			sourceTree = "<group>";
@@ -138,8 +138,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8B5258C2266D701008BD2B8 /* FoldersTableViewController.swift in Sources */,
 				E8B5257A2266CFA0008BD2B8 /* ViewController.swift in Sources */,
+				E8B5258E2266DAAA008BD2B8 /* FolderTableView.swift in Sources */,
 				E8B525782266CFA0008BD2B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
