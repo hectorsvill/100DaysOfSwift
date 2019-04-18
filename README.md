@@ -1,5 +1,17 @@
 # 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
 #
+
+[Project 22: Detect-a-Beacon]()
+
+
+#
+[Project 21: Local Notifications](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project21/Project21)
+
+- UNUserNotificationCenter, UNNotificationRequest
+- UNMutableNotificationContent, UNCalendarNotificationTrigger
+- UNTimeIntervalNotificationTrigger
+- Send reminders, prompts and alerts even when your app isn't running.
+#
 [Project 20](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project20/Project20): Fireworks Night
 
 - Timer and follow()
