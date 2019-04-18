@@ -9,15 +9,12 @@
 import UIKit
 
 
-class Folders: NSObject, Codable {
-	var folders = [String]()
-}
 
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
 	
-	var FolderList = Folders().folders
+	var FolderList = ["one", "Two" , "three"]
 	
 	@IBOutlet var FolderTableView: UITableView!
 	
@@ -32,9 +29,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 		FolderTableView.dataSource = self
 		FolderTableView.delegate = self
-		
-
-		
 	}
 	
 	
@@ -60,13 +54,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			vc.FolderName = FolderList[indexPath.row]
 			navigationController?.pushViewController(vc, animated: true)
 		}
+	}
+	
+	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+		let delete = UITableViewRowAction(style: .destructive, title: "Delete") {
+			(action, indexPath) in
+			
+			self.FolderList.remove(at: indexPath.row)
+			self.FolderTableView.reloadData()
+		}
 		
+		
+		return [delete]
 	}
 	
 }
 
 extension ViewController {
-	
 	func createNewFolder() {
 		let ac = UIAlertController(title: "New Folder", message: "Enter a name for this folder.", preferredStyle: .alert)
 		ac.addTextField()
@@ -86,33 +90,11 @@ extension ViewController {
 	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 extension UIView {
-	@objc func edit () {
+	
+	@objc func edit() {
 		
 	}
-	
-	
-	
-	func fetchSave(forKey: String) -> [String] {
-		
-		
-		
-		return []
-	}
-	
+
 }
 

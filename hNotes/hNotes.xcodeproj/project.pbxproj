@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E86E87562268215F007C6D33 /* Folders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86E87552268215F007C6D33 /* Folders.swift */; };
 		E8B525782266CFA0008BD2B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B525772266CFA0008BD2B8 /* AppDelegate.swift */; };
 		E8B5257A2266CFA0008BD2B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B525792266CFA0008BD2B8 /* ViewController.swift */; };
 		E8B5257D2266CFA0008BD2B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B5257B2266CFA0008BD2B8 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E86E87552268215F007C6D33 /* Folders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folders.swift; sourceTree = "<group>"; };
 		E8B525742266CFA0008BD2B8 /* hNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B525772266CFA0008BD2B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8B525792266CFA0008BD2B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				E8B525792266CFA0008BD2B8 /* ViewController.swift */,
 				E8B5258F2266F44D008BD2B8 /* NotesViewController.swift */,
+				E86E87552268215F007C6D33 /* Folders.swift */,
 				E8B525772266CFA0008BD2B8 /* AppDelegate.swift */,
 				E8B5257B2266CFA0008BD2B8 /* Main.storyboard */,
 				E8B5257E2266CFA1008BD2B8 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 				E8B5257A2266CFA0008BD2B8 /* ViewController.swift in Sources */,
 				E8B525782266CFA0008BD2B8 /* AppDelegate.swift in Sources */,
 				E8B525902266F44D008BD2B8 /* NotesViewController.swift in Sources */,
+				E86E87562268215F007C6D33 /* Folders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
