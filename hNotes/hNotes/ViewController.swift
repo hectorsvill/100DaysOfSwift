@@ -10,12 +10,9 @@ import UIKit
 
 
 
-
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
-	
-	var FolderList = ["one", "Two" , "three"]
-	
+	var Folders = [FolderNote]()
 	@IBOutlet var FolderTableView: UITableView!
 	
 	override func viewDidLoad() {
@@ -31,27 +28,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		FolderTableView.delegate = self
 	}
 	
-	
-	
 	@IBAction func NewFolderButton(_ sender: Any) {
 		createNewFolder()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return FolderList.count
+		return Folders.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = FolderTableView.dequeueReusableCell(withIdentifier: "FolderCellId", for: indexPath)
 		cell.accessoryType = .disclosureIndicator
-		cell.textLabel?.text = FolderList[indexPath.row]
+		cell.textLabel?.text = Folders[indexPath.row].folderName
+		cell.detailTextLabel?.text = String(Folders[indexPath.row].numberOfNotesInFolder)
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "NotesViewController") as? NotesViewController {
-			vc.FolderName = FolderList[indexPath.row]
+//			vc.Folders[0]. = FolderList[indexPath.row]
 			navigationController?.pushViewController(vc, animated: true)
 		}
 	}
@@ -59,19 +54,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 		let delete = UITableViewRowAction(style: .destructive, title: "Delete") {
 			(action, indexPath) in
-			
-			self.FolderList.remove(at: indexPath.row)
+			self.Folders.remove(at: indexPath.row)
 			self.FolderTableView.reloadData()
 		}
-		
-		
 		return [delete]
 	}
-	
 }
 
 extension ViewController {
 	func createNewFolder() {
+		
+		
 		let ac = UIAlertController(title: "New Folder", message: "Enter a name for this folder.", preferredStyle: .alert)
 		ac.addTextField()
 		ac.addAction(UIAlertAction(title: "Save", style: .default, handler: {
@@ -80,21 +73,16 @@ extension ViewController {
 				print("error: createNewFolder()")
 				return
 			}
-			self?.FolderList.append(str)
+			self?.Folders.append(FolderNote(folderName: str))
 			self?.FolderTableView.reloadData()
 		}))
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 		present(ac, animated: true)
 	}
-	
-	
 }
 
 extension UIView {
-	
 	@objc func edit() {
 		
 	}
-
 }
-
