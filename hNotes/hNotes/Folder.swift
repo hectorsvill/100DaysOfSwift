@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct Note {
 	var noteTitle: String
 	var noteTimeStamp: String
@@ -24,8 +22,4 @@ class FolderNote {
 	init(folderName: String) {
 		self.folderName = folderName
 	}
-	
-	
-	
-	
 }

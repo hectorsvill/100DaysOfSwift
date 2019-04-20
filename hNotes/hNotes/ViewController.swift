@@ -48,7 +48,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "NotesViewController") as? NotesViewController {
-//			vc.Folders[0]. = FolderList[indexPath.row]
+			vc.FolderName = Folders[indexPath.row].folderName
+			if let noteList = Folders[indexPath.row].notes {
+				vc.notes = noteList
+			}
 			navigationController?.pushViewController(vc, animated: true)
 		}
 	}
