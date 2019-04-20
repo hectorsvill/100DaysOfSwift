@@ -24,4 +24,8 @@ class FolderNote {
 	init(folderName: String) {
 		self.folderName = folderName
 	}
+	
+	
+	
+	
 }

@@ -20,4 +20,17 @@ class Util {
 		
 		return timestr
 	}
+	
+	func Tests1() -> [FolderNote]{
+		var f = [FolderNote]()
+		f.append(FolderNote(folderName: "Folder 1"))
+		f.append(FolderNote(folderName: "Folder 2"))
+		f.append(FolderNote(folderName: "Folder 3"))
+		f.append(FolderNote(folderName: "Folder 4"))
+		f.append(FolderNote(folderName: "Folder 5"))
+		f.append(FolderNote(folderName: "Folder 6"))
+		f.append(FolderNote(folderName: "Folder 7"))
+		return f
+	}
+
 }
