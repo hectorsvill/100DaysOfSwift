@@ -24,6 +24,8 @@ class Util {
 	func Tests1() -> [FolderNote]{
 		var f = [FolderNote]()
 		f.append(FolderNote(folderName: "Folder 1"))
+		f[0].notes?.append(Note(noteTitle: "note1", noteTimeStamp: Util().getCurrentTime(), noteString: "This is a  note!"))
+		
 		f.append(FolderNote(folderName: "Folder 2"))
 		f.append(FolderNote(folderName: "Folder 3"))
 		f.append(FolderNote(folderName: "Folder 4"))
