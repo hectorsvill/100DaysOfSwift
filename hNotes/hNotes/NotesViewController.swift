@@ -28,7 +28,7 @@ class NotesViewController:  UIViewController, UITableViewDataSource, UITableView
 	
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+		return folderNote.notes?.count ?? 0
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,16 +38,15 @@ class NotesViewController:  UIViewController, UITableViewDataSource, UITableView
 		return cell
 	}
 	
-
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+		if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteViewController") {
+			navigationController?.pushViewController(vc, animated: true)
+		}
 	}
-	
 	
 	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 		let delete = UITableViewRowAction(style: .destructive, title: "Delete") {
 			(action, indexPath) in
-			
 //			self.notes.remove(at: indexPath.row)
 			self.notesTableView.reloadData()
 		}
@@ -55,11 +54,10 @@ class NotesViewController:  UIViewController, UITableViewDataSource, UITableView
 	}
 	
 	@IBAction func addNoteButton(_ sender: Any) {
-		print("push to text view!")
-//		navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: true)
-		
+		if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteViewController") {
+			navigationController?.pushViewController(vc, animated: true)
+		}
 	}
-	
 }
 
 

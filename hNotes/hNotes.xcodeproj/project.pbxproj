@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E8217A32226C228100421578 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8217A31226C228100421578 /* NoteViewController.swift */; };
 		E8B525782266CFA0008BD2B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B525772266CFA0008BD2B8 /* AppDelegate.swift */; };
 		E8B5257A2266CFA0008BD2B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B525792266CFA0008BD2B8 /* ViewController.swift */; };
 		E8B5257D2266CFA0008BD2B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B5257B2266CFA0008BD2B8 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E8217A31226C228100421578 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		E8B525742266CFA0008BD2B8 /* hNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B525772266CFA0008BD2B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8B525792266CFA0008BD2B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				E8FC9C27226AEAF4000F59E2 /* Folder.swift */,
 				E8B525792266CFA0008BD2B8 /* ViewController.swift */,
+				E8217A31226C228100421578 /* NoteViewController.swift */,
 				E8B5258F2266F44D008BD2B8 /* NotesViewController.swift */,
 				E8FC9C25226AE982000F59E2 /* Util.swift */,
 				E8B525772266CFA0008BD2B8 /* AppDelegate.swift */,
@@ -148,6 +151,7 @@
 				E8B525782266CFA0008BD2B8 /* AppDelegate.swift in Sources */,
 				E8FC9C26226AE982000F59E2 /* Util.swift in Sources */,
 				E8B525902266F44D008BD2B8 /* NotesViewController.swift in Sources */,
+				E8217A32226C228100421578 /* NoteViewController.swift in Sources */,
 				E8FC9C28226AEAF4000F59E2 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

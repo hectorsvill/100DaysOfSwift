@@ -173,6 +173,47 @@
             </objects>
             <point key="canvasLocation" x="2269.5652173913045" y="786.83035714285711"/>
         </scene>
+        <!--Note View Controller-->
+        <scene sceneID="SdP-qg-ljy">
+            <objects>
+                <viewController storyboardIdentifier="NoteViewController" id="sWK-f3-mdQ" customClass="NoteViewController" customModule="hNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LoH-EM-S78">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rcU-b0-G5t">
+                                <rect key="frame" x="0.0" y="44" width="414" height="788"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6x-Ji-Wdc">
+                                <rect key="frame" x="0.0" y="832" width="414" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rcU-b0-G5t" firstAttribute="leading" secondItem="hL4-3k-DEt" secondAttribute="leading" id="13L-m1-r15"/>
+                            <constraint firstItem="rcU-b0-G5t" firstAttribute="top" secondItem="hL4-3k-DEt" secondAttribute="top" id="KPj-Q1-rz3"/>
+                            <constraint firstItem="hL4-3k-DEt" firstAttribute="bottom" secondItem="rcU-b0-G5t" secondAttribute="bottom" constant="30" id="KQs-rL-Bxn"/>
+                            <constraint firstAttribute="bottom" secondItem="D6x-Ji-Wdc" secondAttribute="bottom" id="Ly7-ea-Foa"/>
+                            <constraint firstItem="D6x-Ji-Wdc" firstAttribute="leading" secondItem="hL4-3k-DEt" secondAttribute="leading" id="QKN-3f-0sf"/>
+                            <constraint firstItem="D6x-Ji-Wdc" firstAttribute="top" secondItem="rcU-b0-G5t" secondAttribute="bottom" id="Wuk-xS-phW"/>
+                            <constraint firstItem="hL4-3k-DEt" firstAttribute="trailing" secondItem="D6x-Ji-Wdc" secondAttribute="trailing" id="c0N-5c-XL9"/>
+                            <constraint firstItem="hL4-3k-DEt" firstAttribute="trailing" secondItem="rcU-b0-G5t" secondAttribute="trailing" id="o4P-pR-Nch"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hL4-3k-DEt"/>
+                    </view>
+                    <connections>
+                        <outlet property="noteTextView" destination="rcU-b0-G5t" id="iYM-ZX-NhR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fVw-vv-Km8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2962.3188405797105" y="797.54464285714278"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="JAF-hB-jky">
             <objects>

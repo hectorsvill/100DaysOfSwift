@@ -20,14 +20,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		
 		navigationController?.navigationBar.prefersLargeTitles = true
 		title = "Folders"
-		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: nil)//#selector(view.edit))
 		navigationItem.rightBarButtonItem?.tintColor = .green
 
 		FolderTableView.dataSource = self
 		FolderTableView.delegate = self
-		
-		//Folders += Util().Tests1()
+
 	}
 	
 	@IBAction func NewFolderButton(_ sender: Any) {
@@ -49,9 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if let vc = storyboard?.instantiateViewController(withIdentifier: "NotesViewController") as? NotesViewController {
 			vc.folderNote = Folders[indexPath.row]
-			
 			navigationController?.pushViewController(vc, animated: true)
-			
 		}
 	}
 	
