@@ -25,9 +25,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 		FolderTableView.dataSource = self
 		FolderTableView.delegate = self
-
+		Folders += Util().Tests1()
 	}
-	
+}
+
+extension ViewController {
 	@IBAction func NewFolderButton(_ sender: Any) {
 		createNewFolder()
 	}

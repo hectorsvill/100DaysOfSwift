@@ -62,11 +62,11 @@
 		E8B525762266CFA0008BD2B8 /* hNotes */ = {
 			isa = PBXGroup;
 			children = (
+				E8FC9C25226AE982000F59E2 /* Util.swift */,
 				E8FC9C27226AEAF4000F59E2 /* Folder.swift */,
 				E8B525792266CFA0008BD2B8 /* ViewController.swift */,
-				E8217A31226C228100421578 /* NoteViewController.swift */,
 				E8B5258F2266F44D008BD2B8 /* NotesViewController.swift */,
-				E8FC9C25226AE982000F59E2 /* Util.swift */,
+				E8217A31226C228100421578 /* NoteViewController.swift */,
 				E8B525772266CFA0008BD2B8 /* AppDelegate.swift */,
 				E8B5257B2266CFA0008BD2B8 /* Main.storyboard */,
 				E8B5257E2266CFA1008BD2B8 /* Assets.xcassets */,

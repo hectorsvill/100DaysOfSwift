@@ -10,8 +10,9 @@ import Foundation
 
 struct Note {
 	var noteTitle: String
-	var noteTimeStamp: String
 	var noteString: String
+	var noteTimeStamp: String
+
 }
 
 class FolderNote {

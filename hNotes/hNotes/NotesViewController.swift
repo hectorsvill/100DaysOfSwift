@@ -39,7 +39,9 @@ class NotesViewController:  UIViewController, UITableViewDataSource, UITableView
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteViewController") {
+		if let vc = storyboard?.instantiateViewController(withIdentifier: "NoteViewController") as? NoteViewController{
+			vc.note = folderNote.notes?[indexPath.row]
+			
 			navigationController?.pushViewController(vc, animated: true)
 		}
 	}
@@ -47,7 +49,7 @@ class NotesViewController:  UIViewController, UITableViewDataSource, UITableView
 	func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 		let delete = UITableViewRowAction(style: .destructive, title: "Delete") {
 			(action, indexPath) in
-//			self.notes.remove(at: indexPath.row)
+			//
 			self.notesTableView.reloadData()
 		}
 		return [delete]

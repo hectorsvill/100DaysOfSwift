@@ -21,18 +21,24 @@ class Util {
 		return timestr
 	}
 	
-//	func Tests1() -> [FolderNote]{
-//		var f = [FolderNote]()
-//		f.append(FolderNote(folderName: "Folder 1"))
-//		f[0].notes?.append(Note(noteTitle: "note1", noteTimeStamp: Util().getCurrentTime(), noteString: "This is a  note!"))
-//		
-//		f.append(FolderNote(folderName: "Folder 2"))
-//		f.append(FolderNote(folderName: "Folder 3"))
-//		f.append(FolderNote(folderName: "Folder 4"))
-//		f.append(FolderNote(folderName: "Folder 5"))
-//		f.append(FolderNote(folderName: "Folder 6"))
-//		f.append(FolderNote(folderName: "Folder 7"))
-//		return f
-//	}
+	func Tests1() -> [FolderNote]{
+		var f = [FolderNote]()
+		let f1 = FolderNote()
+		f1.folderName = "folder1"
+		f1.notes = [Note]()
+
+		f1.notes?.append(Note(noteTitle: "note1", noteString: "note 1 is a note about 1", noteTimeStamp: "1230"))
+		f1.notes?.append(Note(noteTitle: "note2", noteString: "note 2 is a note about 2", noteTimeStamp: "1235"))
+		f.append(f1)
+		
+		
+		let f2 = FolderNote()
+		f2.folderName = "folder2"
+		f2.notes = [Note]()
+		f2.notes?.append(Note(noteTitle: "note1", noteString: "note 1 is a note about 1", noteTimeStamp: "1230"))
+		f2.notes?.append(Note(noteTitle: "note2", noteString: "note 2 is a note about 2", noteTimeStamp: "1235"))
+		f.append(f2)
+		return f
+	}
 
 }
