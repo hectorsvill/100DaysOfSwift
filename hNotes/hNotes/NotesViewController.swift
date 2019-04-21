@@ -14,18 +14,14 @@ class NotesViewController:  UIViewController, UITableViewDataSource, UITableView
 	
 	let util = Util()
 	fileprivate let cellid = "NotesCellId"
-	var FolderName = String()
-	var notes = [Note]()
+	var folderNote = FolderNote()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(view.edit))
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: nil)//#selector(view.edit))
 		navigationItem.rightBarButtonItem?.tintColor = .green
-		
-//		title = FolderName
-//		print(Folders.count)
-		
-		
+
+		title = folderNote.folderName
 		notesTableView.dataSource = self
 		notesTableView.delegate = self
     }
@@ -37,7 +33,7 @@ class NotesViewController:  UIViewController, UITableViewDataSource, UITableView
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = notesTableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
-		cell.textLabel?.text = ""
+		cell.textLabel?.text = folderNote.folderName
 		cell.detailTextLabel?.text = util.getCurrentTime()
 		return cell
 	}

@@ -21,18 +21,18 @@ class Util {
 		return timestr
 	}
 	
-	func Tests1() -> [FolderNote]{
-		var f = [FolderNote]()
-		f.append(FolderNote(folderName: "Folder 1"))
-		f[0].notes?.append(Note(noteTitle: "note1", noteTimeStamp: Util().getCurrentTime(), noteString: "This is a  note!"))
-		
-		f.append(FolderNote(folderName: "Folder 2"))
-		f.append(FolderNote(folderName: "Folder 3"))
-		f.append(FolderNote(folderName: "Folder 4"))
-		f.append(FolderNote(folderName: "Folder 5"))
-		f.append(FolderNote(folderName: "Folder 6"))
-		f.append(FolderNote(folderName: "Folder 7"))
-		return f
-	}
+//	func Tests1() -> [FolderNote]{
+//		var f = [FolderNote]()
+//		f.append(FolderNote(folderName: "Folder 1"))
+//		f[0].notes?.append(Note(noteTitle: "note1", noteTimeStamp: Util().getCurrentTime(), noteString: "This is a  note!"))
+//		
+//		f.append(FolderNote(folderName: "Folder 2"))
+//		f.append(FolderNote(folderName: "Folder 3"))
+//		f.append(FolderNote(folderName: "Folder 4"))
+//		f.append(FolderNote(folderName: "Folder 5"))
+//		f.append(FolderNote(folderName: "Folder 6"))
+//		f.append(FolderNote(folderName: "Folder 7"))
+//		return f
+//	}
 
 }

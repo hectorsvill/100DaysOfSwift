@@ -16,13 +16,6 @@ struct Note {
 
 class FolderNote {
 	var numberOfNotesInFolder = 0
-	var folderName: String
+	var folderName: String? = nil
 	var notes: [Note]? = nil
-	
-	init(folderName: String) {
-		self.folderName = folderName
-	}
-	
-	
-	
 }
