@@ -12,6 +12,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	@IBOutlet var distanceReading: UILabel!
 	var locationManager:  CLLocationManager?
 	
+	var locationchanged = false
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		view.backgroundColor = .lightGray
@@ -42,11 +45,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	func update(distance: CLProximity) {
+		let ac = UIAlertController(title: "Location changed", message: nil, preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "Ok", style: .cancel))
+		present(ac, animated: true)
+		
+		
 		UIView.animate(withDuration: 1) {
 			switch distance {
 			case .unknown:
 				self.view.backgroundColor = .lightGray
-				self.distanceReading.text = "UNKOWN"
+				self.distanceReading.text = "UNKOWN1"
 			case .far:
 				self.view.backgroundColor = .red
 				self.distanceReading.text = "far"
@@ -55,13 +63,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 				self.distanceReading.text = "near"
 			case .immediate:
 				self.view.backgroundColor = .brown
-				self.distanceReading.text = "immediate "
+				self.distanceReading.text = "immediate"
 			default:
-				self.view.backgroundColor = .lightGray
-				self.distanceReading.text = "UNKOWN"
+				self.view.backgroundColor = .gray
+				self.distanceReading.text = "UNKOWN2"
 			}
 		}
 	}
+	
 	func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
 		if let beacon = beacons.first {
 			update(distance: beacon.proximity)
