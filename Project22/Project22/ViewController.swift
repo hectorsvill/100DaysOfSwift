@@ -45,10 +45,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 	}
 	
 	func update(distance: CLProximity) {
-		let ac = UIAlertController(title: "Location changed", message: nil, preferredStyle: .alert)
-		ac.addAction(UIAlertAction(title: "Ok", style: .cancel))
-		present(ac, animated: true)
-		
+		//find a way to check when location is changed because func constantly looping 
+		if locationchanged == true {
+			let ac = UIAlertController(title: "Location changed", message: nil, preferredStyle: .alert)
+			ac.addAction(UIAlertAction(title: "Ok", style: .cancel))
+			present(ac, animated: true)
+		}
 		
 		UIView.animate(withDuration: 1) {
 			switch distance {
