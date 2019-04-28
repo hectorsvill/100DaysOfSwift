@@ -79,6 +79,30 @@ extension String {
 }
 
 let input = "Swift is like Objective-C without the C"
-input.first
-input.dropFirst()
-input.capitalizedFirst
+//input.first
+//input.dropFirst()
+//input.capitalizedFirst
+
+
+
+
+extension String {
+	func containsAny(of array: [String]) -> Bool {
+		for item in array {
+			if self.contains(item) {
+				return true
+			}
+		}
+		return false
+	}
+}
+
+
+//we’re passing input.contains as the closure
+//that contains(where:) should run
+
+let language = ["C", "C++", "Swift"]
+language.contains("Swift")
+language.contains(where: input.contains)
+
+
