@@ -59,9 +59,13 @@ extension String {
 	func lineArray() -> [String] {
 		var arr: [String] = []
 		var newStr = ""
-		for c in self {
-			if c == "\n" {
+		let strCount = self.count
+		for (i, c) in self.enumerated() {
+			print(count , ", ", i)
+			if c == "\n" || (strCount) == i - 1 {
+				print(newStr)
 				arr.append(newStr)
+				newStr = ""
 			} else {
 				newStr += String(c)
 			}
@@ -70,8 +74,10 @@ extension String {
 	}
 }
 
-let str232 = "This\nString\nIs"
-print(str232.lineArray())
+let str232 = "This\nString\nIs one"
+print(str232.lineArray(), "\n",str232)
+
+
 
 
 
