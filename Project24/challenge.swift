@@ -35,13 +35,20 @@ Tip: creating a Double from a String is a failable initializer.
 */
 
 extension String {
-	let isNumeric: Bool = {
+	var isNumeric: Bool {
+		for c in self {
+			for i in 0...9 {
+				if let n = Int(String(c)) {
+					if n == i { return true }
+				}
+			}
+		}
 		return false
 	}
 }
 
 
-let num = "This number 42 is no luck!"
+let num = "This number  is no luck!"
 print(num.isNumeric)
 
 
