@@ -38,22 +38,25 @@ extension String {
 	var isNumeric: Bool {
 		for c in self {
 			for i in 0...9 {
-				if let n = Int(String(c)) {
-					if n == i { return true }
-				}
+				if let n = Int(String(c)){
+					if n == i { return true } }
 			}
 		}
 		return false
 	}
 }
 
+//
+//let num = "This number  is no luck!"
+//print(num.isNumeric)
+/*
+Create a String extension that adds a lines property that
+returns an array of all the lines in a string. So,
+“this\nis\na\ntest” should return an array with four elements.
+*/
 
-let num = "This number  is no luck!"
-print(num.isNumeric)
-
-
-
-
+let str232 = "This\nString\nIs"
+print(str232)
 
 
 
