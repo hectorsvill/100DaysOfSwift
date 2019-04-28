@@ -21,10 +21,12 @@ import UIKit
 	with a substring: hasPrefix() and hasSuffix(). They look like this:
 */
 
-let password = "123456789"
-password.hasPrefix("123")
-password.hasSuffix("789")
+//let password = "123456789"
+//password.hasPrefix("123")
+//password.hasSuffix("789")
+
 // self == current string
+
 extension String {
 	func deletingPrefix(_ prefix: String) -> String{
 		guard self.hasPrefix(prefix) else { return self }
@@ -37,7 +39,46 @@ extension String {
 	}
 }
 
+//
+//let str = "This is a str"
+//let newstr = str.deletingSufix("str")
+//print(newstr)
 
-let str = "This is a str"
-let newstr = str.deletingSufix("str")
-print(newstr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+	We could add our own specialized capitalization that uppercases only
+	the first letter in our string:
+*/
+
+
+extension String {
+	var capitalizedFirst: String {
+		guard let firstLetter = self.first else { return "" }
+		return firstLetter.uppercased() + self.dropFirst()
+	}
+}
+
+let input = "Swift is like Objective-C without the C"
+input.first
+input.dropFirst()
+input.capitalizedFirst
