@@ -55,8 +55,23 @@ returns an array of all the lines in a string. So,
 “this\nis\na\ntest” should return an array with four elements.
 */
 
+extension String {
+	func lineArray() -> [String] {
+		var arr: [String] = []
+		var newStr = ""
+		for c in self {
+			if c == "\n" {
+				arr.append(newStr)
+			} else {
+				newStr += String(c)
+			}
+		}
+		return arr
+	}
+}
+
 let str232 = "This\nString\nIs"
-print(str232)
+print(str232.lineArray())
 
 
 
