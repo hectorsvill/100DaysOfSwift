@@ -1,8 +1,70 @@
 # 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
+
 #
 
-[Project 22: Detect-a-Beacon]()
 
+
+
+#
+
+[Project 24: Swift Strings](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project24)
+```swift
+
+
+extension String {
+	func withPrefix(_ prefix: String) -> String {
+		let check =  self.hasPrefix(prefix)
+		if check {
+			return self
+		}
+		print(check)
+		return prefix + self
+	}
+
+	var isNumeric: Bool {
+		for c in self {
+			for i in 0...9 {
+				if let n = Int(String(c)){
+					if n == i { return true } }
+			}
+		}
+		return false
+	}
+
+	func lineArray() -> [String] {
+		var arr: [String] = []
+		var newStr = ""
+
+		for c in self {
+			if c == "\n" {
+				arr.append(newStr)
+				newStr = ""
+			} else {
+				print(c)
+				newStr += String(c)
+			}
+		}
+
+		arr.append(newStr)
+		return arr
+	}
+
+}
+```
+
+#
+
+Project 23: Swifty Ninja
+
+
+
+
+#
+
+[Project 22: Detect-a-Beacon](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project22/Project22)
+
+- Requesting location: Core Location
+- Hunting the beacon: CLBeaconRegion
 
 #
 [Project 21: Local Notifications](https://github.com/hectorsvill/100DaysOfSwift/tree/master/Project21/Project21)
