@@ -15,6 +15,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        typeChanged(self)
     }
 
     override var representedObject: Any? {
@@ -38,6 +39,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         
     }
     
+    func controlTextDidChange(_ obj: Notification) {
+        typeChanged(self)
+    }
     
     @IBAction func copyButtonPressed(_ sender: Any) {
     }

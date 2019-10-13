@@ -706,7 +706,7 @@
                                     <segments>
                                         <segment label="Rot12"/>
                                         <segment label="Similar" selected="YES" tag="1"/>
-                                        <segment label="Zalgo"/>
+                                        <segment label="Strike"/>
                                         <segment label="Zalgo"/>
                                     </segments>
                                 </segmentedCell>
