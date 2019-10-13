@@ -31,7 +31,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         case 1:
             outputTextField.stringValue = similar(inputTextField.stringValue)
         case 2:
-            outputTextField.stringValue = similar(inputTextField.stringValue)
+            outputTextField.stringValue = strike(inputTextField.stringValue)
         default:
             outputTextField.stringValue = zalgo(inputTextField.stringValue)
         }
@@ -56,7 +56,15 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     
     func strike(_ input: String) -> String {
-        return "strike \(input)"
+        var output = ""
+        
+        for letter in input			 {
+            output.append(letter)
+            output.append("\u{0335}")
+        }
+        
+        
+        return output
     }
     
     

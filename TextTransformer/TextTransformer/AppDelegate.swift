@@ -14,10 +14,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-        
+        // create the statusbar button
         statusItem.button?.title = "⌬"
         statusItem.button?.target = self
+        
+        // if statusbar button is selected create view
         statusItem.button?.action = #selector(showSettings)
         
     }
