@@ -55,7 +55,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     func rot13(_ input: String) -> String {
-        return "Rot12 \(input)"
+        return ROT13.string(input)
     }
     
     func similar(_ input: String) -> String {

@@ -13,6 +13,7 @@
 		C43D18362352DB3F00AB750C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C43D18342352DB3F00AB750C /* Main.storyboard */; };
 		C43D183F2353A9D600AB750C /* zalgo.json in Resources */ = {isa = PBXBuildFile; fileRef = C43D183E2353A9D600AB750C /* zalgo.json */; };
 		C43D18412353AA7400AB750C /* zalgoCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D18402353AA7400AB750C /* zalgoCharacters.swift */; };
+		C43D18432353ADAD00AB750C /* ROT13.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D18422353ADAD00AB750C /* ROT13.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		C43D18382352DB3F00AB750C /* TextTransformer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextTransformer.entitlements; sourceTree = "<group>"; };
 		C43D183E2353A9D600AB750C /* zalgo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = zalgo.json; sourceTree = "<group>"; };
 		C43D18402353AA7400AB750C /* zalgoCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zalgoCharacters.swift; sourceTree = "<group>"; };
+		C43D18422353ADAD00AB750C /* ROT13.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROT13.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				C43D182E2352DB3A00AB750C /* AppDelegate.swift */,
 				C43D18402353AA7400AB750C /* zalgoCharacters.swift */,
+				C43D18422353ADAD00AB750C /* ROT13.swift */,
 				C43D18302352DB3A00AB750C /* ViewController.swift */,
 				C43D18322352DB3E00AB750C /* Assets.xcassets */,
 				C43D18342352DB3F00AB750C /* Main.storyboard */,
@@ -143,6 +146,7 @@
 				C43D18412353AA7400AB750C /* zalgoCharacters.swift in Sources */,
 				C43D18312352DB3A00AB750C /* ViewController.swift in Sources */,
 				C43D182F2352DB3A00AB750C /* AppDelegate.swift in Sources */,
+				C43D18432353ADAD00AB750C /* ROT13.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

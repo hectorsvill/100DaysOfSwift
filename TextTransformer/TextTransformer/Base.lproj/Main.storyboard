@@ -704,7 +704,7 @@
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="rounded" trackingMode="selectOne" id="faG-7r-95j">
                                     <font key="font" metaFont="system"/>
                                     <segments>
-                                        <segment label="Rot12"/>
+                                        <segment label="Rot13"/>
                                         <segment label="Similar" selected="YES" tag="1"/>
                                         <segment label="Strike"/>
                                         <segment label="Zalgo"/>
