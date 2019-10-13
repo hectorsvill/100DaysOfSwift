@@ -31,6 +31,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         case 1:
             outputTextField.stringValue = similar(inputTextField.stringValue)
         case 2:
+            print("here")
             outputTextField.stringValue = strike(inputTextField.stringValue)
         default:
             outputTextField.stringValue = zalgo(inputTextField.stringValue)
@@ -44,6 +45,12 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func copyButtonPressed(_ sender: Any) {
+        
+        // copy to pasteboard
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(outputTextField.stringValue, forType: .string)
+        
+        
     }
     
     func rot13(_ input: String) -> String {
@@ -51,7 +58,11 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     func similar(_ input: String) -> String {
-        return "similar \(input)"
+        var output = ""
+        output = output.replacingOccurrences(of: "a", with: "а")
+        output = output.replacingOccurrences(of: "e", with: "е")
+        output = output.replacingOccurrences(of: "i", with: "і")
+        return output
     }
     
     
@@ -62,11 +73,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
             output.append(letter)
             output.append("\u{0335}")
         }
-        
-        
         return output
     }
-    
     
     func zalgo(_ input: String) -> String {
         return "salgo \(input)"
