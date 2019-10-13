@@ -695,6 +695,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="3kz-gg-RJW"/>
+                                </connections>
                             </textField>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q1M-bd-guk">
                                 <rect key="frame" x="18" y="59" width="444" height="24"/>
@@ -707,21 +710,27 @@
                                         <segment label="Zalgo"/>
                                     </segments>
                                 </segmentedCell>
+                                <connections>
+                                    <action selector="typeChanged:" target="XfG-lQ-9wD" id="wb8-Ec-OiB"/>
+                                </connections>
                             </segmentedControl>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fRj-Pl-BT4">
-                                <rect key="frame" x="20" y="20" width="345" height="21"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="MUM-5p-mNp">
+                                <rect key="frame" x="20" y="20" width="354" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="MUM-5p-mNp">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XUa-UR-26R">
-                                <rect key="frame" x="385" y="13" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0of-H6-fDb">
+                                <rect key="frame" x="394" y="13" width="72" height="32"/>
+                                <buttonCell key="cell" type="push" title="Copy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0of-H6-fDb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="copyButtonPressed:" target="XfG-lQ-9wD" id="0KP-dV-acr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -739,6 +748,11 @@
                             <constraint firstAttribute="trailing" secondItem="q1M-bd-guk" secondAttribute="trailing" constant="20" id="vPI-B3-TKe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="inputTextField" destination="ViR-1D-ALh" id="hlZ-1w-PnZ"/>
+                        <outlet property="outputTextField" destination="fRj-Pl-BT4" id="kTK-5r-dpg"/>
+                        <outlet property="typeSegegmentedControl" destination="q1M-bd-guk" id="DDk-Mr-vyl"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
