@@ -32,7 +32,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         case 1:
             outputTextField.stringValue = similar(inputTextField.stringValue)
         case 2:
-            print("here")
             outputTextField.stringValue = strike(inputTextField.stringValue)
         default:
             outputTextField.stringValue = zalgo(inputTextField.stringValue)
@@ -59,7 +58,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     func similar(_ input: String) -> String {
-        var output = ""
+        var output = input
         output = output.replacingOccurrences(of: "a", with: "а")
         output = output.replacingOccurrences(of: "e", with: "е")
         output = output.replacingOccurrences(of: "i", with: "і")
