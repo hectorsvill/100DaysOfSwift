@@ -11,6 +11,8 @@
 		C43D18312352DB3A00AB750C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D18302352DB3A00AB750C /* ViewController.swift */; };
 		C43D18332352DB3E00AB750C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C43D18322352DB3E00AB750C /* Assets.xcassets */; };
 		C43D18362352DB3F00AB750C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C43D18342352DB3F00AB750C /* Main.storyboard */; };
+		C43D183F2353A9D600AB750C /* zalgo.json in Resources */ = {isa = PBXBuildFile; fileRef = C43D183E2353A9D600AB750C /* zalgo.json */; };
+		C43D18412353AA7400AB750C /* zalgoCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D18402353AA7400AB750C /* zalgoCharacters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		C43D18352352DB3F00AB750C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C43D18372352DB3F00AB750C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C43D18382352DB3F00AB750C /* TextTransformer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TextTransformer.entitlements; sourceTree = "<group>"; };
+		C43D183E2353A9D600AB750C /* zalgo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = zalgo.json; sourceTree = "<group>"; };
+		C43D18402353AA7400AB750C /* zalgoCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zalgoCharacters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +58,13 @@
 			isa = PBXGroup;
 			children = (
 				C43D182E2352DB3A00AB750C /* AppDelegate.swift */,
+				C43D18402353AA7400AB750C /* zalgoCharacters.swift */,
 				C43D18302352DB3A00AB750C /* ViewController.swift */,
 				C43D18322352DB3E00AB750C /* Assets.xcassets */,
 				C43D18342352DB3F00AB750C /* Main.storyboard */,
 				C43D18372352DB3F00AB750C /* Info.plist */,
 				C43D18382352DB3F00AB750C /* TextTransformer.entitlements */,
+				C43D183E2353A9D600AB750C /* zalgo.json */,
 			);
 			path = TextTransformer;
 			sourceTree = "<group>";
@@ -123,6 +129,7 @@
 			files = (
 				C43D18332352DB3E00AB750C /* Assets.xcassets in Resources */,
 				C43D18362352DB3F00AB750C /* Main.storyboard in Resources */,
+				C43D183F2353A9D600AB750C /* zalgo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C43D18412353AA7400AB750C /* zalgoCharacters.swift in Sources */,
 				C43D18312352DB3A00AB750C /* ViewController.swift in Sources */,
 				C43D182F2352DB3A00AB750C /* AppDelegate.swift in Sources */,
 			);

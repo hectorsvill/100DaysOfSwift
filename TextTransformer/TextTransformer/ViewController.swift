@@ -12,7 +12,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var inputTextField: NSTextField!
     @IBOutlet weak var outputTextField: NSTextField!
     @IBOutlet weak var typeSegegmentedControl: NSSegmentedControl!
-    
+    let zalgoCharacters = ZalgoCharacters()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         typeChanged(self)
@@ -77,7 +78,22 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     func zalgo(_ input: String) -> String {
-        return "salgo \(input)"
+        var output = ""
+        
+        for letter in input {
+            output.append(letter)
+            for _ in 1...Int.random(in: 1...8) {
+                output.append(zalgoCharacters.above.randomElement()!)
+            }
+            for _ in 1...Int.random(in: 1...3) {
+                output.append(zalgoCharacters.inline.randomElement()!)
+            }
+            
+            for _ in 1...Int.random(in: 1...8) {
+                output.append(zalgoCharacters.below.randomElement()!)
+            }
+        }
+        return output
     }
 }
 
