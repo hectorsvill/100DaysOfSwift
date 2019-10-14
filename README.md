@@ -12,7 +12,7 @@
 
 #
 
-[]myCalendar()
+[]myCalendar]()
 - Eventkit
 - EventStore
 - EkeCalendar
