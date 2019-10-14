@@ -14,7 +14,32 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCk-5h-y8s">
+                                <rect key="frame" x="20" y="433" width="374" height="30"/>
+                                <state key="normal" title="Schedule Event"/>
+                                <connections>
+                                    <action selector="scheduleEventButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JY3-W2-G7y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bm8-Jl-KUS">
+                                <rect key="frame" x="20" y="471" width="374" height="30"/>
+                                <state key="normal" title="Schedule Reminder"/>
+                                <connections>
+                                    <action selector="schedulereminderButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wv5-OR-7du"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dCk-5h-y8s" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3gE-i6-KOy"/>
+                            <constraint firstItem="dCk-5h-y8s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UK8-ja-Ebv"/>
+                            <constraint firstItem="Bm8-Jl-KUS" firstAttribute="top" secondItem="dCk-5h-y8s" secondAttribute="bottom" constant="8" id="bcf-B0-Jec"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bm8-Jl-KUS" secondAttribute="trailing" constant="20" id="kHP-rS-n36"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dCk-5h-y8s" secondAttribute="trailing" constant="20" id="lZ0-an-SZ5"/>
+                            <constraint firstItem="Bm8-Jl-KUS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vy7-gi-FO7"/>
+                            <constraint firstItem="dCk-5h-y8s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zZ8-vq-6cW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="RpQ-SW-aYx">

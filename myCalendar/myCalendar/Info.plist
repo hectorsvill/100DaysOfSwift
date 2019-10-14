@@ -64,5 +64,7 @@
 	<string>This application needs to access the calendar </string>
 	<key></key>
 	<string></string>
+	<key>NSRemindersUsageDescription</key>
+	<string>This application needs access to reminders</string>
 </dict>
 </plist>
