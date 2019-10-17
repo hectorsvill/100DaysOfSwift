@@ -12,15 +12,12 @@
 
 #
 
-[]myCalendar]()
+[myCalendar]()
 - Eventkit
 - EventStore
 - EkeCalendar
 #
 [Project 25: Selfie Share]()
-
-
-
 
 #
 
