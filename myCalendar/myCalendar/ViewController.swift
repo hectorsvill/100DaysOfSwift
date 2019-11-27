@@ -15,7 +15,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "auth", style: .plain, target: self, action: #selector(getauthorizationForEventStore))
     }
 
@@ -43,7 +42,6 @@ class ViewController: UIViewController {
                     print("acces denied")
                 }
             }
-            
         default:
             print("Access denied")
         }
