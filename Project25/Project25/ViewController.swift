@@ -6,19 +6,16 @@
 //  Copyright © 2019 Hector. All rights reserved.
 //
 
-import UIKit
 import MultipeerConnectivity
+import UIKit
 
 class ViewController: UICollectionViewController {
     let serviceType = "hsv-project25"
     var images = [UIImage]()
     
-    // MultipeerConnectivity
-    // use device current name as display name
-    var peerID: MCPeerID!
-    // manager class that handles all multipeer connectivity for us
-    var mcSession: MCSession!
-    var mcAdvertiserAssistent: MCAdvertiserAssistant!
+    let peerID = MCPeerID(displayName: UIDevice.current.name)
+    var mcSession: MCSession?
+    var mcAdvertiserAssistent: MCAdvertiserAssistant?
     
     
     override func viewDidLoad() {
@@ -26,10 +23,9 @@ class ViewController: UICollectionViewController {
         title = "Selfie Share"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showConnectionPrompt))
-        
-        peerID = MCPeerID(displayName: UIDevice.current.name)
-        mcSession = MCSession(peer: peerID, securityIdentity: [], encryptionPreference: .required)
-        mcSession.delegate = self
+
+        mcSession = MCSession(peer: peerID, securityIdentity: nil, encryptionPreference: .required)
+        mcSession?.delegate = self
     }
     
  
@@ -42,11 +38,13 @@ class ViewController: UICollectionViewController {
     }
 
     func startHosting(action: UIAlertAction) {
+        guard let mcSession = mcSession else { return }
         mcAdvertiserAssistent = MCAdvertiserAssistant(serviceType: serviceType, discoveryInfo: nil, session: mcSession)
-        mcAdvertiserAssistent.start()
+        mcAdvertiserAssistent?.start()
     }
     
     func joinSession(action: UIAlertAction) {
+        guard let mcSession = mcSession else { return }
         let mcBrowser = MCBrowserViewController(serviceType: serviceType, session: mcSession)
         mcBrowser.delegate = self
         present(mcBrowser, animated: true)
@@ -114,13 +112,13 @@ extension ViewController: MCSessionDelegate, MCBrowserViewControllerDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
         switch state {
         case .connected:
-            print("Connected ", peerID.displayName)
+            print("Connected: \(peerID.displayName)")
         case .connecting:
-            print("Connecting", peerID.displayName)
+            print("Connecting: \(peerID.displayName)" )
         case .notConnected:
-            print("notConnected", peerID.displayName)
+            print("notConnected \(peerID.displayName)")
         @unknown default:
-            print(peerID.displayName)
+            print("unknown: \(peerID.displayName)")
         }
     }
     
