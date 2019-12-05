@@ -21,15 +21,4 @@ func sockMerchant(n: Int, ar: [Int]) -> Int {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 //: [Next](@next)

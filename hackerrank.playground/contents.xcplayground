@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios'>
     <pages>
+        <page name='Three Number Sum'/>
+        <page name='Two Strings  '/>
         <page name='SinglyLinkList'/>
         <page name='fibonacci'/>
         <page name='balancedBrackets'/>
-        <page name='Three Number Sum'/>
         <page name='HashTable_RansomeNote'/>
         <page name='Sock Merchant  '/>
         <page name='Counting Valleys'/>
-        <page name='Two Strings  '/>
     </pages>
 </playground>
