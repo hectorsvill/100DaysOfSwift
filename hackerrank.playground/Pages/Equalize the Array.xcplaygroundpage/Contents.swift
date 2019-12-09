@@ -2,6 +2,8 @@
 
 import Foundation
 
+//https://www.hackerrank.com/challenges/equality-in-a-array/problem
+
 func equalizeArray(arr: [Int]) -> Int {
     var max = 0
     var d: [Int: Int] = [:]
