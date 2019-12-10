@@ -13,5 +13,6 @@
         <page name='Triple sum  '/>
         <page name='Equalize the Array'/>
         <page name='Two-strings'/>
+        <page name='DS_2dArrays'/>
     </pages>
 </playground>
