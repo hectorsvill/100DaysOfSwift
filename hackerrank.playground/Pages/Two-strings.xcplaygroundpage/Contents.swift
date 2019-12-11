@@ -8,12 +8,16 @@ func twoStrings(s1: String, s2: String) -> String {
 
     var s3 = ""
 
+    let x = s1_d.sorted(by: )
+    print(x.key)
+    
     _ = s1.map { s1_d[String($0), default: 0] += 1 }
     _ = s2.map { s2_d[String($0), default: 0] += 1 }
 
     for (k,v) in s1_d {
         if s2_d[k] != nil {
             let count = (v + s2_d[k]! ) / 2
+            s1_d[k]!     -= 1
             for _ in 0..<count {
                 s3 += k
             }

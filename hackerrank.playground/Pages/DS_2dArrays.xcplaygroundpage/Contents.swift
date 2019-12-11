@@ -14,6 +14,9 @@ func hourglassSum(arr: [[Int]]) -> Int {
                         arr[x + 2][y] + arr[x + 2][y + 1] + arr[x + 2][y + 2]
             values.append(value)
         }
+        
+        
+        
     }
     print(values)
     return values.max()!
