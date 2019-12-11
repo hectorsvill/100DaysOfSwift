@@ -16,7 +16,7 @@ func superReducedString(s: String) -> String {
         if sCopy[i + 1] == sCopy[i] {
             _ = sCopy.remove(at: i)
             _ = sCopy.remove(at: i)
-            print(sCopy)
+//            print(sCopy)
             i = 0
         } else {
             i += 1

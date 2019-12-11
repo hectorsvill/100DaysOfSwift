@@ -5,7 +5,7 @@ import Foundation
 //https://www.hackerrank.com/challenges/equality-in-a-array/problem
 
 func equalizeArray(arr: [Int]) -> Int {
-    var max = 0
+    
     var d: [Int: Int] = [:]
 
     _ = arr.map {
@@ -22,7 +22,7 @@ func equalizeArray(arr: [Int]) -> Int {
 
     d.removeValue(forKey: max_key)
 
-    var deletetions = d.values.reduce(0, +)
+    let deletetions = d.values.reduce(0, +)
 
     return deletetions
 }
