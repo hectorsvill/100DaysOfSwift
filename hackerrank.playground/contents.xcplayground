@@ -18,5 +18,7 @@
         <page name='Untitled Page'/>
         <page name='Partition Array'/>
         <page name='String MakingAnagrams'/>
+        <page name='Grading Students'/>
+        <page name='Arrays Left Rotation'/>
     </pages>
 </playground>
