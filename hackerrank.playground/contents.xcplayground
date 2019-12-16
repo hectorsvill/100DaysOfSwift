@@ -20,5 +20,7 @@
         <page name='String MakingAnagrams'/>
         <page name='Grading Students'/>
         <page name='Arrays Left Rotation'/>
+        <page name='Apples And Oranges'/>
+        <page name='LeftRotation'/>
     </pages>
 </playground>
