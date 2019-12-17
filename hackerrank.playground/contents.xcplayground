@@ -22,5 +22,6 @@
         <page name='Arrays Left Rotation'/>
         <page name='Apples And Oranges'/>
         <page name='LeftRotation'/>
+        <page name='Maximum Element'/>
     </pages>
 </playground>
