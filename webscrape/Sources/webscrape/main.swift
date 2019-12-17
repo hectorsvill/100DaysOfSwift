@@ -3,54 +3,33 @@ import SwiftSoup
 
 var QuotesDictionary: [String: [[String: Any]]] = [:]
 
-func scrapeHistoryQuotes() -> [[String: Any]] {
+func scrapeQuotes(html: String ) -> [[String: Any]] {
+    let doc  = try! SwiftSoup.parse(html)
+    let quoteElements = try! doc.select("blockquote")
     var quotes: [[String: Any]] = []
-    let myStrKey = "https://wisdomquotes.com/history-quotes/"
-    let url = URL(string: "https://wisdomquotes.com/history-quotes/")!
-
-    if let historystr = UserDefaults.standard.string(forKey: myStrKey) {
-        let doc  = try! SwiftSoup.parse(historystr)
-        let quoteElements = try! doc.select("blockquote")
-        
-        for i in 0..<quoteElements.count {
+    
+    for i in 0..<quoteElements.count {
+        do {
+            let str = try quoteElements[i].text()
+            let quoteAndAuth = str.split(separator: ".")
             
-            do {
-                
-                let str = try quoteElements[i].text()
-                let quoteAndAuth = str.split(separator: ".")
-                
-                let body = String(quoteAndAuth[0])
-                let author = quoteAndAuth.count >= 2 ? String(quoteAndAuth[1]) : "",
-                var tags = ["history"]
-                
-                if !author.isEmpty {
-                    tags.append(author)
-                }
-                
-                quotes.append([
-                    "body": body,
-                    "author": author,
-                    "tags": tags
-                ])
-                
-            } catch {
-                NSLog("Error: \(error)")
+            let body = String(quoteAndAuth[0])
+            let author = quoteAndAuth.count >= 2 ? String(quoteAndAuth[1]) : ""
+            var tags = ["history"]
+            
+            if !author.isEmpty {
+                tags.append(author)
             }
+            
+            quotes.append(["body": body, "author": author, "tags": tags])
+        } catch {
+            NSLog("Error: \(error)")
         }
-    } else {
-        
-        let data = try! Data(contentsOf: url)
-        let str = String(data: data, encoding: .utf8)!
-        UserDefaults.standard.set(str, forKey: myStrKey)
     }
-
-
+    
     return quotes
 }
 
-//let historyQuotes = scrapeHistoryQuotes()
-//QuotesDictionary["history"] = historyQuotes
-//print(QuotesDictionary)
 
 
 func getAllQuoteLinks() -> [String: URL] {
@@ -64,10 +43,10 @@ func getAllQuoteLinks() -> [String: URL] {
             let quoteLinks = try doc.select("a")
             
             for i in 11..<quoteLinks.count - 9 {
-                var key = try quoteLinks[i].text()
-                let str = key.replacingOccurrences(of: " ", with: "-")
-                let urlStr = "https://wisdomquotes.com/" + str.lowercased() + "-quotes"
-                links[key] = URL(string: urlStr)!
+                let key = try quoteLinks[i].text()
+                let strKey = key.replacingOccurrences(of: " ", with: "-")
+                let urlStr = "https://wisdomquotes.com/" + strKey.lowercased() + "-quotes"
+                links[strKey] = URL(string: urlStr)!
             }
             
         } catch {
@@ -87,22 +66,39 @@ func getAllQuoteLinks() -> [String: URL] {
 
 
 func createQuoteDict() {
-
     let quoteLinks = getAllQuoteLinks()
     
-    for quoteLink in quoteLinks {
-        print(quoteLink)
+    for (k, v) in quoteLinks {
+        do {
+            let data = try Data(contentsOf: v)
+            let html = String(data: data, encoding: .utf8)!
+            QuotesDictionary[k] = scrapeQuotes(html: html)
+        } catch {
+            NSLog("Error: \(error)")
+        }
         
-            
         break
     }
-    
-    
-    
-    
-    
 }
 
 
+//print(QuotesDictionary)
 
 createQuoteDict()
+//print(QuotesDictionary)
+
+
+let fm = FileManager()
+
+if #available(OSX 10.12, *) {
+    let dir = try! fm.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+    let newPath = "\(dir.path)/Quotes.json"
+    print(newPath)
+    let jsonData = try! JSONSerialization.data(withJSONObject: QuotesDictionary, options: .prettyPrinted)
+    fm.createFile(atPath: newPath, contents: jsonData, attributes: nil)
+    print(jsonData)
+    
+} else {
+    // Fallback on earlier versions
+}
+

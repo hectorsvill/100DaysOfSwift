@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "webscrape",
+    platforms: [.macOS(.v10_13)],
     dependencies: [.package(url: "https://github.com/scinfu/SwiftSoup.git", from: "2.2.2")],
     targets: [
         .target(name: "webscrape",dependencies: ["SwiftSoup"]),
