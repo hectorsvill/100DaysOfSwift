@@ -4,7 +4,7 @@ import SwiftSoup
 var QuotesDictionary: [String: [[String: Any]]] = [:]
 
 func scrapeHistoryQuotes() -> [[String: Any]] {
-    var dict: [[String: Any]] = []
+    var quotes: [[String: Any]] = []
     let myStrKey = "https://wisdomquotes.com/history-quotes/"
     let url = URL(string: "https://wisdomquotes.com/history-quotes/")!
 
@@ -21,7 +21,7 @@ func scrapeHistoryQuotes() -> [[String: Any]] {
                 
                 let body = String(quoteAndAuth[0])
                 
-                dict.append([
+                quotes.append([
                     "body": body,
                     "author": quoteAndAuth.count >= 2 ? String(quoteAndAuth[1]) : "",
                     "tags": ["history"]
@@ -39,7 +39,7 @@ func scrapeHistoryQuotes() -> [[String: Any]] {
     }
 
 
-    return dict
+    return quotes
 }
 
 //let historyQuotes = scrapeHistoryQuotes()
@@ -47,8 +47,8 @@ func scrapeHistoryQuotes() -> [[String: Any]] {
 //print(QuotesDictionary)
 
 
-func getAllQuoteLinks() -> [URL] {
-    var links = [String]()
+func getAllQuoteLinks() -> [String: URL] {
+    var links: [String: URL] = [:]
     let url = URL(string: "https://wisdomquotes.com/")!
     let myStrKey = "wisdomquotesLinks"
     
@@ -56,16 +56,12 @@ func getAllQuoteLinks() -> [URL] {
         do{
             let doc = try SwiftSoup.parse(mainPage)
             let quoteLinks = try doc.select("a")
-//            print(quoteLinks[10])
-//            let x = try quoteLinks[10].attr("href", true)
-//            print(x)
-            
-            for i in 10..<quoteLinks.count - 9 {
+            for i in 11..<quoteLinks.count - 9 {
                 
-                var str = try quoteLinks[i].text()
-                str = str.replacingOccurrences(of: " ", with: "-")
-                str += "-quotes"
-                links.append("https://wisdomquotes.com/" + str.lowercased())
+                var key = try quoteLinks[i].text()
+                let str = key.replacingOccurrences(of: " ", with: "-")
+                let urlStr = "https://wisdomquotes.com/" + str.lowercased() + "-quotes"
+                links[key] = URL(string: urlStr)!
             }
             
         } catch {
@@ -77,8 +73,30 @@ func getAllQuoteLinks() -> [URL] {
         UserDefaults.standard.set(str, forKey: myStrKey)
     }
     
-    return links.map {URL(string: $0)!}
+    return links
 }
 
 
-_ = getAllQuoteLinks().map { print($0) }
+
+
+func createQuoteDict() {
+
+    let quoteLinks = getAllQuoteLinks()
+    
+    for quoteLink in quoteLinks {
+        print(quoteLink)
+//        let data = try! Data(contentsOf: quoteLink)
+//        pri1nt(data)
+            
+        break
+    }
+    
+    
+    
+    
+    
+}
+
+
+
+createQuoteDict()
