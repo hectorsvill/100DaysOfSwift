@@ -47,7 +47,7 @@ func scrapeHistoryQuotes() -> [[String: Any]] {
 //print(QuotesDictionary)
 
 
-func getAllQuoteLinks() -> [String] {
+func getAllQuoteLinks() -> [URL] {
     var links = [String]()
     let url = URL(string: "https://wisdomquotes.com/")!
     let myStrKey = "wisdomquotesLinks"
@@ -77,7 +77,7 @@ func getAllQuoteLinks() -> [String] {
         UserDefaults.standard.set(str, forKey: myStrKey)
     }
     
-    return links
+    return links.map {URL(string: $0)!}
 }
 
 
