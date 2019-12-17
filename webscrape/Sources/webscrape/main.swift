@@ -20,11 +20,17 @@ func scrapeHistoryQuotes() -> [[String: Any]] {
                 let quoteAndAuth = str.split(separator: ".")
                 
                 let body = String(quoteAndAuth[0])
+                let author = quoteAndAuth.count >= 2 ? String(quoteAndAuth[1]) : "",
+                var tags = ["history"]
+                
+                if !author.isEmpty {
+                    tags.append(author)
+                }
                 
                 quotes.append([
                     "body": body,
-                    "author": quoteAndAuth.count >= 2 ? String(quoteAndAuth[1]) : "",
-                    "tags": ["history"]
+                    "author": author,
+                    "tags": tags
                 ])
                 
             } catch {
@@ -56,8 +62,8 @@ func getAllQuoteLinks() -> [String: URL] {
         do{
             let doc = try SwiftSoup.parse(mainPage)
             let quoteLinks = try doc.select("a")
+            
             for i in 11..<quoteLinks.count - 9 {
-                
                 var key = try quoteLinks[i].text()
                 let str = key.replacingOccurrences(of: " ", with: "-")
                 let urlStr = "https://wisdomquotes.com/" + str.lowercased() + "-quotes"
@@ -67,6 +73,7 @@ func getAllQuoteLinks() -> [String: URL] {
         } catch {
             NSLog("Error: \(error)")
         }
+        
     } else {
         let data = try! Data(contentsOf: url)
         let str = String(data: data, encoding: .utf8)
@@ -85,8 +92,7 @@ func createQuoteDict() {
     
     for quoteLink in quoteLinks {
         print(quoteLink)
-//        let data = try! Data(contentsOf: quoteLink)
-//        pri1nt(data)
+        
             
         break
     }
