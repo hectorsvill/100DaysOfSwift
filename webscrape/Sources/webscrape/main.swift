@@ -13,8 +13,27 @@ func scrapeQuotes(html: String ) -> [[String: Any]] {
             let str = try quoteElements[i].text()
             let quoteAndAuth = str.split(separator: ".")
             
-            let body = String(quoteAndAuth[0])
-            let author = quoteAndAuth.count >= 2 ? String(quoteAndAuth[1]) : ""
+            var body = String(quoteAndAuth[0])
+            for i in 0..<quoteAndAuth.count - 1 {
+                body += String(quoteAndAuth[i]) + "."
+            }
+            
+            var author = String(quoteAndAuth.last!)
+            
+            if !author.isEmpty {
+                let author_arr = author.split(separator: " ")
+                var temp = ""
+                for str in author_arr {
+                    if String(str) == "Click" {
+                        break
+                    }
+                    
+                    temp += (String(str) + " ")
+                }
+                author = temp.trimmingCharacters(in: .whitespaces)
+            }
+            
+            
             var tags = ["history"]
             
             if !author.isEmpty {
@@ -62,12 +81,25 @@ func getAllQuoteLinks() -> [String: URL] {
     return links
 }
 
+func writeJsonToFile() {
 
+    if #available(OSX 10.12, *) {
+        let fm = FileManager()
+        let dir = try! fm.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let newPath = "\(dir.path)/Quotes.json"
+        print(newPath)
+        let jsonData = try! JSONSerialization.data(withJSONObject: QuotesDictionary, options: .prettyPrinted)
+        fm.createFile(atPath: newPath, contents: jsonData, attributes: nil)
+
+    } else {
+        // Fallback on earlier versions
+    }
+}
 
 
 func createQuoteDict() {
     let quoteLinks = getAllQuoteLinks()
-    
+    var i = 0
     for (k, v) in quoteLinks {
         do {
             let data = try Data(contentsOf: v)
@@ -77,8 +109,13 @@ func createQuoteDict() {
             NSLog("Error: \(error)")
         }
         
-        break
+        i += 1
+        
+        if i == 2 { break }
+        
     }
+    
+    writeJsonToFile()
 }
 
 
@@ -88,17 +125,5 @@ createQuoteDict()
 //print(QuotesDictionary)
 
 
-let fm = FileManager()
 
-if #available(OSX 10.12, *) {
-    let dir = try! fm.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-    let newPath = "\(dir.path)/Quotes.json"
-    print(newPath)
-    let jsonData = try! JSONSerialization.data(withJSONObject: QuotesDictionary, options: .prettyPrinted)
-    fm.createFile(atPath: newPath, contents: jsonData, attributes: nil)
-    print(jsonData)
-    
-} else {
-    // Fallback on earlier versions
-}
 
