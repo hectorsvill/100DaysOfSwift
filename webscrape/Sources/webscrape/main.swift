@@ -7,9 +7,9 @@ class QuotesDictionaryCreator {
     
     init () {
         createQuoteDict()
-//        print(getAllQuoteLinks())
     }
     
+    /// Create a dictionary of quotes
     func createQuoteDict() {
          let quoteLinks = getAllQuoteLinks()
          
@@ -52,8 +52,7 @@ class QuotesDictionaryCreator {
         
     }
     
-    
-    
+    /// Scrape quotes with htmlString
     func scrapeQuotes(html: String ) -> [[String: Any]] {
         let doc  = try! SwiftSoup.parse(html)
         let quoteElements = try! doc.select("blockquote")
@@ -99,6 +98,7 @@ class QuotesDictionaryCreator {
         return quotes
     }
     
+    /// Write dictionary as jason file on desktop
     func writeJsonToFileOnDesktop(fileName: String = "QuotesLibrary") {
         if #available(OSX 10.12, *) {
             let fm = FileManager()
