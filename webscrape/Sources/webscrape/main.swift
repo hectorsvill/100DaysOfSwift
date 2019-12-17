@@ -63,6 +63,7 @@ func getAllQuoteLinks() -> [String] {
             for i in 10..<quoteLinks.count - 9 {
                 
                 var str = try quoteLinks[i].text()
+                str = str.replacingOccurrences(of: " ", with: "-")
                 str += "-quotes"
                 links.append("https://wisdomquotes.com/" + str.lowercased())
             }
@@ -80,4 +81,4 @@ func getAllQuoteLinks() -> [String] {
 }
 
 
-getAllQuoteLinks().map { print($0) }
+_ = getAllQuoteLinks().map { print($0) }
