@@ -99,7 +99,7 @@ func writeJsonToFile() {
 
 func createQuoteDict() {
     let quoteLinks = getAllQuoteLinks()
-    var i = 0
+    
     for (k, v) in quoteLinks {
         do {
             let data = try Data(contentsOf: v)
@@ -109,10 +109,7 @@ func createQuoteDict() {
             NSLog("Error: \(error)")
         }
         
-        i += 1
-        
-        if i == 2 { break }
-        
+    
     }
     
     writeJsonToFile()
@@ -127,3 +124,17 @@ createQuoteDict()
 
 
 
+/* missed urls
+
+ UserInfo={NSURL=https://wisdomquotes.com/benjamin-franklin-quotes}
+ 2019-12-17 10:25:25.385552-0800 webscrape[21420:1832592] Error: Error Domain=NSCocoaErrorDomain Code=256 "The file “dreams-quotes” couldn’t be opened." UserInfo={NSURL=https://wisdomquotes.com/dreams-quotes}
+ 2019-12-17 10:25:30.395687-0800 webscrape[21420:1832592] Error: Error Domain=NSCocoaErrorDomain Code=256 "The file “george-santayana-quotes” couldn’t be opened." UserInfo={NSURL=https://wisdomquotes.com/george-santayana-quotes}
+ 2019-12-17 10:25:52.573593-0800 webscrape[21420:1832592] Error: Error Domain=NSCocoaErrorDomain Code=256 "The file “how-to-learn-faster-quotes” couldn’t be opened." UserInfo={NSURL=https://wisdomquotes.com/how-to-learn-faster-quotes}
+ 2019-12-17 10:25:55.678653-0800 webscrape[21420:1832592] Error: Error Domain=NSCocoaErrorDomain Code=256 "The file “jealousy-and-envy-quotes” couldn’t be opened." UserInfo={NSURL=https://wisdomquotes.com/jealousy-and-envy-quotes}
+ 2019-12-17 10:26:10.487973-0800 webscrape[21420:1832592] Error: Error Domain=NSCocoaErrorDomain Code=256 "The file “mahatma-gandhi-quotes” couldn’t be opened." UserInfo={NSURL=https://wisdomquotes.com/mahatma-gandhi-quotes}
+ 2019-12-17 10:26:23.408778-0800 webscrape[21420:1832592] Error: Error Domain=NSCocoaErrorDomain Code=256 "The file “words-of-wisdom-quotes” couldn’t be opened." UserInfo={NSURL=https://wisdomquotes.com/words-of-wisdom-quotes}
+ 2019-12-17 10:26:51.825329-0800 webscrape[21420:1832592] Error: Error Domain=NSCocoaErrorDomain Code=256 "The file “change-and-growth-quotes” couldn’t be opened."
+ 
+ 
+ 
+ */
