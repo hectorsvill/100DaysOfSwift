@@ -28,9 +28,6 @@ func partitionArray(k: Int, numbers: [Int]) -> String {
                 sortedList.remove(at: index)
             }
         }
-        
-        
-
 //        brea```k
     }
     

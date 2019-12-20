@@ -2,6 +2,15 @@
 
 import Foundation
 
+
+
+
+
+
+
+
+
+
 func countApplesAndOranges(s: Int, t: Int, a: Int, b: Int, apples: [Int], oranges: [Int]) -> Void {
     let appleLocation = apples.map { $0 + a }.filter { $0 >= s && $0 <= t }
     print(appleLocation.count)

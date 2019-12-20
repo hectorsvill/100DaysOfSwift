@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='macos'>
     <pages>
+        <page name='Untitled Page'/>
+        <page name='Partition Array'/>
+        <page name='Jumping Clouds'/>
+        <page name='Triple sum  '/>
         <page name='Three Number Sum'/>
-        <page name='Two Strings  '/>
         <page name='SinglyLinkList'/>
         <page name='fibonacci'/>
         <page name='balancedBrackets'/>
         <page name='HashTable_RansomeNote'/>
         <page name='Sock Merchant  '/>
         <page name='Counting Valleys'/>
-        <page name='Jumping Clouds'/>
-        <page name='Triple sum  '/>
         <page name='Equalize the Array'/>
         <page name='Two-strings'/>
         <page name='DS_2dArrays'/>
         <page name='Super Reduced string'/>
-        <page name='Untitled Page'/>
-        <page name='Partition Array'/>
         <page name='String MakingAnagrams'/>
-        <page name='Grading Students'/>
-        <page name='Arrays Left Rotation'/>
         <page name='Apples And Oranges'/>
         <page name='LeftRotation'/>
-        <page name='Maximum Element'/>
+        <page name='Equal Stacks'/>
+        <page name='Delete A Node'/>
+        <page name='LinkList print in reverse '/>
+        <page name='Kangaroo'/>
+        <page name='Lambda Ios Asses1'/>
     </pages>
 </playground>

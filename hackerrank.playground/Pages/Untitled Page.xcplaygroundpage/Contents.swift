@@ -90,43 +90,43 @@ import Foundation
 ////    return nums_hash.isEmpty ? "Yes" : "No"
 ////}
 
-
-func partitionArray(k: Int, numbers: [Int]) -> String {
-    // Write your code here
-
-    var nums_hash: [Int: Int] = [:]
-    _ = numbers.map { nums_hash[Int($0), default: 0] += 1 }
-    var nums_hash_sorted = nums_hash.sorted { $0.value > $1.value }.map { $0.key }
-   
-//    print(nums_hash_sorted)
-
-    while nums_hash_sorted.count  > k {
-        for i in 0..<k {
-            print(nums_hash_sorted[i])
-            nums_hash[nums_hash_sorted[i]]! -= 1
-    
-            
-            if nums_hash[nums_hash_sorted[i]]! == 0 {
-                print("delete")
-                let index = nums_hash_sorted.firstIndex(of: nums_hash_sorted[i])
-//                print("remove at index \(index)")
-                nums_hash.removeValue(forKey:  nums_hash[nums_hash_sorted[i]]!)
-                nums_hash_sorted.remove(at: index!)
-            }
-//            print(nums_hash, nums_hash_sorted)
-        }
-
-        
-
-    }
-    
-    
-    print("\n\n", nums_hash)
-    
-    return nums_hash.isEmpty ? "Yes" : "No"
-}
-
-print(partitionArray(k: 2, numbers: [3,5,3,2]))
+//
+//func partitionArray(k: Int, numbers: [Int]) -> String {
+//    // Write your code here
+//
+//    var nums_hash: [Int: Int] = [:]
+//    _ = numbers.map { nums_hash[Int($0), default: 0] += 1 }
+//    var nums_hash_sorted = nums_hash.sorted { $0.value > $1.value }.map { $0.key }
+//
+////    print(nums_hash_sorted)
+//
+//    while nums_hash_sorted.count  > k {
+//        for i in 0..<k {
+//            print(nums_hash_sorted[i])
+//            nums_hash[nums_hash_sorted[i]]! -= 1
+//
+//
+//            if nums_hash[nums_hash_sorted[i]]! == 0 {
+//                print("delete")
+//                let index = nums_hash_sorted.firstIndex(of: nums_hash_sorted[i])
+////                print("remove at index \(index)")
+//                nums_hash.removeValue(forKey:  nums_hash[nums_hash_sorted[i]]!)
+//                nums_hash_sorted.remove(at: index!)
+//            }
+////            print(nums_hash, nums_hash_sorted)
+//        }
+//
+//
+//
+//    }
+//
+//
+//    print("\n\n", nums_hash)
+//
+//    return nums_hash.isEmpty ? "Yes" : "No"
+//}
+//
+//print(partitionArray(k: 2, numbers: [3,5,3,2]))
 
 //
 //
@@ -139,4 +139,15 @@ print(partitionArray(k: 2, numbers: [3,5,3,2]))
 
 
 
+
+
 //array patitioning
+
+
+func reverse(str: String) -> String {
+    
+    
+    return ""
+}
+
+print(reverse(str: "foo(bar)"))

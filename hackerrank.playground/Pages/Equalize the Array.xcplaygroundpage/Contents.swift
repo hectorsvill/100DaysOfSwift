@@ -1,16 +1,12 @@
 //: [Previous](@previous)
 
 import Foundation
-
+//passed
 //https://www.hackerrank.com/challenges/equality-in-a-array/problem
-
 func equalizeArray(arr: [Int]) -> Int {
-    
     var d: [Int: Int] = [:]
 
-    _ = arr.map {
-        d[$0, default: 0] += 1
-    }
+    _ = arr.map { d[$0, default: 0] += 1 }
 
     var max_key = d.values.max()!
 
@@ -22,9 +18,7 @@ func equalizeArray(arr: [Int]) -> Int {
 
     d.removeValue(forKey: max_key)
 
-    let deletetions = d.values.reduce(0, +)
-
-    return deletetions
+    return d.values.reduce(0, +)
 }
 
 //: [Next](@next)

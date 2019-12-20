@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 // O(n)
 func fib(_ n: Int) -> [Int]{

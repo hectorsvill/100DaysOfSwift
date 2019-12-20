@@ -124,7 +124,7 @@ func equalStacks3(h1: [Int], h2: [Int], h3: [Int]) -> Int {
 //            print(h1_r)
             return h1_r
         }
-        
+        // find largest number from any 3 number
         let largest = h1_r > h2_r ? (h1_r > h3_r ? h1_copy: h3_copy) : (h2_r > h3_r ? h2_copy: h3_copy)
         
         if h1_copy == largest {

@@ -31,6 +31,7 @@ func triplets(a: [Int], b: [Int], c: [Int]) -> Int {
                 }
             }
         }
+        break 
     }
     
     print(dTripplets.count)
