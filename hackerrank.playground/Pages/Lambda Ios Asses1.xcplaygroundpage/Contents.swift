@@ -125,6 +125,7 @@ func threeNumberSum(arr: [Int], target: Int) -> [[Int]] {
     // Write your code here
     var triplets = [[Int]]()
     let arrCount = arr.count
+    
     for x in 0..<arrCount - 2 {
         for y in x + 1..<arrCount - 1 {
             for z in y + 1..<arrCount {

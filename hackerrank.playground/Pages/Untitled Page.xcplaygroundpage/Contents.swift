@@ -144,10 +144,20 @@ import Foundation
 //array patitioning
 
 
-func reverse(str: String) -> String {
-    
-    
-    return ""
-}
+//func reverse(str: String) -> String {
+//
+//
+//    return ""
+//}
+//
+//print(reverse(str: "foo(bar)"))
 
-print(reverse(str: "foo(bar)"))
+var x = [2,1,3]
+x = x.sorted()
+print(x)
+
+
+
+
+
+
