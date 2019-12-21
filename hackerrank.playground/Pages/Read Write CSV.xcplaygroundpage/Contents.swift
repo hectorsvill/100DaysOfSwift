@@ -54,20 +54,15 @@ var desktopDirectory: URL {
 }
 
 var desktopFiles: [String] {
-    return try! fm.contentsOfDirectory(atPath: desktopDirectory.path)
+    return try! fm.contentsOfDirectory(atPath: desktopDirectory.path).sorted()
 }
 
+let bardwell_CSV = desktopFiles[4]
 
-desktopFiles.map {
-    print($0)
-}
-//let fileStr = "\(homeDirectory.path)/iOS Job Hunt - Sheet1.csv"
+let file = desktopDirectory.path + "/\(bardwell_CSV)"
 
-//let file = FileHandle(forReadingAtPath: fileStr)
-//
-//print(file!.availableData)
-//
-//readCSV(fileStr)
+print(file)
+readCSV(file)
 
 
 
