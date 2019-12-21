@@ -11,39 +11,26 @@ import Foundation
 
 // https://developer.apple.com/documentation/foundation/filehandle
 
-
-
-
-
-
-
-
-
-
-
-
-func readCSV(_ csvFile: String) -> [[String]]{
-    // FileHandle - An object-oriented wrapper for a file descriptor.
+func readCSV(_ csvFile: String) -> [String: [String]]{
+    var table_rows = [String: [String]]()
     let file = FileHandle(forReadingAtPath: csvFile)
     
-    guard let data = file?.availableData,
-        let csv_string = String(data: data, encoding: .utf8) else { return [] }
+    guard let data = file?.availableData, let csv_string = String(data: data, encoding: .utf8) else { return [:] }
+    let csv_lineSplit = csv_string.components(separatedBy: .newlines).filter { !$0.isEmpty }
     
-    let csv_lineSplit = csv_string.components(separatedBy: .newlines)
+    // column names
+    let header = csv_lineSplit[1].split(separator: ",")
     
-//    print(csv_lineSplit[0])
-    
-    for i in 1..<csv_lineSplit.count {
-        let line = csv_lineSplit[0]
-        if !line.isEmpty {
-            let tables =  csv_lineSplit[i] //csv_lineSplit[i].split(separator: ",")
-            
-            print(tables)
-        }
+    for i in 3..<csv_lineSplit.count - 4 {
+        let line = csv_lineSplit[i]
+        let tables =  line.components(separatedBy: ",") //csv_lineSplit[i].split(separator: ",")
         
+        for (i, str) in header.enumerated() {
+            table_rows[String(str), default: []].append(tables[i])
+        }
     }
     
-    return  []
+    return  table_rows
 }
 
 /// main
@@ -57,12 +44,26 @@ var desktopFiles: [String] {
     return try! fm.contentsOfDirectory(atPath: desktopDirectory.path).sorted()
 }
 
-let bardwell_CSV = desktopFiles[4]
+let bardwell_CSV = desktopFiles[4] // "/Users/hector/Desktop/Joshua Bardwell - Banggood Black Friday FPV Deals - Black Friday Coupon.csv"
 
 let file = desktopDirectory.path + "/\(bardwell_CSV)"
+//print(file)
 
-print(file)
-readCSV(file)
+let csv = readCSV(file)
+
+
+// "Amount", "Product Name"
+print(csv.keys)
+
+//print(csv["Coupon Price ($)"]!)
+print(csv["Product Name"]!)
+
+
+//let product_names = csv["Product Name"]!
+//let product_prices = csv["Amount"]!
+
+
+
 
 
 
