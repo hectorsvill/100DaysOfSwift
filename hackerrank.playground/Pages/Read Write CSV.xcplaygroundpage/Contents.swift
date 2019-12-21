@@ -33,6 +33,12 @@ func readCSV(_ csvFile: String) -> [String: [String]]{
     return  table_rows
 }
 
+
+func writeCSV(from dict: [String: [String]]) {
+    let columnNames = dict.keys
+    
+}
+
 /// main
 let fm = FileManager()
 
@@ -47,20 +53,12 @@ var desktopFiles: [String] {
 let bardwell_CSV = desktopFiles[4] // "/Users/hector/Desktop/Joshua Bardwell - Banggood Black Friday FPV Deals - Black Friday Coupon.csv"
 
 let file = desktopDirectory.path + "/\(bardwell_CSV)"
-//print(file)
+
+///
 
 let csv = readCSV(file)
 
-
-// "Amount", "Product Name"
-print(csv.keys)
-
-//print(csv["Coupon Price ($)"]!)
-print(csv["Product Name"]!)
-
-
-//let product_names = csv["Product Name"]!
-//let product_prices = csv["Amount"]!
+let headers = csv.keys
 
 
 
