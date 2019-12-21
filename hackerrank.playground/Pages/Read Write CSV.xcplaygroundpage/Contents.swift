@@ -34,7 +34,7 @@ func readCSV(_ csvFile: String) -> [String: [String]]{
 }
 
 
-func writeCSV(from dict: [String: [String]]) {
+func writeCSV(_ dict: [String: [String]], fileName: String) {
     let columnNames = dict.keys
     
 }
@@ -58,7 +58,7 @@ let file = desktopDirectory.path + "/\(bardwell_CSV)"
 
 let csv = readCSV(file)
 
-let headers = csv.keys
+writeCSV(csv, fileName: "myCSV")
 
 
 
