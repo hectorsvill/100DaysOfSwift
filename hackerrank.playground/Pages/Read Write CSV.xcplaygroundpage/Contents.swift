@@ -3,18 +3,50 @@
 import Foundation
 
 
-let fm = FileManager()
 
-let dir = fm.urls(for: .desktopDirectory, in: .userDomainMask)
-
-let x = "\(dir.first!.path)/iOS Job Hunt - Sheet1.csv"
-
-let f = FileHandle(forReadingAtPath: x)
-let d = try?  Data(contentsOf: URL(fileURLWithPath: x))
 
 //print(String(data: d!, encoding: .utf8)!)
 
-let fstring = String(data: f!.availableData, encoding: .utf8)!.components(separatedBy: .newlines)
 
 
-print(fstring[0].split(separator: Character(",")))
+// https://developer.apple.com/documentation/foundation/filehandle
+
+
+
+
+
+
+
+
+
+
+
+
+func readCSV(_ csvFile: String) -> [[Any]]{
+    // FileHandle - An object-oriented wrapper for a file descriptor.
+    let file = FileHandle(forReadingAtPath: csvFile)
+    
+    guard let data = file?.availableData, let csv_string = String(data: data, encoding: .utf8) else { return [] }
+    
+    print(csv_string)
+    return  []
+}
+
+
+
+
+
+/// main
+
+let fm = FileManager()
+let dir = fm.urls(for: .desktopDirectory, in: .userDomainMask)
+let fileStr = "\(dir.first!.path)/iOS Job Hunt - Sheet1.csv"
+
+let file = FileHandle(forReadingAtPath: fileStr)
+
+print(file!.availableData)
+
+readCSV(fileStr)
+
+
+
