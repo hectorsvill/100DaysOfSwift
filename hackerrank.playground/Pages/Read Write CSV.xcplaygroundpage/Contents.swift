@@ -4,12 +4,26 @@ import Foundation
 
 
 
+/// main
+let fm = FileManager()
 
-//print(String(data: d!, encoding: .utf8)!)
+var desktopDirectory: URL {
+    return try! fm.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+}
+
+var desktopFiles: [String] {
+    return try! fm.contentsOfDirectory(atPath: desktopDirectory.path).sorted()
+}
+
+let bardwell_CSV = desktopFiles[4] // "/Users/hector/Desktop/Joshua Bardwell - Banggood Black Friday FPV Deals - Black Friday Coupon.csv"
+
+let file = desktopDirectory.path + "/\(bardwell_CSV)"
+
+///
 
 
 
-// https://developer.apple.com/documentation/foundation/filehandle
+
 
 func readCSV(_ csvFile: String) -> [String: [String]]{
     var table_rows = [String: [String]]()
@@ -35,33 +49,26 @@ func readCSV(_ csvFile: String) -> [String: [String]]{
 
 
 func writeCSV(_ dict: [String: [String]], fileName: String) {
-    let columnNames = dict.keys
+    var columnNames = Array(dict.keys)
+    columnNames = columnNames.sorted()
+    let c = ["Product Name", "Coupon Price ($)"]
+    
+    var str = "Product Name,Coupon Price ($),\n"
+    
+    for i in 0..<dict.count {
+        let column1 = dict[c[0]]![i]
+        let column2 = dict[c[1]]![i]
+        
+        str += "\(column1),\(column2),\n"
+    }
+        
+    try! str.write(to: desktopDirectory.appendingPathComponent("\(fileName).csv"), atomically: true, encoding: .utf8)
+    print(str)
     
 }
-
-/// main
-let fm = FileManager()
-
-var desktopDirectory: URL {
-    return try! fm.url(for: .desktopDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-}
-
-var desktopFiles: [String] {
-    return try! fm.contentsOfDirectory(atPath: desktopDirectory.path).sorted()
-}
-
-let bardwell_CSV = desktopFiles[4] // "/Users/hector/Desktop/Joshua Bardwell - Banggood Black Friday FPV Deals - Black Friday Coupon.csv"
-
-let file = desktopDirectory.path + "/\(bardwell_CSV)"
-
-///
 
 let csv = readCSV(file)
 
 writeCSV(csv, fileName: "myCSV")
-
-
-
-
 
 
