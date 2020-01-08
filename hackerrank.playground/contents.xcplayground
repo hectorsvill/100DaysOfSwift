@@ -28,5 +28,6 @@
         <page name='Minimum Swap 2'/>
         <page name='Tripple Sum'/>
         <page name='QHEAP1'/>
+        <page name='InsertNode at specific location'/>
     </pages>
 </playground>

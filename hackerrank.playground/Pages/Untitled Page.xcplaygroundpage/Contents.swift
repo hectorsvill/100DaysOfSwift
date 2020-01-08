@@ -1,5 +1,4 @@
-////: [Previous](@previous)
-//
+
 import Foundation
 ////
 ////import Foundation
@@ -152,12 +151,56 @@ import Foundation
 //
 //print(reverse(str: "foo(bar)"))
 
-var x = [2,1,3]
-x = x.sorted()
-print(x)
+//
 
+//
+//struct Test {
+//    var value = 10
+//}
+//
+//let t1 = Test()
+//var t2 = t1
+//t2.value = 100
+//print(t1.value)
+//print(t2.value)
+//
 
+//var animals = ["fish", "cat", "chicken", "dog"]
+////animals.sort { (one: String, two: String) -> Bool in
+////    return one < two
+////}
+//
+//animals.sort { $0 < $1 }
+//print(animals)
+//
+//struct Address {
+//  var fullAddress: String
+//  var city: String
+//
+//  init(fullAddress: String, city: String) {
+//    self.fullAddress = fullAddress
+//    self.city = city
+//  }
+//}
+//
+//class Person {
+//  var name: String
+//  var address: Address
+//
+//  init(name: String, address: Address) {
+//    self.name = name
+//    self.address = address
+//  }
+//}
+//
+//var headquarters = Address(fullAddress: "123 Tutorial Street", city: "Appletown")
+//var ray = Person(name: "Ray", address: headquarters)
+//var brian = Person(name: "Brian", address: headquarters)
+//brian.address.fullAddress = "148 Tutorial Street"
+//
+//print(ray.address.fullAddress)
+//print(brian.address.fullAddress)
 
-
-
-
+//var x: String? = .none
+//
+//print(x)
