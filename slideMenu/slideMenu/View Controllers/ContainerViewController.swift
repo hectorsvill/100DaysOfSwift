@@ -42,12 +42,12 @@ class ContainerViewController: UIViewController {
     func showMenuController(shouldExpand: Bool) {
         
         if shouldExpand {
-            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                 self.centerNavViewController.view.frame.origin.x = self.centerNavViewController.view.frame.width - 80
             })
                 
         } else {
-            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
                            self.centerNavViewController.view.frame.origin.x = 0
                        })
                            
