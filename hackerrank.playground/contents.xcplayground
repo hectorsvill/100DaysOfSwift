@@ -30,5 +30,6 @@
         <page name='QHEAP1'/>
         <page name='InsertNode at specific location'/>
         <page name='subtract-the-product-and-sum-of-digits-of-an-integer'/>
+        <page name='Find Numbers with Even Number of Digits'/>
     </pages>
 </playground>
