@@ -29,5 +29,6 @@
         <page name='Tripple Sum'/>
         <page name='QHEAP1'/>
         <page name='InsertNode at specific location'/>
+        <page name='subtract-the-product-and-sum-of-digits-of-an-integer'/>
     </pages>
 </playground>

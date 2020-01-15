@@ -12,7 +12,6 @@ class Solution {
             cp /= 10
         }
 
-        print(products)
         let product = products.reduce(1, *)
         let sum = products.reduce(0, +)
         return  product - sum
