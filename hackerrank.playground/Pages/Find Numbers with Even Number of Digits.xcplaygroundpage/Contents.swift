@@ -3,12 +3,12 @@ class Solution {
     private func isEvenNumberOfDigits(_ n: Int) -> Bool{
         var digitCount = 0
         var cp = n
+
         while (cp > 0 ){
             digitCount += 1
             cp /= 10
         }
-        
-        
+
         return digitCount % 2 == 0
     }
     

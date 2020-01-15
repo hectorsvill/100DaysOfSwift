@@ -31,5 +31,7 @@
         <page name='InsertNode at specific location'/>
         <page name='subtract-the-product-and-sum-of-digits-of-an-integer'/>
         <page name='Find Numbers with Even Number of Digits'/>
+        <page name='lengthOfLongestSubstring'/>
+        <page name='Frequency Queries'/>
     </pages>
 </playground>
