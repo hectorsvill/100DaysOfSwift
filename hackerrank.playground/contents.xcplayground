@@ -33,5 +33,6 @@
         <page name='Find Numbers with Even Number of Digits'/>
         <page name='lengthOfLongestSubstring'/>
         <page name='Frequency Queries'/>
+        <page name='split-a-string-in-balanced-strings'/>
     </pages>
 </playground>
