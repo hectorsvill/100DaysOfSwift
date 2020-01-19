@@ -1,3 +1,17 @@
+# Swift Challenges and other code by @hectorsvill
+
+[Code Chanllenges](https://github.com/hectorsvill/100DaysOfSwift/tree/master/hackerrank.playground)
+
+- Hackerrank
+- leetcode
+
+#
+
+[Slide out Menu](https://github.com/hectorsvill/100DaysOfSwift/tree/master/slideMenu)
+
+- slide menu with smooth transition. (basic version for reference)
+
+
 # 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
 
 #
