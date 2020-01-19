@@ -16,6 +16,7 @@
 		07EE060B23C7C754002C7DCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EE060A23C7C754002C7DCB /* HomeViewController.swift */; };
 		07EE060D23C7C762002C7DCB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EE060C23C7C762002C7DCB /* MenuViewController.swift */; };
 		07EE060F23C80469002C7DCB /* HomeControllerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07EE060E23C80469002C7DCB /* HomeControllerViewDelegate.swift */; };
+		122F4B7B23D3DA8A004C2F34 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F4B7A23D3DA8A004C2F34 /* MenuTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		07EE060A23C7C754002C7DCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		07EE060C23C7C762002C7DCB /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		07EE060E23C80469002C7DCB /* HomeControllerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerViewDelegate.swift; sourceTree = "<group>"; };
+		122F4B7A23D3DA8A004C2F34 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				07EE060823C7C747002C7DCB /* ContainerViewController.swift */,
 				07EE060A23C7C754002C7DCB /* HomeViewController.swift */,
 				07EE060C23C7C762002C7DCB /* MenuViewController.swift */,
+				122F4B7A23D3DA8A004C2F34 /* MenuTableViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				07EE060F23C80469002C7DCB /* HomeControllerViewDelegate.swift in Sources */,
 				07EE05F123C7C538002C7DCB /* AppDelegate.swift in Sources */,
+				122F4B7B23D3DA8A004C2F34 /* MenuTableViewCell.swift in Sources */,
 				07EE060D23C7C762002C7DCB /* MenuViewController.swift in Sources */,
 				07EE060923C7C747002C7DCB /* ContainerViewController.swift in Sources */,
 				07EE05F323C7C538002C7DCB /* SceneDelegate.swift in Sources */,
