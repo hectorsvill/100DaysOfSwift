@@ -1,6 +1,6 @@
 # Swift Challenges and other code by @hectorsvill
 
-[Code Chanllenges](https://github.com/hectorsvill/100DaysOfSwift/tree/master/hackerrank.playground)
+[Code Chanllenges](https://github.com/hectorsvill/100DaysOfSwift/tree/master/hackerrank.playground/Pages)
 
 - Hackerrank
 - leetcode
