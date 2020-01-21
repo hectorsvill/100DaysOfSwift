@@ -34,8 +34,6 @@ class ContainerViewController: UIViewController {
             view.insertSubview(menuViewController.view, at: 0)
             addChild(menuViewController)
             menuViewController.didMove(toParent: self)
-            print("did add menu controller")
-            
         }
     }
 
