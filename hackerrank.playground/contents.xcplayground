@@ -34,5 +34,7 @@
         <page name='lengthOfLongestSubstring'/>
         <page name='Frequency Queries'/>
         <page name='split-a-string-in-balanced-strings'/>
+        <page name='Strings Making Anagrams'/>
+        <page name='alternatingCharacters'/>
     </pages>
 </playground>
