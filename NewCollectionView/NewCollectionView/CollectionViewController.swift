@@ -16,12 +16,15 @@ class CollectionViewController: UIViewController {
     fileprivate let apiUrl = "https://jsonplaceholder.typicode.com/users"
     
     // TODO: DataSource & DataSourceSnapshot typealias
-    
+    typealias  DataSource = UICollectionViewDiffableDataSource<Section, Contact>
+    typealias DataSourceSnapShot = NSDiffableDataSourceSnapshot<Section, Contact>
     // MARK: - Properties
     private var collectionView: UICollectionView! = nil
     
     // TODO: dataSource & snapshot
-    
+    private var datasource: DataSource!
+    private var snapshot = DataSourceSnapShot()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,6 +43,8 @@ extension CollectionViewController: UICollectionViewDelegate  {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: contact
+        guard let contact = datasource.itemIdentifier(for: indexPath) else { return }
+        print("\(indexPath) - \(contact.email)")
     }
 }
 
@@ -64,7 +69,9 @@ extension CollectionViewController {
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
-    
+
+
+    // MARK: configureCollectionViewLayout
     private func configureCollectionViewLayout() {
         // TODO: collectionView
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
@@ -74,21 +81,29 @@ extension CollectionViewController {
         collectionView.register(ContactCell.self, forCellWithReuseIdentifier: ContactCell.reuseIdentifier)
         view.addSubview(collectionView)
     }
-    
+    // MARK: configureCollectionViewDataSource
     private func configureCollectionViewDataSource() {
         // TODO: dataSource
+
+        datasource = DataSource(collectionView: collectionView, cellProvider: {
+            collectionView, indexPath, contact -> ContactCell? in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContactCell.reuseIdentifier, for: indexPath) as! ContactCell
+
+            return cell
+        })
+
+
     }
-    
+    // MARK: createDummyData
     private func createDummyData() {
         var dummyContacts: [Contact] = []
-        for i in 0..<10 {
+        for i in 0..<5 {
             dummyContacts.append(Contact(id: i, name: "Contact \(i)", username: "", email: "example\(i)@gmail.com", address: Contact.Address(street: "", suite: "", city: "", zipcode: "", geo: Contact.Address.Geo(lat: "", lng: "")), phone: "", website: "", company: Contact.Company(name: "", catchPhrase: "", bs: "")))
         }
         applySnapshot(contacts: dummyContacts)
     }
-    
+    // MARK: createDummyData
     private func fetchItems() {
-        
         guard let url = URL(string: apiUrl) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
@@ -114,9 +129,13 @@ extension CollectionViewController {
         }.resume()
         
     }
-    
+    // MARK: applySnapshot
     private func applySnapshot(contacts: [Contact]) {
         // TODO: snapshot
+        snapshot = DataSourceSnapShot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(contacts)
+        datasource.apply(snapshot, animatingDifferences: true)
     }
     
 }
