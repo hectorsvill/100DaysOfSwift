@@ -26,7 +26,6 @@ class ViewController: UIViewController {
 
 }
 extension ViewController {
-
     private func createLayout () -> UICollectionViewLayout{
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.333), heightDimension: .fractionalHeight(1.0))
 
@@ -47,6 +46,7 @@ extension ViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = .systemBackground
+        collectionView.delegate = self
         view.addSubview(collectionView)
     }
 
@@ -56,16 +56,24 @@ extension ViewController {
             cell.contentView.backgroundColor = .systemGray4
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.borderWidth = 1
+            let cornerRadius: CGFloat = 5
+            cell.layer.cornerRadius = cornerRadius
+            cell.contentView.layer.cornerRadius = cornerRadius
             return cell
         })
 
         var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapShot.appendSections([.main])
-        snapShot.appendItems(Array(0..<30))
+        snapShot.appendItems(Array(0..<10_000))
         dataSource.apply(snapShot, animatingDifferences: true)
     }
+}
 
-
-
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let alertController = UIAlertController(title: "\(indexPath.item)", message: "", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alertController, animated: true)
+    }
 }
 
