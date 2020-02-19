@@ -51,7 +51,7 @@ class DropDownButton: UIButton {
     var dropDownMenuTableView = DropDownMenuTableView()
     var height_Anchor = NSLayoutConstraint()
     var isOPen = false
-
+    var tableviewHeight:CGFloat = 200
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -77,7 +77,7 @@ class DropDownButton: UIButton {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !isOPen {
-            height_Anchor.constant = 150
+            height_Anchor.constant = tableviewHeight
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
                 self.dropDownMenuTableView.layoutIfNeeded()
                 self.dropDownMenuTableView.center.y += self.dropDownMenuTableView.frame.height / 2
