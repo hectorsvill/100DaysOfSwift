@@ -22,6 +22,13 @@ class ViewController: UIViewController {
         title = " Inset Item Grid"
         createCollectionView()
         configureDataSource()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(goToDropDownMenuView))
+    }
+    @objc func goToDropDownMenuView() {
+
+        let vc = DropDownMenuViewController()
+        navigationController?.pushViewController(vc, animated: true)
+
     }
 
 }
