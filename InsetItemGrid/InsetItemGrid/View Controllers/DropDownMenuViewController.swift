@@ -78,7 +78,6 @@ class DropDownButton: UIButton {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !isOPen {
             height_Anchor.constant = 150
-
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
                 self.dropDownMenuTableView.layoutIfNeeded()
                 self.dropDownMenuTableView.center.y += self.dropDownMenuTableView.frame.height / 2
@@ -133,10 +132,10 @@ class DropDownMenuTableView: UIView, UITableViewDelegate {
         addSubview(tableView)
 
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            tableView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.leftAnchor.constraint(equalTo: leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: rightAnchor),
         ])
 
         dataSource = UITableViewDiffableDataSource<Section, Int>(tableView: tableView, cellProvider: { tableView, indexPath, i -> UITableViewCell? in
