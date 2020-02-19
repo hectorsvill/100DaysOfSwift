@@ -71,7 +71,7 @@ extension ViewController {
 
         var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapShot.appendSections([.main])
-        snapShot.appendItems(Array(0..<10_000))
+        snapShot.appendItems(Array(0..<20))
         dataSource.apply(snapShot, animatingDifferences: true)
     }
 }
