@@ -14,13 +14,14 @@ class CarouselViewController: UIViewController {
         case main
     }
 
+    var colors: [UIColor] = [.black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal]
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Int>! = nil
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Colors"
         createCollectionView()
     }
 
@@ -32,6 +33,7 @@ class CarouselViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.delegate = self
+        collectionView.showsHorizontalScrollIndicator = false
         view.addSubview(collectionView)
 
         NSLayoutConstraint.activate([
@@ -44,14 +46,17 @@ class CarouselViewController: UIViewController {
 
         dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-            cell.backgroundColor = .gray
+            cell.backgroundColor = self.colors[indexPath.item]
+            cell.layer.cornerRadius = 100
+            cell.contentView.layer.cornerRadius = 100
+
             return cell
         })
 
         var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
 
         snapShot.appendSections([.main])
-        snapShot.appendItems(Array(0...10))
+        snapShot.appendItems(Array(0..<colors.count))
         dataSource.apply(snapShot, animatingDifferences: true, completion: nil)
 
     }
