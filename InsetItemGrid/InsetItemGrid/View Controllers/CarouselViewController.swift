@@ -28,14 +28,15 @@ class CarouselViewController: UIViewController {
     private func createCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .systemGray2
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
         view.addSubview(collectionView)
-
+        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 //            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -47,8 +48,9 @@ class CarouselViewController: UIViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
             cell.backgroundColor = self.colors[indexPath.item]
-            cell.layer.cornerRadius = 100
-            cell.contentView.layer.cornerRadius = 100
+            let cornerRadius: CGFloat = 65
+            cell.layer.cornerRadius = cornerRadius
+            cell.contentView.layer.cornerRadius = cornerRadius
 
             return cell
         })
@@ -64,6 +66,6 @@ class CarouselViewController: UIViewController {
 
 extension CarouselViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/2, height: collectionView.frame.width/2)
+        return CGSize(width: collectionView.frame.width/3, height: collectionView.frame.width/3)
     }
 }
