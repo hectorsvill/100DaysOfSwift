@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124BDA672402D7F100BC1E9B /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124BDA662402D7F100BC1E9B /* CarouselViewController.swift */; };
 		12A2B65523FC8D2A0086F585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B65423FC8D2A0086F585 /* AppDelegate.swift */; };
 		12A2B65723FC8D2A0086F585 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B65623FC8D2A0086F585 /* SceneDelegate.swift */; };
 		12A2B65923FC8D2A0086F585 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B65823FC8D2A0086F585 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		124BDA662402D7F100BC1E9B /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
 		12A2B65123FC8D2A0086F585 /* InsetItemGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsetItemGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12A2B65423FC8D2A0086F585 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12A2B65623FC8D2A0086F585 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				12A2B67023FD9C040086F585 /* Inset Item Grid */,
 				12A2B66F23FD9BBB0086F585 /* DropDown TableView with Button */,
 				12A2B67123FD9C300086F585 /* ExpandingTableViewController.swift */,
+				124BDA662402D7F100BC1E9B /* CarouselViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				12A2B66A23FCD20E0086F585 /* DropDownMenuViewController.swift in Sources */,
 				12A2B65923FC8D2A0086F585 /* ViewController.swift in Sources */,
 				12A2B66C23FD13FE0086F585 /* DropDownMenuTableView.swift in Sources */,
+				124BDA672402D7F100BC1E9B /* CarouselViewController.swift in Sources */,
 				12A2B65523FC8D2A0086F585 /* AppDelegate.swift in Sources */,
 				12A2B65723FC8D2A0086F585 /* SceneDelegate.swift in Sources */,
 				12A2B67223FD9C300086F585 /* ExpandingTableViewController.swift in Sources */,

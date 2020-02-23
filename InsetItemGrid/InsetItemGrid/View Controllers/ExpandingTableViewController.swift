@@ -24,7 +24,7 @@ class ExpandingTableViewController: UIViewController {
     }
 
     private func createTableView() {
-        tableView = UITableView(frame: view.frame)
+        tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         view.addSubview(tableView)
