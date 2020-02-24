@@ -9,8 +9,8 @@
 import UIKit
 
 class PinterestLayoutViewController: UIViewController {
-    var colors: [UIColor] = [.black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal, .black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal]
-
+    var colors: [UIColor] = [.black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal, .black, .systemPink, .systemBlue, .systemPink, .red, .brown, .systemTeal]
+    var sizes: [CGFloat] = []
     enum Section {
         case main
     }
@@ -53,12 +53,19 @@ class PinterestLayoutViewController: UIViewController {
             let cornernRadius: CGFloat = 8
             cell.layer.cornerRadius = cornernRadius
             cell.contentView.layer.cornerRadius = cornernRadius
+            cell.contentView.layer.borderWidth = 2
+            cell.contentView.layer.borderColor = UIColor.white.cgColor
             return cell
         })
 
         var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapShot.appendSections([.main])
         snapShot.appendItems(Array(0..<colors.count))
+
+        for _ in snapShot.itemIdentifiers {
+
+            sizes.append(CGFloat.random(in: 150...340))
+        }
 
         dataSource.apply(snapShot, animatingDifferences: false)
     }
@@ -72,6 +79,6 @@ class PinterestLayoutViewController: UIViewController {
 
 extension PinterestLayoutViewController: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        return CGFloat.random(in: 100...240)
+        return sizes[indexPath.item]
     }
 }
