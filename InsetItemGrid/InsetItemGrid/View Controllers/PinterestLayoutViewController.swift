@@ -9,9 +9,7 @@
 import UIKit
 
 class PinterestLayoutViewController: UIViewController {
-
-    var count = 10
-    var colors: [UIColor] = [.black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal]
+    var colors: [UIColor] = [.black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal, .black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal]
 
     enum Section {
         case main
@@ -19,7 +17,6 @@ class PinterestLayoutViewController: UIViewController {
 
     private var collectionView: UICollectionView! = nil
     var dataSource: UICollectionViewDiffableDataSource<Section, Int>! = nil
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +49,7 @@ class PinterestLayoutViewController: UIViewController {
     private func configureDateSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-            cell.backgroundColor = self.colors.randomElement()
+            cell.backgroundColor = self.colors[i]//self.colors.randomElement()
             let cornernRadius: CGFloat = 8
             cell.layer.cornerRadius = cornernRadius
             cell.contentView.layer.cornerRadius = cornernRadius
@@ -61,25 +58,9 @@ class PinterestLayoutViewController: UIViewController {
 
         var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapShot.appendSections([.main])
-        snapShot.appendItems(Array(0...count))
+        snapShot.appendItems(Array(0..<colors.count))
 
         dataSource.apply(snapShot, animatingDifferences: false)
-//        collectionView.collectionViewLayout = PinterestLayout()
-//        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
-//          layout.delegate = self
-//        }
-    }
-
-    private func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.4))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-        let section = NSCollectionLayoutSection(group: group)
-
-        return UICollectionViewCompositionalLayout(section: section)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -93,6 +74,4 @@ extension PinterestLayoutViewController: PinterestLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
         return CGFloat.random(in: 100...240)
     }
-
-
 }
