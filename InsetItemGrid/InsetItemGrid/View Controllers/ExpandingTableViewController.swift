@@ -28,8 +28,8 @@ class ExpandingTableViewController: UIViewController {
 
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-            cell.backgroundColor = .green
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ItemCollectionViewCell else { fatalError()}
+            cell.itemTitle = "menu \(indexPath.item)"
             cell.layer.borderWidth = 3
             cell.layer.cornerRadius = 7
             return cell
@@ -37,7 +37,7 @@ class ExpandingTableViewController: UIViewController {
 
         var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapShot.appendSections([.main])
-        snapShot.appendItems(Array(0...5))
+        snapShot.appendItems(Array(0...15))
         dataSource.apply(snapShot)
     }
 
@@ -45,7 +45,7 @@ class ExpandingTableViewController: UIViewController {
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: generateLayout())
         collectionView.backgroundColor = .systemBackground
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.delegate = self
         view.addSubview(collectionView)
 

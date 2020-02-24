@@ -20,6 +20,7 @@
 		12A2B66C23FD13FE0086F585 /* DropDownMenuTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B66B23FD13FE0086F585 /* DropDownMenuTableView.swift */; };
 		12A2B66E23FD145F0086F585 /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B66D23FD145F0086F585 /* DropDownButton.swift */; };
 		12A2B67223FD9C300086F585 /* ExpandingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B67123FD9C300086F585 /* ExpandingTableViewController.swift */; };
+		12A3B27024048CD8003C83D4 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A3B26F24048CD8003C83D4 /* ItemCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		12A2B66B23FD13FE0086F585 /* DropDownMenuTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownMenuTableView.swift; sourceTree = "<group>"; };
 		12A2B66D23FD145F0086F585 /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
 		12A2B67123FD9C300086F585 /* ExpandingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingTableViewController.swift; sourceTree = "<group>"; };
+		12A3B26F24048CD8003C83D4 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				124BDA6C2403A49D00BC1E9B /* PinterestLayout.swift */,
+				12A3B26F24048CD8003C83D4 /* ItemCollectionViewCell.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				124BDA6D2403A49D00BC1E9B /* PinterestLayout.swift in Sources */,
+				12A3B27024048CD8003C83D4 /* ItemCollectionViewCell.swift in Sources */,
 				12A2B66E23FD145F0086F585 /* DropDownButton.swift in Sources */,
 				12A2B66A23FCD20E0086F585 /* DropDownMenuViewController.swift in Sources */,
 				12A2B65923FC8D2A0086F585 /* ViewController.swift in Sources */,
