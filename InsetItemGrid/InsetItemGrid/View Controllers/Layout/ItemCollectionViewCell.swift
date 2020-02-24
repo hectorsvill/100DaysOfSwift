@@ -16,7 +16,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "arrow.turn.up.right")
+        imageView.image = UIImage(systemName: "chevron.right.circle")
         return imageView
     }()
 
@@ -56,7 +56,21 @@ class ItemCollectionViewCell: UICollectionViewCell {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        imageView.image =  isDown ? UIImage(systemName: "arrow.turn.right.down") : UIImage(systemName: "arrow.turn.up.right")
+        let angle:  CGFloat = (90.0 * .pi) / 180.0
+//        let transform = isDown ? -angle : angle
+
+        if isDown {
+            UIView.animate(withDuration: 0.3) {
+                self.imageView.transform = .identity
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.imageView.transform = CGAffineTransform(rotationAngle: angle)
+            }
+
+        }
+
+
         isDown.toggle()
     }
 
