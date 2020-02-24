@@ -9,10 +9,11 @@
 import UIKit
 
 class PinterestLayoutViewController: UIViewController {
-    var colors: [UIColor] = [.black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal, .black, .systemPink, .systemBlue, .systemPink, .red, .brown, .systemTeal]
+    var colors: [UIColor] = [.black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal, .black, .systemPink, .systemBlue, .systemPink, .red, .brown, .systemTeal ,.black, .orange, .systemBlue, .systemPink, .systemPurple, .brown, .systemTeal, .black, .systemPink, .systemBlue, .systemPink, .red, .brown, .systemTeal]
     var sizes: [CGFloat] = []
     enum Section {
         case main
+        case main2
     }
 
     private var collectionView: UICollectionView! = nil
@@ -59,11 +60,11 @@ class PinterestLayoutViewController: UIViewController {
         })
 
         var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
+
         snapShot.appendSections([.main])
         snapShot.appendItems(Array(0..<colors.count))
 
         for _ in snapShot.itemIdentifiers {
-
             sizes.append(CGFloat.random(in: 150...340))
         }
 
