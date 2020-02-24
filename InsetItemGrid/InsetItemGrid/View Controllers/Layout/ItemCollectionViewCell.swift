@@ -57,19 +57,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let angle:  CGFloat = (90.0 * .pi) / 180.0
-//        let transform = isDown ? -angle : angle
 
-        if isDown {
-            UIView.animate(withDuration: 0.3) {
-                self.imageView.transform = .identity
-            }
-        } else {
-            UIView.animate(withDuration: 0.3) {
-                self.imageView.transform = CGAffineTransform(rotationAngle: angle)
-            }
-
+        UIView.animate(withDuration: 0.3) {
+            self.imageView.transform = self.isDown ? .identity : CGAffineTransform(rotationAngle: angle)
         }
-
 
         isDown.toggle()
     }
