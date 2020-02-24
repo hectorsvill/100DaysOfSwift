@@ -8,23 +8,58 @@
 
 import UIKit
 
-class PinterestLayoutViewController: UIViewController {
+class PinterestLayoutViewController: UIView {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var count: Int? {didSet{ createCollectionView() }}
 
-        // Do any additional setup after loading the view.
+    enum Section {
+        case main
     }
-    
 
-    /*
-    // MARK: - Navigation
+    private var collectionView: UICollectionView! = nil
+    var dataSource: UICollectionViewDiffableDataSource<Section, Int>! = nil
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func createCollectionView() {
+        collectionView = UICollectionView(frame: frame, collectionViewLayout: createLayout())
+        collectionView.backgroundColor = .systemGray5
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        addSubview(collectionView)
+
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            collectionView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            collectionView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor),
+        ])
+
+        dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+            cell.backgroundColor = .red
+            let cornernRadius: CGFloat = 8
+            cell.layer.cornerRadius = cornernRadius
+            cell.contentView.layer.cornerRadius = cornernRadius
+            return cell
+        })
+
+        var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
+        snapShot.appendSections([.main])
+        snapShot.appendItems(Array(0...count!))
+
+        dataSource.apply(snapShot, animatingDifferences: true, completion: nil)
     }
-    */
+
+    private func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.5))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        let section = NSCollectionLayoutSection(group: group)
+
+        return UICollectionViewCompositionalLayout(section: section)
+
+    }
 
 }
