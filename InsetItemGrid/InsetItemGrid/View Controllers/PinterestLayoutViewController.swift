@@ -30,7 +30,12 @@ class PinterestLayoutViewController: UIViewController {
     }
 
     private func createCollectionView() {
-        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: createLayout())
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: PinterestLayout())
+
+        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
+          layout.delegate = self
+        }
+
         collectionView.backgroundColor = .systemGray5
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -58,7 +63,11 @@ class PinterestLayoutViewController: UIViewController {
         snapShot.appendSections([.main])
         snapShot.appendItems(Array(0...count))
 
-        dataSource.apply(snapShot, animatingDifferences: true, completion: nil)
+        dataSource.apply(snapShot, animatingDifferences: false)
+//        collectionView.collectionViewLayout = PinterestLayout()
+//        if let layout = collectionView?.collectionViewLayout as? PinterestLayout {
+//          layout.delegate = self
+//        }
     }
 
     private func createLayout() -> UICollectionViewLayout {
@@ -71,7 +80,19 @@ class PinterestLayoutViewController: UIViewController {
         let section = NSCollectionLayoutSection(group: group)
 
         return UICollectionViewCompositionalLayout(section: section)
-
     }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+      let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
+      return CGSize(width: itemSize, height: itemSize)
+    }
+}
+
+
+extension PinterestLayoutViewController: PinterestLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
+        return CGFloat.random(in: 100...240)
+    }
+
 
 }
