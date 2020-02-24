@@ -30,6 +30,7 @@ class CarouselViewController: UIViewController {
         super.viewDidLoad()
         title = "Colors"
         createCollectionView()
+        configureDatasource()
     }
 
     private func createCollectionView() {
@@ -53,6 +54,10 @@ class CarouselViewController: UIViewController {
 
         ])
 
+
+    }
+
+    private func configureDatasource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
             cell.backgroundColor = self.colors.randomElement()
@@ -62,30 +67,19 @@ class CarouselViewController: UIViewController {
 
             return cell
         })
-//
-//        var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
-//
-//        snapShot.appendSections([.main])
-//        snapShot.appendItems(Array(0..<colors.count), toSection: .main)
-//
-//        snapShot.appendSections([.main2])
-//        snapShot.appendItems(Array(0..<colors.count), toSection: .main2)
-//
-//        dataSource.apply(snapShot, animatingDifferences: true, completion: nil)
 
         var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
         var identifierOffset = 0
-        let itemsPerSection = colors.count
+        let itemsPerSection = 15
         for section in [Section.main, Section.main2, Section.main3, Section.main4, Section.main5, Section.main6, Section.main7] {
             snapshot.appendSections([section])
             let maxIdentifier = identifierOffset + itemsPerSection
             snapshot.appendItems(Array(identifierOffset..<maxIdentifier))
             identifierOffset += itemsPerSection
         }
+
         dataSource.apply(snapshot, animatingDifferences: false)
-
     }
-
 
     private func createLayout() -> UICollectionViewLayout {
         let square: CGFloat = 0.15
