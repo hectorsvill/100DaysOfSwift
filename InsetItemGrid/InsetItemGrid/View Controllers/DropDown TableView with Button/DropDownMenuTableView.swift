@@ -49,9 +49,8 @@ class DropDownMenuTableView: UIView, UITableViewDelegate {
 
         var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapShot.appendSections([.main])
-        snapShot.appendItems(Array(0...10))
+        snapShot.appendItems(Array(0...5))
         dataSource.apply(snapShot, animatingDifferences: true)
-
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

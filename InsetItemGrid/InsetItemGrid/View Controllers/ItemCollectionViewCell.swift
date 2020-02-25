@@ -10,8 +10,9 @@ import UIKit
 
 class ItemCollectionViewCell: UICollectionViewCell {
 
-    var itemTitle: String? { didSet { setupViews() }}
+    var item: ExpandedItem? { didSet { setupViews() }}
     var isDown = false
+
 
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -31,15 +32,16 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
 
     private func setupViews() {
-        guard let itemTitle = itemTitle else { return }
+        guard let item = item else { return }
+        itemTitleLabel.text = item.title
 
-        itemTitleLabel.text = itemTitle
+        if item.isGroup {
+            contentView.addSubview(imageView)
+        }
 
-        contentView.addSubview(imageView)
         contentView.addSubview(itemTitleLabel)
 
         NSLayoutConstraint.activate([
-
             imageView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 16),
             imageView.heightAnchor.constraint(equalToConstant: 40),
             imageView.widthAnchor.constraint(equalToConstant: 40),

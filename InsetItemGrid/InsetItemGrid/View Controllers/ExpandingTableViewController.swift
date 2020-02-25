@@ -8,6 +8,30 @@
 
 import UIKit
 
+class ExpandedItem: Hashable {
+    let id: UUID
+    let title: String
+    var isGroup: Bool
+    let items: [ExpandedItem]
+    var isExapanded: Bool
+
+    init(id: UUID = UUID(), title: String, isExapanded: Bool,isGroup: Bool,items: [ExpandedItem]) {
+        self.id = id
+        self.title = title
+        self.isExapanded = isExapanded
+        self.isGroup = isGroup
+        self.items = items
+    }
+
+    static func == (lhs: ExpandedItem, rhs: ExpandedItem) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 class ExpandingTableViewController: UIViewController {
 
     enum Section {
@@ -15,7 +39,7 @@ class ExpandingTableViewController: UIViewController {
     }
 
     var collectionView: UICollectionView! = nil
-    var dataSource: UICollectionViewDiffableDataSource<Section, Int>! = nil
+    var dataSource: UICollectionViewDiffableDataSource<Section, ExpandedItem>! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,22 +51,23 @@ class ExpandingTableViewController: UIViewController {
     }
 
     private func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section, ExpandedItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ItemCollectionViewCell else { fatalError()}
-            cell.itemTitle = "menu \(indexPath.item)"
-            cell.layer.borderWidth = 3
+            cell.item = i
+
             cell.layer.cornerRadius = 7
             return cell
         })
 
-        var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
+        var snapShot = NSDiffableDataSourceSnapshot<Section, ExpandedItem>()
         snapShot.appendSections([.main])
-        snapShot.appendItems(Array(0...15))
-        dataSource.apply(snapShot)
+        snapShot.appendItems([ExpandedItem(title: "m1", isExapanded: false, isGroup: false, items: [])])
+        dataSource.apply(snapShot, animatingDifferences: true)
     }
 
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: generateLayout())
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .systemBackground
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.register(ItemCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -82,9 +107,10 @@ extension ExpandingTableViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ItemCollectionViewCell else { return }
         cell.expanCell()
-        print(indexPath)
 
+        var snapShot = NSDiffableDataSourceSnapshot<Section, ExpandedItem>()
+        snapShot.appendSections([.main])
+        snapShot.appendItems([ExpandedItem(title: "m1", isExapanded: true, isGroup: false, items: [])])
+        dataSource.apply(snapShot, animatingDifferences: true)
     }
-
-
 }
