@@ -17,6 +17,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "chevron.right.circle")
+        imageView.tintColor = UIColor.black
         return imageView
     }()
 
@@ -51,11 +52,9 @@ class ItemCollectionViewCell: UICollectionViewCell {
             itemTitleLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
 
         ])
-
-
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    func expanCell() {
         let angle:  CGFloat = (90.0 * .pi) / 180.0
 
         UIView.animate(withDuration: 0.3) {
@@ -64,5 +63,4 @@ class ItemCollectionViewCell: UICollectionViewCell {
 
         isDown.toggle()
     }
-
 }

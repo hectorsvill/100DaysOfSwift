@@ -80,7 +80,8 @@ class ExpandingTableViewController: UIViewController {
 
 extension ExpandingTableViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ItemCollectionViewCell else { return }
+        cell.expanCell()
         print(indexPath)
 
     }
