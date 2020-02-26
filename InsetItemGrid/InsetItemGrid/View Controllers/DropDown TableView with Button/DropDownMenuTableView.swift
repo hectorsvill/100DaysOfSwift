@@ -27,7 +27,7 @@ class DropDownMenuTableView: UIView, UITableViewDelegate {
     }
 
     private func createTableView() {
-        tableView = UITableView()
+        tableView = UITableView(frame: frame)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -40,7 +40,9 @@ class DropDownMenuTableView: UIView, UITableViewDelegate {
             tableView.rightAnchor.constraint(equalTo: rightAnchor),
         ])
 
-        dataSource = UITableViewDiffableDataSource<Section, Int>(tableView: tableView, cellProvider: { tableView, indexPath, i -> UITableViewCell? in
+        dataSource = UITableViewDiffableDataSource<Section, Int>(tableView: tableView, cellProvider: {
+            tableView, indexPath, i -> UITableViewCell? in
+
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.textLabel?.text = "\(indexPath.row)"
             cell.backgroundColor = .systemGray4
@@ -49,7 +51,7 @@ class DropDownMenuTableView: UIView, UITableViewDelegate {
 
         var snapShot = NSDiffableDataSourceSnapshot<Section, Int>()
         snapShot.appendSections([.main])
-        snapShot.appendItems(Array(0...5))
+        snapShot.appendItems(Array(0...4))
         dataSource.apply(snapShot, animatingDifferences: true)
     }
 

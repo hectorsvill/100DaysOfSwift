@@ -52,7 +52,7 @@ class ExpandingTableViewController: UIViewController {
 
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, ExpandedItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ItemCollectionViewCell else { fatalError()}
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ItemCollectionViewCell else { fatalError() }
             cell.item = i
 
             cell.layer.cornerRadius = 7
@@ -62,7 +62,7 @@ class ExpandingTableViewController: UIViewController {
         var snapShot = NSDiffableDataSourceSnapshot<Section, ExpandedItem>()
         snapShot.appendSections([.main])
         snapShot.appendItems([ExpandedItem(title: "m1", isExapanded: false, isGroup: false, items: [])])
-        dataSource.apply(snapShot, animatingDifferences: true)
+//        dataSource.apply(snapShot, animatingDifferences: true)
     }
 
     private func configureCollectionView() {

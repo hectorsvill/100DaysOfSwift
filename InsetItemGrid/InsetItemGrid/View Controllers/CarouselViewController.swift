@@ -61,7 +61,7 @@ class CarouselViewController: UIViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView, cellProvider: { collectionView, indexPath, i -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
             cell.backgroundColor = self.colors.randomElement()
-            let cornerRadius: CGFloat = 13
+            let cornerRadius: CGFloat = 8
             cell.layer.cornerRadius = cornerRadius
             cell.contentView.layer.cornerRadius = cornerRadius
 
@@ -82,7 +82,7 @@ class CarouselViewController: UIViewController {
     }
 
     private func createLayout() -> UICollectionViewLayout {
-        let square: CGFloat = 0.15
+        let square: CGFloat = 0.35
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(square), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
