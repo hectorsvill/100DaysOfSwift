@@ -9,17 +9,10 @@
 import UIKit
 
 class CircularTransition: NSObject {
-
     var circle = UIView()
-
-    var startingPoint = CGPoint.zero { didSet {
-        circle.center = startingPoint
-        }
-    }
-
     var circleColor = UIColor.white
-
     var duration = 0.81
+    var startingPoint = CGPoint.zero { didSet { circle.center = startingPoint } }
 
     enum CircularTransitionMode: Int {
         case present, dismiss, pop
@@ -35,7 +28,7 @@ extension CircularTransition: UIViewControllerAnimatedTransitioning {
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-//        let affineTransform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+        let affineTransform = CGAffineTransform(scaleX: 0.001, y: 0.001)
 
         if transitionMode == .present {
             if let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to) {
@@ -44,13 +37,14 @@ extension CircularTransition: UIViewControllerAnimatedTransitioning {
 
                 circle = UIView()
                 circle.frame = frameForCircle(withViewCenter: viewCenter, size: viewSize, startPoint: startingPoint)
+                circle.layer.cornerRadius = circle.frame.size.height / 2
                 circle.center = startingPoint
                 circle.backgroundColor = circleColor
-                circle.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                circle.transform = affineTransform
                 containerView.addSubview(circle)
 
                 presentedView.center = startingPoint
-                presentedView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                presentedView.transform = affineTransform
                 presentedView.alpha = 0
                 containerView.addSubview(presentedView)
 
@@ -76,8 +70,8 @@ extension CircularTransition: UIViewControllerAnimatedTransitioning {
                 circle.center = startingPoint
 
                 UIView.animate(withDuration: duration, animations: {
-                    self.circle.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
-                    returningView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                    self.circle.transform = affineTransform
+                    returningView.transform = affineTransform
                     returningView.center = self.startingPoint
                 }) { (success: Bool) in
                     returningView.center = viewCenter
