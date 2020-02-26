@@ -16,9 +16,9 @@ class DropDownMenuViewController: UITableViewController {
     }
 
     var data: [Int : [Int]] = [
-        0: Array(0...1),
-        1: Array(0...2),
-        2: Array(0...3),
+        0: [],
+        1: [],
+        2: [],
     ]
 
     override func viewDidLoad() {
@@ -37,8 +37,8 @@ class DropDownMenuViewController: UITableViewController {
         let section = sender.tag
         print("button clicked \(section)")
 
-        let count = tableView.numberOfRows(inSection: section)
-        data[section]! = Array(0...count)
+        let count = tableView.numberOfRows(inSection: section) == 0 ? 5 : 0
+        data[section]! = Array(0..<count)
         tableView.reloadData()
 
     }
@@ -52,6 +52,8 @@ extension DropDownMenuViewController {
         button.setTitle("section \(section)", for: .normal)
         button.backgroundColor = .gray
         button.tintColor = .white
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.borderWidth = 3
         button.tag = section
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         return button
