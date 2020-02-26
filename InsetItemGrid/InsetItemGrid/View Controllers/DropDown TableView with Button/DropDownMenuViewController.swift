@@ -19,6 +19,9 @@ class DropDownMenuViewController: UITableViewController {
         0: [],
         1: [],
         2: [],
+        3: [],
+        4: [],
+        5: [],
     ]
 
     override func viewDidLoad() {
@@ -35,28 +38,50 @@ class DropDownMenuViewController: UITableViewController {
 
     @objc func buttonClicked(_ sender: UIButton) {
         let section = sender.tag
-        print("button clicked \(section)")
+//        let count = tableView.numberOfRows(inSection: section) == 0 ? 5 : 0
+//        data[section]! = Array(0..<count)
+//        tableView.reloadData()
 
-        let count = tableView.numberOfRows(inSection: section) == 0 ? 5 : 0
-        data[section]! = Array(0..<count)
-        tableView.reloadData()
+        if tableView.numberOfRows(inSection: section) == 0 {
+            data[section]! = Array(0...5)
+            let indexPaths: [IndexPath] = data[section]!.map {
+                return IndexPath(row: $0, section: section)
+            }
+
+            tableView.insertRows(at: indexPaths, with: .fade)
+        } else {
+            let indexPaths: [IndexPath] = data[section]!.map {
+                return IndexPath(row: $0, section: section)
+            }
+            data[section]!.removeAll()
+            tableView.deleteRows(at: indexPaths, with: .fade)
+        }
 
     }
 }
 
 
 extension DropDownMenuViewController {
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    private func headerButton(_ section: Int) -> UIButton {
         let button = UIButton()
         button.setTitle("section \(section)", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.backgroundColor = .gray
-        button.tintColor = .white
         button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderWidth = 3
+        button.layer.cornerRadius = 8
         button.tag = section
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
         return button
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return headerButton(section)
     }
 
 
@@ -71,16 +96,9 @@ extension DropDownMenuViewController {
         return data[section]!.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = "\(indexPath)"
         return cell
     }
-
 }
-
-
-
-
-
