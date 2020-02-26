@@ -67,8 +67,8 @@
                     <connections>
                         <segue destination="5av-S9-Qrv" kind="relationship" relationship="viewControllers" id="GAx-yt-cGw"/>
                         <segue destination="9r0-gb-TtN" kind="relationship" relationship="viewControllers" id="gML-Mx-UhL"/>
-                        <segue destination="Eai-YJ-ZOk" kind="relationship" relationship="viewControllers" id="fQy-aw-seP"/>
                         <segue destination="wPf-N0-YcY" kind="relationship" relationship="viewControllers" id="Rik-kJ-JZy"/>
+                        <segue destination="Eai-YJ-ZOk" kind="relationship" relationship="viewControllers" id="fQy-aw-seP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pO0-dV-oMt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -109,7 +109,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VUW-8r-tOL"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Circular Transition" image="pencil" catalog="system" id="c2J-gy-QN0"/>
+                    <tabBarItem key="tabBarItem" title="Circular Transition" image="rays" catalog="system" id="c2J-gy-QN0"/>
                     <connections>
                         <outlet property="vButton" destination="WwK-ok-uXa" id="pyn-Za-jTb"/>
                     </connections>
@@ -157,8 +157,8 @@
     </scenes>
     <resources>
         <image name="doc.richtext" catalog="system" width="56" height="64"/>
-        <image name="pencil" catalog="system" width="64" height="56"/>
         <image name="photo-MacBookPro16" width="1050" height="700"/>
+        <image name="rays" catalog="system" width="64" height="60"/>
         <image name="shift" catalog="system" width="64" height="52"/>
         <image name="smoke" catalog="system" width="64" height="46"/>
     </resources>

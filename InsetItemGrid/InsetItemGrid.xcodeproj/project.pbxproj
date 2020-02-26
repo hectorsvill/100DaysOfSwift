@@ -33,7 +33,7 @@
 		1289662C2406274B00843037 /* CircularTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransitionViewController.swift; sourceTree = "<group>"; };
 		1289662E24062BF100843037 /* TransitionToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionToViewController.swift; sourceTree = "<group>"; };
 		1289663024062F2E00843037 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
-		12A2B65123FC8D2A0086F585 /* InsetItemGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsetItemGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12A2B65123FC8D2A0086F585 /* LayOuts_Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayOuts_Animations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12A2B65423FC8D2A0086F585 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12A2B65623FC8D2A0086F585 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		12A2B65823FC8D2A0086F585 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		12A2B65223FC8D2A0086F585 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				12A2B65123FC8D2A0086F585 /* InsetItemGrid.app */,
+				12A2B65123FC8D2A0086F585 /* LayOuts_Animations.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 			);
 			name = InsetItemGrid;
 			productName = InsetItemGrid;
-			productReference = 12A2B65123FC8D2A0086F585 /* InsetItemGrid.app */;
+			productReference = 12A2B65123FC8D2A0086F585 /* LayOuts_Animations.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -384,7 +384,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.andIQuote.InsetItemGrid;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LayOuts_Animations;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -402,7 +402,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.andIQuote.InsetItemGrid;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LayOuts_Animations;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -15,6 +15,7 @@ class CircularTransitionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .gray
         vButton.layer.cornerRadius = vButton.frame.size.width / 2
     }
 

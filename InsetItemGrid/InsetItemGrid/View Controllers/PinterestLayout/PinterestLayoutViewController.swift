@@ -34,7 +34,7 @@ class PinterestLayoutViewController: UIViewController {
           layout.delegate = self
         }
 
-        collectionView.backgroundColor = .systemGray5
+        collectionView.backgroundColor = .gray
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         view.addSubview(collectionView)

@@ -40,7 +40,6 @@ class CarouselViewController: UIViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-
         collectionView.showsHorizontalScrollIndicator = false
         view.addSubview(collectionView)
 
@@ -64,6 +63,8 @@ class CarouselViewController: UIViewController {
             let cornerRadius: CGFloat = 8
             cell.layer.cornerRadius = cornerRadius
             cell.contentView.layer.cornerRadius = cornerRadius
+            cell.layer.borderWidth = 2
+            cell.layer.borderColor = UIColor.white.cgColor
 
             return cell
         })
