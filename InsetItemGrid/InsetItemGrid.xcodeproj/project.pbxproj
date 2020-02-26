@@ -87,6 +87,14 @@
 			path = " Circular Transition";
 			sourceTree = "<group>";
 		};
+		1289663224064C9A00843037 /* Carousel View */ = {
+			isa = PBXGroup;
+			children = (
+				124BDA662402D7F100BC1E9B /* CarouselViewController.swift */,
+			);
+			path = "Carousel View";
+			sourceTree = "<group>";
+		};
 		12A2B64823FC8D2A0086F585 = {
 			isa = PBXGroup;
 			children = (
@@ -123,7 +131,7 @@
 				12A2B67023FD9C040086F585 /* Inset Item Grid */,
 				12A2B66F23FD9BBB0086F585 /* DropDown TableView with Button */,
 				128966282405E5F000843037 /* ExpandingView */,
-				124BDA662402D7F100BC1E9B /* CarouselViewController.swift */,
+				1289663224064C9A00843037 /* Carousel View */,
 				1289662B2406272400843037 /*  Circular Transition */,
 				124BDA6E2403A4D200BC1E9B /* PinterestLayout */,
 			);

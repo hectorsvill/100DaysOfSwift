@@ -9,7 +9,6 @@
 import UIKit
 
 class CarouselViewController: UIViewController {
-
     enum Section {
         case main
         case main2
