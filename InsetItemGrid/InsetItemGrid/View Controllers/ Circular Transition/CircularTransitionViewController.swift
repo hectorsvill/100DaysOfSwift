@@ -17,7 +17,28 @@ class CircularTransitionViewController: UIViewController {
         super.viewDidLoad()
         vButton.layer.cornerRadius = vButton.frame.size.width / 2
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc = segue.destination as? TransitionToViewController else { return }
+        vc.transitioningDelegate = self
+        vc.modalPresentationStyle = .custom
+    }
 }
 
+extension CircularTransitionViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = vButton.center
+        transition.circleColor = vButton.backgroundColor!
+        return transition
 
+    }
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = vButton.center
+        transition.circleColor = vButton.backgroundColor!
+
+        return transition
+    }
+}
 

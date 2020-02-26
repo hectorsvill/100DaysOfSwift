@@ -19,13 +19,13 @@ class CircularTransition: NSObject {
 
     var circleColor = UIColor.white
 
-    var duration = 0.3
+    var duration = 0.5
 
     enum CircularTransitionMode: Int {
-        case pressent, dismiss, pop
+        case present, dismiss, pop
     }
 
-    var transitionMode: CircularTransitionMode = .pressent
+    var transitionMode: CircularTransitionMode = .present
 }
 
 extension CircularTransition: UIViewControllerAnimatedTransitioning {
@@ -35,9 +35,9 @@ extension CircularTransition: UIViewControllerAnimatedTransitioning {
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
-        let affineTransform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+//        let affineTransform = CGAffineTransform(scaleX: 0.001, y: 0.001)
 
-        if transitionMode == .pressent {
+        if transitionMode == .present {
             if let presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to) {
                 let viewCenter = presentedView.center
                 let viewSize = presentedView.frame.size
@@ -46,16 +46,17 @@ extension CircularTransition: UIViewControllerAnimatedTransitioning {
                 circle.frame = frameForCircle(withViewCenter: viewCenter, size: viewSize, startPoint: startingPoint)
                 circle.center = startingPoint
                 circle.backgroundColor = circleColor
-                circle.transform = affineTransform//CGAffineTransform(scaleX: 0.001, y: 0.001)
+                circle.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
                 containerView.addSubview(circle)
 
                 presentedView.center = startingPoint
-                presentedView.transform = affineTransform//CGAffineTransform(scaleX: 0.001, y: 0.001)
+                presentedView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
                 presentedView.alpha = 0
                 containerView.addSubview(presentedView)
 
                 UIView.animate(withDuration: duration, animations: {
-                    self.circle.transform = CGAffineTransform.identity
+                    self.circle.transform = .identity
+                    presentedView.transform = .identity
                     presentedView.alpha = 1
                     presentedView.center = viewCenter
 
@@ -75,8 +76,8 @@ extension CircularTransition: UIViewControllerAnimatedTransitioning {
                 circle.center = startingPoint
 
                 UIView.animate(withDuration: duration, animations: {
-                    self.circle.transform = affineTransform//CGAffineTransform(scaleX: 0.001, y: 0.001)
-                    returningView.transform = affineTransform//CGAffineTransform(scaleX: 0.001, y: 0.001)
+                    self.circle.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                    returningView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
                     returningView.center = self.startingPoint
                 }) { (success: Bool) in
                     returningView.center = viewCenter
