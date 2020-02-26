@@ -43,7 +43,7 @@ class DropDownMenuViewController: UITableViewController {
 //        tableView.reloadData()
 
         if tableView.numberOfRows(inSection: section) == 0 {
-            data[section]! = Array(0...5)
+            data[section]! = Array(0...Int.random(in: 0...17))
             let indexPaths: [IndexPath] = data[section]!.map {
                 return IndexPath(row: $0, section: section)
             }
