@@ -96,7 +96,7 @@
                                 </state>
                                 <connections>
                                     <action selector="vButton:" destination="qmj-Zz-J27" eventType="touchUpInside" id="X4x-2X-YkJ"/>
-                                    <segue destination="CbM-xK-GS1" kind="show" id="q5Q-RO-exo"/>
+                                    <segue destination="CbM-xK-GS1" kind="show" id="L7l-pY-y1E"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -128,13 +128,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpR-v9-poE">
-                                <rect key="frame" x="184" y="120" width="40" height="40"/>
+                                <rect key="frame" x="184" y="119" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <state key="normal" title="H">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="hButtonPressed:" destination="CbM-xK-GS1" eventType="touchUpInside" id="ibq-O7-UlU"/>
+                                    <action selector="vButtonPressed:" destination="hLZ-ds-V4n" eventType="touchUpInside" id="ajM-C0-yzV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -146,6 +150,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="en0-z2-GAG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hLZ-ds-V4n" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2588" y="1032"/>
         </scene>

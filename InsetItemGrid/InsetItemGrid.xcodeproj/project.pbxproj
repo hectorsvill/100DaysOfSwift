@@ -12,6 +12,7 @@
 		124BDA6D2403A49D00BC1E9B /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124BDA6C2403A49D00BC1E9B /* PinterestLayout.swift */; };
 		1289662D2406274B00843037 /* CircularTransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289662C2406274B00843037 /* CircularTransitionViewController.swift */; };
 		1289662F24062BF100843037 /* TransitionToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289662E24062BF100843037 /* TransitionToViewController.swift */; };
+		1289663124062F2E00843037 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289663024062F2E00843037 /* CircularTransition.swift */; };
 		12A2B65523FC8D2A0086F585 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B65423FC8D2A0086F585 /* AppDelegate.swift */; };
 		12A2B65723FC8D2A0086F585 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B65623FC8D2A0086F585 /* SceneDelegate.swift */; };
 		12A2B65923FC8D2A0086F585 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B65823FC8D2A0086F585 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		124BDA6C2403A49D00BC1E9B /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
 		1289662C2406274B00843037 /* CircularTransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransitionViewController.swift; sourceTree = "<group>"; };
 		1289662E24062BF100843037 /* TransitionToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionToViewController.swift; sourceTree = "<group>"; };
+		1289663024062F2E00843037 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		12A2B65123FC8D2A0086F585 /* InsetItemGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InsetItemGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12A2B65423FC8D2A0086F585 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12A2B65623FC8D2A0086F585 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				1289662C2406274B00843037 /* CircularTransitionViewController.swift */,
 				1289662E24062BF100843037 /* TransitionToViewController.swift */,
+				1289663024062F2E00843037 /* CircularTransition.swift */,
 			);
 			path = " Circular Transition";
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				124BDA672402D7F100BC1E9B /* CarouselViewController.swift in Sources */,
 				12A2B65523FC8D2A0086F585 /* AppDelegate.swift in Sources */,
 				1289662D2406274B00843037 /* CircularTransitionViewController.swift in Sources */,
+				1289663124062F2E00843037 /* CircularTransition.swift in Sources */,
 				124BDA692402F4F800BC1E9B /* PinterestLayoutViewController.swift in Sources */,
 				12A2B65723FC8D2A0086F585 /* SceneDelegate.swift in Sources */,
 				1289662F24062BF100843037 /* TransitionToViewController.swift in Sources */,

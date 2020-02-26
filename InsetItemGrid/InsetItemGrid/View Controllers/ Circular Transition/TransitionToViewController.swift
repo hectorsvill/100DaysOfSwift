@@ -21,5 +21,8 @@ class TransitionToViewController: UIViewController {
 
     }
 
+    @IBAction func hButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }

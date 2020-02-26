@@ -11,10 +11,13 @@ import UIKit
 class CircularTransitionViewController: UIViewController {
 
     @IBOutlet weak var vButton: UIButton!
+    let transition = CircularTransition()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         vButton.layer.cornerRadius = vButton.frame.size.width / 2
     }
-
 }
+
+
+
