@@ -5,14 +5,11 @@ import Foundation
 
 func checkINverse(myStack: [String], bracket: String) -> Bool {
     guard let last = myStack.last else { return false }
-    if last != bracket {
-        return false
-    }
-    return true
+    return last != bracket ? false : true
 }
 
 // Complete the isBalanced function below.
-func isBalanced(s: String) -> String {
+func isBalanced_version0(s: String) -> String {
     
     var answer = "YES"
     let sArray = Array(s)
@@ -58,14 +55,29 @@ func isBalanced(s: String) -> String {
         }
     }
 
-    
-    if myStack.isEmpty {
-        return answer
-    } else{
-        return "NO"
-    }
+    return myStack.isEmpty ? answer : "NO"
 }
 
 
+func isBalanced(s: String) -> String {
+    var stack = [String]()
 
-//: [Next](@next)
+    for bracket in s {
+        if bracket == "{" || bracket == "[" || bracket == "(" {
+            stack.append(String(bracket))
+        } else {
+            if bracket == "}" {
+                guard let last = stack.last, last == "{", let _ = stack.popLast() else { return "NO" }
+            } else if bracket == "]" {
+                guard let last = stack.last, last == "[", let _ = stack.popLast() else { return "NO" }
+            } else if bracket == ")" {
+                guard let last  = stack.last, last == "(", let _ = stack.popLast() else { return "NO" }
+            }
+        }
+    }
+
+    return stack.isEmpty ? "YES" : "NO"
+}
+
+
+isBalanced(s: "[{()}]")

@@ -73,5 +73,5 @@ func toNumber(_ arr: [Int]) -> Int {
 }
 
 
-toArray(1234)
-toNumber([0])
+//toArray(1234)
+//toNumber([0])
