@@ -20,5 +20,3 @@ func sockMerchant(n: Int, ar: [Int]) -> Int {
     return evenSocksCount
 }
 
-
-//: [Next](@next)
