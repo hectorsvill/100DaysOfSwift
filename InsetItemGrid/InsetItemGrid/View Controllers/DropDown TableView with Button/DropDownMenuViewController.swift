@@ -43,7 +43,7 @@ class DropDownMenuViewController: UITableViewController {
 //        tableView.reloadData()
 
         if tableView.numberOfRows(inSection: section) == 0 {
-            data[section]! = Array(0...Int.random(in: 0...17))
+            data[section]! = Array(0...1)
             let indexPaths: [IndexPath] = data[section]!.map {
                 return IndexPath(row: $0, section: section)
             }
@@ -56,10 +56,8 @@ class DropDownMenuViewController: UITableViewController {
             data[section]!.removeAll()
             tableView.deleteRows(at: indexPaths, with: .fade)
         }
-
     }
 }
-
 
 extension DropDownMenuViewController {
     private func headerButton(_ section: Int) -> UIButton {
@@ -83,7 +81,6 @@ extension DropDownMenuViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return headerButton(section)
     }
-
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "\(section)"
