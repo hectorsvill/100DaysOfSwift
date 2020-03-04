@@ -13,18 +13,25 @@ func minimumSwaps(arr: [Int]) -> Int {
         if arr_copy[i] != sorted_arr[i] {
             let low = sorted_arr[i]
             let index = arr_copy.firstIndex(of: low)!
-            print(low, index)
             (arr_copy[i], arr_copy[index]) = (arr_copy[index], arr_copy[i])
+
             swaps += 1
+            
+            if arr_copy == sorted_arr {
+                break
+            }
         }
     }
-    
-    print(arr_copy)
     return swaps
 }
 
 
 let arr = [4, 3, 1, 2]
-let arr1 = [1, 3, 5, 2, 4, 6, 7]
+let arr1 = [7, 1, 3, 2, 4, 5, 6]
 
-print(minimumSwaps(arr: arr1))
+let date1 = Date()
+minimumSwaps(arr: arr1)
+
+let date2 = Date()
+
+print(date2.timeIntervalSince1970 - date1.timeIntervalSince1970)
