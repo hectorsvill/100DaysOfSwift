@@ -19,15 +19,27 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         sceneView.delegate = self
 
-        createCube()
+        sphere()
+//        createCube()
 
     }
 
-    private func createCube() {
+    private func sphere() {
+        let cube = SCNSphere(radius: 0.2)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "2k_ceres_fictional")
+        cube.materials = [material]
 
+        let node = SCNNode()
+        node.position = SCNVector3(0, 0, -0.5)
+        node.geometry = cube
+        sceneView.scene.rootNode.addChildNode(node)
+    }
+
+    private func createCube() {
         let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.systemPink
+        material.diffuse.contents = UIImage(named: "2k_stars_milky_way.jpg")
 
         cube.materials = [material]
 
