@@ -41,5 +41,6 @@
         <page name='Untitled Page 2'/>
         <page name='fizzbuzz'/>
         <page name='Minimum-moves'/>
+        <page name='Game of two stacks '/>
     </pages>
 </playground>
