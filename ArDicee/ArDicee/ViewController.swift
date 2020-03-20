@@ -17,7 +17,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+//        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
 
         sceneView.delegate = self
     }
@@ -54,15 +54,29 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         } else {
             return
         }
+    }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let touchLocation = touch.location(in: sceneView)
+            let results = sceneView.hitTest(touchLocation, types: .existingPlaneUsingExtent)
+
+            if let hitResult = results.first {
+                print(hitResult)
+                let x = hitResult.worldTransform.columns.3.x
+                let y = hitResult.worldTransform.columns.3.y
+                let z = hitResult.worldTransform.columns.3.z
+                createDicee(x: x, y: y, z: z)
+            }
+        }
     }
 }
 
 extension ViewController {
-    private func createDicee() {
+    private func createDicee(x: Float, y: Float, z: Float) {
            let diceScene = SCNScene(named: "art.scnassets/diceCollada.scn")!
            if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
-               diceNode.position = SCNVector3(0, 0, -0.1)
+               diceNode.position = SCNVector3(x, y + diceNode.boundingSphere.radius, z)
                sceneView.scene.rootNode.addChildNode(diceNode)
                sceneView.autoenablesDefaultLighting = true
            }
