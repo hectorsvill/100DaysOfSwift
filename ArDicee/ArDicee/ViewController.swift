@@ -79,6 +79,15 @@ extension ViewController {
                diceNode.position = SCNVector3(x, y + diceNode.boundingSphere.radius, z)
                sceneView.scene.rootNode.addChildNode(diceNode)
                sceneView.autoenablesDefaultLighting = true
+
+
+            let randomX = Float.random(in: 1...4) * (Float.pi/2)
+            let randomY = Float.random(in: 1...4) * (Float.pi/2)
+
+            diceNode.runAction(
+                SCNAction.rotateBy(x: CGFloat(randomX * 5), y: 0, z: CGFloat(randomY * 5), duration: 0.3)
+            )
+
            }
        }
 
