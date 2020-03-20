@@ -12,10 +12,13 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
+    var diceArray = [SCNNode]()
+
     @IBOutlet var sceneView: ARSCNView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "AR Dicee"
 
 //        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
 
@@ -24,8 +27,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // Create a session configuration
+
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
 
@@ -62,7 +64,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let results = sceneView.hitTest(touchLocation, types: .existingPlaneUsingExtent)
 
             if let hitResult = results.first {
-                print(hitResult)
                 let x = hitResult.worldTransform.columns.3.x
                 let y = hitResult.worldTransform.columns.3.y
                 let z = hitResult.worldTransform.columns.3.z
@@ -70,24 +71,51 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
         }
     }
+
+    @IBAction func exit(_ sender: Any) {
+        if !diceArray.isEmpty {
+            diceArray.forEach {
+                $0.removeFromParentNode()
+            }
+        }
+    }
+
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        rollAll()
+    }
+
+    @IBAction func rollButtonPressed(_ sender: Any) {
+        rollAll()
+    }
+
 }
 
 extension ViewController {
+    func rollAll() {
+        if !diceArray.isEmpty {
+            for dice in diceArray {
+                roll(dice: dice)
+            }
+        }
+    }
+
+    func roll(dice: SCNNode) {
+        let randomX = Float.random(in: 1...4) * (Float.pi/2)
+        let randomY = Float.random(in: 1...4) * (Float.pi/2)
+        dice.runAction(
+            SCNAction.rotateBy(x: CGFloat(randomX * 5), y: 0, z: CGFloat(randomY * 5), duration: 0.3)
+        )
+    }
+
+
     private func createDicee(x: Float, y: Float, z: Float) {
            let diceScene = SCNScene(named: "art.scnassets/diceCollada.scn")!
            if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
-               diceNode.position = SCNVector3(x, y + diceNode.boundingSphere.radius, z)
-               sceneView.scene.rootNode.addChildNode(diceNode)
-               sceneView.autoenablesDefaultLighting = true
-
-
-            let randomX = Float.random(in: 1...4) * (Float.pi/2)
-            let randomY = Float.random(in: 1...4) * (Float.pi/2)
-
-            diceNode.runAction(
-                SCNAction.rotateBy(x: CGFloat(randomX * 5), y: 0, z: CGFloat(randomY * 5), duration: 0.3)
-            )
-
+                diceNode.position = SCNVector3(x, y + diceNode.boundingSphere.radius, z)
+                sceneView.scene.rootNode.addChildNode(diceNode)
+                sceneView.autoenablesDefaultLighting = true
+                diceArray.append(diceNode)
+                roll(dice: diceNode)
            }
        }
 
