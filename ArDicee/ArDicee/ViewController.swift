@@ -19,9 +19,21 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         sceneView.delegate = self
 
-        sphere()
+//        sphere()
 //        createCube()
 
+        createDicee()
+
+
+    }
+
+    private func createDicee() {
+        let diceScene = SCNScene(named: "art.scnassets/diceCollada.scn")!
+        if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
+            diceNode.position = SCNVector3(0, 0, -0.1)
+            sceneView.scene.rootNode.addChildNode(diceNode)
+            sceneView.autoenablesDefaultLighting = true
+        }
     }
 
     private func sphere() {
@@ -34,6 +46,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.position = SCNVector3(0, 0, -0.5)
         node.geometry = cube
         sceneView.scene.rootNode.addChildNode(node)
+        sceneView.autoenablesDefaultLighting = true
     }
 
     private func createCube() {
@@ -47,6 +60,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         node.position = SCNVector3(0, 0, -0.5)
         node.geometry = cube
         sceneView.scene.rootNode.addChildNode(node)
+        sceneView.autoenablesDefaultLighting = true
 
     }
     
