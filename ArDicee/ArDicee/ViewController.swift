@@ -19,9 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "AR Dicee"
-
-//        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-
+        //sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         sceneView.delegate = self
     }
 
@@ -30,7 +28,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
-
         sceneView.session.run(configuration)
     }
     
@@ -74,9 +71,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBAction func exit(_ sender: Any) {
         if !diceArray.isEmpty {
-            diceArray.forEach {
-                $0.removeFromParentNode()
-            }
+            diceArray.forEach { $0.removeFromParentNode() }
         }
     }
 
@@ -87,15 +82,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func rollButtonPressed(_ sender: Any) {
         rollAll()
     }
-
 }
 
 extension ViewController {
     func rollAll() {
         if !diceArray.isEmpty {
-            for dice in diceArray {
-                roll(dice: dice)
-            }
+            diceArray.forEach { roll(dice: $0) }
         }
     }
 
@@ -107,7 +99,6 @@ extension ViewController {
         )
     }
 
-
     private func createDicee(x: Float, y: Float, z: Float) {
            let diceScene = SCNScene(named: "art.scnassets/diceCollada.scn")!
            if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
@@ -117,34 +108,32 @@ extension ViewController {
                 diceArray.append(diceNode)
                 roll(dice: diceNode)
            }
-       }
+    }
 
-       private func sphere() {
-           let cube = SCNSphere(radius: 0.2)
-           let material = SCNMaterial()
-           material.diffuse.contents = UIImage(named: "2k_ceres_fictional")
-           cube.materials = [material]
+    private func sphere() {
+        let cube = SCNSphere(radius: 0.2)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "2k_ceres_fictional")
+        cube.materials = [material]
 
-           let node = SCNNode()
-           node.position = SCNVector3(0, 0, -0.5)
-           node.geometry = cube
-           sceneView.scene.rootNode.addChildNode(node)
-           sceneView.autoenablesDefaultLighting = true
-       }
+        let node = SCNNode()
+        node.position = SCNVector3(0, 0, -0.5)
+        node.geometry = cube
+        sceneView.scene.rootNode.addChildNode(node)
+        sceneView.autoenablesDefaultLighting = true
+    }
 
-       private func createCube() {
-           let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
-           let material = SCNMaterial()
-           material.diffuse.contents = UIImage(named: "2k_stars_milky_way.jpg")
-
-           cube.materials = [material]
-
-           let node = SCNNode()
-           node.position = SCNVector3(0, 0, -0.5)
-           node.geometry = cube
-           sceneView.scene.rootNode.addChildNode(node)
-           sceneView.autoenablesDefaultLighting = true
-
-       }
-
+    private func createCube() {
+        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "2k_stars_milky_way.jpg")
+        
+        cube.materials = [material]
+        
+        let node = SCNNode()
+        node.position = SCNVector3(0, 0, -0.5)
+        node.geometry = cube
+        sceneView.scene.rootNode.addChildNode(node)
+        sceneView.autoenablesDefaultLighting = true
+    }
 }
