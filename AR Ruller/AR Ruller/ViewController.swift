@@ -67,12 +67,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         dotNodes.append(dotNode)
 
         if dotNodes.count >= 2 {
-            calculate()
+            calculateCentiMeeter()
         }
     }
 
 
-    func calculate() {
+    func calculateCentiMeeter() {
         let startNode = dotNodes[0]
         let endNode = dotNodes[1]
 
