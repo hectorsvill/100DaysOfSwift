@@ -58,7 +58,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func addDot(at hitResult: ARHitTestResult) {
         let dotGeometry = SCNSphere(radius: 0.005)
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.purple
+        material.diffuse.contents = UIColor.label
         dotGeometry.materials = [material]
 
         let dotNode = SCNNode(geometry: dotGeometry)
@@ -80,14 +80,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let yValue = endNode.position.y - startNode.position.y
         let zValue = endNode.position.z - startNode.position.z
 
-        let distance = sqrt(xValue + yValue + zValue)
+        let distance = abs(sqrt(pow(xValue, 2) + pow(yValue, 2) + pow(zValue, 2))) * 100
+
         let str = String(format: "%0.3f", distance)
         updateText(text: "\(str)", atPosition: endNode.position)
     }
 
     func updateText(text: String, atPosition position: SCNVector3) {
         let textGeometry = SCNText(string: text, extrusionDepth: 1.0)
-        textGeometry.firstMaterial?.diffuse.contents = UIColor.systemPurple
+        textGeometry.firstMaterial?.diffuse.contents = UIColor.label
 
         textNode = SCNNode(geometry: textGeometry)
         textNode?.position = SCNVector3(position.x, position.y, position.z)
