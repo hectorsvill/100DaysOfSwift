@@ -36,7 +36,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-
         configuration.planeDetection = .vertical
         sceneView.session.run(configuration)
     }
@@ -62,7 +61,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         dotGeometry.materials = [material]
 
         let dotNode = SCNNode(geometry: dotGeometry)
-        dotNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
+        dotNode.position = SCNVector3(hitResult.worldTransform.columns.3.x,hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
         sceneView.scene.rootNode.addChildNode(dotNode)
         dotNodes.append(dotNode)
 
