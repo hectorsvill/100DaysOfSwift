@@ -1,17 +1,17 @@
 # Swift Challenges and other code by @hectorsvill
 
 # CoreML
- - [Image Recognition](https://github.com/hectorsvill/100DaysOfSwift/tree/master/ImageRecognition)
+ - [Image Recognition](https://github.com/hectorsvill/100DaysOfSwift/blob/master/ImageRecognition/ImageRecognition/ViewController.swift)
     - [Trained Models](https://developer.apple.com/machine-learning/models/)
         
             - use Vision and CoreML to recognize images
 # ARKit
 
-- [AR Dice](https://github.com/hectorsvill/100DaysOfSwift/tree/master/ArDicee) 
+- [AR Dice](https://github.com/hectorsvill/100DaysOfSwift/blob/master/ArDicee/ArDicee/ViewController.swift) 
     
         - touch on a  location of the plane to roll the dice, shake the phone to roll again
 
- - [AR Ruller](https://github.com/hectorsvill/100DaysOfSwift/tree/master/AR%20Ruller)
+ - [AR Ruller](https://github.com/hectorsvill/100DaysOfSwift/blob/master/AR%20Ruller/AR%20Ruller/ViewController.swift)
         
         - Measure objects on vertical planes in CentiMeters using 2 SCNNode positions   
 #
