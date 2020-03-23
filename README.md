@@ -1,5 +1,9 @@
 # Swift Challenges and other code by @hectorsvill
 
+# CoreML
+ - [Image Recognition]()
+        
+        - use Vision and CoreML to recognize images
 # ARKit
 
 - [AR Dice](https://github.com/hectorsvill/100DaysOfSwift/tree/master/ArDicee) 

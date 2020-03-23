@@ -76,8 +76,8 @@ extension ViewController: UIImagePickerControllerDelegate {
 
             guard let result = request.results as? [VNClassificationObservation] else { fatalError("error with VNClassificationObservation")}
 
-            print(result)
-
+            let first = result.first!
+            self.title = first.identifier
         }
 
         let handler = VNImageRequestHandler(ciImage: ciimage)
@@ -87,10 +87,7 @@ extension ViewController: UIImagePickerControllerDelegate {
         } catch {
             NSLog("\(error)")
         }
-
     }
 }
 
-extension ViewController: UINavigationControllerDelegate {
-    
-}
+extension ViewController: UINavigationControllerDelegate {}
