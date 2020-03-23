@@ -57,9 +57,37 @@ extension ViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = image
+
+            guard let ciimage = CIImage(image: image) else { fatalError("error with ciimage") }
+
+            detectImage(ciimage)
         }
 
         imagePicker.dismiss(animated: true)
+    }
+
+    func detectImage(_ ciimage: CIImage) {
+        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { fatalError("error with model") }
+
+        let request = VNCoreMLRequest(model: model) { request, error in
+            if let error = error {
+                fatalError("request error: \(error)")
+            }
+
+            guard let result = request.results as? [VNClassificationObservation] else { fatalError("error with VNClassificationObservation")}
+
+            print(result)
+
+        }
+
+        let handler = VNImageRequestHandler(ciImage: ciimage)
+
+        do {
+            try handler.perform([request])
+        } catch {
+            NSLog("\(error)")
+        }
+
     }
 }
 
