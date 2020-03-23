@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		128558AB2429621C0056C893 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 128558AA2429621C0056C893 /* MobileNetV2.mlmodel */; };
 		12E7029B24291DE4001C9EDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7029A24291DE4001C9EDD /* AppDelegate.swift */; };
 		12E7029D24291DE4001C9EDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7029C24291DE4001C9EDD /* SceneDelegate.swift */; };
 		12E7029F24291DE4001C9EDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7029E24291DE4001C9EDD /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		128558AA2429621C0056C893 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 		12E7029724291DE4001C9EDD /* ImageRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E7029A24291DE4001C9EDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12E7029C24291DE4001C9EDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		128558A9242962020056C893 /* Trained Models */ = {
+			isa = PBXGroup;
+			children = (
+				128558AA2429621C0056C893 /* MobileNetV2.mlmodel */,
+				12E702AE24291FD4001C9EDD /* Inceptionv3.mlmodel */,
+			);
+			path = "Trained Models";
+			sourceTree = "<group>";
+		};
 		12E7028E24291DE4001C9EDD = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +69,7 @@
 		12E7029924291DE4001C9EDD /* ImageRecognition */ = {
 			isa = PBXGroup;
 			children = (
-				12E702AE24291FD4001C9EDD /* Inceptionv3.mlmodel */,
+				128558A9242962020056C893 /* Trained Models */,
 				12E7029A24291DE4001C9EDD /* AppDelegate.swift */,
 				12E7029C24291DE4001C9EDD /* SceneDelegate.swift */,
 				12E7029E24291DE4001C9EDD /* ViewController.swift */,
@@ -144,6 +155,7 @@
 				12E7029F24291DE4001C9EDD /* ViewController.swift in Sources */,
 				12E702AF24291FD5001C9EDD /* Inceptionv3.mlmodel in Sources */,
 				12E7029B24291DE4001C9EDD /* AppDelegate.swift in Sources */,
+				128558AB2429621C0056C893 /* MobileNetV2.mlmodel in Sources */,
 				12E7029D24291DE4001C9EDD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

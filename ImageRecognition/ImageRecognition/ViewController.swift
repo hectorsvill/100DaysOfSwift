@@ -60,14 +60,14 @@ extension ViewController: UIImagePickerControllerDelegate {
 
             guard let ciimage = CIImage(image: image) else { fatalError("error with ciimage") }
 
-            detectImage(ciimage)
+            detectImage(ciimage, mlmodel: MobileNetV2().model)
         }
 
         imagePicker.dismiss(animated: true)
     }
 
-    func detectImage(_ ciimage: CIImage) {
-        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else { fatalError("error with model") }
+    func detectImage(_ ciimage: CIImage, mlmodel: MLModel) {
+        guard let model = try? VNCoreMLModel(for: mlmodel) else { fatalError("error with model") }
 
         let request = VNCoreMLRequest(model: model) { request, error in
             if let error = error {
