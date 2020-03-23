@@ -25,12 +25,29 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(cameraTapped))
 
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
         imagePicker.allowsEditing = true
     }
 
     @objc func cameraTapped() {
-        present(imagePicker, animated: true)
+
+        let alertController = UIAlertController(title: "Classify with", message: "", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.presentImagePicker()
+        }))
+
+        alertController.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+            self.presentImagePicker(with: .photoLibrary)
+        }))
+
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        present(alertController, animated: true)
+
+    }
+
+    private func presentImagePicker(with sourceType: UIImagePickerController.SourceType = .camera) {
+        self.imagePicker.sourceType = sourceType
+        self.present(self.imagePicker, animated: true)
     }
 
 }
