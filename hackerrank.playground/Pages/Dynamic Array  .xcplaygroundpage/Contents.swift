@@ -40,25 +40,25 @@ func dynamicArray(n: Int, queries: [[Int]]) -> [Int] {
     var seqList: [Int: [Int]] = [:]
     var result = [Int]()
 
-//    for _ in 0..<n { seqList.append([]) }
-
     queries.forEach {
         let operation = $0[0]
         let seqListIndex = ($0[1] ^ lastAnswer) % n
 
         if operation == 1 {
             seqList[seqListIndex, default: []].append($0[2])
-//            seqList[seqListIndex].append($0[2])
         } else if operation == 2 {
             let size = seqList[seqListIndex]!.count
             let item = seqList[seqListIndex]![$0[2] % size]
             lastAnswer = item
-            print(lastAnswer)
             result.append(lastAnswer)
+//            print(lastAnswer)
         }
     }
 //    print(seqList)
     return result
 }
-
+let date1 = Date()
 dynamicArray(n: 2, queries: arr)
+let date2 = Date()
+
+print("time: \(date2.timeIntervalSince1970 - date1.timeIntervalSince1970)")
