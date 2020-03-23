@@ -51,7 +51,6 @@ func dynamicArray(n: Int, queries: [[Int]]) -> [Int] {
             let item = seqList[seqListIndex]![$0[2] % size]
             lastAnswer = item
             result.append(lastAnswer)
-//            print(lastAnswer)
         }
     }
 //    print(seqList)
