@@ -35,6 +35,8 @@ shiftBits << 1
 
 let arr = [[1, 0, 5], [1, 1, 7], [1, 0, 3], [2, 1, 0], [2, 1, 1]]
 
+
+
 func dynamicArray(n: Int, queries: [[Int]]) -> [Int] {
     var lastAnswer = 0
     var seqList: [Int: [Int]] = [:]
