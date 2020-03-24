@@ -60,7 +60,7 @@ extension ViewController: UIImagePickerControllerDelegate {
 
             guard let ciimage = CIImage(image: image) else { fatalError("error with ciimage") }
 
-            detectImage(ciimage, mlmodel: MobileNetV2().model)
+//            detectImage(ciimage, mlmodel: MobileNetV2().model)
         }
 
         imagePicker.dismiss(animated: true)
