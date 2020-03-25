@@ -1,4 +1,4 @@
-###### iOS Notes and more
+# iOS Notes and more
 ## Table of contents
 
 * [StoreKit ](#StoreKit  )
@@ -11,14 +11,18 @@
 
 #
 ## StoreKit
-    - 
+    -  Go to developer account and under Certificates, Identifiers & Profiles create a new certificate (In-App Purchase automaticly selected)
+    -  In appstoreconnect go to Feaures, under In-App Purchase add and select Non-Consumable
+        - Create a new user by going to Users & Access, Under Sandbox Tester 
+    - Under Singing&Cabilities, + Capability In-App-Purchase
+    - Use Sandbox account for testing
 
 #
 ## CoreML
  - [Image Recognition](https://github.com/hectorsvill/100DaysOfSwift/blob/master/ImageRecognition/ImageRecognition/ViewController.swift)
     - [Trained Models](https://developer.apple.com/machine-learning/models/)
         
-            - use Vision and CoreML to recognize images
+            - Use Vision and CoreML to recognize images
 
 #
 ## ARKit
