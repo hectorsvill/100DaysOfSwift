@@ -26,7 +26,6 @@
         <page name='Lambda Ios Asses1'/>
         <page name='Read Write CSV'/>
         <page name='Minimum Swap 2'/>
-        <page name='Tripple Sum'/>
         <page name='QHEAP1'/>
         <page name='InsertNode at specific location'/>
         <page name='subtract-the-product-and-sum-of-digits-of-an-integer'/>
@@ -38,9 +37,11 @@
         <page name='alternatingCharacters'/>
         <page name='edabit.com'/>
         <page name='Dynamic Array  '/>
-        <page name='Untitled Page 2'/>
+        <page name='matchingStrings'/>
         <page name='fizzbuzz'/>
         <page name='Minimum-moves'/>
         <page name='Game of two stacks '/>
+        <page name='arrayManipulation'/>
+        <page name='largestValue'/>
     </pages>
 </playground>

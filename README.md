@@ -15,6 +15,12 @@
         
         - Measure objects on vertical planes in CentiMeters using 2 SCNNode positions   
 #
+- [LayOuts_Animations](https://github.com/hectorsvill/100DaysOfSwift/tree/master/InsetItemGrid)
+        
+        - UICollectionViewLayout, DiffableDataSource, UIViewControllerTransitioningDelegate
+        - PinterestLayout Collection View
+        - TableView animation 
+#
 [Code Chanllenges](https://github.com/hectorsvill/100DaysOfSwift/tree/master/hackerrank.playground/Pages)
 - Hackerrank
 - leetcode

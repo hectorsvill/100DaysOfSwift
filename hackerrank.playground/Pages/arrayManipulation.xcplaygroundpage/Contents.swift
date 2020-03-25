@@ -18,7 +18,7 @@ func arrayManipulation(n: Int, queries: [[Int]]) -> Int {
         let bottom = query[0] - 1
         let top = query[1] - 1
         let addedValue = query[2]
-        print("added Value: \(addedValue)")
+
         for i in bottom...top {
             storage[i] += addedValue
 
@@ -26,7 +26,7 @@ func arrayManipulation(n: Int, queries: [[Int]]) -> Int {
                 big = storage[i]
             }
         }
-        print(storage)
+//        print(storage)
     }
 
     return big
