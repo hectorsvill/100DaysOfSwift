@@ -1,15 +1,26 @@
-# Swift Challenges and other code by @hectorsvill
+###### iOS Notes and more
+## Table of contents
 
-# StoreKit
+* [StoreKit ](#StoreKit  )
+* [CoreML](#CoreML)
+* [ARKit](#ARKit)
+* [UIKit](#UIKit)
+* [Code Challenges 🧐](#Code-Challenges-🧐)
+* [100DaysOfSwift](#100DaysOfSwift)
+
+#
+## StoreKit
     - 
 
-
-# CoreML
+#
+## CoreML
  - [Image Recognition](https://github.com/hectorsvill/100DaysOfSwift/blob/master/ImageRecognition/ImageRecognition/ViewController.swift)
     - [Trained Models](https://developer.apple.com/machine-learning/models/)
         
             - use Vision and CoreML to recognize images
-# ARKit
+
+#
+## ARKit
 
 - [AR Dice](https://github.com/hectorsvill/100DaysOfSwift/blob/master/ArDicee/ArDicee/ViewController.swift) 
     
@@ -25,7 +36,7 @@
         - Image Tracking 
 #
 
-# UIKit
+## UIKit
 - [LayOuts_Animations](https://github.com/hectorsvill/100DaysOfSwift/tree/master/InsetItemGrid/InsetItemGrid/View%20Controllers)
         
         - UICollectionViewLayout, DiffableDataSource, UIViewControllerTransitioningDelegate
@@ -38,14 +49,15 @@
         - slide menu with smooth transition. (basic version for reference)
 
 #
-# Code Challenges 🧐
+## Code Challenges 🧐
 [Code Chanllenges](https://github.com/hectorsvill/100DaysOfSwift/tree/master/hackerrank.playground/Pages)
 - Hackerrank
 - leetcode
 
 #
 
-# 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
+## 100DaysOfSwift 
+### Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
 
 #
 
