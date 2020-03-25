@@ -1,5 +1,9 @@
 # Swift Challenges and other code by @hectorsvill
 
+# StoreKit
+    - 
+
+
 # CoreML
  - [Image Recognition](https://github.com/hectorsvill/100DaysOfSwift/blob/master/ImageRecognition/ImageRecognition/ViewController.swift)
     - [Trained Models](https://developer.apple.com/machine-learning/models/)
@@ -14,23 +18,32 @@
  - [AR Ruller](https://github.com/hectorsvill/100DaysOfSwift/blob/master/AR%20Ruller/AR%20Ruller/ViewController.swift)
         
         - Measure objects on vertical planes in CentiMeters using 2 SCNNode positions   
+        
+- [Pokemon 3D](https://github.com/hectorsvill/100DaysOfSwift/blob/master/Pokemon%203d/Pokemon%203d/ViewController.swift)
+
+        - creating AR Resourcess
+        - Image Tracking 
 #
-- [LayOuts_Animations](https://github.com/hectorsvill/100DaysOfSwift/tree/master/InsetItemGrid)
+
+# UIKit
+- [LayOuts_Animations](https://github.com/hectorsvill/100DaysOfSwift/tree/master/InsetItemGrid/InsetItemGrid/View%20Controllers)
         
         - UICollectionViewLayout, DiffableDataSource, UIViewControllerTransitioningDelegate
         - PinterestLayout Collection View
-        - TableView animation 
+        - Circular Transition 
+        - TableView animation
+        
+-  [Slide out Menu](https://github.com/hectorsvill/100DaysOfSwift/tree/master/slideMenu)
+
+        - slide menu with smooth transition. (basic version for reference)
+
 #
+# Code Challenges 🧐
 [Code Chanllenges](https://github.com/hectorsvill/100DaysOfSwift/tree/master/hackerrank.playground/Pages)
 - Hackerrank
 - leetcode
 
 #
-
-[Slide out Menu](https://github.com/hectorsvill/100DaysOfSwift/tree/master/slideMenu)
-
-- slide menu with smooth transition. (basic version for reference)
-
 
 # 100DaysOfSwift Challenge with [hackingwithswift.com](https://www.hackingwithswift.com/100)
 
