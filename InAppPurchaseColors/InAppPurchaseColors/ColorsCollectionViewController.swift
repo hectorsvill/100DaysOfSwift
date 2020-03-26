@@ -33,6 +33,8 @@ class ColorsCollectionViewController: UIViewController {
             reloadData(colors.count)
         }
 
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Restore", style: .plain, target: self, action: #selector(restorePurchase))
     }
 
     func createLayout() -> UICollectionViewLayout {
@@ -96,7 +98,12 @@ class ColorsCollectionViewController: UIViewController {
 
         dataSource?.apply(snapShot, animatingDifferences: true)
     }
-    
+
+
+    @objc func restorePurchase(_ sender: UIBarButtonItem) {
+        SKPaymentQueue.default().restoreCompletedTransactions()
+        self.navigationItem.leftBarButtonItem = nil
+    }
 }
 
 
@@ -140,6 +147,7 @@ extension ColorsCollectionViewController: SKPaymentTransactionObserver {
                 print("restore")
                 addAllColors()
                 SKPaymentQueue.default().finishTransaction($0)
+                self.navigationItem.leftBarButtonItem = nil
             case .purchased:
                 addAllColors()
                 print("purchased")
