@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1289FE93242D122C00FDFED7 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1289FE92242D122C00FDFED7 /* ColorCollectionViewCell.swift */; };
 		12D7D044242C165400D2BE9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7D043242C165400D2BE9E /* AppDelegate.swift */; };
 		12D7D046242C165400D2BE9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7D045242C165400D2BE9E /* SceneDelegate.swift */; };
 		12D7D04B242C165400D2BE9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D7D049242C165400D2BE9E /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1289FE92242D122C00FDFED7 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		12D7D040242C165400D2BE9E /* InAppPurchaseColors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InAppPurchaseColors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D7D043242C165400D2BE9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D7D045242C165400D2BE9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				12D7D043242C165400D2BE9E /* AppDelegate.swift */,
 				12D7D045242C165400D2BE9E /* SceneDelegate.swift */,
 				12D7D05A242C1E1D00D2BE9E /* ColorsCollectionViewController.swift */,
+				1289FE92242D122C00FDFED7 /* ColorCollectionViewCell.swift */,
 				12D7D049242C165400D2BE9E /* Main.storyboard */,
 				12D7D04C242C165800D2BE9E /* Assets.xcassets */,
 				12D7D04E242C165800D2BE9E /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 			files = (
 				12D7D05B242C1E1D00D2BE9E /* ColorsCollectionViewController.swift in Sources */,
 				12D7D044242C165400D2BE9E /* AppDelegate.swift in Sources */,
+				1289FE93242D122C00FDFED7 /* ColorCollectionViewCell.swift in Sources */,
 				12D7D046242C165400D2BE9E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

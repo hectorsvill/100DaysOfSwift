@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import StoreKit
 
-private let reuseIdentifier = "Cell"
+
 
 class ColorsCollectionViewController: UIViewController {
 
@@ -33,15 +34,11 @@ class ColorsCollectionViewController: UIViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
 
-
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.2))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-
         let layout = UICollectionViewCompositionalLayout(section: section)
-
-
         return layout
     }
 
@@ -52,7 +49,8 @@ class ColorsCollectionViewController: UIViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .systemBackground
         collectionView.collectionViewLayout = createLayout()
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(ColorCollectionViewCell.self, forCellWithReuseIdentifier: ColorCollectionViewCell.reuseIdentifier)
+        collectionView.delegate = self
 
         view.addSubview(collectionView)
 
@@ -66,22 +64,39 @@ class ColorsCollectionViewController: UIViewController {
 
     private func createDataSource () {
         dataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView) { collectionView, indexPath, i -> UICollectionViewCell? in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCollectionViewCell.reuseIdentifier, for: indexPath) as? ColorCollectionViewCell else { return UICollectionViewCell() }
 
-            cell.backgroundColor = self.colors[i]
+            if i == self.colors.count {
+                cell.i = i
+            }else {
+                cell.backgroundColor = self.colors[i]
+            }
 
+            cell.layer.cornerRadius = 5
+            cell.contentView.layer.cornerRadius = 5
             return cell
         }
 
-        reloadData()
+        reloadData(colors.count + 1)
     }
 
-    private func reloadData() {
+    private func reloadData(_ count: Int) {
         var snapShot = NSDiffableDataSourceSnapshot<Int, Int>()
         snapShot.appendSections([0])
-        snapShot.appendItems(Array(0..<colors.count),toSection: 0)
+        snapShot.appendItems(Array(0..<count),toSection: 0)
 
         dataSource?.apply(snapShot, animatingDifferences: true)
     }
     
 }
+
+
+extension ColorsCollectionViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item == colors.count {
+            print(indexPath.item)
+
+        }
+    }
+}
+
