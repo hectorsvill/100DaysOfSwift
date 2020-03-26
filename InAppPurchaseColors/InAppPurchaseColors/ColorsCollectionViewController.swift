@@ -23,6 +23,7 @@ class ColorsCollectionViewController: UIViewController {
         super.viewDidLoad()
 
         title = "In-App Purchase Colors"
+        SKPaymentQueue.default().add(self)
 
         view.backgroundColor = .systemBackground
         createCollectionView()
@@ -94,9 +95,26 @@ class ColorsCollectionViewController: UIViewController {
 extension ColorsCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == colors.count {
-            print(indexPath.item)
-
+            purchaseAllColors()
         }
     }
+}
+
+extension ColorsCollectionViewController: SKPaymentTransactionObserver {
+    func purchaseAllColors() {
+        if SKPaymentQueue.canMakePayments() {
+            print("Purchase")
+        } else {
+            let ac = UIAlertController(title: "Error", message: "This account Cannot make payments.", preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(ac, animated: true)
+        }
+    }
+
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+
+    }
+
+
 }
 

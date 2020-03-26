@@ -12,13 +12,14 @@
 #
 ## StoreKit
 - [Colors](https://github.com/hectorsvill/100DaysOfSwift/tree/master/InAppPurchaseColors)
+    - View a list of colors, In-App Purchase unlocks all colors.
 
-        -  Go to developer account and under Certificates, Identifiers & Profiles create a new certificate (In-App Purchase automaticly selected)
-        -  In appstoreconnect go to Feaures, under In-App Purchase add and select Non-Consumable
-            - Set Product ID, Reference Name, Pricing, and add a Localization.
-            - Create a new user by going to Users & Access, Under Sandbox Tester 
-        - Under Singing&Cabilities, + Capability In-App-Purchase
-        - Use Sandbox account for testing
+            -  Go to developer account and under Certificates, Identifiers & Profiles create a new certificate (In-App Purchase automaticly selected)
+            -  In appstoreconnect go to Feaures, under In-App Purchase add and select Non-Consumable
+                - Set Product ID, Reference Name, Pricing, and add a Localization.
+                - Create a new user by going to Users & Access, Under Sandbox Tester 
+            - Under Singing&Cabilities, + Capability In-App-Purchase
+            - Use Sandbox account for testing
 
 #
 ## CoreML
