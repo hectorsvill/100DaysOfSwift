@@ -9,8 +9,6 @@
 import UIKit
 import StoreKit
 
-
-
 class ColorsCollectionViewController: UIViewController {
     private let productIdentifier = "com.hectorstevenvillasano.InAppPurchaseColors.AllColors"
     var colors: [UIColor] = [#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1),#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1), #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1),#colorLiteral(red: 0.1921568662, green: 0.007843137719, blue: 0.09019608051, alpha: 1), #colorLiteral(red: 0.3176470697, green: 0.07450980693, blue: 0.02745098062, alpha: 1), #colorLiteral(red: 0.3098039329, green: 0.2039215714, blue: 0.03921568766, alpha: 1), #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1), ]
@@ -102,14 +100,13 @@ class ColorsCollectionViewController: UIViewController {
 
     @objc func restorePurchase(_ sender: UIBarButtonItem) {
         SKPaymentQueue.default().restoreCompletedTransactions()
-        self.navigationItem.leftBarButtonItem = nil
     }
 }
 
 
 extension ColorsCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item == colors.count {
+        if !UserDefaults.standard.bool(forKey: self.productIdentifier) && indexPath.item == colors.count {
             purchaseAllColors()
         }
     }
@@ -131,35 +128,19 @@ extension ColorsCollectionViewController: SKPaymentTransactionObserver {
     }
 
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-
         transactions.forEach {
             switch $0.transactionState {
+            case .purchasing: break
             case .failed:
-                if let error = $0.error {
-                    let ac = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .actionSheet)
-                    ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    present(ac, animated: true)
-                }
-                print("error")
-
-                SKPaymentQueue.default().finishTransaction($0)
+                handleError(transaction: $0)
             case .restored:
-                print("restore")
-                addAllColors()
-                SKPaymentQueue.default().finishTransaction($0)
-                self.navigationItem.leftBarButtonItem = nil
+                haandleRestored(transaction: $0)
             case .purchased:
-                addAllColors()
-                print("purchased")
-                SKPaymentQueue.default().finishTransaction($0)
-            default:
-                if let error = $0.error {
-                    let ac = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .actionSheet)
-                    ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    present(ac, animated: true)
-                }
-                print($0.transactionState)
-                SKPaymentQueue.default().finishTransaction($0)
+                handlePurchased(transaction: $0)
+            case .deferred:
+                print($0.description)
+            @unknown default:
+                fatalError()
             }
         }
 
@@ -169,8 +150,30 @@ extension ColorsCollectionViewController: SKPaymentTransactionObserver {
     private func addAllColors() {
         colors.append(contentsOf: lockedColors)
         reloadData(colors.count)
-
         UserDefaults.standard.set(true, forKey: productIdentifier)
+    }
+
+    private func handlePurchased(transaction: SKPaymentTransaction) {
+        print("purchase")
+        addAllColors()
+        SKPaymentQueue.default().finishTransaction(transaction)
+    }
+
+    private func haandleRestored(transaction: SKPaymentTransaction) {
+        print("restore")
+        addAllColors()
+        SKPaymentQueue.default().finishTransaction(transaction)
+        self.navigationItem.leftBarButtonItem = nil
+    }
+
+    private func handleError(transaction: SKPaymentTransaction) {
+        if let error = transaction.error {
+            let ac = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(ac, animated: true)
+        }
+
+        SKPaymentQueue.default().finishTransaction(transaction)
     }
 }
 
