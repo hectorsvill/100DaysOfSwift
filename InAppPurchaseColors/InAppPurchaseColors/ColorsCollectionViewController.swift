@@ -79,10 +79,10 @@ class ColorsCollectionViewController: UIViewController {
             }
 
             cell.layer.cornerRadius = 5
-            cell.contentView.layer.cornerRadius = 5
+            cell.contentView.layer.cornerRadius = 7
 
             cell.layer.borderWidth = 0.5
-
+            cell.contentView.layer.borderWidth = 0.5
             return cell
         }
 
@@ -131,21 +131,14 @@ extension ColorsCollectionViewController: SKPaymentTransactionObserver {
         transactions.forEach {
             switch $0.transactionState {
             case .purchasing: break
-            case .failed:
-                handleError(transaction: $0)
-            case .restored:
-                haandleRestored(transaction: $0)
-            case .purchased:
-                handlePurchased(transaction: $0)
-            case .deferred:
-                print($0.description)
-            @unknown default:
-                fatalError()
+            case .failed: handleError(transaction: $0)
+            case .restored: haandleRestored(transaction: $0)
+            case .purchased: handlePurchased(transaction: $0)
+            case .deferred: print($0.description)
+            @unknown default: fatalError()
             }
         }
-
     }
-
 
     private func addAllColors() {
         colors.append(contentsOf: lockedColors)
