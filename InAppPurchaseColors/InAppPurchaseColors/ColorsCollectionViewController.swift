@@ -168,8 +168,7 @@ extension ColorsCollectionViewController: SKPaymentTransactionObserver {
 
     private func handleError(transaction: SKPaymentTransaction) {
         if let error = transaction.error {
-            let ac = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .actionSheet)
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let ac = view.alert(tile: "Error", message: error.localizedDescription)
             present(ac, animated: true)
         }
 
@@ -177,3 +176,11 @@ extension ColorsCollectionViewController: SKPaymentTransactionObserver {
     }
 }
 
+
+extension UIView {
+    func alert(tile: String, message: String) -> UIAlertController{
+        let ac = UIAlertController(title: tile, message: message, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        return ac
+    }
+}
