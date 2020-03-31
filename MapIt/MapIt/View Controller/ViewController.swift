@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController {
-
+    private var items: [Resource_uztv_ve9b] = [] { didSet {setMapData()} }
     private let dataFetcher = DataFetcher()
     private let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        fetchData()
     }
 
     private func setupViews() {
@@ -34,6 +35,23 @@ class ViewController: UIViewController {
         userTrackingButton.leftAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
         userTrackingButton.bottomAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
 
+    }
+
+    private func fetchData() {
+        dataFetcher.fetchAvailableCOVID19resourceslocatedwithintheCityofLosAngeles { resource, error in
+            if let error = error {
+                NSLog("Error: \(error)")
+            }
+
+            guard let resource = resource else { return }
+            self.items = resource
+        }
+    }
+
+    private func setMapData() {
+        DispatchQueue.main.async {
+            self.mapView.addAnnotations(self.items)
+        }
     }
 }
 

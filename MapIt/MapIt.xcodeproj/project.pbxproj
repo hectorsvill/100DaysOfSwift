@@ -61,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				129EE9042433D5BE002C2A83 /* Lifecycle */,
+				129EE90B2433E9C6002C2A83 /* Model */,
 				129EE9082433D63E002C2A83 /* Networking */,
 				129EE9032433D5AC002C2A83 /* View Controller */,
 				129EE9052433D5D8002C2A83 /* Resources */,
@@ -100,9 +101,16 @@
 			isa = PBXGroup;
 			children = (
 				129EE9062433D634002C2A83 /* DataFetcher.swift */,
-				129EE9092433DC16002C2A83 /* Resource_uztv-ve9b.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		129EE90B2433E9C6002C2A83 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				129EE9092433DC16002C2A83 /* Resource_uztv-ve9b.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

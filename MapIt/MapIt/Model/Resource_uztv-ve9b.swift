@@ -7,11 +7,7 @@
 //
 
 import Foundation
-
-class Result: Decodable {
-    let resrouces: [Resource_uztv_ve9b]
-}
-
+import MapKit
 
 class Resource_uztv_ve9b: NSObject, Decodable {
     let map_order: String
@@ -28,3 +24,20 @@ class Resource_uztv_ve9b: NSObject, Decodable {
     let latitude: String
     let longitude: String
 }
+
+extension Resource_uztv_ve9b: MKAnnotation{
+    var coordinate: CLLocationCoordinate2D {
+
+        let latitude =  Double(self.latitude)!
+        let longitude = Double(self.longitude)!
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+
+    var title: String? {
+        self.name
+    }
+
+    
+
+}
+
