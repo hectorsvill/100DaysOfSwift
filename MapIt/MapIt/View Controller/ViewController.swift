@@ -34,7 +34,7 @@ class ViewController: UIViewController {
 
         userTrackingButton.leftAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.leftAnchor, constant: 20).isActive = true
         userTrackingButton.bottomAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-
+        title = "COVID-19 resources located in City of Los Angeles"
     }
 
     private func fetchData() {
