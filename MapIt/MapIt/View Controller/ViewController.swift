@@ -9,8 +9,10 @@
 import UIKit
 import MapKit
 
+
 class ViewController: UIViewController {
-    private var items: [Resource_uztv_ve9b] = [] { didSet {setMapData()} }
+    fileprivate let reuseIdentifier = "AnnotationReuseIdentifier"
+    private var items: [Resource_uztv_ve9b] = [] { didSet { setMapData() } }
     private let dataFetcher = DataFetcher()
     private let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
@@ -26,7 +28,8 @@ class ViewController: UIViewController {
         mapView.delegate = self
         locationManager.requestWhenInUseAuthorization()
 
-        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "")
+
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "AnnotationReuseIdentifier")
 
         userTrackingButton = MKUserTrackingButton(mapView: mapView)
         userTrackingButton.translatesAutoresizingMaskIntoConstraints = false
@@ -57,10 +60,18 @@ class ViewController: UIViewController {
 
 // MARK: - MKMapViewDelegate
 extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier, for: annotation) as! MKMarkerAnnotationView
 
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        MKAnnotationView()
-//    }
+        annotationView.tintColor = .green
+        annotationView.glyphImage = UIImage(systemName: "bandage")!
+        annotationView.canShowCallout = true
+
+        annotationView.detailCalloutAccessoryView = UIView(frame: .zero)
+
+
+        return annotationView
+    }
 
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         print("mapViewDidChangeVisibleRegion")
