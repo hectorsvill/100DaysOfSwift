@@ -76,4 +76,9 @@ extension ViewController: MKMapViewDelegate {
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
         print("mapViewDidChangeVisibleRegion")
     }
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+
+        print("didselect")
+    }
 }
