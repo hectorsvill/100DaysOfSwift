@@ -15,6 +15,7 @@
 		129EE8FC2433C117002C2A83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 129EE8FA2433C117002C2A83 /* LaunchScreen.storyboard */; };
 		129EE9072433D634002C2A83 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129EE9062433D634002C2A83 /* DataFetcher.swift */; };
 		129EE90A2433DC16002C2A83 /* Resource_uztv-ve9b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129EE9092433DC16002C2A83 /* Resource_uztv-ve9b.swift */; };
+		129EE90D2434FDA9002C2A83 /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129EE90C2434FDA9002C2A83 /* MapDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		129EE8FD2433C117002C2A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		129EE9062433D634002C2A83 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		129EE9092433DC16002C2A83 /* Resource_uztv-ve9b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resource_uztv-ve9b.swift"; sourceTree = "<group>"; };
+		129EE90C2434FDA9002C2A83 /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				129EE90B2433E9C6002C2A83 /* Model */,
 				129EE9082433D63E002C2A83 /* Networking */,
 				129EE9032433D5AC002C2A83 /* View Controller */,
+				129EE90E2434FDB1002C2A83 /* Views */,
 				129EE9052433D5D8002C2A83 /* Resources */,
 			);
 			path = MapIt;
@@ -111,6 +114,14 @@
 				129EE9092433DC16002C2A83 /* Resource_uztv-ve9b.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		129EE90E2434FDB1002C2A83 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				129EE90C2434FDA9002C2A83 /* MapDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 				129EE8F02433C113002C2A83 /* AppDelegate.swift in Sources */,
 				129EE90A2433DC16002C2A83 /* Resource_uztv-ve9b.swift in Sources */,
 				129EE8F22433C113002C2A83 /* SceneDelegate.swift in Sources */,
+				129EE90D2434FDA9002C2A83 /* MapDetailView.swift in Sources */,
 				129EE9072433D634002C2A83 /* DataFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

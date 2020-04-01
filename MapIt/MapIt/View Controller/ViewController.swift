@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
 
 
-        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "AnnotationReuseIdentifier")
+        mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: reuseIdentifier)
 
         userTrackingButton = MKUserTrackingButton(mapView: mapView)
         userTrackingButton.translatesAutoresizingMaskIntoConstraints = false
@@ -62,14 +62,15 @@ class ViewController: UIViewController {
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier, for: annotation) as! MKMarkerAnnotationView
+        guard let resource = annotation as? Resource_uztv_ve9b else { return nil }
 
         annotationView.tintColor = .green
         annotationView.glyphImage = UIImage(systemName: "bandage")!
         annotationView.canShowCallout = true
 
-        annotationView.detailCalloutAccessoryView = UIView(frame: .zero)
-
-
+        let mapDetailView = MapDetailView(frame: .zero)
+        mapDetailView.resource = resource
+        annotationView.detailCalloutAccessoryView = mapDetailView
         return annotationView
     }
 
