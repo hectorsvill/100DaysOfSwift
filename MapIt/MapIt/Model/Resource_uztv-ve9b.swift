@@ -33,9 +33,6 @@ extension Resource_uztv_ve9b: MKAnnotation{
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 
-    var title: String? {
-        self.name
-    }
 
     
 

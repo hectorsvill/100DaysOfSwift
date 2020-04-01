@@ -11,10 +11,20 @@ import UIKit
 class MapDetailView: UIView {
     var resource: Resource_uztv_ve9b? { didSet { setupViews() }}
 
-    private var typeLabel: UILabel = {
+    private var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .boldSystemFont(ofSize: 14)
+        label.textColor = .label
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+
+    private var typeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .italicSystemFont(ofSize: 10)
         label.textColor = .label
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -41,9 +51,27 @@ class MapDetailView: UIView {
         return textField
     }()
 
+    private var infoButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        button.setTitle("more", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.addTarget(self, action: #selector(infoButtonSelected), for: .touchUpInside)
+
+
+        return button
+    }()
+
+    @objc func infoButtonSelected() {
+
+        print("show more info info")
+
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let stackView = UIStackView(arrangedSubviews: [typeLabel, addressTextField, phoneNumberTextField])
+        let stackView = UIStackView(arrangedSubviews: [nameLabel, typeLabel, addressTextField, phoneNumberTextField, infoButton])
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -66,13 +94,15 @@ class MapDetailView: UIView {
 
 
     private func setupViews() {
-        guard let resource = resource, let phoneNumber =  resource.phone_number else { return }
+        guard let resource = resource else { return }
 
-        print(resource.type, resource.full_address, phoneNumber)
+        nameLabel.text = resource.name
         typeLabel.text = resource.type
         addressTextField.text = resource.full_address
-        phoneNumberTextField.text = phoneNumber
 
+        if let phoneNumber = resource.phone_number {
+            phoneNumberTextField.text = phoneNumber
+        }
     }
 
 }
