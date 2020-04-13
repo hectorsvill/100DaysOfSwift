@@ -44,5 +44,6 @@
         <page name='arrayManipulation'/>
         <page name='largestValue'/>
         <page name='bubble sort - '/>
+        <page name='Mark and Toys'/>
     </pages>
 </playground>
