@@ -43,5 +43,6 @@
         <page name='Game of two stacks '/>
         <page name='arrayManipulation'/>
         <page name='largestValue'/>
+        <page name='bubble sort - '/>
     </pages>
 </playground>

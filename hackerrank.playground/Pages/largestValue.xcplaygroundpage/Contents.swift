@@ -2,11 +2,6 @@
 
 import Foundation
 
-
-
-
-
-
 func largestSubValue(array: [Int]) -> Int {
     var values = [Int]()
     for i in 0..<array.count{
@@ -20,6 +15,8 @@ func largestSubValue(array: [Int]) -> Int {
    // print(values)
     return values.reduce(0, +)
 }
+
+
 func largestValue(array: [Int]) -> Int{
 
     var largestValue = 0
