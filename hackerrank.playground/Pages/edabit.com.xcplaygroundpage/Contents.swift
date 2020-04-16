@@ -116,8 +116,82 @@ func isPalindrome(_ str: String) -> Bool {
     return String(newString.reversed()) == newString
 }
 
-isPalindrome("Neuquen") //➞ true
+//isPalindrome("Neuquen") //➞ true
+//
+//isPalindrome("Not a palindrome") //➞ false
+//
+//isPalindrome("A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!") //➞ true
 
-isPalindrome("Not a palindrome") //➞ false
 
-isPalindrome("A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!") //➞ true
+func firstLast(_ arr: [Any]) -> [Any] {
+    let newarr = [arr.first!, arr.last!]
+    return newarr
+}
+
+func removeFirstLast(_ str: String) -> String {
+    var newStr = Array(str)
+    newStr.remove(at: 0)
+    newStr.remove(at: newStr.count - 1)
+
+    return String(newStr)
+}
+
+//removeFirstLast("thisis")
+
+func nthSmallest(_ arr: [Int], _ n: Int) -> Int? {
+    let arrCopy = arr.sorted()
+    return n < arrCopy.count ? arrCopy[n - 1] : nil
+}
+
+
+
+func minMax(_ arr: [Double]) -> [Double] {
+    return [arr.min()!, arr.max()!]
+}
+
+//minMax([0, 21, 1, -2 ])
+
+func setify(_ arr: [Int]) -> [Int] {
+
+    let set = Set<Int>(arr)
+    return Array(set).sorted()
+}
+
+//setify([0,0,1,1,2,3,4,5,6])
+
+
+func filterDigitLength(_ arr: [Int], _ num: Int) -> [Int] {
+    var newArr = [Int]()
+
+    for i in 0..<arr.count {
+        var number = arr[i]
+        var count = 0
+
+        while number > 0 {
+            number /= 10
+            count += 1
+        }
+
+        if count == num {
+            newArr.append(arr[i])
+        }
+    }
+
+    return newArr
+}
+
+//filterDigitLength([88, 232, 4, 9721, 555], 3)
+
+
+func factorize(_ num: Int) -> [Int] {
+    var factors = [Int]()
+    for i in 1..<num {
+        if num % i == 0 {
+            factors.append(i)
+        }
+    }
+    factors.append(num)
+    return factors
+}
+
+factorize(12) //[1, 2, 3, 4, 6, 12]
