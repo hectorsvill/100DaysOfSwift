@@ -152,7 +152,6 @@ func minMax(_ arr: [Double]) -> [Double] {
 //minMax([0, 21, 1, -2 ])
 
 func setify(_ arr: [Int]) -> [Int] {
-
     let set = Set<Int>(arr)
     return Array(set).sorted()
 }
@@ -194,4 +193,68 @@ func factorize(_ num: Int) -> [Int] {
     return factors
 }
 
-factorize(12) //[1, 2, 3, 4, 6, 12]
+// factorize(12) //[1, 2, 3, 4, 6, 12]
+
+
+func validatePIN(_ pin: String) -> Bool {
+    return pin.count == 4 || pin.count == 6
+}
+
+//validatePIN("one34")
+
+func hashPlusCount(_ str: String) -> [Int] {
+    var hashValue = 0
+    var plusValue = 0
+
+    for item in str {
+        if item == "+" {
+            plusValue += 1
+        } else if item == "#" {
+            hashValue += 1
+        }
+    }
+
+    return [hashValue, plusValue];
+}
+
+//hashPlusCount("#+++#+#++#")
+
+
+func toSnakeCase(_ str: String) -> String {
+    var newStr = ""
+
+    for item in str {
+        if item < "a"{
+            newStr += "_\(String(item).lowercased())"
+        } else {
+            newStr += String(item)
+
+        }
+    }
+
+    return newStr
+}
+
+func toCamelCase(_ str: String) -> String {
+    var newStr = ""
+
+    str.map {
+        if $0 < "Z"{
+            newStr += "\(String($0).uppercased())"
+        } else {
+            newStr += String($0)
+        }
+    }
+
+    return newStr
+}
+
+//toCamelCase("hello_edabit")//"helloEdabit"
+//
+//toSnakeCase("helloEdabit") // "hello_edabit"
+//
+//toCamelCase("is_modal_open") // "isModalOpen"
+//
+//toSnakeCase("getColor") // "get_color"
+
+

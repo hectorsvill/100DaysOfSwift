@@ -12,11 +12,25 @@ func isBalanced(s: String) -> String {
             stack.append(String(bracket))
         } else {
             if bracket == "}" {
-                guard let last = stack.last, last == "{", let _ = stack.popLast() else { return "NO" }
+                guard
+                    let last = stack.last,
+                    last == "{",
+                    let _ = stack.popLast()
+                    else { return "NO" }
+
             } else if bracket == "]" {
-                guard let last = stack.last, last == "[", let _ = stack.popLast() else { return "NO" }
+                guard
+                    let last = stack.last,
+                    last == "[",
+                    let _ = stack.popLast()
+                    else { return "NO" }
+
             } else if bracket == ")" {
-                guard let last  = stack.last, last == "(", let _ = stack.popLast() else { return "NO" }
+                guard
+                    let last  = stack.last,
+                    last == "(",
+                    let _ = stack.popLast()
+                    else { return "NO" }
             }
         }
     }
