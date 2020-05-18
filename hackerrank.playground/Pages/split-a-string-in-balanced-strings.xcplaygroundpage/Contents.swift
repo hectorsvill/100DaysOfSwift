@@ -21,5 +21,5 @@ class Solution {
     }
 }
 
-let s = Solution()
-s.balancedStringSplit("RLRRLLRLRL")
+//let s = Solution()
+//s.balancedStringSplit("RLRRLLRLRL")

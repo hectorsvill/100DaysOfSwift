@@ -5,7 +5,7 @@ import Foundation
 
 
 
-func findTarget(arr: [Int], target: Int) -> [Int]{
+func findTarget(arr: [Int], target: Int) -> [Int] {
     var dict: [Int: Int] = [:]
 
     for (i, item) in arr.enumerated() {
@@ -197,9 +197,55 @@ func createTargetArray(_ nums: [Int], _ index: [Int]) -> [Int] {
 }
 
 
-createTargetArray([0,1,2,3,4], [0,1,2,2,1]) // [0,4,1,3,2]
+//createTargetArray([0,1,2,3,4], [0,1,2,2,1]) // [0,4,1,3,2]
 
 
 
+func destCity(_ paths: [[String]]) -> String {
+    var i = 0
+    while i < paths.count - 1 {
+        let nextPath = paths[i][1]
+        if nextPath != paths[i + 1][0] {
+            return nextPath
+        }
+
+        i += 1
+    }
 
 
+    return paths[i + 1][1]
+}
+
+
+
+//let paths = [["B","C"],["D","B"],["C","A"]]
+//destCity(paths)
+
+
+//https://leetcode.com/problems/cells-with-odd-values-in-a-matrix/
+func oddCells(_ n: Int, _ m: Int, _ indices: [[Int]]) -> Int {
+    var matrix = Array(repeating: Array(repeating: 0, count: m), count: n)
+    var oddNumbers = 0
+
+    for indeci in indices {
+        let rowToIncrement = indeci[0]
+        let columbToIncrement = indeci[1]
+
+        for i in 0..<matrix[rowToIncrement].count {
+            matrix[rowToIncrement][i] += 1
+        }
+
+        for i in 0..<matrix.count {
+            matrix[i][columbToIncrement] += 1
+        }
+    }
+
+    matrix.forEach {
+        $0.forEach {
+            if $0 % 2 != 0 { oddNumbers += 1 }
+        }
+    }
+
+    return oddNumbers // return number of odd numbers
+}
+oddCells(2, 2, [[1,1], [0,0]]) // -> 6
