@@ -46,5 +46,6 @@
         <page name='bubble sort - '/>
         <page name='Mark and Toys'/>
         <page name='Leet Code'/>
+        <page name='CodeSignal'/>
     </pages>
 </playground>

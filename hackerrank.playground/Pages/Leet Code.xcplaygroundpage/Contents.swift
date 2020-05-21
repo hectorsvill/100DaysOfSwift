@@ -248,4 +248,33 @@ func oddCells(_ n: Int, _ m: Int, _ indices: [[Int]]) -> Int {
 
     return oddNumbers // return number of odd numbers
 }
-oddCells(2, 2, [[1,1], [0,0]]) // -> 6
+
+oddCells(100, 100, [[9,11], [30,40], [72, 91]]) // -> 6
+
+//https://leetcode.com/problems/decrypt-string-from-alphabet-to-integer-mapping/
+func freqAlphabets(_ s: String) -> String {
+    let sArray = Array(s)
+    var index = 0
+    var valueString = ""
+
+    while index < sArray.count {
+        var numberString = String()
+
+        if index + 2 < sArray.count && sArray[index + 2] == "#" {
+            numberString = String(sArray[index]) + String(sArray[index + 1])
+            index += 3
+        }else {
+            numberString = "\(sArray[index])"
+            index += 1
+        }
+
+        let startCharValue = ("`" as UnicodeScalar).value + UInt32(Int(numberString)!)
+        let character = Character(UnicodeScalar(startCharValue)!)
+        valueString += String(character)
+//        print(valueString)
+    }
+
+    return valueString
+}
+
+//freqAlphabets("10#11#12")
