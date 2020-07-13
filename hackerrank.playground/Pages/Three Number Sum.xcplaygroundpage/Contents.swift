@@ -37,33 +37,20 @@ func gradingStudents(grades: [Int]) -> [Int] {
 
 
 
-
-
-
-
-
-
-let x = [73, 67 ,38 , 33]
-
-print(gradingStudents(grades: x))
-
-
-
-
-
-
-
 //: [Next](@next)
 func threeNumberSumSolution(numbers: [Int], sum: Int) -> [[Int]] {
     let sortedNumbers = numbers.sorted()
     var triplets: [[Int]] = [[Int]]()
+    
     for i in 0...sortedNumbers.count - 2 {
         var left = i + 1
         var right = sortedNumbers.count - 1
         while left < right {
             let currentSum = sortedNumbers[i] + sortedNumbers[left] + sortedNumbers[right]
             if currentSum == sum {
-                triplets.append([sortedNumbers[i], sortedNumbers[left], sortedNumbers[right]])
+                if !triplets.contains([sortedNumbers[i], sortedNumbers[left], sortedNumbers[right]]) {
+                    triplets.append([sortedNumbers[i], sortedNumbers[left], sortedNumbers[right]])
+                }
                 left += 1
                 right -= 1
             } else if currentSum < sum {
@@ -75,3 +62,6 @@ func threeNumberSumSolution(numbers: [Int], sum: Int) -> [[Int]] {
     }
     return triplets
 }
+
+let answer = threeNumberSumSolution(numbers: [-1,0,1,2,-1,-4], sum: 0)
+print(answer)
