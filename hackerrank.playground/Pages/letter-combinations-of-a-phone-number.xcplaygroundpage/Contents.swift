@@ -18,17 +18,17 @@ func letterCombinations(_ digits: String) -> [String] {
     queue.append("")
     
     while queue.count != 0 {
-        print(queue)
         let permutation = queue.popLast()!
+        
         if permutation.count == digits.count {
             combinations.append(permutation)
         } else {
             let numberPadValue = numberPad[digits[permutation.count]]!
+            
             for letter in numberPadValue {
                 queue.append(permutation + String(letter))
             }
         }
-        
     }
     
     return combinations
@@ -36,5 +36,5 @@ func letterCombinations(_ digits: String) -> [String] {
 
 
 
-let values = letterCombinations("4659")
-print(values)
+let values = letterCombinations("29")
+print("Solution: ", values)

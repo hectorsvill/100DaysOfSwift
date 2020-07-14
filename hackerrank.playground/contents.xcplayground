@@ -48,5 +48,6 @@
         <page name='Leet Code'/>
         <page name='My Code Challenge '/>
         <page name='letter-combinations-of-a-phone-number'/>
+        <page name='3Sum'/>
     </pages>
 </playground>

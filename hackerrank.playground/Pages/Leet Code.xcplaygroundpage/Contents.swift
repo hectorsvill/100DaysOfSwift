@@ -320,22 +320,3 @@ func threeSum(_ nums: [Int]) -> [[Int]] {
 //print(date2.timeIntervalSince1970 - date1.timeIntervalSince1970)
 
 
-//print(testValue_3000.count)
-// 0(n^3)
-func threeSum1(_ nums: [Int]) -> [[Int]] {
-    var sums_equal_0 = [[Int]]()
-    for x in 0...nums.count - 2 {
-        for y in x + 1..<nums.count - 1 {
-            for z in y + 1..<nums.count{
-                let values = [nums[x], nums[y], nums[z]].sorted()
-                let total = values.reduce(0 , +)
-                if total == 0 && !sums_equal_0.contains(values) {
-                    sums_equal_0.append(values)
-                }
-                
-            }
-        }
-    }
-
-    return sums_equal_0
-}
