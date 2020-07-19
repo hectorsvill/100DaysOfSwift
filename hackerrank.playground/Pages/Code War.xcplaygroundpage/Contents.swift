@@ -115,10 +115,46 @@ func flattenAndSort<T: Comparable>(_ arr: [[T]]) -> [T] {
     return newList.sorted()
 }
 
-
 //let result = flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]])
 //print(result)
-    
+
+func rgb(_ r: Int, _ g: Int, _ b: Int) -> String {
+    return [r,g,b].map { return String(format: "%02X", min(255, max(0, $0))) }.joined()
+}
+
+//let rgbString = rgb(251, 251, -2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
