@@ -76,6 +76,8 @@
 [Code Chanllenges](https://github.com/hectorsvill/100DaysOfSwift/tree/master/hackerrank.playground/Pages)
 - Hackerrank
 - leetcode
+- codewars.com
+- edabit.com
 
 #
 
