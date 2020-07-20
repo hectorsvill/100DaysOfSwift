@@ -83,7 +83,6 @@ func twosum(numbers: [Int], target: Int) -> [Int] {
 
 //twosum(numbers: [1,54,24,35], target: 59)
 
-
 func countDuplicates(_ s:String) -> Int {
     var dict = [String: Int]()
     
@@ -103,15 +102,14 @@ func countDuplicates(_ s:String) -> Int {
     return total
 }
 
-
 func flattenAndSort<T: Comparable>(_ arr: [[T]]) -> [T] {
     var newList = [T]()
     arr.forEach { newList.append(contentsOf: $0) }
     return newList.sorted()
 }
 
-let result = flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]])
-print(result)
+//let result = flattenAndSort([[3, 2, 1], [4, 6, 5], [], [9, 7, 8]])
+//print(result)
 
 func rgb(_ r: Int, _ g: Int, _ b: Int) -> String {
     return [r,g,b].map { return String(format: "%02X", min(255, max(0, $0))) }.joined()
