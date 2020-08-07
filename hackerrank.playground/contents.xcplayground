@@ -50,5 +50,6 @@
         <page name='letter-combinations-of-a-phone-number'/>
         <page name='3Sum'/>
         <page name='Code War'/>
+        <page name='Alternating Characters  '/>
     </pages>
 </playground>

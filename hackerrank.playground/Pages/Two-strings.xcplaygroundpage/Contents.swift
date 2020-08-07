@@ -5,6 +5,7 @@ import Foundation
 /*
     Given two strings, determine if they share a common substring.
     A substring may be as small as one character.
+    return YES or NO
 */
 
 func twoStrings(s1: String, s2: String) -> String {
@@ -45,5 +46,6 @@ twoStrings(s1: "hackerrankcommunity", s2: "cdecdecdecde")
  
  no
  --------------------
- **/
+ 
+ */
 

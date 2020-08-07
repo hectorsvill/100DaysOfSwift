@@ -1,6 +1,8 @@
 //: [Previous](@previous)
 
 import Foundation
+import XCTest
+
 
 func findMissingLetter(_ chArr: [Character]) -> Character {
     var asciiValueLastState = chArr[0].asciiValue!
@@ -55,12 +57,8 @@ func encryptThis(text:String) -> String{
     
     return newString
 }
-
-
 //let s = encryptThis(text: "A wise old owl lived in an oak")
 //print(s)
-
-
 
 // two sum
 func twosum(numbers: [Int], target: Int) -> [Int] {
@@ -75,7 +73,6 @@ func twosum(numbers: [Int], target: Int) -> [Int] {
         }
         
         dict[number] = i
-        
     }
     
     return []
@@ -120,25 +117,41 @@ func rgb(_ r: Int, _ g: Int, _ b: Int) -> String {
 
 
 
+/*
+ https://www.codewars.com/kata/526571aae218b8ee490006f4/train/swift
+ 
+ Write a function that takes an integer as input, and returns the number of bits that are equal
+ to one in the binary representation of that number. You can guarantee that input is non-negative.
+
+ Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
+ 
+ */
+
+func countBits(_ n: Int) -> Int {
+    String(n, radix: 2).filter{ $0 == "1" }.count //.replacingOccurrences(of: "0", with: "").count
+}
+
+XCTAssert(countBits(1) == 1)
+XCTAssert(countBits(10) == 2)
 
 
 
+/*
+ A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+ Examples of first few prime numbers are {2, 3, 5,
+ */
+func isPrime(_ number: Int) -> Bool {
+    if number <= 1 { return false }
+    
+    for index in 2..<number {
+        if number % index == 0 {
+            return false
+        }
+    }
+    
+    return true
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+XCTAssertTrue(isPrime(2))
+XCTAssertTrue(isPrime(3))
+XCTAssertTrue(isPrime(5))

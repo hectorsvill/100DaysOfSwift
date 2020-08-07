@@ -2,8 +2,6 @@
 
 import Foundation
 
-
-
 func isBalanced(s: String) -> String {
     var stack = [String]()
 
