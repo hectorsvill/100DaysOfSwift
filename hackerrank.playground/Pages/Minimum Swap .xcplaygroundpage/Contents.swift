@@ -28,11 +28,11 @@ func minimumSwaps(arr: [Int]) -> Int {
         }
 
         var cycleSize = 0
-        var j = i
+        var visitedIndex = i
 
-        while !visitedDictionary[j]! {
-            visitedDictionary[j] = true
-            j = arrayPositionValue[j].0
+        while !visitedDictionary[visitedIndex]! {
+            visitedDictionary[visitedIndex] = true
+            visitedIndex = arrayPositionValue[visitedIndex].0
             cycleSize += 1
         }
 
@@ -47,6 +47,6 @@ func minimumSwaps(arr: [Int]) -> Int {
 let arr1 = [5,2,4,1,3]
 
 print(arr1)
-let swapCount = minimumSwaps(arr: arr1)
+let swapCount = minimumSwaps(arr: arr1) // -> 3
 print("swap count: ", swapCount)
 
