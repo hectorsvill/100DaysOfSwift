@@ -20,7 +20,7 @@ func minimumSwaps(arr: [Int]) -> Int {
         visitedDictionary[index] = false
     }
     
-    arrayPositionValue = arrayPositionValue.sorted{return $0.1 < $1.1 }
+    arrayPositionValue = arrayPositionValue.sorted{ $0.1 < $1.1 }
 
     for i in 0..<arr.count {
         var cycleSize = 0

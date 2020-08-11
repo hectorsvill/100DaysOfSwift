@@ -51,5 +51,6 @@
         <page name='3Sum'/>
         <page name='Code War'/>
         <page name='Alternating Characters  '/>
+        <page name='Reverse Integer'/>
     </pages>
 </playground>
