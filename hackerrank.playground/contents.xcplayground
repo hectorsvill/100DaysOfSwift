@@ -52,5 +52,6 @@
         <page name='Code War'/>
         <page name='Alternating Characters  '/>
         <page name='Reverse Integer'/>
+        <page name='even number of digits'/>
     </pages>
 </playground>

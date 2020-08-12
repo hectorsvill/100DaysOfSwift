@@ -27,7 +27,7 @@ func reverse(_ x: Int) -> Int {
     if x < 0 {
         number *= -1
     }
-    
+ 
     while number > 0 {
         let a = number % 10
         reverseNumber = reverseNumber * 10 + a
