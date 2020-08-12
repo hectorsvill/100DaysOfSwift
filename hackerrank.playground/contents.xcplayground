@@ -53,5 +53,6 @@
         <page name='Alternating Characters  '/>
         <page name='Reverse Integer'/>
         <page name='even number of digits'/>
+        <page name='remove the duplicates'/>
     </pages>
 </playground>
