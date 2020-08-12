@@ -12,28 +12,10 @@ import XCTest
 
 func shuffle(_ nums: [Int], _ n: Int) -> [Int] {
     var newArray = [Int]()
-    var left = [Int]()
-    var right = [Int]()
     
-    for i in 0..<nums.count {
-        left.append(nums[i])
-        
-        if i >= n {
-            right.append(nums[i])
-        }
-    }
-    
-    var x = 0
-    var y = 0
-    
-    for i in 0..<nums.count {
-        if i % 2 == 0 {
-            newArray.append(left[x])
-            x += 1
-        } else {
-            newArray.append(right[y])
-            y += 1
-        }
+    for i in 0..<n {
+        newArray.append(nums[i])
+        newArray.append(nums[i + n])
     }
     
     return newArray
