@@ -54,5 +54,6 @@
         <page name='Reverse Integer'/>
         <page name='even number of digits'/>
         <page name='remove the duplicates'/>
+        <page name='Running Sum'/>
     </pages>
 </playground>
