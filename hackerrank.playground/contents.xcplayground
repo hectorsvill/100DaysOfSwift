@@ -55,5 +55,6 @@
         <page name='even number of digits'/>
         <page name='remove the duplicates'/>
         <page name='Running Sum'/>
+        <page name='shuffle the array'/>
     </pages>
 </playground>
