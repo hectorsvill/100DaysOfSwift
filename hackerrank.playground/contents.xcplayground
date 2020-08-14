@@ -56,5 +56,6 @@
         <page name='remove the duplicates'/>
         <page name='Running Sum'/>
         <page name='shuffle the array'/>
+        <page name='Restore String'/>
     </pages>
 </playground>
