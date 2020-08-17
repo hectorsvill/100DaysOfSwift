@@ -59,5 +59,7 @@
         <page name='Restore String'/>
         <page name='Number of Identical Pairs'/>
         <page name='How Many Numbers Are Smaller Than the Current Number'/>
+        <page name='Decompress Run-Length Encoded List'/>
+        <page name='xorOperation'/>
     </pages>
 </playground>
