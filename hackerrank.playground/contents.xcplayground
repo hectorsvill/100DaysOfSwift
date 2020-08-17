@@ -57,5 +57,7 @@
         <page name='Running Sum'/>
         <page name='shuffle the array'/>
         <page name='Restore String'/>
+        <page name='Number of Identical Pairs'/>
+        <page name='How Many Numbers Are Smaller Than the Current Number'/>
     </pages>
 </playground>
