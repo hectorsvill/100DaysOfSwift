@@ -61,5 +61,6 @@
         <page name='How Many Numbers Are Smaller Than the Current Number'/>
         <page name='Decompress Run-Length Encoded List'/>
         <page name='xorOperation'/>
+        <page name='Count Good Triplets'/>
     </pages>
 </playground>
