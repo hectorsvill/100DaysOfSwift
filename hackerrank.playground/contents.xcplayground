@@ -62,5 +62,6 @@
         <page name='Decompress Run-Length Encoded List'/>
         <page name='xorOperation'/>
         <page name='Count Good Triplets'/>
+        <page name='Remove Outermost Parentheses'/>
     </pages>
 </playground>

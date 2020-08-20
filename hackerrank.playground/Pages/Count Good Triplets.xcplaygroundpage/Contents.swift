@@ -29,7 +29,7 @@ func countGoodTriplets(_ arr: [Int], _ a: Int, _ b: Int, _ c: Int) -> Int {
                 let numJ = arr[j]
                 let numK = arr[k]
                 
-                if  abs(numI - numJ) <= a && abs(numJ - numK) <= b && abs(numI - numK) <= c {
+                if abs(numI - numJ) <= a && abs(numJ - numK) <= b && abs(numI - numK) <= c {
                     goodTripletsCount += 1
                 }
             }
