@@ -66,5 +66,7 @@
         <page name='firstDuplicate'/>
         <page name='firstNotRepeatingCharacter'/>
         <page name='rotateImage'/>
+        <page name='matrixElementsSum'/>
+        <page name='Query HashMap'/>
     </pages>
 </playground>
