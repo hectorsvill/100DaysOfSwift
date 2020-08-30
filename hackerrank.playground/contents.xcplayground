@@ -68,5 +68,6 @@
         <page name='rotateImage'/>
         <page name='matrixElementsSum'/>
         <page name='Query HashMap'/>
+        <page name='Singly List Node'/>
     </pages>
 </playground>

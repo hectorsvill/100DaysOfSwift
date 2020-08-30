@@ -5,8 +5,6 @@ import Foundation
 
 //  Singly-linked lists are already defined with this interface:
 
-
-
 public class ListNode<T> {
     public var value: T
     public var next: ListNode<T>?
@@ -22,24 +20,25 @@ func removeKFromList(l: ListNode<Int>?, k: Int) -> ListNode<Int>? {
     var copy = l
     var last: ListNode<Int>? = nil
     
-    if copy?.value == k {
-        return copy?.next
+    while copy?.value == k {
+        l = copy?.next
+        copy = l
     }
     
-    while copy?.next != nil {
-        print(copy!.value)
-       
-        if copy!.value == k {
-            break
+    while copy != nil {
+        while copy != nil && copy?.value != k {
+            last = copy
+            copy = copy?.next
         }
         
-        last = copy
-        copy = copy!.next
+        if copy == nil {
+            return l
+        }
+        
+        last?.next = copy?.next
+        copy = last?.next
         
     }
-    
-    last?.next = copy?.next
-    
     
     return l
 }

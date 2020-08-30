@@ -35,6 +35,3 @@ let rotation3 = [[3, 6, 9], [2, 5, 8], [1, 4, 7]]
 XCTAssertEqual(rotateImage(a: a), rotation1)
 XCTAssertEqual(rotateImage(a: rotation1), rotation2)
 XCTAssertEqual(rotateImage(a: rotation3), a)
-
-
-//: [Next](@next)
