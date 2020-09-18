@@ -168,3 +168,41 @@ XCTAssertTrue(isPrime(5))
 func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
   return array.sorted()[0...1].reduce(0, +)
 }
+
+XCTAssertTrue(sumOfTwoSmallestIntegersIn([1,2,3,4,5]) == 3)
+XCTAssertTrue(sumOfTwoSmallestIntegersIn([4,5,6,7,8,9]) == 9)
+
+
+/*
+ 
+ Given a number, return a string with dash'-'marks before and after each odd
+ integer, but do not begin or end the string with a dash mark.
+ 
+ */
+
+
+func dashatize(_ number: Int) -> String {
+    let number = number < 0 ? -number : number
+    
+    let stringArray = String(number).map {
+        Int(String($0))! % 2 == 0 ? "\($0)" : "-\($0)-"
+    }
+    print(stringArray)
+    
+    var stringed = stringArray.joined(separator: "")
+    
+    if stringed.first == "-" {
+        stringed.remove(at: stringed.startIndex)
+    }
+    
+    if stringed.last == "-" {
+        stringed = String(stringed.dropLast())
+    }
+    
+    return stringed.replacingOccurrences(of: "--", with: "-")
+}
+
+dashatize(6815) // 68-1-5
+dashatize(3274) // 2-7-4
+dashatize(-5311) //  -5-3-1-1
+dashatize(5311) //  5-3-1-1
