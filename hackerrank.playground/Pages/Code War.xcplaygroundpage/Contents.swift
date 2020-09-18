@@ -140,6 +140,7 @@ XCTAssert(countBits(10) == 2)
  A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
  Examples of first few prime numbers are {2, 3, 5,
  */
+
 func isPrime(_ number: Int) -> Bool {
     if number <= 1 { return false }
     
@@ -155,3 +156,15 @@ func isPrime(_ number: Int) -> Bool {
 XCTAssertTrue(isPrime(2))
 XCTAssertTrue(isPrime(3))
 XCTAssertTrue(isPrime(5))
+
+/*
+ 
+ Create a function that returns the sum of the two lowest positive numbers
+ given an array of minimum 4 positive integers. No floats or non-positive
+ integers will be passed.
+ 
+ */
+
+func sumOfTwoSmallestIntegersIn(_ array: [Int]) -> Int {
+  return array.sorted()[0...1].reduce(0, +)
+}

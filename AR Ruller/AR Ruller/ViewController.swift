@@ -79,6 +79,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let yValue = endNode.position.y - startNode.position.y
         let zValue = endNode.position.z - startNode.position.z
 
+        // distance formula 
         let distance = abs(sqrt(pow(xValue, 2) + pow(yValue, 2) + pow(zValue, 2))) * 100
 
         let str = String(format: "%0.3f", distance)
