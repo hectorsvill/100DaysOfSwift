@@ -183,13 +183,13 @@ XCTAssertTrue(sumOfTwoSmallestIntegersIn([4,5,6,7,8,9]) == 9)
 
 func dashatize(_ number: Int) -> String {
     let number = number < 0 ? -number : number
+    var stringed = ""
     
     let stringArray = String(number).map {
         Int(String($0))! % 2 == 0 ? "\($0)" : "-\($0)-"
     }
-    print(stringArray)
     
-    var stringed = stringArray.joined(separator: "")
+    stringed = stringArray.joined(separator: "")
     
     if stringed.first == "-" {
         stringed.remove(at: stringed.startIndex)
@@ -202,7 +202,7 @@ func dashatize(_ number: Int) -> String {
     return stringed.replacingOccurrences(of: "--", with: "-")
 }
 
-dashatize(6815) // 68-1-5
-dashatize(3274) // 2-7-4
-dashatize(-5311) //  -5-3-1-1
-dashatize(5311) //  5-3-1-1
+XCTAssertTrue(dashatize(6815) == "68-1-5")
+XCTAssertTrue(dashatize(3274) == "2-7-4")
+XCTAssertTrue(dashatize(-5311) == "-5-3-1-1")
+XCTAssertTrue(dashatize(5311) == "5-3-1-1")
